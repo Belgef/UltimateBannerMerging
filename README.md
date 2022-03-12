@@ -12,3 +12,5 @@ TODO:
  - add sprites
  - add spawn rate increasing items
  - add other modes integration
+
+For any issues please contact us in github issues section or by writing on our email address studiokomagiko@gmail.com
