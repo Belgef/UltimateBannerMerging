@@ -503,7 +503,7 @@ namespace UltimateBannerMerging.Items
         public override string ShowName => "Ultra";
         public override short[] BannerList => new short[] {
             ItemID.MimicBanner,
-            ItemID.IceElementalBanner,
+            ItemID.IceGolemBanner,
             ItemID.SandElementalBanner,
             ItemID.WyvernBanner,
             ItemID.LavaBatBanner,

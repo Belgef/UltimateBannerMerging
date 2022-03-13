@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using UltimateBannerMerging.Buffs;
 using UltimateBannerMerging.Items;
@@ -10,22 +11,26 @@ namespace UltimateBannerMerging
 {
     internal class BannerPlayer : ModPlayer
     {
-        public readonly Dictionary<Banner, int> CurrentBanners = new Dictionary<Banner, int>();
+        public const float DamageIncrease = 0.2f;
+        public const float DamageReduction = 40;
+        
+        public readonly Dictionary<int, int> CurrentMobs = new Dictionary<int, int>();
+
         public override void PostUpdate()
         {
-            CurrentBanners.Clear();
+            CurrentMobs.Clear();
             foreach(var item in player.inventory)
             {
-                if(MobBanners.GetBannerByID(item.netID) != null)
+                if(MobBannerConverter.IsVanillaBanner(item.netID))
                 {
-                    AddBanner(MobBanners.GetBannerByID(item.netID), item.stack);
+                    AddVanillaBanner(item.netID, item.stack);
                 }
-                else if(item.modItem is BannerItem modItem)
+                else if(item.modItem is BannerItem bannerItem)
                 {
-                    AddModBanner(modItem, item.stack);
+                    AddModBanner(bannerItem, item.stack);
                 }
             }
-            if(CurrentBanners.Count > 0)
+            if(CurrentMobs.Count > 0)
             {
                 player.AddBuff(mod.GetBuff(nameof(BannerBuff)).Type, 10);
             }
@@ -34,36 +39,50 @@ namespace UltimateBannerMerging
                 player.ClearBuff(mod.GetBuff(nameof(BannerBuff)).Type);
             }
         }
+        private void AddVanillaBanner(int id, int quantity)
+        {
+            int mobID = MobBannerConverter.GetMobID(id, mod);
+            if (CurrentMobs.ContainsKey(mobID))
+                CurrentMobs[mobID] += quantity;
+            else
+                CurrentMobs.Add(mobID, quantity);
+        }
         private void AddModBanner(BannerItem modItem, int quantity)
         {
-            foreach (var banner in modItem.BannerList.Concat(modItem.AdditionalBanners).Select(b => MobBanners.GetBannerByID(b)))
+            foreach (var banner in modItem.BannerList.Concat(modItem.AdditionalBanners))
             {
-                AddBanner(banner, modItem.Multiplyer * quantity);
+                AddVanillaBanner(banner, modItem.Multiplyer * quantity);
             }
             foreach (var modBanner in modItem.BannerItems)
             {
                 AddModBanner(modBanner, modItem.Multiplyer * quantity);
             }
         }
-        private void AddBanner(Banner banner, int quantity)
-        {
-            if (CurrentBanners.ContainsKey(banner))
-                CurrentBanners[banner] += quantity;
-            else
-                CurrentBanners.Add(banner, quantity);
-        }
+        
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-            var banner = MobBanners.GetBannerByMobName(target.FullName);
-            if (banner != null && CurrentBanners.ContainsKey(banner))
-                damage += (int)(damage * 0.2 * CurrentBanners[banner]);
+            int mobID = MobBannerConverter.GetMobID(target);
+            if (CurrentMobs.ContainsKey(mobID))
+                damage += (int)(damage * DamageIncrease * CurrentMobs[mobID]);
+        }
+        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        {
+            ModifyHitNPC(null, target, ref damage, ref knockback, ref crit);
+        }
+        private void ModifyHitByAnyone(int mobID, ref int damage)
+        {
+            if (CurrentMobs.ContainsKey(mobID))
+                damage = (int)(DamageReduction * damage / (DamageReduction + CurrentMobs[mobID]));
         }
         public override void ModifyHitByNPC(NPC npc, ref int damage, ref bool crit)
         {
-            var banner = MobBanners.GetBannerByMobName(npc.FullName);
-            int coef = 40;
-            if (banner != null && CurrentBanners.ContainsKey(banner))
-                damage = (int)(coef * damage / (coef + CurrentBanners[banner]));
+            int mobID = MobBannerConverter.GetMobID(npc);
+            ModifyHitByAnyone(mobID, ref damage);
+        }
+        public override void ModifyHitByProjectile(Projectile proj, ref int damage, ref bool crit)
+        {
+            int mobID = MobBannerConverter.GetMobID(proj);
+            ModifyHitByAnyone(mobID, ref damage);
         }
     }
 }
