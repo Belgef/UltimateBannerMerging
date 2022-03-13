@@ -7,6 +7,6 @@ Ultimate Banner Merging is a mod that adds enemy banner merging system and new b
 Fill free to include this mod in your list! 
 
 TODO:
- - add sprites
  - add spawn rate increasing items
  - add other mods integration
+ - add more banner effects
