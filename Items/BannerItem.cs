@@ -10,16 +10,20 @@ namespace UltimateBannerMerging.Items
 	public abstract class BannerItem : ModItem
 	{
 		public abstract string ShowName { get; }
+
 		public abstract short[] BannerList { get; }
 		public abstract string[] BannerItemNames { get; }
-		public BannerItem[] BannerItems => BannerItemNames.Select(s=>mod.GetItem(s) as BannerItem).ToArray();
 		public abstract short[] AdditionalBanners { get; }
-		public abstract int Price { get; }
-		public abstract int Multiplyer { get; }
-	//	protected string[] NameList => BannerList.Concat(AdditionalBanners).Select(n => MobBanners.GetBannerByID((int)n).Name)
-	//		.Concat(BannerItems.SelectMany(b=>b.NameList)).OrderBy(s=>s).ToArray();
 
-        public override void SetStaticDefaults() 
+		public int Price => BannerConfig.Stats[ShowName].Price;
+		public float Multiplyer => BannerConfig.Stats[ShowName].Multiplyer;
+		public BannerItem[] BannerItems => BannerItemNames.Select(s => mod.GetItem(s) as BannerItem).ToArray();
+		//protected string[] NameList => BannerList.Concat(AdditionalBanners).Select(n => MobBanners.GetBannerByID((int)n).Name)
+		//	.Concat(BannerItems.SelectMany(b=>b.NameList)).OrderBy(s=>s).ToArray();
+
+		public override string Texture => (GetType().Namespace + ".BannerSprites." + Name).Replace('.', '/');
+
+		public override void SetStaticDefaults() 
 		{
 			DisplayName.SetDefault($"{ShowName} Banner");
 		}

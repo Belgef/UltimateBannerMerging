@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace UltimateBannerMerging.Items
 {
@@ -24,8 +18,6 @@ namespace UltimateBannerMerging.Items
             ItemID.PinkyBanner, 
             ItemID.GoblinScoutBanner 
         };
-        public override int Price => 10000;
-        public override int Multiplyer => 3;
     }
     public class RainBanner : BannerItem
     {
@@ -37,8 +29,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 10000;
-        public override int Multiplyer => 3;
     }
     public class DesertBanner : BannerItem
     {
@@ -51,8 +41,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 10000;
-        public override int Multiplyer => 3;
     }
     public class SnowBanner : BannerItem
     {
@@ -69,8 +57,6 @@ namespace UltimateBannerMerging.Items
         public override short[] AdditionalBanners => new short[] {
             ItemID.CyanBeetleBanner
         };
-        public override int Price => 30000;
-        public override int Multiplyer => 5;
     }
     public class BasicBanner : BannerItem
     {
@@ -83,8 +69,6 @@ namespace UltimateBannerMerging.Items
             nameof(SnowBanner)
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 100000;
-        public override int Multiplyer => 10;
     }
 
     public class OceanBanner : BannerItem
@@ -99,8 +83,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 20000;
-        public override int Multiplyer => 3;
     }
     public class JungleBanner : BannerItem
     {
@@ -113,8 +95,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 30000;
-        public override int Multiplyer => 5;
     }
     public class CorruptedBanner : BannerItem
     {
@@ -125,8 +105,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 30000;
-        public override int Multiplyer => 5;
     }
     public class CrimsonBanner : BannerItem
     {
@@ -138,8 +116,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 30000;
-        public override int Multiplyer => 5;
     }
     public class ModerateBanner : BannerItem
     {
@@ -152,8 +128,6 @@ namespace UltimateBannerMerging.Items
             nameof(JungleBanner)
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 200000;
-        public override int Multiplyer => 5;
     }
 
     public class UndergroundJungleBanner : BannerItem
@@ -169,8 +143,6 @@ namespace UltimateBannerMerging.Items
             ItemID.DoctorBonesBanner,
             ItemID.LacBeetleBanner
         };
-        public override int Price => 100000;
-        public override int Multiplyer => 5;
     }
     public class UndergroundDesertBanner : BannerItem
     {
@@ -182,8 +154,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 50000;
-        public override int Multiplyer => 3;
     }
     public class GlowingMushroomBanner : BannerItem
     {
@@ -195,8 +165,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 30000;
-        public override int Multiplyer => 3;
     }
     public class CavernBanner : BannerItem
     {
@@ -225,8 +193,6 @@ namespace UltimateBannerMerging.Items
             ItemID.TimBanner,
             ItemID.UndeadMinerBanner
         };
-        public override int Price => 100000;
-        public override int Multiplyer => 5;
     }
     public class UndergroundBanner : BannerItem
     {
@@ -239,8 +205,6 @@ namespace UltimateBannerMerging.Items
             nameof(UndergroundJungleBanner)
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 200000;
-        public override int Multiplyer => 5;
     }
     public class BloodMoonBanner : BannerItem
     {
@@ -256,8 +220,6 @@ namespace UltimateBannerMerging.Items
             ItemID.CorruptPenguinBanner,
             ItemID.TheGroomBanner
         };
-        public override int Price => 30000;
-        public override int Multiplyer => 3;
     }
     public class AdvancedBanner : BannerItem
     {
@@ -271,8 +233,6 @@ namespace UltimateBannerMerging.Items
             nameof(BloodMoonBanner)
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 300000;
-        public override int Multiplyer => 8;
     }
 
     public class DungeonBanner : BannerItem
@@ -286,8 +246,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 50000;
-        public override int Multiplyer => 5;
     }
     public class GoblinArmyBanner : BannerItem
     {
@@ -301,8 +259,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 50000;
-        public override int Multiplyer => 5;
     }
     public class UnderworldBanner : BannerItem
     {
@@ -316,8 +272,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 80000;
-        public override int Multiplyer => 5;
     }
     public class ProfessionalBanner : BannerItem
     {
@@ -332,8 +286,6 @@ namespace UltimateBannerMerging.Items
             nameof(UnderworldBanner)
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 500000;
-        public override int Multiplyer => 8;
     }
 
     public class HardmodeSurfaceBanner : BannerItem
@@ -354,8 +306,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 30000;
-        public override int Multiplyer => 5;
     }
     public class HardmodeCavernBanner : BannerItem
     {
@@ -372,8 +322,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 10000;
-        public override int Multiplyer => 3;
     }
     public class HardmodeUndergroundBanner : BannerItem
     {
@@ -402,8 +350,6 @@ namespace UltimateBannerMerging.Items
             ItemID.PigronBanner,
             ItemID.MothBanner
         };
-        public override int Price => 50000;
-        public override int Multiplyer => 5;
     }
     public class HardmodeCorruptedBanner : BannerItem
     {
@@ -421,8 +367,6 @@ namespace UltimateBannerMerging.Items
         public override short[] AdditionalBanners => new short[] {
             ItemID.SandsharkCorruptBanner,
         };
-        public override int Price => 100000;
-        public override int Multiplyer => 3;
     }
     public class HardmodeCrimsonBanner : BannerItem
     {
@@ -440,8 +384,6 @@ namespace UltimateBannerMerging.Items
             ItemID.BloodJellyBanner,
             ItemID.BloodFeederBanner
         };
-        public override int Price => 30000;
-        public override int Multiplyer => 3;
     }
     public class HallowBanner : BannerItem
     {
@@ -460,8 +402,6 @@ namespace UltimateBannerMerging.Items
             ItemID.SandsharkHallowedBanner,
             ItemID.RainbowSlimeBanner
         };
-        public override int Price => 30000;
-        public override int Multiplyer => 5;
     }
     public class MasterBanner : BannerItem
     {
@@ -478,8 +418,6 @@ namespace UltimateBannerMerging.Items
             nameof(HallowBanner),
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 800000;
-        public override int Multiplyer => 8;
     }
 
     public class PirateBanner : BannerItem
@@ -495,8 +433,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 150000;
-        public override int Multiplyer => 5;
     }
     public class UltraBanner : BannerItem
     {
@@ -516,8 +452,6 @@ namespace UltimateBannerMerging.Items
             nameof(PirateBanner)
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 1000000;
-        public override int Multiplyer => 8;
     }
 
     public class TempleBanner : BannerItem
@@ -529,8 +463,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 100000;
-        public override int Multiplyer => 3;
     }
     public class HardmodeDungeonBanner : BannerItem
     {
@@ -552,8 +484,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 200000;
-        public override int Multiplyer => 5;
     }
     public class SolarEclipseBanner : BannerItem
     {
@@ -576,8 +506,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 300000;
-        public override int Multiplyer => 5;
     }
     public class ExceptionalBanner : BannerItem
     {
@@ -590,8 +518,6 @@ namespace UltimateBannerMerging.Items
             nameof(SolarEclipseBanner)
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 1500000;
-        public override int Multiplyer => 8;
     }
 
     public class MartianBanner : BannerItem
@@ -612,8 +538,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 300000;
-        public override int Multiplyer => 5;
     }
     public class PumpkinMoonBanner : BannerItem
     {
@@ -627,8 +551,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 200000;
-        public override int Multiplyer => 5;
     }
     public class FrostMoonBanner : BannerItem
     {
@@ -646,8 +568,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 300000;
-        public override int Multiplyer => 5;
     }
     public class VortexBanner : BannerItem
     {
@@ -661,8 +581,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 100000;
-        public override int Multiplyer => 3;
     }
     public class StardustBanner : BannerItem
     {
@@ -676,8 +594,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 100000;
-        public override int Multiplyer => 3;
     }
     public class NebulaBanner : BannerItem
     {
@@ -690,8 +606,6 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 100000;
-        public override int Multiplyer => 3;
     }
     public class SolarBanner : BannerItem
     {
@@ -706,12 +620,10 @@ namespace UltimateBannerMerging.Items
         };
         public override string[] BannerItemNames => new string[] { };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 100000;
-        public override int Multiplyer => 3;
     }
     public class LunarBanner : BannerItem
     {
-        public override string ShowName => "FrostMoon";
+        public override string ShowName => "Lunar";
         public override short[] BannerList => new short[] { };
         public override string[] BannerItemNames => new string[] { 
             nameof(SolarBanner),
@@ -720,8 +632,6 @@ namespace UltimateBannerMerging.Items
             nameof(NebulaBanner)
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 500000;
-        public override int Multiplyer => 5;
     }
     public class TheBanner : BannerItem
     {
@@ -735,7 +645,5 @@ namespace UltimateBannerMerging.Items
             nameof(LunarBanner)
         };
         public override short[] AdditionalBanners => new short[] { };
-        public override int Price => 2000000;
-        public override int Multiplyer => 8;
     }
 }

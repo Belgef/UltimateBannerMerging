@@ -10,11 +10,8 @@ using UltimateBannerMerging.Items;
 namespace UltimateBannerMerging
 {
     internal class BannerPlayer : ModPlayer
-    {
-        public const float DamageIncrease = 0.2f;
-        public const float DamageReduction = 40;
-        
-        public readonly Dictionary<int, int> CurrentMobs = new Dictionary<int, int>();
+    {        
+        public readonly Dictionary<int, float> CurrentMobs = new Dictionary<int, float>();
 
         public override void PostUpdate()
         {
@@ -39,7 +36,7 @@ namespace UltimateBannerMerging
                 player.ClearBuff(mod.GetBuff(nameof(BannerBuff)).Type);
             }
         }
-        private void AddVanillaBanner(int id, int quantity)
+        private void AddVanillaBanner(int id, float quantity)
         {
             int mobID = MobBannerConverter.GetMobID(id, mod);
             if (CurrentMobs.ContainsKey(mobID))
@@ -47,7 +44,7 @@ namespace UltimateBannerMerging
             else
                 CurrentMobs.Add(mobID, quantity);
         }
-        private void AddModBanner(BannerItem modItem, int quantity)
+        private void AddModBanner(BannerItem modItem, float quantity)
         {
             foreach (var banner in modItem.BannerList.Concat(modItem.AdditionalBanners))
             {
@@ -63,7 +60,7 @@ namespace UltimateBannerMerging
         {
             int mobID = MobBannerConverter.GetMobID(target);
             if (CurrentMobs.ContainsKey(mobID))
-                damage += (int)(damage * DamageIncrease * CurrentMobs[mobID]);
+                damage += (int)(damage * BannerConfig.DamageIncrease * CurrentMobs[mobID]);
         }
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
@@ -72,7 +69,7 @@ namespace UltimateBannerMerging
         private void ModifyHitByAnyone(int mobID, ref int damage)
         {
             if (CurrentMobs.ContainsKey(mobID))
-                damage = (int)(DamageReduction * damage / (DamageReduction + CurrentMobs[mobID]));
+                damage = (int)(BannerConfig.DamageReduction * damage / (BannerConfig.DamageReduction + CurrentMobs[mobID]));
         }
         public override void ModifyHitByNPC(NPC npc, ref int damage, ref bool crit)
         {
