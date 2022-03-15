@@ -19,7 +19,7 @@ namespace UltimateBannerMerging
             CurrentMobs.Clear();
             foreach(var item in player.inventory)
             {
-                if(MobBannerConverter.IsVanillaBanner(item.netID))
+                if(MobConverter.IsVanillaBanner(item.netID))
                 {
                     AddVanillaBanner(item.netID, item.stack);
                 }
@@ -39,7 +39,7 @@ namespace UltimateBannerMerging
         }
         private void AddVanillaBanner(int id, float quantity)
         {
-            int mobID = MobBannerConverter.GetMobID(id, mod);
+            int mobID = MobConverter.GetMobID(id, mod);
             if (CurrentMobs.ContainsKey(mobID))
                 CurrentMobs[mobID] += quantity;
             else
@@ -61,7 +61,7 @@ namespace UltimateBannerMerging
         
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-            int mobID = MobBannerConverter.GetMobID(target);
+            int mobID = MobConverter.GetMobID(target);
             if (CurrentMobs.ContainsKey(mobID))
                 damage += (int)(damage * ((BannerConfig.MaxDamageIncrease - 1) / BannerConfig.InvulnerabilityCap * CurrentMobs[mobID] + 1));
         }
@@ -71,17 +71,24 @@ namespace UltimateBannerMerging
         }
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
-            int mobID;
-            if(damageSource.SourceNPCIndex != -1)
-                mobID = MobBannerConverter.GetMobID(Main.npc[damageSource.SourceNPCIndex]);
-            else if(damageSource.SourceProjectileIndex != -1)
-                mobID = MobBannerConverter.GetMobID(Main.projectile[damageSource.SourceProjectileIndex]);
-            else
-                return true;
-
-            if (ReachedInvulnerabilityCap(mobID))
-                return false;
-            damage = ModifyReceivedDamage(mobID, damage);
+            if (damageSource.SourceNPCIndex != -1)
+            {
+                int mobID = MobConverter.GetMobID(Main.npc[damageSource.SourceNPCIndex]);
+                if (MobConverter.NPCProjectileOwners.ContainsKey(mobID))
+                    mobID = MobConverter.NPCProjectileOwners[mobID];
+                if (ReachedInvulnerabilityCap(mobID))
+                    return false;
+                damage = ModifyReceivedDamage(mobID, damage);
+            }
+            else if (damageSource.SourceProjectileIndex != -1)
+            {
+                int[] mobIDs = (MobConverter.GetMobID(Main.projectile[damageSource.SourceProjectileIndex])??(new int[] { })).Where(id=>CurrentMobs.ContainsKey(id)).ToArray();
+                if (mobIDs.Length == 0)
+                    return true;
+                if (mobIDs.FirstOrDefault(id => ReachedInvulnerabilityCap(id)) != 0)//WARNING
+                    return false;
+                damage = ModifyReceivedDamage(mobIDs[0], damage);
+            }
             return true;
         }
         private bool ReachedInvulnerabilityCap(int mobID)
