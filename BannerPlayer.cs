@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using UltimateBannerMerging.Buffs;
@@ -66,20 +67,30 @@ namespace UltimateBannerMerging
         {
             ModifyHitNPC(null, target, ref damage, ref knockback, ref crit);
         }
-        private void ModifyHitByAnyone(int mobID, ref int damage)
+        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        {
+            int mobID;
+            if(damageSource.SourceNPCIndex != -1)
+                mobID = MobBannerConverter.GetMobID(Main.npc[damageSource.SourceNPCIndex]);
+            else if(damageSource.SourceProjectileType != -1)
+                mobID = MobBannerConverter.GetMobID(Main.projectile[damageSource.SourceProjectileIndex]);
+            else
+                return true;
+
+            if (ReachedInvulnerabilityCap(mobID))
+                return false;
+            damage = ModifyDamage(mobID, damage);
+            return true;
+        }
+        private bool ReachedInvulnerabilityCap(int mobID)
+        {
+            return CurrentMobs.ContainsKey(mobID) && CurrentMobs[mobID] >= BannerConfig.InvulnerabilityCap;
+        }
+        private int ModifyDamage(int mobID, int damage)
         {
             if (CurrentMobs.ContainsKey(mobID))
-                damage = (int)(BannerConfig.DamageReduction * damage / (BannerConfig.DamageReduction + CurrentMobs[mobID]));
-        }
-        public override void ModifyHitByNPC(NPC npc, ref int damage, ref bool crit)
-        {
-            int mobID = MobBannerConverter.GetMobID(npc);
-            ModifyHitByAnyone(mobID, ref damage);
-        }
-        public override void ModifyHitByProjectile(Projectile proj, ref int damage, ref bool crit)
-        {
-            int mobID = MobBannerConverter.GetMobID(proj);
-            ModifyHitByAnyone(mobID, ref damage);
+               return (int)(BannerConfig.DamageReduction * damage / (BannerConfig.DamageReduction + CurrentMobs[mobID]));
+            return damage;
         }
     }
 }
