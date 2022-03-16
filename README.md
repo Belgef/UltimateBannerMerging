@@ -8,9 +8,4 @@ Ultimate Banner Merging is a mod that adds enemy banner merging system and new b
 
 Fill free to include this mod in your list! 
 
-TODO:
- - add spawn rate increasing items
- - add other mods integration
- - add more banner effects
-
  Mod page: https://forums.terraria.org/index.php?threads/ultimate-banner-merging.111266/
