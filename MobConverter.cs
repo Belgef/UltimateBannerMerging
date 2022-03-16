@@ -47,6 +47,8 @@ namespace UltimateBannerMerging
             { "StardustLargeCellBanner", "StardustCellBig" },
             { "StardustSpiderBanner", "StardustSpiderBig" },
             { "StardustWormBanner", "StardustWormHead" },
+            { "RustyArmoredBonesBanner", "RustyArmoredBonesAxe" },
+            { "DiablolistBanner", "DiabolistRed" }
         };
         public static readonly Dictionary<int, int> NPCProjectileOwners = new Dictionary<int, int>
         {
@@ -99,6 +101,7 @@ namespace UltimateBannerMerging
             { ProjectileID.Shadowflames, new int[]{ NPCID.GiantCursedSkull } },
             { ProjectileID.PaladinsHammerHostile, new int[]{ NPCID.Paladin } },
             { ProjectileID.SniperBullet, new int[]{ NPCID.SkeletonSniper } },
+            { ProjectileID.RocketSkeleton, new int[]{ NPCID.SkeletonCommando } },
             { ProjectileID.FlamingWood, new int[]{ NPCID.MourningWood } },
             { ProjectileID.GreekFire1, new int[]{ NPCID.MourningWood } },
             { ProjectileID.GreekFire2, new int[]{ NPCID.MourningWood } },
@@ -152,6 +155,7 @@ namespace UltimateBannerMerging
             { ProjectileID.MartianWalkerLaser, new int[]{ NPCID.MartianWalker } },
             { ProjectileID.AncientDoomProjectile, new int[]{ NPCID.CultistBoss } },
             { ProjectileID.DesertDjinnCurse, new int[]{ NPCID.DesertDjinn } },
+            { ProjectileID.SpikedSlimeSpike, new int[]{ NPCID.SlimeSpiked } },
             { ProjectileID.SolarFlareRay, new int[]{ NPCID.SolarDrakomire } },
             { ProjectileID.SandnadoHostile, new int[]{ NPCID.SandElemental } },
             { ProjectileID.SandnadoHostileMark, new int[]{ NPCID.SandElemental } }

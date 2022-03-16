@@ -39,19 +39,26 @@ namespace UltimateBannerMerging
         }
         private void AddVanillaBanner(int id, float quantity)
         {
-            int mobID = MobConverter.GetMobID(id, mod);
+            AddMob(MobConverter.GetMobID(id, mod), quantity);
+        }
+        private void AddMob(int mobID, float quantity)
+        {
             if (CurrentMobs.ContainsKey(mobID))
                 CurrentMobs[mobID] += quantity;
             else
                 CurrentMobs.Add(mobID, quantity);
-            if(CurrentMobs[mobID] > BannerConfig.InvulnerabilityCap)
+            if (CurrentMobs[mobID] > BannerConfig.InvulnerabilityCap)
                 CurrentMobs[mobID] = BannerConfig.InvulnerabilityCap;
         }
         private void AddModBanner(BannerItem modItem, float quantity)
         {
-            foreach (var banner in modItem.BannerList.Concat(modItem.AdditionalBanners))
+            foreach (var banner in modItem.BannerList)
             {
                 AddVanillaBanner(banner, modItem.Multiplyer * quantity);
+            }
+            foreach (var mob in modItem.AdditionalBanners)
+            {
+                AddMob(mob, modItem.Multiplyer * quantity);
             }
             foreach (var modBanner in modItem.BannerItems)
             {
