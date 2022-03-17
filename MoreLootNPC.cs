@@ -20,10 +20,11 @@ namespace UltimateBannerMerging
         {
             if (Player != null)
             {
+                var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
                 var mobID = MobConverter.GetMobID(npc);
                 var currentMobs = Player.player.GetModPlayer<BannerPlayer>().CurrentMobs;
                 float quantity = currentMobs.ContainsKey(mobID) ? currentMobs[mobID] : 0;
-                float lootMultiplier = quantity / BannerConfig.InvulnerabilityCap * (BannerConfig.DropMaxMultiplier - 1) + 1;
+                float lootMultiplier = quantity / config.InvulnerabilityCap * (config.DropMaxMultiplier - 1) + 1;
                 CombatText.clearAll();
                 for (int i = 0; i < (int)lootMultiplier; i++)
                     Main.npc[NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, npc.type)].StrikeNPCNoInteraction(int.MaxValue, 0, 0);

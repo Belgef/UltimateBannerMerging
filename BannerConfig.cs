@@ -1,18 +1,36 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Terraria;
+using Terraria.IO;
+using Terraria.ModLoader;
+using Terraria.ModLoader.Config;
 
 namespace UltimateBannerMerging
 {
-    internal static class BannerConfig
+    internal class BannerConfig : ModConfig
     {
-        public const int InvulnerabilityCap = 18;
-        public const float MaxDamageIncrease = 4;
-        public const float DropMaxMultiplier = 5;
+        [Range(1, 100)]
+        [DefaultValue(18)]
+        [Label("Banner Cap")]
+        [Tooltip("Minimal number of simple banners needed to reach maximal effects")]
+        public int InvulnerabilityCap;
+        [Range(1f, 100f)]
+        [DefaultValue("4")]
+        [Label("Max Damage Multiplier")]
+        public int MaxDamageIncrease;
+        [Range(1f, 100f)]
+        [DefaultValue("5")]
+        [Label("Max Drop Multiplier")]
+        public int DropMaxMultiplier;
 
-        public static Dictionary<string, BannerInfo> Stats => new Dictionary<string, BannerInfo>()
+        [JsonIgnore]
+        public Dictionary<string, BannerInfo> Stats => new Dictionary<string, BannerInfo>()
         {
             { "Forest",                 new BannerInfo(){ Price =   5000, Multiplyer = 3.0f } },
             { "Rain",                   new BannerInfo(){ Price =   5000, Multiplyer = 3.0f } },
@@ -58,6 +76,8 @@ namespace UltimateBannerMerging
             { "Lunar",                  new BannerInfo(){ Price = 400000, Multiplyer = 3.0f } },
             { "The",                    new BannerInfo(){ Price =1000000, Multiplyer = InvulnerabilityCap/3 } }
         };
+
+        public override ConfigScope Mode => ConfigScope.ClientSide;
     }
     internal struct BannerInfo
     {
