@@ -10,6 +10,7 @@ namespace UltimateBannerMerging
     {
         public const int InvulnerabilityCap = 18;
         public const float MaxDamageIncrease = 4;
+        public const float DropMaxMultiplier = 5;
 
         public static Dictionary<string, BannerInfo> Stats => new Dictionary<string, BannerInfo>()
         {
