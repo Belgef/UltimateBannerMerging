@@ -15,15 +15,17 @@ namespace UltimateBannerMerging.Items
 		public abstract string[] BannerItemNames { get; }
 		public abstract short[] AdditionalBanners { get; }
 
-		public int Price => BannerConfig.Stats[ShowName].Price;
-		public float Multiplyer => BannerConfig.Stats[ShowName].Multiplyer;
+		private int price;
+		private float multiplier;
+		public int Price => price;
+		public float Multiplyer => multiplier;
 		public BannerItem[] BannerItems => BannerItemNames.Select(s => mod.GetItem(s) as BannerItem).ToArray();
 		//protected string[] NameList => BannerList.Concat(AdditionalBanners).Select(n => MobBanners.GetBannerByID((int)n).Name)
 		//	.Concat(BannerItems.SelectMany(b=>b.NameList)).OrderBy(s=>s).ToArray();
 
 		public override string Texture => (GetType().Namespace + ".BannerSprites." + Name).Replace('.', '/');
 
-		public override void SetStaticDefaults() 
+		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault($"{ShowName} Banner");
 		}
@@ -41,6 +43,10 @@ namespace UltimateBannerMerging.Items
 			item.value = Price;
 			item.rare = ItemRarityID.Green;
 			item.maxStack = 99;
+
+			var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+			price = config.Stats[ShowName].Price;
+			multiplier = config.Stats[ShowName].Multiplyer;
 		}
 
 		public override void AddRecipes() 
