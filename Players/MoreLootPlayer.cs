@@ -43,12 +43,13 @@ namespace UltimateBannerMerging
         }
         private void AddMob(int mobID, float quantity)
         {
+            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             if (CurrentMobs.ContainsKey(mobID))
                 CurrentMobs[mobID] += quantity;
             else
                 CurrentMobs.Add(mobID, quantity);
-            if (CurrentMobs[mobID] > BannerConfig.InvulnerabilityCap)
-                CurrentMobs[mobID] = BannerConfig.InvulnerabilityCap;
+            if (CurrentMobs[mobID] > config.InvulnerabilityCap)
+                CurrentMobs[mobID] = config.InvulnerabilityCap;
         }
         private void AddModBanner(BannerItem modItem, float quantity)
         {
@@ -68,9 +69,10 @@ namespace UltimateBannerMerging
         
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
+            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             int mobID = MobConverter.GetMobID(target);
             if (CurrentMobs.ContainsKey(mobID))
-                damage += (int)(damage * ((BannerConfig.MaxDamageIncrease - 1) / BannerConfig.InvulnerabilityCap * CurrentMobs[mobID] + 1));
+                damage += (int)(damage * ((config.MaxDamageIncrease - 1) / config.InvulnerabilityCap * CurrentMobs[mobID] + 1));
         }
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
@@ -100,12 +102,14 @@ namespace UltimateBannerMerging
         }
         private bool ReachedInvulnerabilityCap(int mobID)
         {
-            return CurrentMobs.ContainsKey(mobID) && CurrentMobs[mobID] >= BannerConfig.InvulnerabilityCap;
+            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            return CurrentMobs.ContainsKey(mobID) && CurrentMobs[mobID] >= config.InvulnerabilityCap;
         }
         private int ModifyReceivedDamage(int mobID, int damage)
         {
+            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             if (CurrentMobs.ContainsKey(mobID))
-                return (int)(damage * (-CurrentMobs[mobID] / BannerConfig.InvulnerabilityCap + 1));
+                return (int)(damage * (-CurrentMobs[mobID] / config.InvulnerabilityCap + 1));
             return damage;
         }
     }
