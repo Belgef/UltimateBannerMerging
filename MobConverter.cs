@@ -187,7 +187,7 @@ namespace UltimateBannerMerging
             else
                 return bannerName.Replace("Banner", "");
         }
-        public static int GetMobID(NPC mob)
+        public static int GetMobID(Terraria.NPC mob)
         {
             return NPCID.FromLegacyName(mob.FullName);
         }
