@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using UltimateBannerMerging.Players;
 
@@ -16,6 +17,33 @@ namespace UltimateBannerMerging
 
         public override bool InstancePerEntity => true;
 
+        private static readonly List<int> _black_list = new List<int>() { 
+            NPCID.MotherSlime,
+            NPCID.SolarCorite,
+            NPCID.SolarCrawltipedeHead,
+            NPCID.SolarDrakomire,
+            NPCID.SolarDrakomireRider,
+            NPCID.SolarSolenian,
+            NPCID.SolarSpearman,
+            NPCID.SolarSroller,
+            NPCID.NebulaBeast,
+            NPCID.NebulaBrain,
+            NPCID.NebulaHeadcrab,
+            NPCID.NebulaSoldier,
+            NPCID.VortexHornet,
+            NPCID.VortexHornetQueen,
+            NPCID.VortexLarva,
+            NPCID.VortexRifleman,
+            NPCID.VortexSoldier,
+            NPCID.StardustCellBig,
+            NPCID.StardustCellSmall,
+            NPCID.StardustJellyfishBig,
+            NPCID.StardustJellyfishSmall,
+            NPCID.StardustSoldier,
+            NPCID.StardustSpiderBig,
+            NPCID.StardustSpiderSmall,
+            NPCID.StardustWormHead
+        };
         public override void NPCLoot(NPC npc)
         {
             if (Player != null)
@@ -23,8 +51,9 @@ namespace UltimateBannerMerging
                 var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
                 var mobID = MobConverter.GetMobID(npc);
                 var currentMobs = Player.player.GetModPlayer<BannerPlayer>().CurrentMobs;
-                float quantity = currentMobs.ContainsKey(mobID) ? currentMobs[mobID] : 0;
-                float lootMultiplier = quantity / config.InvulnerabilityCap * (config.DropMaxMultiplier - 1) + 1;
+                float quantity = (currentMobs.ContainsKey(mobID) &&
+                    !_black_list.Contains(mobID)) ? currentMobs[mobID] : 0;
+                float lootMultiplier = quantity / config.InvulnerabilityCap * (config.DropMaxMultiplier-1);
                 CombatText.clearAll();
                 for (int i = 0; i < (int)lootMultiplier; i++)
                     Main.npc[NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, npc.type)].StrikeNPCNoInteraction(int.MaxValue, 0, 0);
