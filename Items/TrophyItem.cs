@@ -12,31 +12,53 @@ namespace UltimateBannerMerging.Items
     public abstract class TrophyItem : ModItem
     {
         public abstract string ShowName { get; }
-        public abstract short[] TrophyIdList { get; }
-        public abstract string[] TrophyFromModNames { get; }
-        public abstract int[] BossesID { get; }
 
+        public abstract short[] TrophyList { get; }
+        public abstract string[] TrophyItemNames { get; }
+        public abstract short[] AdditionalBosses { get; }
+
+        private int price;
+        private float multiplier;
+        public int Price => price;
+        public float Multiplyer => multiplier;
+        public TrophyItem[] TrophyItems => TrophyItemNames.Select(s => mod.GetItem(s) as TrophyItem).ToArray();
+        
         public override string Texture => (GetType().Namespace + ".TrophySprites." + Name).Replace('.', '/');
+
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault($"{ShowName} Trophy");
+        }
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            tooltips.Add(new TooltipLine(mod, "Tooltip0", "Increases damage and defense against all included bosses and minibosses."));
+            tooltips.Add(new TooltipLine(mod, "Tooltip1", $"{Multiplyer} times more effective than its crafting components."));
+            //AdditionalBanners.Select(b=>MobBannerConverter.)
+            //tooltips.Add(new TooltipLine(mod, "Tooltip2", $"{Multiplyer} times more effective than its crafting components."));
+        }
 
         public override void SetDefaults()
         {
-            item.value = 0;
-            item.rare = ItemRarityID.Lime;
+            item.value = Price;
+            item.rare = ItemRarityID.Green;
             item.maxStack = 99;
+
+            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            price = config.TrophyStats[ShowName].Price;
+            multiplier = config.TrophyStats[ShowName].Multiplyer;
         }
 
         public override void AddRecipes()
         {
-            ModRecipe modRecipe = new ModRecipe(mod);
-            foreach (var trophyID in TrophyIdList)
-                modRecipe.AddIngredient(trophyID);
-
-            foreach (var modTrophy in TrophyFromModNames)
-                modRecipe.AddIngredient(mod, modTrophy);
-
-            modRecipe.AddTile(TileID.Anvils);
-            modRecipe.SetResult(this);
-            modRecipe.AddRecipe();
+            ModRecipe recipe = new ModRecipe(mod);
+            foreach (string item in TrophyItemNames)
+                recipe.AddIngredient(mod, item);
+            foreach (int id in TrophyList)
+                recipe.AddIngredient(id);
+            recipe.AddTile(TileID.WorkBenches);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

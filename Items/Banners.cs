@@ -14,7 +14,7 @@ namespace UltimateBannerMerging.Items
             ItemID.DemonEyeBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.Pinky, 
             NPCID.GoblinScout,
             NPCID.SlimeRibbonGreen,
@@ -36,7 +36,7 @@ namespace UltimateBannerMerging.Items
             ItemID.RaincoatZombieBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class DesertBanner : BannerItem
     {
@@ -48,7 +48,7 @@ namespace UltimateBannerMerging.Items
             ItemID.TumbleweedBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class SnowBanner : BannerItem
     {
@@ -62,7 +62,7 @@ namespace UltimateBannerMerging.Items
             ItemID.UndeadVikingBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.CyanBeetle
         };
     }
@@ -76,7 +76,7 @@ namespace UltimateBannerMerging.Items
             nameof(DesertBanner),
             nameof(SnowBanner)
         };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
 
     public class OceanBanner : BannerItem
@@ -90,7 +90,7 @@ namespace UltimateBannerMerging.Items
             ItemID.SquidBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class JungleBanner : BannerItem
     {
@@ -102,7 +102,7 @@ namespace UltimateBannerMerging.Items
             ItemID.PiranhaBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.Bee
         };
     }
@@ -114,7 +114,7 @@ namespace UltimateBannerMerging.Items
             ItemID.EaterofSoulsBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class CrimsonBanner : BannerItem
     {
@@ -125,7 +125,7 @@ namespace UltimateBannerMerging.Items
             ItemID.FaceMonsterBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class ModerateBanner : BannerItem
     {
@@ -137,7 +137,7 @@ namespace UltimateBannerMerging.Items
             nameof(OceanBanner),
             nameof(JungleBanner)
         };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
 
     public class UndergroundJungleBanner : BannerItem
@@ -149,7 +149,7 @@ namespace UltimateBannerMerging.Items
             ItemID.HornetBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.DoctorBones,
             NPCID.LacBeetle
         };
@@ -163,7 +163,7 @@ namespace UltimateBannerMerging.Items
             ItemID.TombCrawlerBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class GlowingMushroomBanner : BannerItem
     {
@@ -174,7 +174,7 @@ namespace UltimateBannerMerging.Items
             ItemID.AnomuraFungusBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class CavernBanner : BannerItem
     {
@@ -193,7 +193,7 @@ namespace UltimateBannerMerging.Items
             ItemID.GreekSkeletonBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.CochinealBeetle,
             NPCID.Crawdad,
             NPCID.GiantShelly,
@@ -216,7 +216,7 @@ namespace UltimateBannerMerging.Items
             nameof(UndergroundDesertBanner),
             nameof(UndergroundJungleBanner)
         };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class BloodMoonBanner : BannerItem
     {
@@ -226,7 +226,7 @@ namespace UltimateBannerMerging.Items
             ItemID.DripplerBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.CorruptBunny,
             NPCID.CorruptGoldfish,
             NPCID.CorruptPenguin,
@@ -248,7 +248,7 @@ namespace UltimateBannerMerging.Items
             nameof(UndergroundBanner),
             nameof(BloodMoonBanner)
         };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
 
     public class DungeonBanner : BannerItem
@@ -261,7 +261,7 @@ namespace UltimateBannerMerging.Items
             ItemID.DungeonSlimeBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class GoblinArmyBanner : BannerItem
     {
@@ -274,7 +274,7 @@ namespace UltimateBannerMerging.Items
             ItemID.GoblinWarriorBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class UnderworldBanner : BannerItem
     {
@@ -287,7 +287,7 @@ namespace UltimateBannerMerging.Items
             ItemID.FireImpBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.VoodooDemon
         };
     }
@@ -303,7 +303,7 @@ namespace UltimateBannerMerging.Items
             nameof(GoblinArmyBanner),
             nameof(UnderworldBanner)
         };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
 
     public class HardmodeSurfaceBanner : BannerItem
@@ -323,7 +323,7 @@ namespace UltimateBannerMerging.Items
             ItemID.SandsharkBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.HoppinJack,
             NPCID.WanderingEye
         };
@@ -342,7 +342,7 @@ namespace UltimateBannerMerging.Items
             ItemID.FungoFishBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.DiggerHead
         };
     }
@@ -366,7 +366,7 @@ namespace UltimateBannerMerging.Items
         public override string[] BannerItemNames => new string[] { 
             nameof(HardmodeCavernBanner)
         };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.RuneWizard,
             NPCID.AnglerFish,
             NPCID.Medusa,
@@ -393,7 +393,7 @@ namespace UltimateBannerMerging.Items
             ItemID.CursedHammerBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.SandsharkCorrupt,
             NPCID.Slimeling
         };
@@ -409,7 +409,7 @@ namespace UltimateBannerMerging.Items
             ItemID.IchorStickerBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.SandsharkCrimson,
             NPCID.BloodJelly,
             NPCID.BloodFeeder
@@ -429,7 +429,7 @@ namespace UltimateBannerMerging.Items
             ItemID.IlluminantSlimeBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] {
+        public override short[] AdditionalMobs => new short[] {
             NPCID.SandsharkHallow,
             NPCID.RainbowSlime
         };
@@ -448,7 +448,7 @@ namespace UltimateBannerMerging.Items
             WorldGen.crimson ? nameof(HardmodeCrimsonBanner) : nameof(HardmodeCorruptedBanner),
             nameof(HallowBanner),
         };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.ShadowFlameApparition
         };
     }
@@ -465,7 +465,7 @@ namespace UltimateBannerMerging.Items
             ItemID.PirateBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.PirateDeckhand
         };
     }
@@ -486,7 +486,7 @@ namespace UltimateBannerMerging.Items
             WorldGen.crimson ? nameof(HardmodeCorruptedBanner) : nameof(HardmodeCrimsonBanner),
             nameof(PirateBanner)
         };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.BigMimicCorruption,
             NPCID.BigMimicCrimson,
             NPCID.BigMimicHallow,
@@ -502,7 +502,7 @@ namespace UltimateBannerMerging.Items
             ItemID.LihzahrdBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class HardmodeDungeonBanner : BannerItem
     {
@@ -523,7 +523,7 @@ namespace UltimateBannerMerging.Items
             ItemID.PaladinBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class SolarEclipseBanner : BannerItem
     {
@@ -545,7 +545,7 @@ namespace UltimateBannerMerging.Items
             ItemID.VampireBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.MothronSpawn,
             NPCID.VampireBat
         };
@@ -560,7 +560,7 @@ namespace UltimateBannerMerging.Items
             nameof(HardmodeDungeonBanner),
             nameof(SolarEclipseBanner)
         };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
 
     public class MartianBanner : BannerItem
@@ -580,7 +580,7 @@ namespace UltimateBannerMerging.Items
             ItemID.ScutlixBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class PumpkinMoonBanner : BannerItem
     {
@@ -593,7 +593,7 @@ namespace UltimateBannerMerging.Items
             ItemID.SplinterlingBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class FrostMoonBanner : BannerItem
     {
@@ -610,7 +610,7 @@ namespace UltimateBannerMerging.Items
             ItemID.ZombieElfBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class VortexBanner : BannerItem
     {
@@ -623,7 +623,7 @@ namespace UltimateBannerMerging.Items
             ItemID.VortexSoldierBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class StardustBanner : BannerItem
     {
@@ -636,7 +636,7 @@ namespace UltimateBannerMerging.Items
             ItemID.StardustWormBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.StardustSpiderSmall
         };
     }
@@ -650,7 +650,7 @@ namespace UltimateBannerMerging.Items
             ItemID.NebulaSoldierBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
     public class SolarBanner : BannerItem
     {
@@ -664,7 +664,7 @@ namespace UltimateBannerMerging.Items
             ItemID.SolarSrollerBanner
         };
         public override string[] BannerItemNames => new string[] { };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.SolarSpearman
         };
     }
@@ -678,7 +678,7 @@ namespace UltimateBannerMerging.Items
             nameof(StardustBanner),
             nameof(NebulaBanner)
         };
-        public override short[] AdditionalBanners => new short[] { 
+        public override short[] AdditionalMobs => new short[] { 
             NPCID.CultistArcherBlue,
             NPCID.CultistArcherWhite
         };
@@ -694,6 +694,6 @@ namespace UltimateBannerMerging.Items
             nameof(FrostMoonBanner),
             nameof(LunarBanner)
         };
-        public override short[] AdditionalBanners => new short[] { };
+        public override short[] AdditionalMobs => new short[] { };
     }
 }

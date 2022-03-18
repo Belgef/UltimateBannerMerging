@@ -11,7 +11,7 @@ namespace UltimateBannerMerging
 {
     internal static class MobConverter
     {
-        private static Dictionary<string, string> bannerToMobMaps = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> bannerToMobMaps = new Dictionary<string, string>
         {
             { "WyvernBanner", "WyvernHead" },
             { "LavaBatBanner", "Lavabat" },
@@ -48,7 +48,13 @@ namespace UltimateBannerMerging
             { "StardustSpiderBanner", "StardustSpiderBig" },
             { "StardustWormBanner", "StardustWormHead" },
             { "RustyArmoredBonesBanner", "RustyArmoredBonesAxe" },
-            { "DiablolistBanner", "DiabolistRed" }
+            { "DiablolistBanner", "DiabolistRed" },
+            { "EaterofWorldsTrophy", "EaterofWorldsHead" },
+            { "DestroyerTrophy", "TheDestroyer" },
+            { "SkeletronTrophy", "SkeletronHead" },
+            { "AncientCultistTrophy", "CultistBoss" },
+            { "MoonLordTrophy", "MoonLordHead" },
+            { "FlyingDutchmanTrophy", "PirateShip" }
         };
         public static readonly Dictionary<int, int> NPCProjectileOwners = new Dictionary<int, int>
         {
@@ -61,7 +67,8 @@ namespace UltimateBannerMerging
             { 371, 370 },
             { 516, 415 },
             { 519, 517 },
-            { 522, 439 }
+            { 522, 439 },
+            //{ NPCID.SkeletronHand, NPCID.SkeletronHead }
         };
         public static readonly Dictionary<int, int[]> ProjectileOwners = new Dictionary<int, int[]>
         {
@@ -166,7 +173,11 @@ namespace UltimateBannerMerging
         {
             return ItemID.Search.TryGetName(bannerID, out var bannerName) && bannerName.Contains("Banner");
         }
-        public static int GetMobID(int bannerID, Mod mod)
+        public static bool IsVanillaTrophy(int trophyID)
+        {
+            return ItemID.Search.TryGetName(trophyID, out var bannerName) && bannerName.Contains("Trophy");
+        }
+        public static int GetMobID(int bannerID)
         {
             if(ItemID.Search.TryGetName(bannerID, out var name) && name.Contains("Banner"))
             {
@@ -180,6 +191,20 @@ namespace UltimateBannerMerging
             else
                 throw new ArgumentException("Invalid item");
         }
+        public static int GetBossID(int trophyID)
+        {
+            if (ItemID.Search.TryGetName(trophyID, out var name) && name.Contains("Trophy"))
+            {
+                if (NPCID.Search.TryGetId(TrophyToBossName(name), out var mobID))
+                {
+                    return mobID;
+                }
+                else
+                    throw new ArgumentException("Failed to find trophy boss");
+            }
+            else
+                throw new ArgumentException("Invalid item");
+        }
         public static string BannerToMobName(string bannerName)
         {
             if(bannerToMobMaps.ContainsKey(bannerName))
@@ -187,13 +212,12 @@ namespace UltimateBannerMerging
             else
                 return bannerName.Replace("Banner", "");
         }
-
-        public static int TrophyToBossName(string trophyName)
+        public static string TrophyToBossName(string bannerName)
         {
-            if (NPCID.Search.TryGetId(trophyName.Replace(" ", "").Replace("Trophy", ""), out int id))
-                return id;
+            if (bannerToMobMaps.ContainsKey(bannerName))
+                return bannerToMobMaps[bannerName];
             else
-                throw new ArgumentException($"Boss with name '{trophyName}' does not exist");
+                return bannerName.Replace("Trophy", "");
         }
 
         public static int GetMobID(NPC mob)

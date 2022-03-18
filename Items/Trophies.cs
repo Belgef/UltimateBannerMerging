@@ -6,55 +6,40 @@ namespace UltimateBannerMerging.Items
 {
     public class HorrorTrophy : TrophyItem
     {
-        public override string ShowName => "Horror Trophy";
+        public override string ShowName => "Horror";
 
-        public override short[] TrophyIdList => new short[] 
-        { 
+        public override short[] TrophyList => new short[]
+        {
             ItemID.EyeofCthulhuTrophy,
             WorldGen.crimson ? ItemID.BrainofCthulhuTrophy : ItemID.EaterofWorldsTrophy,
             ItemID.SkeletronTrophy
         };
 
-        public override string[] TrophyFromModNames => new string [] { };
+        public override string[] TrophyItemNames => new string[] { };
 
-        public override int[] BossesID => new int[]
-        {
-            NPCID.EyeofCthulhu,
-            NPCID.EaterofWorldsHead,
-            NPCID.BrainofCthulhu,
-            NPCID.SkeletronHand
-        };
+        public override short[] AdditionalBosses => new short[] { };
     }
     public class PreHardmodeTrophy : TrophyItem
     {
-        public override string ShowName => "Pre Hardmode Trophy";
+        public override string ShowName => "Pre Hardmode";
 
-        public override short[] TrophyIdList => new short[]
+        public override short[] TrophyList => new short[]
         {
             ItemID.WallofFleshTrophy,
             ItemID.KingSlimeTrophy
         };
 
-        public override string[] TrophyFromModNames => new string[]
-        {
+        public override string[] TrophyItemNames => new string[] {
             nameof(HorrorTrophy),
         };
 
-        public override int[] BossesID => new int[]
-        {
-            NPCID.EyeofCthulhu,
-            NPCID.EaterofWorldsHead,
-            NPCID.BrainofCthulhu,
-            NPCID.SkeletronHand,
-            NPCID.KingSlime,
-            NPCID.WallofFlesh
-        };
+        public override short[] AdditionalBosses => new short[] { };
     }
     public class MechanicsTrophy : TrophyItem
     {
-        public override string ShowName => "Mechanics Trophy";
+        public override string ShowName => "Mechanics";
 
-        public override short[] TrophyIdList => new short[]
+        public override short[] TrophyList => new short[]
         {
             ItemID.DestroyerTrophy,
             ItemID.SpazmatismTrophy,
@@ -62,21 +47,15 @@ namespace UltimateBannerMerging.Items
             ItemID.SkeletronPrimeTrophy
         };
 
-        public override string[] TrophyFromModNames => new string[] { };
+        public override string[] TrophyItemNames => new string[] { };
 
-        public override int[] BossesID => new int[]
-        {
-            NPCID.TheDestroyer,
-            NPCID.Spazmatism,
-            NPCID.Retinazer,
-            NPCID.SkeletronPrime
-        };
+        public override short[] AdditionalBosses => new short[] { };
     }
     public class AncientTrophy : TrophyItem
     {
-        public override string ShowName => "Ancient Trophy";
+        public override string ShowName => "Ancient";
 
-        public override short[] TrophyIdList => new short[]
+        public override short[] TrophyList => new short[]
         {
             ItemID.PlanteraTrophy,
             ItemID.GolemTrophy,
@@ -84,23 +63,15 @@ namespace UltimateBannerMerging.Items
             ItemID.MoonLordTrophy
         };
 
-        public override string[] TrophyFromModNames => new string[] {};
+        public override string[] TrophyItemNames => new string[] { };
 
-        public override int[] BossesID => new int[]
-        {
-            NPCID.Plantera,
-            NPCID.Golem,
-            NPCID.CultistBoss,
-            NPCID.MoonLordHead,
-            NPCID.MoonLordHand,
-            NPCID.MoonLordFreeEye
-        };
+        public override short[] AdditionalBosses => new short[] { };
     }
     public class MoonTrophy : TrophyItem
     {
-        public override string ShowName => "Moon Trophy";
+        public override string ShowName => "Moon";
 
-        public override short[] TrophyIdList => new short[]
+        public override short[] TrophyList => new short[]
         {
             ItemID.MourningWoodTrophy,
             ItemID.PumpkingTrophy,
@@ -109,51 +80,33 @@ namespace UltimateBannerMerging.Items
             ItemID.SantaNK1Trophy
         };
 
-        public override string[] TrophyFromModNames => new string[] { };
+        public override string[] TrophyItemNames => new string[] { };
 
-        public override int[] BossesID => new int[]
-        {
-            NPCID.MourningWood,
-            NPCID.Pumpking,
-            NPCID.Everscream,
-            NPCID.IceQueen,
-            NPCID.SantaNK1
-        };
+        public override short[] AdditionalBosses => new short[] { };
     }
     public class EventsTrophy : TrophyItem
     {
-        public override string ShowName => "Events Trophy";
+        public override string ShowName => "Events";
 
-        public override short[] TrophyIdList => new short[]
+        public override short[] TrophyList => new short[]
         {
             ItemID.FlyingDutchmanTrophy,
             ItemID.MartianSaucerTrophy
         };
 
-        public override string[] TrophyFromModNames => new string[] 
-        { 
+        public override string[] TrophyItemNames => new string[] {
             nameof(MoonTrophy),
         };
 
-        public override int[] BossesID => new int[]
-        {
-            NPCID.MourningWood,
-            NPCID.Pumpking,
-            NPCID.Everscream,
-            NPCID.IceQueen,
-            NPCID.SantaNK1,
-            NPCID.MartianSaucer,
-            NPCID.PirateShip
-        };
+        public override short[] AdditionalBosses => new short[] { };
     }
     public class TrophyOfTerraria : TrophyItem
     {
-        public override string ShowName => "Trophy of Terraria";
+        public override string ShowName => "The";
 
-        public override short[] TrophyIdList => new short[] { };
+        public override short[] TrophyList => new short[] { };
 
-        public override string[] TrophyFromModNames => new string[]
-        {
+        public override string[] TrophyItemNames => new string[] {
             nameof(PreHardmodeTrophy),
             nameof(HorrorTrophy),
             nameof(MechanicsTrophy),
@@ -161,40 +114,6 @@ namespace UltimateBannerMerging.Items
             nameof(EventsTrophy)
         };
 
-        public override int[] BossesID => new int[]
-        {
-            NPCID.EyeofCthulhu,
-            NPCID.EaterofWorldsHead,
-            NPCID.BrainofCthulhu,
-            NPCID.SkeletronHand,
-            NPCID.EyeofCthulhu,
-            NPCID.EaterofWorldsHead,
-            NPCID.BrainofCthulhu,
-            NPCID.SkeletronHand,
-            NPCID.KingSlime,
-            NPCID.WallofFlesh,
-            NPCID.TheDestroyer,
-            NPCID.Spazmatism,
-            NPCID.Retinazer,
-            NPCID.SkeletronPrime,
-            NPCID.Plantera,
-            NPCID.Golem,
-            NPCID.CultistBoss,
-            NPCID.MoonLordHead,
-            NPCID.MoonLordHand,
-            NPCID.MoonLordFreeEye,
-            NPCID.MourningWood,
-            NPCID.Pumpking,
-            NPCID.Everscream,
-            NPCID.IceQueen,
-            NPCID.SantaNK1,
-            NPCID.MourningWood,
-            NPCID.Pumpking,
-            NPCID.Everscream,
-            NPCID.IceQueen,
-            NPCID.SantaNK1,
-            NPCID.MartianSaucer,
-            NPCID.PirateShip
-        };
+        public override short[] AdditionalBosses => new short[] { };
     }
 }

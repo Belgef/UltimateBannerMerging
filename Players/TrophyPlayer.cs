@@ -1,78 +1,78 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using UltimateBannerMerging.Buffs;
 using UltimateBannerMerging.Items;
+using System;
+using Terraria.DataStructures;
 
 namespace UltimateBannerMerging.Players
 {
-    internal class BannerPlayer : ModPlayer
-    {        
-        public readonly Dictionary<int, float> CurrentMobs = new Dictionary<int, float>();
+    internal class TrophyPlayer : ModPlayer
+    {
+        public readonly Dictionary<int, float> CurrentBosses = new Dictionary<int, float>();
 
         public override void PostUpdate()
         {
-            CurrentMobs.Clear();
-            foreach(var item in player.inventory)
+            CurrentBosses.Clear();
+            foreach (var item in player.inventory)
             {
-                if(MobConverter.IsVanillaBanner(item.netID))
+                if (MobConverter.IsVanillaTrophy(item.netID))
                 {
-                    AddVanillaBanner(item.netID, item.stack);
+                    AddVanillaTrophy(item.netID, item.stack);
                 }
-                else if(item.modItem is BannerItem bannerItem)
+                else if (item.modItem is TrophyItem trophyItem)
                 {
-                    AddModBanner(bannerItem, item.stack);
+                    AddModTrophy(trophyItem, item.stack);
                 }
             }
-            if(CurrentMobs.Count > 0)
+            if (CurrentBosses.Count > 0)
             {
-                player.AddBuff(mod.GetBuff(nameof(BannerBuff)).Type, 10);
+                player.AddBuff(mod.GetBuff(nameof(TrophyBuff)).Type, 10);
             }
             else
             {
-                player.ClearBuff(mod.GetBuff(nameof(BannerBuff)).Type);
+                player.ClearBuff(mod.GetBuff(nameof(TrophyBuff)).Type);
             }
         }
-        private void AddVanillaBanner(int id, float quantity)
+        private void AddVanillaTrophy(int id, float quantity)
         {
-            AddMob(MobConverter.GetMobID(id), quantity);
+            AddBoss(MobConverter.GetBossID(id), quantity);
         }
-        private void AddMob(int mobID, float quantity)
+        private void AddBoss(int bossID, float quantity)
         {
             var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
-            if (CurrentMobs.ContainsKey(mobID))
-                CurrentMobs[mobID] += quantity;
+            if (CurrentBosses.ContainsKey(bossID))
+                CurrentBosses[bossID] += quantity;
             else
-                CurrentMobs.Add(mobID, quantity);
-            if (CurrentMobs[mobID] > config.InvulnerabilityCap)
-                CurrentMobs[mobID] = config.InvulnerabilityCap;
+                CurrentBosses.Add(bossID, quantity);
+            if (CurrentBosses[bossID] > config.BossInvulnerabilityCap)
+                CurrentBosses[bossID] = config.BossInvulnerabilityCap;
         }
-        private void AddModBanner(BannerItem modItem, float quantity)
+        private void AddModTrophy(TrophyItem modItem, float quantity)
         {
-            foreach (var banner in modItem.BannerList)
+            foreach (var banner in modItem.TrophyList)
             {
-                AddVanillaBanner(banner, modItem.Multiplyer * quantity);
+                AddVanillaTrophy(banner, modItem.Multiplyer * quantity);
             }
-            foreach (var mob in modItem.AdditionalMobs)
+            foreach (var mob in modItem.AdditionalBosses)
             {
-                AddMob(mob, modItem.Multiplyer * quantity);
+                AddBoss(mob, modItem.Multiplyer * quantity);
             }
-            foreach (var modBanner in modItem.BannerItems)
+            foreach (var modBanner in modItem.TrophyItems)
             {
-                AddModBanner(modBanner, modItem.Multiplyer * quantity);
+                AddModTrophy(modBanner, modItem.Multiplyer * quantity);
             }
         }
-        
+
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
             var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             int mobID = MobConverter.GetMobID(target);
-            if (CurrentMobs.ContainsKey(mobID))
-                damage += (int)(damage * ((config.MaxDamageIncrease - 1) / config.InvulnerabilityCap * CurrentMobs[mobID] + 1));
+            if (CurrentBosses.ContainsKey(mobID))
+                damage += (int)(damage * ((config.MaxBossDamageIncrease - 1) / config.BossInvulnerabilityCap * CurrentBosses[mobID] + 1));
         }
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
@@ -91,7 +91,7 @@ namespace UltimateBannerMerging.Players
             }
             else if (damageSource.SourceProjectileIndex != -1)
             {
-                int[] mobIDs = (MobConverter.GetMobID(Main.projectile[damageSource.SourceProjectileIndex])??(new int[] { })).Where(id=>CurrentMobs.ContainsKey(id)).ToArray();
+                int[] mobIDs = (MobConverter.GetMobID(Main.projectile[damageSource.SourceProjectileIndex]) ?? (new int[] { })).Where(id => CurrentBosses.ContainsKey(id)).ToArray();
                 if (mobIDs.Length == 0)
                     return true;
                 if (mobIDs.FirstOrDefault(id => ReachedInvulnerabilityCap(id)) != 0)//WARNING
@@ -103,13 +103,13 @@ namespace UltimateBannerMerging.Players
         private bool ReachedInvulnerabilityCap(int mobID)
         {
             var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
-            return CurrentMobs.ContainsKey(mobID) && CurrentMobs[mobID] >= config.InvulnerabilityCap;
+            return CurrentBosses.ContainsKey(mobID) && CurrentBosses[mobID] >= config.BossInvulnerabilityCap;
         }
         private int ModifyReceivedDamage(int mobID, int damage)
         {
             var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
-            if (CurrentMobs.ContainsKey(mobID))
-                return (int)(damage * (-CurrentMobs[mobID] / config.InvulnerabilityCap + 1));
+            if (CurrentBosses.ContainsKey(mobID))
+                return (int)(damage * (-CurrentBosses[mobID] / config.BossInvulnerabilityCap + 1));
             return damage;
         }
     }

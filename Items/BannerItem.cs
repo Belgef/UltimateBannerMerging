@@ -13,7 +13,7 @@ namespace UltimateBannerMerging.Items
 
 		public abstract short[] BannerList { get; }
 		public abstract string[] BannerItemNames { get; }
-		public abstract short[] AdditionalBanners { get; }
+		public abstract short[] AdditionalMobs { get; }
 
 		private int price;
 		private float multiplier;
@@ -45,8 +45,8 @@ namespace UltimateBannerMerging.Items
 			item.maxStack = 99;
 
 			var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
-			price = config.Stats[ShowName].Price;
-			multiplier = config.Stats[ShowName].Multiplyer;
+			price = config.BannerStats[ShowName].Price;
+			multiplier = config.BannerStats[ShowName].Multiplyer;
 		}
 
 		public override void AddRecipes() 
