@@ -187,6 +187,15 @@ namespace UltimateBannerMerging
             else
                 return bannerName.Replace("Banner", "");
         }
+
+        public static int TrophyToBossName(string trophyName)
+        {
+            if (NPCID.Search.TryGetId(trophyName.Replace(" ", "").Replace("Trophy", ""), out int id))
+                return id;
+            else
+                throw new ArgumentException($"Boss with name '{trophyName}' does not exist");
+        }
+
         public static int GetMobID(NPC mob)
         {
             return NPCID.FromLegacyName(mob.FullName);
