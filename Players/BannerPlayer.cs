@@ -36,10 +36,18 @@ namespace UltimateBannerMerging
             {
                 player.ClearBuff(mod.GetBuff(nameof(BannerBuff)).Type);
             }
+            if (player.HasBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type))
+            {
+                player.AddBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type, 10);
+            }
+            else
+            {
+                player.ClearBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type);
+            }
         }
         private void AddVanillaBanner(int id, float quantity)
         {
-            AddMob(MobConverter.GetMobID(id, mod), quantity);
+            AddMob(MobConverter.GetMobID(id), quantity);
         }
         private void AddMob(int mobID, float quantity)
         {

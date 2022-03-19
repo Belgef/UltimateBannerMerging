@@ -42,7 +42,8 @@ namespace UltimateBannerMerging.NPC
             NPCID.StardustSoldier,
             NPCID.StardustSpiderBig,
             NPCID.StardustSpiderSmall,
-            NPCID.StardustWormHead
+            NPCID.StardustWormHead,
+            NPCID.Slimer
         };
         public override void NPCLoot(Terraria.NPC npc)
         {

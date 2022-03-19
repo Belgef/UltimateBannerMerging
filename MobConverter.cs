@@ -166,7 +166,7 @@ namespace UltimateBannerMerging
         {
             return ItemID.Search.TryGetName(bannerID, out var bannerName) && bannerName.Contains("Banner");
         }
-        public static int GetMobID(int bannerID, Mod mod)
+        public static int GetMobID(int bannerID)
         {
             if(ItemID.Search.TryGetName(bannerID, out var name) && name.Contains("Banner"))
             {
