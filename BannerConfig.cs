@@ -92,13 +92,13 @@ namespace UltimateBannerMerging
         [JsonIgnore]
         public Dictionary<string, ItemInfo> TrophyStats => new Dictionary<string, ItemInfo>()
         {
-            { "Horror",                 new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } },
-            { "Pre Hardmode",           new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } },
-            { "Mechanics",              new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } },
-            { "Ancient",                new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } },
-            { "Moon",                   new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } },
-            { "Events",                 new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } },
-            { "The",                    new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } },
+            { "Horror",                 new ItemInfo(){ Price =   5000, Multiplyer = 6.0f } }, // 3
+            { "Pre Hardmode",           new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } }, // 9 3
+            { "Mechanics",              new ItemInfo(){ Price =   5000, Multiplyer = 6.0f } }, // 3
+            { "Ancient",                new ItemInfo(){ Price =   5000, Multiplyer = 6.0f } }, // 3
+            { "Moon",                   new ItemInfo(){ Price =   5000, Multiplyer = 6.0f } }, // 3
+            { "Events",                 new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } }, // 9 3
+            { "The",                    new ItemInfo(){ Price =   5000, Multiplyer = 6.0f } }, // 18 9
         };
 
         public override ConfigScope Mode => ConfigScope.ClientSide;

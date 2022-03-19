@@ -26,7 +26,8 @@ namespace UltimateBannerMerging.Items
         public override short[] TrophyList => new short[]
         {
             ItemID.WallofFleshTrophy,
-            ItemID.KingSlimeTrophy
+            ItemID.KingSlimeTrophy,
+            ItemID.QueenBeeTrophy
         };
 
         public override string[] TrophyItemNames => new string[] {
@@ -60,7 +61,8 @@ namespace UltimateBannerMerging.Items
             ItemID.PlanteraTrophy,
             ItemID.GolemTrophy,
             ItemID.AncientCultistTrophy,
-            ItemID.MoonLordTrophy
+            ItemID.MoonLordTrophy,
+            ItemID.DukeFishronTrophy
         };
 
         public override string[] TrophyItemNames => new string[] { };
@@ -100,7 +102,7 @@ namespace UltimateBannerMerging.Items
 
         public override short[] AdditionalBosses => new short[] { };
     }
-    public class TrophyOfTerraria : TrophyItem
+    public class TheTrophy : TrophyItem
     {
         public override string ShowName => "The";
 
@@ -108,7 +110,6 @@ namespace UltimateBannerMerging.Items
 
         public override string[] TrophyItemNames => new string[] {
             nameof(PreHardmodeTrophy),
-            nameof(HorrorTrophy),
             nameof(MechanicsTrophy),
             nameof(AncientTrophy),
             nameof(EventsTrophy)

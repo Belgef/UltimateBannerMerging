@@ -43,7 +43,10 @@ namespace UltimateBannerMerging.Items
             item.value = Price;
             item.rare = ItemRarityID.Green;
             item.maxStack = 99;
+        }
 
+        public override void Update(ref float gravity, ref float maxFallSpeed)
+        {
             var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             price = config.TrophyStats[ShowName].Price;
             multiplier = config.TrophyStats[ShowName].Multiplyer;
@@ -55,7 +58,7 @@ namespace UltimateBannerMerging.Items
             foreach (string item in TrophyItemNames)
                 recipe.AddIngredient(mod, item);
             foreach (int id in TrophyList)
-                recipe.AddIngredient(id);
+                recipe.AddIngredient(id, 10);
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(this);
             recipe.AddRecipe();
