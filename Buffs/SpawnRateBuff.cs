@@ -10,7 +10,7 @@ namespace UltimateBannerMerging.Buffs
 {
     internal class SpawnRateBuff : ModBuff
     {
-        public static int Multiplier = 1;
+        public static string Text = "";
         public override void SetDefaults()
         {
             DisplayName.SetDefault("Lure");
@@ -22,7 +22,7 @@ namespace UltimateBannerMerging.Buffs
         }
         public override void ModifyBuffTip(ref string tip, ref int rare)
         {
-            tip = $"{Multiplier}x increased enemy spawn rate";
+            tip = Text;
         }
     }
 }

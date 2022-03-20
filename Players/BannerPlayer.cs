@@ -63,15 +63,15 @@ namespace UltimateBannerMerging
         {
             foreach (var banner in modItem.BannerList)
             {
-                AddVanillaBanner(banner, modItem.Multiplyer * quantity);
+                AddVanillaBanner(banner, modItem.Multiplier * quantity);
             }
             foreach (var mob in modItem.AdditionalBanners)
             {
-                AddMob(mob, modItem.Multiplyer * quantity);
+                AddMob(mob, modItem.Multiplier * quantity);
             }
             foreach (var modBanner in modItem.BannerItems)
             {
-                AddModBanner(modBanner, modItem.Multiplyer * quantity);
+                AddModBanner(modBanner, modItem.Multiplier * quantity);
             }
         }
         
