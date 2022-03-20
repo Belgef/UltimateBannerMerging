@@ -15,10 +15,8 @@ namespace UltimateBannerMerging.Items
 		public abstract string[] BannerItemNames { get; }
 		public abstract short[] AdditionalBanners { get; }
 
-		private int price;
-		private float multiplier;
-		public int Price => price;
-		public float Multiplyer => multiplier;
+		public float Multiplier => (mod.GetConfig(nameof(BannerConfig)) as BannerConfig).Stats[ShowName].Multiplyer;
+		public int Price => (mod.GetConfig(nameof(BannerConfig)) as BannerConfig).Stats[ShowName].Price;
 		public BannerItem[] BannerItems => BannerItemNames.Select(s => mod.GetItem(s) as BannerItem).ToArray();
 		//protected string[] NameList => BannerList.Concat(AdditionalBanners).Select(n => MobBanners.GetBannerByID((int)n).Name)
 		//	.Concat(BannerItems.SelectMany(b=>b.NameList)).OrderBy(s=>s).ToArray();
@@ -33,7 +31,7 @@ namespace UltimateBannerMerging.Items
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			tooltips.Add(new TooltipLine(mod, "Tooltip0", "Increases damage and defense against all included enemies."));
-			tooltips.Add(new TooltipLine(mod, "Tooltip1", $"{Multiplyer} times more effective than its crafting components."));
+			tooltips.Add(new TooltipLine(mod, "Tooltip1", $"{Multiplier} times more effective than its crafting components."));
 			//AdditionalBanners.Select(b=>MobBannerConverter.)
 			//tooltips.Add(new TooltipLine(mod, "Tooltip2", $"{Multiplyer} times more effective than its crafting components."));
 		}
@@ -43,10 +41,6 @@ namespace UltimateBannerMerging.Items
 			item.value = Price;
 			item.rare = ItemRarityID.Green;
 			item.maxStack = 99;
-
-			var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
-			price = config.Stats[ShowName].Price;
-			multiplier = config.Stats[ShowName].Multiplyer;
 		}
 
 		public override void AddRecipes() 

@@ -8,7 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using UltimateBannerMerging.Players;
 
-namespace UltimateBannerMerging
+namespace UltimateBannerMerging.NPC
 {
     internal class MoreLootNPC : GlobalNPC
     {
@@ -42,9 +42,10 @@ namespace UltimateBannerMerging
             NPCID.StardustSoldier,
             NPCID.StardustSpiderBig,
             NPCID.StardustSpiderSmall,
-            NPCID.StardustWormHead
+            NPCID.StardustWormHead,
+            NPCID.Slimer
         };
-        public override void NPCLoot(NPC npc)
+        public override void NPCLoot(Terraria.NPC npc)
         {
             if (Player != null)
             {
@@ -56,7 +57,7 @@ namespace UltimateBannerMerging
                 float lootMultiplier = quantity / config.InvulnerabilityCap * (config.DropMaxMultiplier-1);
                 CombatText.clearAll();
                 for (int i = 0; i < (int)lootMultiplier; i++)
-                    Main.npc[NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, npc.type)].StrikeNPCNoInteraction(int.MaxValue, 0, 0);
+                    Main.npc[Terraria.NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, npc.type)].StrikeNPCNoInteraction(int.MaxValue, 0, 0);
                 CombatText.clearAll();
                 CombatText.NewText(new Microsoft.Xna.Framework.Rectangle((int)npc.position.X, (int)npc.position.Y, 1, 1), CombatText.DamagedHostile, LastDamage);
             }

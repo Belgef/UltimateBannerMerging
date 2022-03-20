@@ -166,7 +166,7 @@ namespace UltimateBannerMerging
         {
             return ItemID.Search.TryGetName(bannerID, out var bannerName) && bannerName.Contains("Banner");
         }
-        public static int GetMobID(int bannerID, Mod mod)
+        public static int GetMobID(int bannerID)
         {
             if(ItemID.Search.TryGetName(bannerID, out var name) && name.Contains("Banner"))
             {
@@ -187,7 +187,7 @@ namespace UltimateBannerMerging
             else
                 return bannerName.Replace("Banner", "");
         }
-        public static int GetMobID(NPC mob)
+        public static int GetMobID(Terraria.NPC mob)
         {
             return NPCID.FromLegacyName(mob.FullName);
         }
