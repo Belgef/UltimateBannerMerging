@@ -1,18 +1,23 @@
 [c/ffe600:Ultimate Banner Merging] is a mod that adds an enemy banner merging system and new banner effects.
 
-1. Every banner in your inventory increases your attack and defense against the corresponding enemy. Also, this effect is growing with a more significant quantity.
-2. You can merge every enemy banner into bigger and bigger banners until you'll have one super banner that uses every enemy banner.
-3. Each banner has a multiplier, which means how effective it is with respect to its ingredients.
+1. Every banner or trophy in your inventory increases your attack, defense, and loot against the corresponding enemy or boss. Also, this effect is growing with a larger quantity.
+2. You can merge every enemy banner and trophy more and more until you'll have [c/3b7fff:The Banner] and [c/3b7fff:The Trophy] that give you maximum effects.
+3. Each crafted banner and trophy has a multiplier, which means how effective it is with respect to its ingredients.
 
 Fill free to include this mod in your list! 
 
 [c/ffc400:TODO:]
- - add spawn rate increasing items
  - add other mods integration
- - add more banner effects
+ - banners and trophies in your chests also have effects
 
+[c/75ff6b:- v1.4.0 -]
+ - added trophy merging system to become invulnerable to all bosses
+ - added 5 items that increase the spawn rate
+ - added configurations so you can customize banner and trophy effects
+ - now more banners give you more loot from corresponding enemies
+ 
 [c/75ff6b:- v1.3.0 -]
  - fixed all banner prices and coefficients
- - when enemy damage has become low enough, you become invulnerable to this enemy. [c/3b7fff:The Banner] makes you invulnerable to all enemies except all bosses and minibosses
+ - when enemy damage has become low enough, you become invulnerable to this enemy. [c/3b7fff:The Banner] makes you immune to all enemies except all bosses and minibosses
  - fixed damage cap. Now it is 400%. You will be able to change it in the future
  - you also take lower damage from all enemy projectiles if you have a corresponding banner
