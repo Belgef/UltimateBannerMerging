@@ -8,12 +8,12 @@ using Terraria.ModLoader;
 
 namespace UltimateBannerMerging.Buffs
 {
-    internal class BannerBuff : ModBuff
+    internal class TrophyBuff : ModBuff
     {
         public override void SetDefaults()
         {
-            DisplayName.SetDefault("Mob Dominance");
-            Description.SetDefault("More banners in your inventory give you more power against specific enemies");
+            DisplayName.SetDefault("Boss Dominance");
+            Description.SetDefault("More trophies in your inventory give you more power against specific bosses");
             Main.buffNoTimeDisplay[Type] = true;
             Main.persistentBuff[Type] = true;
             Main.pvpBuff[Type] = true;

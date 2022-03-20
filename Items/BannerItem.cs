@@ -13,7 +13,7 @@ namespace UltimateBannerMerging.Items
 
 		public abstract short[] BannerList { get; }
 		public abstract string[] BannerItemNames { get; }
-		public abstract short[] AdditionalBanners { get; }
+		public abstract short[] AdditionalMobs { get; }
 
 		public float Multiplier => (mod.GetConfig(nameof(BannerConfig)) as BannerConfig).Stats[ShowName].Multiplyer;
 		public int Price => (mod.GetConfig(nameof(BannerConfig)) as BannerConfig).Stats[ShowName].Price;
@@ -41,9 +41,13 @@ namespace UltimateBannerMerging.Items
 			item.value = Price;
 			item.rare = ItemRarityID.Green;
 			item.maxStack = 99;
+
+			var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+			price = config.Stats[ShowName].Price;
+			multiplier = config.Stats[ShowName].Multiplyer;
 		}
 
-		public override void AddRecipes() 
+        public override void AddRecipes() 
 		{
 			ModRecipe recipe = new ModRecipe(mod);
 			foreach(string item in BannerItemNames)

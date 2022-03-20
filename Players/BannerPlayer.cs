@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using UltimateBannerMerging.Buffs;
 using UltimateBannerMerging.Items;
 
-namespace UltimateBannerMerging
+namespace UltimateBannerMerging.Players
 {
     internal class BannerPlayer : ModPlayer
     {        
@@ -36,14 +36,6 @@ namespace UltimateBannerMerging
             {
                 player.ClearBuff(mod.GetBuff(nameof(BannerBuff)).Type);
             }
-            if (player.HasBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type))
-            {
-                player.AddBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type, 10);
-            }
-            else
-            {
-                player.ClearBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type);
-            }
         }
         private void AddVanillaBanner(int id, float quantity)
         {
@@ -63,19 +55,19 @@ namespace UltimateBannerMerging
         {
             foreach (var banner in modItem.BannerList)
             {
-                AddVanillaBanner(banner, modItem.Multiplier * quantity);
+                AddVanillaBanner(banner, modItem.Multiplyer * quantity);
             }
-            foreach (var mob in modItem.AdditionalBanners)
+            foreach (var mob in modItem.AdditionalMobs)
             {
-                AddMob(mob, modItem.Multiplier * quantity);
+                AddMob(mob, modItem.Multiplyer * quantity);
             }
             foreach (var modBanner in modItem.BannerItems)
             {
-                AddModBanner(modBanner, modItem.Multiplier * quantity);
+                AddModBanner(modBanner, modItem.Multiplyer * quantity);
             }
         }
         
-        public override void ModifyHitNPC(Item item, Terraria.NPC target, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
             var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             int mobID = MobConverter.GetMobID(target);

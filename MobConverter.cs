@@ -11,7 +11,7 @@ namespace UltimateBannerMerging
 {
     internal static class MobConverter
     {
-        private static Dictionary<string, string> bannerToMobMaps = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> bannerToMobMaps = new Dictionary<string, string>
         {
             { "WyvernBanner", "WyvernHead" },
             { "LavaBatBanner", "Lavabat" },
@@ -48,20 +48,47 @@ namespace UltimateBannerMerging
             { "StardustSpiderBanner", "StardustSpiderBig" },
             { "StardustWormBanner", "StardustWormHead" },
             { "RustyArmoredBonesBanner", "RustyArmoredBonesAxe" },
-            { "DiablolistBanner", "DiabolistRed" }
+            { "DiablolistBanner", "DiabolistRed" },
+            { "EaterofWorldsTrophy", "EaterofWorldsHead" },
+            { "DestroyerTrophy", "TheDestroyer" },
+            { "SkeletronTrophy", "SkeletronHead" },
+            { "AncientCultistTrophy", "CultistBoss" },
+            { "MoonLordTrophy", "MoonLordHead" },
+            { "FlyingDutchmanTrophy", "PirateShip" }
         };
         public static readonly Dictionary<int, int> NPCProjectileOwners = new Dictionary<int, int>
         {
             { 25, 24 },
             { 30, 29 },
             { 33, 32 },
-            { 112, 94 },
             { 261, 260 },
-            { 265, 262 },
             { 371, 370 },
             { 516, 415 },
             { 519, 517 },
-            { 522, 439 }
+            { 522, 439 },
+            { NPCID.GolemHead, NPCID.Golem  },
+            { NPCID.GolemHeadFree, NPCID.Golem },
+            { NPCID.GolemFistLeft, NPCID.Golem },
+            { NPCID.GolemFistRight, NPCID.Golem },
+            { NPCID.PlanterasHook, NPCID.Plantera },
+            { NPCID.PlanterasTentacle, NPCID.Plantera },
+            { NPCID.Spore, NPCID.Plantera },
+            { NPCID.PrimeVice, NPCID.SkeletronPrime },
+            { NPCID.PrimeSaw, NPCID.SkeletronPrime },
+            { NPCID.PrimeLaser, NPCID.SkeletronPrime },
+            { NPCID.PrimeCannon, NPCID.SkeletronPrime },
+            { NPCID.MartianSaucerCannon, NPCID.MartianSaucer },
+            { NPCID.MartianSaucerCore, NPCID.MartianSaucer },
+            { NPCID.Creeper, NPCID.BrainofCthulhu },
+            { NPCID.TheHungry, NPCID.WallofFlesh },
+            { NPCID.Probe, NPCID.TheDestroyer },
+            { NPCID.MartianSaucerTurret, NPCID.MartianSaucer },
+            { NPCID.ServantofCthulhu, NPCID.EyeofCthulhu },
+            { NPCID.VileSpit, NPCID.EaterofWorldsHead },
+            { NPCID.WallofFleshEye, NPCID.WallofFlesh },
+            { NPCID.Sharkron, NPCID.DukeFishron},
+            { NPCID.MoonLordFreeEye, NPCID.MoonLordHead },
+            { NPCID.SlimeSpiked, NPCID.KingSlime }
         };
         public static readonly Dictionary<int, int[]> ProjectileOwners = new Dictionary<int, int[]>
         {
@@ -90,7 +117,7 @@ namespace UltimateBannerMerging
             { ProjectileID.EyeBeam, new int[]{ NPCID.Golem } },
             { ProjectileID.GolemFist, new int[]{ NPCID.Golem } },
             { ProjectileID.RainNimbus, new int[]{ NPCID.AngryNimbus } },
-            { ProjectileID.Seed, new int[]{ NPCID.Plantera } },
+            { ProjectileID.SeedPlantera, new int[]{ NPCID.Plantera } },
             { ProjectileID.PoisonSeedPlantera, new int[]{ NPCID.Plantera } },
             { ProjectileID.ThornBall, new int[]{ NPCID.Plantera } },
             { ProjectileID.GoldenShowerHostile, new int[]{ NPCID.IchorSticker } },
@@ -158,13 +185,18 @@ namespace UltimateBannerMerging
             { ProjectileID.SpikedSlimeSpike, new int[]{ NPCID.SlimeSpiked } },
             { ProjectileID.SolarFlareRay, new int[]{ NPCID.SolarDrakomire } },
             { ProjectileID.SandnadoHostile, new int[]{ NPCID.SandElemental } },
-            { ProjectileID.SandnadoHostileMark, new int[]{ NPCID.SandElemental } }
+            { ProjectileID.SandnadoHostileMark, new int[]{ NPCID.SandElemental } }, 
+            { ProjectileID.Skull, new int[] { NPCID.SkeletronHead } }
         };
 
 
         public static bool IsVanillaBanner(int bannerID)
         {
             return ItemID.Search.TryGetName(bannerID, out var bannerName) && bannerName.Contains("Banner");
+        }
+        public static bool IsVanillaTrophy(int trophyID)
+        {
+            return ItemID.Search.TryGetName(trophyID, out var bannerName) && bannerName.Contains("Trophy");
         }
         public static int GetMobID(int bannerID)
         {
@@ -180,6 +212,20 @@ namespace UltimateBannerMerging
             else
                 throw new ArgumentException("Invalid item");
         }
+        public static int GetBossID(int trophyID)
+        {
+            if (ItemID.Search.TryGetName(trophyID, out var name) && name.Contains("Trophy"))
+            {
+                if (NPCID.Search.TryGetId(TrophyToBossName(name), out var mobID))
+                {
+                    return mobID;
+                }
+                else
+                    throw new ArgumentException("Failed to find trophy boss");
+            }
+            else
+                throw new ArgumentException("Invalid item");
+        }
         public static string BannerToMobName(string bannerName)
         {
             if(bannerToMobMaps.ContainsKey(bannerName))
@@ -187,7 +233,15 @@ namespace UltimateBannerMerging
             else
                 return bannerName.Replace("Banner", "");
         }
-        public static int GetMobID(Terraria.NPC mob)
+        public static string TrophyToBossName(string bannerName)
+        {
+            if (bannerToMobMaps.ContainsKey(bannerName))
+                return bannerToMobMaps[bannerName];
+            else
+                return bannerName.Replace("Trophy", "");
+        }
+
+        public static int GetMobID(NPC mob)
         {
             return NPCID.FromLegacyName(mob.FullName);
         }
