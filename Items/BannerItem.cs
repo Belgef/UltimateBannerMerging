@@ -43,10 +43,7 @@ namespace UltimateBannerMerging.Items
 			item.value = Price;
 			item.rare = ItemRarityID.Green;
 			item.maxStack = 99;
-		}
 
-        public override void Update(ref float gravity, ref float maxFallSpeed)
-		{
 			var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
 			price = config.BannerStats[ShowName].Price;
 			multiplier = config.BannerStats[ShowName].Multiplyer;

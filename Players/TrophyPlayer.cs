@@ -91,12 +91,19 @@ namespace UltimateBannerMerging.Players
             }
             else if (damageSource.SourceProjectileIndex != -1)
             {
-                int[] mobIDs = (MobConverter.GetMobID(Main.projectile[damageSource.SourceProjectileIndex]) ?? (new int[] { })).Where(id => CurrentBosses.ContainsKey(id)).ToArray();
-                if (mobIDs.Length == 0)
+                int[] mobIDs = (MobConverter.GetMobID(Main.projectile[damageSource.SourceProjectileIndex]) ?? (new int[] { }));
+
+                for (int i = 0; i < mobIDs.Length; i++) 
+                    if (MobConverter.NPCProjectileOwners.ContainsKey(mobIDs[i]))
+                        mobIDs[i] = MobConverter.NPCProjectileOwners[mobIDs[i]];
+
+                int[] newMobIDs = mobIDs.Where(id => CurrentBosses.ContainsKey(id)).ToArray();
+
+                if (newMobIDs.Length == 0)
                     return true;
-                if (mobIDs.FirstOrDefault(id => ReachedInvulnerabilityCap(id)) != 0)//WARNING
+                if (newMobIDs.FirstOrDefault(id => ReachedInvulnerabilityCap(id)) != 0)//WARNING
                     return false;
-                damage = ModifyReceivedDamage(mobIDs[0], damage);
+                damage = ModifyReceivedDamage(newMobIDs[0], damage);
             }
             return true;
         }

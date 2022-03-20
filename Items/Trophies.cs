@@ -34,7 +34,9 @@ namespace UltimateBannerMerging.Items
             nameof(HorrorTrophy),
         };
 
-        public override short[] AdditionalBosses => new short[] { };
+        public override short[] AdditionalBosses => new short[] { 
+            NPCID.BrainofCthulhu
+        };
     }
     public class MechanicsTrophy : TrophyItem
     {

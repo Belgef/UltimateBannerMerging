@@ -21,7 +21,6 @@ namespace UltimateBannerMerging.Items
             NPCID.SlimeRibbonRed,
             NPCID.SlimeRibbonWhite,
             NPCID.SlimeRibbonYellow,
-            NPCID.SlimeSpiked,
             NPCID.SlimeMasked,
             NPCID.Raven,
             NPCID.Ghost,

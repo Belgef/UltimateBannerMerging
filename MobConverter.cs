@@ -61,7 +61,6 @@ namespace UltimateBannerMerging
             { 25, 24 },
             { 30, 29 },
             { 33, 32 },
-            { 112, 94 },
             { 261, 260 },
             { 371, 370 },
             { 516, 415 },
@@ -73,8 +72,23 @@ namespace UltimateBannerMerging
             { NPCID.GolemFistRight, NPCID.Golem },
             { NPCID.PlanterasHook, NPCID.Plantera },
             { NPCID.PlanterasTentacle, NPCID.Plantera },
-            { NPCID.Spore, NPCID.Plantera }
-            //{ NPCID.SkeletronHand, NPCID.SkeletronHead }
+            { NPCID.Spore, NPCID.Plantera },
+            { NPCID.PrimeVice, NPCID.SkeletronPrime },
+            { NPCID.PrimeSaw, NPCID.SkeletronPrime },
+            { NPCID.PrimeLaser, NPCID.SkeletronPrime },
+            { NPCID.PrimeCannon, NPCID.SkeletronPrime },
+            { NPCID.MartianSaucerCannon, NPCID.MartianSaucer },
+            { NPCID.MartianSaucerCore, NPCID.MartianSaucer },
+            { NPCID.Creeper, NPCID.BrainofCthulhu },
+            { NPCID.TheHungry, NPCID.WallofFlesh },
+            { NPCID.Probe, NPCID.TheDestroyer },
+            { NPCID.MartianSaucerTurret, NPCID.MartianSaucer },
+            { NPCID.ServantofCthulhu, NPCID.EyeofCthulhu },
+            { NPCID.VileSpit, NPCID.EaterofWorldsHead },
+            { NPCID.WallofFleshEye, NPCID.WallofFlesh },
+            { NPCID.Sharkron, NPCID.DukeFishron},
+            { NPCID.MoonLordFreeEye, NPCID.MoonLordHead },
+            { NPCID.SlimeSpiked, NPCID.KingSlime }
         };
         public static readonly Dictionary<int, int[]> ProjectileOwners = new Dictionary<int, int[]>
         {
@@ -171,7 +185,8 @@ namespace UltimateBannerMerging
             { ProjectileID.SpikedSlimeSpike, new int[]{ NPCID.SlimeSpiked } },
             { ProjectileID.SolarFlareRay, new int[]{ NPCID.SolarDrakomire } },
             { ProjectileID.SandnadoHostile, new int[]{ NPCID.SandElemental } },
-            { ProjectileID.SandnadoHostileMark, new int[]{ NPCID.SandElemental } }
+            { ProjectileID.SandnadoHostileMark, new int[]{ NPCID.SandElemental } }, 
+            { ProjectileID.Skull, new int[] { NPCID.SkeletronHead } }
         };
 
 
