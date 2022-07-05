@@ -10,6 +10,10 @@ Fill free to include this mod in your list!
 [c/ffc400:TODO:]
  - add other mods integration
  - banners and trophies in your chests also have effects
+ - add support for new 1.4 banners
+ 
+[c/75ff6b:- v1.4.1 -]
+ - added support for tModLoader 1.4
 
 [c/75ff6b:- v1.4.0 -]
  - added trophy merging system to become invulnerable to all bosses
