@@ -10,7 +10,7 @@ namespace UltimateBannerMerging.Buffs
 {
     internal class TrophyBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Boss Dominance");
             Description.SetDefault("More trophies in your inventory give you more power against specific bosses");
@@ -18,7 +18,6 @@ namespace UltimateBannerMerging.Buffs
             Main.persistentBuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
-            canBeCleared = false;
         }
     }
 }

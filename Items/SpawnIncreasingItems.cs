@@ -16,29 +16,29 @@ namespace UltimateBannerMerging.Items
         public override string Texture => (GetType().Namespace + ".SpawnIncreasingItems." + Name).Replace('.', '/');
         public override void SetDefaults()
         {
-            item.consumable = false;
-            item.maxStack = 1;
-            item.useStyle = ItemUseStyleID.HoldingUp;
-            item.keepTime = 4;
+            Item.consumable = false;
+            Item.maxStack = 1;
+            Item.useStyle = ItemUseStyleID.HoldUp;
+            Item.keepTime = 4;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            tooltips.Add(new TooltipLine(mod, "Tooltip0", "Not consumable"));
-            tooltips.Add(new TooltipLine(mod, "Tooltip0", "Toggles enemies spawn rate increase"));
-            tooltips.Add(new TooltipLine(mod, "Tooltip1", $"{Multiplier}x increased enemy spawn rate"));
+            tooltips.Add(new TooltipLine(Mod, "Tooltip0", "Not consumable"));
+            tooltips.Add(new TooltipLine(Mod, "Tooltip0", "Toggles enemies spawn rate increase"));
+            tooltips.Add(new TooltipLine(Mod, "Tooltip1", $"{Multiplier}x increased enemy spawn rate"));
         }
-        public override bool UseItem(Player player)
+        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
         {
-            if (player.HasBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type) && SpawnRateBuff.Text == Tooltip1)
+            if (player.HasBuff(ModContent.BuffType<SpawnRateBuff>()) && SpawnRateBuff.Text == Tooltip1)
             {
                 NPC.SpawnRateNPC.Multiplier = 1;
-                player.ClearBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type);
+                player.ClearBuff(ModContent.BuffType<SpawnRateBuff>());
             }
-            else if (!player.HasBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type))
+            else if (!player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
             {
                 NPC.SpawnRateNPC.Multiplier = Multiplier;
                 SpawnRateBuff.Text = Tooltip1;
-                player.AddBuff(mod.GetBuff(nameof(SpawnRateBuff)).Type, 10);
+                player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
             }
             else
                 return false;
@@ -52,11 +52,10 @@ namespace UltimateBannerMerging.Items
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            Recipe recipe = CreateRecipe();
             recipe.AddIngredient(ItemID.BattlePotion, 10);
             recipe.AddTile(TileID.WorkBenches);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
     public class AwfulSubstance : SpawnItem
@@ -66,12 +65,11 @@ namespace UltimateBannerMerging.Items
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, nameof(SmellyBag));
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, nameof(SmellyBag));
             recipe.AddIngredient(WorldGen.crimson ? ItemID.TissueSample : ItemID.ShadowScale, 40);
             recipe.AddTile(TileID.DemonAltar);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
     public class PutrescentFlesh : SpawnItem
@@ -81,12 +79,11 @@ namespace UltimateBannerMerging.Items
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, nameof(AwfulSubstance));
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, nameof(AwfulSubstance));
             recipe.AddIngredient(ItemID.Bone, 20);
             recipe.AddTile(TileID.Hellforge);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
     public class DefusalMark : SpawnItem
@@ -96,13 +93,12 @@ namespace UltimateBannerMerging.Items
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, nameof(PutrescentFlesh));
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, nameof(PutrescentFlesh));
             recipe.AddIngredient(ItemID.HallowedBar, 10);
             recipe.AddIngredient(ItemID.SoulofFright, 10);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
     public class AnnihilationSign : SpawnItem
@@ -112,13 +108,12 @@ namespace UltimateBannerMerging.Items
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(mod, nameof(DefusalMark));
+            Recipe recipe = CreateRecipe();
+            recipe.AddIngredient(Mod, nameof(DefusalMark));
             recipe.AddIngredient(ItemID.LargeRuby);
             recipe.AddIngredient(ItemID.LunarOre, 80);
             recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            recipe.Register();
         }
     }
 }

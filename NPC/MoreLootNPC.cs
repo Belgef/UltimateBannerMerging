@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using UltimateBannerMerging.Players;
@@ -45,19 +47,19 @@ namespace UltimateBannerMerging.NPC
             NPCID.StardustWormHead,
             NPCID.Slimer
         };
-        public override void NPCLoot(Terraria.NPC npc)
+        public override void OnKill(Terraria.NPC npc)
         {
             if (Player != null)
             {
-                var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+                var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
                 var mobID = MobConverter.GetMobID(npc);
-                var currentMobs = Player.player.GetModPlayer<BannerPlayer>().CurrentMobs;
+                var currentMobs = Player.Player.GetModPlayer<BannerPlayer>().CurrentMobs;
                 float quantity = (currentMobs.ContainsKey(mobID) &&
                     !_black_list.Contains(mobID)) ? currentMobs[mobID] : 0;
                 float lootMultiplier = quantity / config.InvulnerabilityCap * (config.DropMaxMultiplier-1);
                 CombatText.clearAll();
                 for (int i = 0; i < (int)lootMultiplier; i++)
-                    Main.npc[Terraria.NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, npc.type)].StrikeNPCNoInteraction(int.MaxValue, 0, 0);
+                    Main.npc[Terraria.NPC.NewNPC(npc.GetSource_Loot(), (int)npc.position.X, (int)npc.position.Y, npc.type)].StrikeNPCNoInteraction(int.MaxValue, 0, 0);
                 CombatText.clearAll();
                 CombatText.NewText(new Microsoft.Xna.Framework.Rectangle((int)npc.position.X, (int)npc.position.Y, 1, 1), CombatText.DamagedHostile, LastDamage);
             }

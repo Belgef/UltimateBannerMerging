@@ -88,6 +88,8 @@ namespace UltimateBannerMerging
             { NPCID.WallofFleshEye, NPCID.WallofFlesh },
             { NPCID.Sharkron, NPCID.DukeFishron},
             { NPCID.MoonLordFreeEye, NPCID.MoonLordHead },
+            { NPCID.MoonLordHand, NPCID.MoonLordHead },
+            { NPCID.MoonLordCore, NPCID.MoonLordHead },
             { NPCID.SlimeSpiked, NPCID.KingSlime }
         };
         public static readonly Dictionary<int, int[]> ProjectileOwners = new Dictionary<int, int[]>
@@ -192,11 +194,11 @@ namespace UltimateBannerMerging
 
         public static bool IsVanillaBanner(int bannerID)
         {
-            return ItemID.Search.TryGetName(bannerID, out var bannerName) && bannerName.Contains("Banner");
+            return ItemID.Search.TryGetName(bannerID, out var bannerName) && bannerName.Contains("Banner") && TryGetMobID(bannerID, out int mobID);
         }
         public static bool IsVanillaTrophy(int trophyID)
         {
-            return ItemID.Search.TryGetName(trophyID, out var bannerName) && bannerName.Contains("Trophy");
+            return ItemID.Search.TryGetName(trophyID, out var bannerName) && bannerName.Contains("Trophy") && TryGetBossID(trophyID, out int mobID);
         }
         public static int GetMobID(int bannerID)
         {
@@ -212,6 +214,20 @@ namespace UltimateBannerMerging
             else
                 throw new ArgumentException("Invalid item");
         }
+        public static bool TryGetMobID(int bannerID, out int mobID)
+        {
+            if (ItemID.Search.TryGetName(bannerID, out var name) && name.Contains("Banner"))
+            {
+                if (NPCID.Search.TryGetId(BannerToMobName(name), out mobID))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            mobID = 0;
+            return false;
+        }
         public static int GetBossID(int trophyID)
         {
             if (ItemID.Search.TryGetName(trophyID, out var name) && name.Contains("Trophy"))
@@ -225,6 +241,20 @@ namespace UltimateBannerMerging
             }
             else
                 throw new ArgumentException("Invalid item");
+        }
+        public static bool TryGetBossID(int trophyID, out int bossID)
+        {
+            if (ItemID.Search.TryGetName(trophyID, out var name) && name.Contains("Trophy"))
+            {
+                if (NPCID.Search.TryGetId(TrophyToBossName(name), out bossID))
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            bossID = 0;
+            return false;
         }
         public static string BannerToMobName(string bannerName)
         {
@@ -241,8 +271,10 @@ namespace UltimateBannerMerging
                 return bannerName.Replace("Trophy", "");
         }
 
-        public static int GetMobID(NPC mob)
+        public static int GetMobID(Terraria.NPC mob)
         {
+            if (mob.FullName == "True Eye of Cthulhu")
+                return 400;
             return NPCID.FromLegacyName(mob.FullName);
         }
         public static int[] GetMobID(Projectile proj)

@@ -17,24 +17,28 @@ namespace UltimateBannerMerging.Players
         public override void PostUpdate()
         {
             CurrentMobs.Clear();
-            foreach(var item in player.inventory)
+            foreach(var item in Player.inventory)
             {
                 if(MobConverter.IsVanillaBanner(item.netID))
                 {
                     AddVanillaBanner(item.netID, item.stack);
                 }
-                else if(item.modItem is BannerItem bannerItem)
+                else if(item.ModItem is BannerItem bannerItem)
                 {
                     AddModBanner(bannerItem, item.stack);
                 }
             }
             if(CurrentMobs.Count > 0)
             {
-                player.AddBuff(mod.GetBuff(nameof(BannerBuff)).Type, 10);
+                Player.AddBuff(ModContent.BuffType<BannerBuff>(), 10);
             }
             else
             {
-                player.ClearBuff(mod.GetBuff(nameof(BannerBuff)).Type);
+                Player.ClearBuff(ModContent.BuffType<BannerBuff>());
+            }
+            if (Player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
+            {
+                Player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
             }
         }
         private void AddVanillaBanner(int id, float quantity)
@@ -43,7 +47,7 @@ namespace UltimateBannerMerging.Players
         }
         private void AddMob(int mobID, float quantity)
         {
-            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             if (CurrentMobs.ContainsKey(mobID))
                 CurrentMobs[mobID] += quantity;
             else
@@ -55,22 +59,24 @@ namespace UltimateBannerMerging.Players
         {
             foreach (var banner in modItem.BannerList)
             {
-                AddVanillaBanner(banner, modItem.Multiplyer * quantity);
+                AddVanillaBanner(banner, modItem.Multiplier * quantity);
             }
             foreach (var mob in modItem.AdditionalMobs)
             {
-                AddMob(mob, modItem.Multiplyer * quantity);
+                AddMob(mob, modItem.Multiplier * quantity);
             }
             foreach (var modBanner in modItem.BannerItems)
             {
-                AddModBanner(modBanner, modItem.Multiplyer * quantity);
+                AddModBanner(modBanner, modItem.Multiplier * quantity);
             }
         }
         
-        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitNPC(Item item, Terraria.NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             int mobID = MobConverter.GetMobID(target);
+            if (MobConverter.NPCProjectileOwners.ContainsKey(mobID))
+                mobID = MobConverter.NPCProjectileOwners[mobID];
             if (CurrentMobs.ContainsKey(mobID))
                 damage += (int)(damage * (((float)config.MaxDamageIncrease - 1) / config.InvulnerabilityCap * CurrentMobs[mobID] + 1));
         }
@@ -102,12 +108,12 @@ namespace UltimateBannerMerging.Players
         }
         private bool ReachedInvulnerabilityCap(int mobID)
         {
-            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             return CurrentMobs.ContainsKey(mobID) && CurrentMobs[mobID] >= config.InvulnerabilityCap;
         }
         private int ModifyReceivedDamage(int mobID, int damage)
         {
-            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             if (CurrentMobs.ContainsKey(mobID))
                 return (int)(damage * (-CurrentMobs[mobID] / config.InvulnerabilityCap + 1));
             return damage;

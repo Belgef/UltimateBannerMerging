@@ -11,14 +11,13 @@ namespace UltimateBannerMerging.Buffs
     internal class SpawnRateBuff : ModBuff
     {
         public static string Text = "";
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Lure");
             Main.buffNoTimeDisplay[Type] = true;
             Main.persistentBuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
-            canBeCleared = false;
         }
         public override void ModifyBuffTip(ref string tip, ref int rare)
         {

@@ -17,24 +17,24 @@ namespace UltimateBannerMerging.Players
         public override void PostUpdate()
         {
             CurrentBosses.Clear();
-            foreach (var item in player.inventory)
+            foreach (var item in Player.inventory)
             {
                 if (MobConverter.IsVanillaTrophy(item.netID))
                 {
                     AddVanillaTrophy(item.netID, item.stack);
                 }
-                else if (item.modItem is TrophyItem trophyItem)
+                else if (item.ModItem is TrophyItem trophyItem)
                 {
                     AddModTrophy(trophyItem, item.stack);
                 }
             }
             if (CurrentBosses.Count > 0)
             {
-                player.AddBuff(mod.GetBuff(nameof(TrophyBuff)).Type, 10);
+                Player.AddBuff(ModContent.BuffType<TrophyBuff>(), 10);
             }
             else
             {
-                player.ClearBuff(mod.GetBuff(nameof(TrophyBuff)).Type);
+                Player.ClearBuff(ModContent.BuffType<TrophyBuff>());
             }
         }
         private void AddVanillaTrophy(int id, float quantity)
@@ -43,7 +43,7 @@ namespace UltimateBannerMerging.Players
         }
         private void AddBoss(int bossID, float quantity)
         {
-            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             if (CurrentBosses.ContainsKey(bossID))
                 CurrentBosses[bossID] += quantity;
             else
@@ -67,14 +67,16 @@ namespace UltimateBannerMerging.Players
             }
         }
 
-        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitNPC(Item item, Terraria.NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             int mobID = MobConverter.GetMobID(target);
+            if (MobConverter.NPCProjectileOwners.ContainsKey(mobID))
+                mobID = MobConverter.NPCProjectileOwners[mobID];
             if (CurrentBosses.ContainsKey(mobID))
                 damage += (int)(damage * ((config.MaxBossDamageIncrease - 1) / config.BossInvulnerabilityCap * CurrentBosses[mobID] + 1));
         }
-        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
+        public override void ModifyHitNPCWithProj(Projectile proj, Terraria.NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
         {
             ModifyHitNPC(null, target, ref damage, ref knockback, ref crit);
         }
@@ -109,12 +111,12 @@ namespace UltimateBannerMerging.Players
         }
         private bool ReachedInvulnerabilityCap(int mobID)
         {
-            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             return CurrentBosses.ContainsKey(mobID) && CurrentBosses[mobID] >= config.BossInvulnerabilityCap;
         }
         private int ModifyReceivedDamage(int mobID, int damage)
         {
-            var config = mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             if (CurrentBosses.ContainsKey(mobID))
                 return (int)(damage * (-CurrentBosses[mobID] / config.BossInvulnerabilityCap + 1));
             return damage;

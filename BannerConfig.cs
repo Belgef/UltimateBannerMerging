@@ -37,9 +37,10 @@ namespace UltimateBannerMerging
         [DefaultValue("4")]
         [Label("Max Boss Damage Multiplier")]
         public int MaxBossDamageIncrease;
-        [Range(1f, 100f)]
-        [DefaultValue("5")]
-        [Label("Max Boss Drop Multiplier")]
+        [JsonIgnore]
+        //[Range(1f, 100f)]
+        //[DefaultValue("5")]
+        //[Label("Max Boss Drop Multiplier")]
         public int DropMaxBossMultiplier;
 
         [JsonIgnore]

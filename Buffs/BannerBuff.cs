@@ -10,7 +10,7 @@ namespace UltimateBannerMerging.Buffs
 {
     internal class BannerBuff : ModBuff
     {
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mob Dominance");
             Description.SetDefault("More banners in your inventory give you more power against specific enemies");
@@ -18,7 +18,6 @@ namespace UltimateBannerMerging.Buffs
             Main.persistentBuff[Type] = true;
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
-            canBeCleared = false;
         }
     }
 }

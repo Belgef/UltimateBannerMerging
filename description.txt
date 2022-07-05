@@ -1,7 +1,8 @@
 [c/ffe600:Ultimate Banner Merging] is a mod that adds an enemy banner merging system and new banner effects.
 
 1. Every banner or trophy in your inventory increases your attack, defense, and loot against the corresponding enemy or boss. Also, this effect is growing with a larger quantity.
-2. You can merge every enemy banner and trophy more and more until you'll have [c/3b7fff:The Banner] and [c/3b7fff:The Trophy] that give you maximum effects.
+2. You can merge every enemy banner and trophy more and more until you'll 
+have [c/3b7fff:The Banner] and [c/3b7fff:The Trophy] that give you maximum effects.
 3. Each crafted banner and trophy has a multiplier, which means how effective it is with respect to its ingredients.
 
 Fill free to include this mod in your list! 

@@ -1,6 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
-
+using Terraria.ModLoader;
 
 namespace UltimateBannerMerging.Items
 {
@@ -15,7 +15,7 @@ namespace UltimateBannerMerging.Items
             ItemID.SkeletronTrophy
         };
 
-        public override string[] TrophyItemNames => new string[] { };
+        public override int[] TrophyItemIds => System.Array.Empty<int>();
 
         public override short[] AdditionalBosses => new short[] {
             (!WorldGen.crimson) ? ItemID.BrainofCthulhuTrophy : ItemID.EaterofWorldsTrophy,
@@ -32,8 +32,8 @@ namespace UltimateBannerMerging.Items
             ItemID.QueenBeeTrophy
         };
 
-        public override string[] TrophyItemNames => new string[] {
-            nameof(HorrorTrophy),
+        public override int[] TrophyItemIds => new int[] {
+            ModContent.ItemType<HorrorTrophy>(),
         };
 
         public override short[] AdditionalBosses => new short[] { };
@@ -50,7 +50,7 @@ namespace UltimateBannerMerging.Items
             ItemID.SkeletronPrimeTrophy
         };
 
-        public override string[] TrophyItemNames => new string[] { };
+        public override int[] TrophyItemIds => System.Array.Empty<int>();
 
         public override short[] AdditionalBosses => new short[] { };
     }
@@ -67,7 +67,7 @@ namespace UltimateBannerMerging.Items
             ItemID.DukeFishronTrophy
         };
 
-        public override string[] TrophyItemNames => new string[] { };
+        public override int[] TrophyItemIds => System.Array.Empty<int>();
 
         public override short[] AdditionalBosses => new short[] { };
     }
@@ -84,7 +84,7 @@ namespace UltimateBannerMerging.Items
             ItemID.SantaNK1Trophy
         };
 
-        public override string[] TrophyItemNames => new string[] { };
+        public override int[] TrophyItemIds => System.Array.Empty<int>();
 
         public override short[] AdditionalBosses => new short[] { };
     }
@@ -98,8 +98,8 @@ namespace UltimateBannerMerging.Items
             ItemID.MartianSaucerTrophy
         };
 
-        public override string[] TrophyItemNames => new string[] {
-            nameof(MoonTrophy),
+        public override int[] TrophyItemIds => new int[] {
+            ModContent.ItemType<MoonTrophy>(),
         };
 
         public override short[] AdditionalBosses => new short[] { };
@@ -110,11 +110,11 @@ namespace UltimateBannerMerging.Items
 
         public override short[] TrophyList => new short[] { };
 
-        public override string[] TrophyItemNames => new string[] {
-            nameof(PreHardmodeTrophy),
-            nameof(MechanicsTrophy),
-            nameof(AncientTrophy),
-            nameof(EventsTrophy)
+        public override int[] TrophyItemIds => new int[] {
+            ModContent.ItemType<PreHardmodeTrophy>(),
+            ModContent.ItemType<MechanicsTrophy>(),
+            ModContent.ItemType<AncientTrophy>(),
+            ModContent.ItemType<EventsTrophy>(),
         };
 
         public override short[] AdditionalBosses => new short[] { };
