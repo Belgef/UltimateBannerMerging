@@ -17,18 +17,14 @@ namespace UltimateBannerMerging.Players
         public override void PostUpdate()
         {
             CurrentMobs.Clear();
-            foreach(var item in Player.inventory)
-            {
-                if(MobConverter.IsVanillaBanner(item.netID))
-                {
-                    AddVanillaBanner(item.netID, item.stack);
-                }
-                else if(item.ModItem is BannerItem bannerItem)
-                {
-                    AddModBanner(bannerItem, item.stack);
-                }
-            }
-            if(CurrentMobs.Count > 0)
+
+            Check(Player.inventory);
+            Check(Player.bank.item);
+            Check(Player.bank2.item);
+            Check(Player.bank3.item);
+            Check(Player.bank4.item);
+
+            if (CurrentMobs.Count > 0)
             {
                 Player.AddBuff(ModContent.BuffType<BannerBuff>(), 10);
             }
@@ -36,9 +32,24 @@ namespace UltimateBannerMerging.Players
             {
                 Player.ClearBuff(ModContent.BuffType<BannerBuff>());
             }
+
             if (Player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
             {
                 Player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
+            }
+        }
+        private void Check(Item[] inv)
+        {
+            foreach (var item in inv.Where(i => i?.active ?? false && !i.IsAir))
+            {
+                if (MobConverter.IsVanillaBanner(item.netID))
+                {
+                    AddVanillaBanner(item.netID, item.stack);
+                }
+                else if (item.ModItem is BannerItem bannerItem)
+                {
+                    AddModBanner(bannerItem, item.stack);
+                }
             }
         }
         private void AddVanillaBanner(int id, float quantity)

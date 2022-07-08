@@ -17,7 +17,25 @@ namespace UltimateBannerMerging.Players
         public override void PostUpdate()
         {
             CurrentBosses.Clear();
-            foreach (var item in Player.inventory)
+
+            Check(Player.inventory);
+            Check(Player.bank.item);
+            Check(Player.bank2.item);
+            Check(Player.bank3.item);
+            Check(Player.bank4.item);
+                
+            if (CurrentBosses.Count > 0)
+            {
+                Player.AddBuff(ModContent.BuffType<TrophyBuff>(), 10);
+            }
+            else
+            {
+                Player.ClearBuff(ModContent.BuffType<TrophyBuff>());
+            }
+        }
+        private void Check(Item[] inv)
+        {
+            foreach (var item in inv.Where(i => i?.active ?? false && !i.IsAir))
             {
                 if (MobConverter.IsVanillaTrophy(item.netID))
                 {
@@ -27,14 +45,6 @@ namespace UltimateBannerMerging.Players
                 {
                     AddModTrophy(trophyItem, item.stack);
                 }
-            }
-            if (CurrentBosses.Count > 0)
-            {
-                Player.AddBuff(ModContent.BuffType<TrophyBuff>(), 10);
-            }
-            else
-            {
-                Player.ClearBuff(ModContent.BuffType<TrophyBuff>());
             }
         }
         private void AddVanillaTrophy(int id, float quantity)
