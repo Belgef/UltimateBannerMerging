@@ -50,6 +50,10 @@ namespace UltimateBannerMerging.Players
                 {
                     AddModBanner(bannerItem, item.stack);
                 }
+                else if (MobConverter.IsModdedBanner(item))
+                {
+                    AddModdedBanner(item.ModItem.Name, item.stack, item.ModItem.Mod.Name);
+                }
             }
         }
         private void AddVanillaBanner(int id, float quantity)
@@ -81,13 +85,65 @@ namespace UltimateBannerMerging.Players
                 AddModBanner(modBanner, modItem.Multiplier * quantity);
             }
         }
-        
+        private void AddModdedBanner(string name, int stack, string mod)
+        {
+            if (MobConverter.ModBannersData.ContainsKey(mod))
+            {
+                ModBannersData data = MobConverter.ModBannersData[mod];
+                string npcname;
+                if (data.UniqueBanners.ContainsKey(name))
+                {
+                    npcname = data.UniqueBanners[name];
+                }
+                else
+                {
+                    npcname = name.Replace("Banner", "");
+                }
+                if (ModContent.TryFind(mod, npcname, out ModNPC npc))
+                {
+                    AddMob(npc.Type, stack);
+                }
+                else
+                {
+                    Logging.PublicLogger.Warn(name + " is not found npc " + npcname);
+                }
+            }
+                
+        }
+
         public override void ModifyHitNPC(Item item, Terraria.NPC target, ref int damage, ref float knockback, ref bool crit)
         {
+            int mobID;
+            if (target.ModNPC != null)
+            {
+                if (MobConverter.ModBannersData.ContainsKey(target.ModNPC.Mod.Name))
+                {
+                    ModBannersData data = MobConverter.ModBannersData[target.ModNPC.Mod.Name];
+                    mobID = target.type;
+                    if (data.Multiparts.ContainsKey(target.ModNPC.Name))
+                    {
+                        if (ModContent.TryFind(target.ModNPC.Mod.Name, data.Multiparts[target.ModNPC.Name], out ModNPC npc))
+                        {
+                            mobID = npc.Type;
+                        }
+                        else
+                        {
+                            Logging.PublicLogger.Warn(data.Multiparts[target.ModNPC.Name] + " is not found mob");
+                            return;
+                        }
+                    }
+
+                }
+                else return;
+            }
+            else
+            {
+                mobID = MobConverter.GetMobID(target);
+                if (MobConverter.NPCProjectileOwners.ContainsKey(mobID))
+                    mobID = MobConverter.NPCProjectileOwners[mobID];
+                else return;
+            }
             var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
-            int mobID = MobConverter.GetMobID(target);
-            if (MobConverter.NPCProjectileOwners.ContainsKey(mobID))
-                mobID = MobConverter.NPCProjectileOwners[mobID];
             if (CurrentMobs.ContainsKey(mobID))
                 damage += (int)(damage * (((float)config.MaxDamageIncrease - 1) / config.InvulnerabilityCap * CurrentMobs[mobID] + 1));
         }
@@ -99,9 +155,36 @@ namespace UltimateBannerMerging.Players
         {
             if (damageSource.SourceNPCIndex != -1)
             {
-                int mobID = MobConverter.GetMobID(Main.npc[damageSource.SourceNPCIndex]);
-                if (MobConverter.NPCProjectileOwners.ContainsKey(mobID))
-                    mobID = MobConverter.NPCProjectileOwners[mobID];
+                int mobID;
+                if(Main.npc[damageSource.SourceNPCIndex].ModNPC != null)
+                {
+                    var modnpc = Main.npc[damageSource.SourceNPCIndex].ModNPC;
+                    if (MobConverter.ModBannersData.ContainsKey(modnpc.Mod.Name))
+                    {
+                        ModBannersData data = MobConverter.ModBannersData[modnpc.Mod.Name];
+                        mobID = modnpc.Type;
+                        if (data.Multiparts.ContainsKey(modnpc.Name))
+                        {
+                            if (ModContent.TryFind(modnpc.Mod.Name, data.Multiparts[modnpc.Name], out ModNPC npc))
+                            {
+                                mobID = npc.Type;
+                            }
+                            else
+                            {
+                                Logging.PublicLogger.Warn(data.Multiparts[modnpc.Name] + " is not found mob prehit");
+                                return true;
+                            }
+                        }
+
+                    }
+                    else return true;
+                }
+                else
+                {
+                    mobID = MobConverter.GetMobID(Main.npc[damageSource.SourceNPCIndex]);
+                    if (MobConverter.NPCProjectileOwners.ContainsKey(mobID))
+                        mobID = MobConverter.NPCProjectileOwners[mobID];
+                }
                 if (ReachedInvulnerabilityCap(mobID))
                     return false;
                 damage = ModifyReceivedDamage(mobID, damage);

@@ -52,7 +52,36 @@ namespace UltimateBannerMerging.NPC
             if (Player != null)
             {
                 var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
-                var mobID = MobConverter.GetMobID(npc);
+
+                int mobID;
+                if (npc.ModNPC != null)
+                {
+                    if (MobConverter.ModBannersData.ContainsKey(npc.ModNPC.Mod.Name))
+                    {
+                        ModBannersData data = MobConverter.ModBannersData[npc.ModNPC.Mod.Name];
+                        mobID = npc.ModNPC.Type;
+                        if (data.Multiparts.ContainsKey(npc.ModNPC.Name))
+                        {
+                            if (ModContent.TryFind(npc.ModNPC.Mod.Name, data.Multiparts[npc.ModNPC.Name], out ModNPC npcauth))
+                            {
+                                mobID = npcauth.Type;
+                            }
+                            else
+                            {
+                                Logging.PublicLogger.Warn(data.Multiparts[npc.ModNPC.Name] + " is not found mob prehit");
+                                return;
+                            }
+                        }
+
+                    }
+                    else return;
+                }
+                else
+                {
+                    mobID = MobConverter.GetMobID(npc);
+                    if (MobConverter.NPCProjectileOwners.ContainsKey(mobID))
+                        mobID = MobConverter.NPCProjectileOwners[mobID];
+                }
                 var currentMobs = Player.Player.GetModPlayer<BannerPlayer>().CurrentMobs;
                 float quantity = (currentMobs.ContainsKey(mobID) &&
                     !_black_list.Contains(mobID)) ? currentMobs[mobID] : 0;

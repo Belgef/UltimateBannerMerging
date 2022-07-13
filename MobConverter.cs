@@ -11,7 +11,7 @@ namespace UltimateBannerMerging
 {
     internal static class MobConverter
     {
-        private static readonly Dictionary<string, string> bannerToMobMaps = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> bannerToMobMaps = new()
         {
             { "WyvernBanner", "WyvernHead" },
             { "LavaBatBanner", "Lavabat" },
@@ -56,7 +56,7 @@ namespace UltimateBannerMerging
             { "MoonLordTrophy", "MoonLordHead" },
             { "FlyingDutchmanTrophy", "PirateShip" }
         };
-        public static readonly Dictionary<int, int> NPCProjectileOwners = new Dictionary<int, int>
+        public static readonly Dictionary<int, int> NPCProjectileOwners = new()
         {
             { 25, 24 },
             { 30, 29 },
@@ -92,7 +92,7 @@ namespace UltimateBannerMerging
             { NPCID.MoonLordCore, NPCID.MoonLordHead },
             { NPCID.SlimeSpiked, NPCID.KingSlime }
         };
-        public static readonly Dictionary<int, int[]> ProjectileOwners = new Dictionary<int, int[]>
+        public static readonly Dictionary<int, int[]> ProjectileOwners = new()
         {
             { ProjectileID.HarpyFeather, new int[]{ NPCID.Harpy } },
             { ProjectileID.DemonSickle, new int[]{ NPCID.Demon } },
@@ -187,10 +187,77 @@ namespace UltimateBannerMerging
             { ProjectileID.SpikedSlimeSpike, new int[]{ NPCID.SlimeSpiked } },
             { ProjectileID.SolarFlareRay, new int[]{ NPCID.SolarDrakomire } },
             { ProjectileID.SandnadoHostile, new int[]{ NPCID.SandElemental } },
-            { ProjectileID.SandnadoHostileMark, new int[]{ NPCID.SandElemental } }, 
+            { ProjectileID.SandnadoHostileMark, new int[]{ NPCID.SandElemental } },
             { ProjectileID.Skull, new int[] { NPCID.SkeletronHead } }
         };
-
+        public static readonly Dictionary<string,ModBannersData> ModBannersData = new()
+        {
+            {
+                "CalamityMod", 
+                new ModBannersData{
+                    ModName = "CalamityMod",
+                    UniqueBanners = new(){
+                        { "AmberCrawlerBanner", "CrawlerAmber" },
+                        { "AmethystCrawlerBanner", "CrawlerAmethyst" },
+                        { "ArmoredDiggerBanner", "ArmoredDiggerBody" },
+                        { "AstralachneaBanner", "AstralachneaGround" },
+                        { "BobbitWormBanner", "BobbitWormHead" },
+                        { "CloudElementalBanner", "ThiccWaifu" },
+                        { "CrystalCrawlerBanner", "CrawlerCrystal" },
+                        { "DiamondCrawlerBanner", "CrawlerDiamond" },
+                        { "EarthElementalBanner", "Horse" },
+                        { "EidolonWyrmJuvenileBanner", "EidolonWyrmBody" },
+                        { "EmeraldCrawlerBanner", "CrawlerEmerald" },
+                        { "GulperEelBanner", "GulperEelBody" },
+                        { "OarfishBanner", "OarfishBody" },
+                        { "PlaguebringerBanner", "PlaguebringerMiniboss" },
+                        { "ProfanedEnergyBanner", "ProfanedEnergyBody" },
+                        { "RubyCrawlerBanner", "CrawlerRuby" },
+                        { "SapphireCrawlerBanner", "CrawlerSapphire" },
+                        { "SeaSerpentBanner", "SeaSerpent1" },
+                        { "TopazCrawlerBanner", "CrawlerTopaz" }
+                    },
+                    Multiparts = new(){
+                        { "BobbitWormHead", "BobbitWormHead" },
+                        { "BobbitWormSegment", "BobbitWormHead" },
+                        { "DevilFish", "DevilFish" },
+                        { "DevilFishAlt", "DevilFish" },
+                        { "EidolonWyrmBody", "EidolonWyrmBody" },
+                        { "EidolonWyrmBodyAlt", "EidolonWyrmBody" },
+                        { "EidolonWyrmHead", "EidolonWyrmBody" },
+                        { "EidolonWyrmTail", "EidolonWyrmBody" },
+                        { "GulperEelBody", "GulperEelBody" },
+                        { "GulperEelBodyAlt", "GulperEelBody" },
+                        { "GulperEelHead", "GulperEelBody" },
+                        { "GulperEelTail", "GulperEelBody" },
+                        { "OarfishBody", "OarfishBody" },
+                        { "OarfishHead", "OarfishBody" },
+                        { "OarfishTail", "OarfishBody" },
+                        { "AstralachneaGround", "AstralachneaGround" },
+                        { "AstralachneaWall", "AstralachneaGround" },
+                        { "Hive", "Hive" },{ "Hiveling", "Hive" },
+                        { "Scryllar", "Scryllar" },
+                        { "ScryllarRage", "Scryllar" },
+                        { "ArmoredDiggerBody", "ArmoredDiggerBody" },
+                        { "ArmoredDiggerHead", "ArmoredDiggerBody" },
+                        { "ArmoredDiggerTail", "ArmoredDiggerBody" },
+                        { "PhantomSpirit", "PhantomSpirit" },
+                        { "PhantomSpiritL", "PhantomSpirit" },
+                        { "PhantomSpiritM", "PhantomSpirit" },
+                        { "PhantomSpiritS", "PhantomSpirit" },
+                        { "ProfanedEnergyBody", "ProfanedEnergyBody" },
+                        { "ProfanedEnergyLantern", "ProfanedEnergyBody" },
+                        { "PlagueCharger", "PlagueCharger" },
+                        { "PlagueChargerLarge", "PlagueCharger" },
+                        { "SeaSerpent1", "SeaSerpent1" },
+                        { "SeaSerpent2", "SeaSerpent1" },
+                        { "SeaSerpent3", "SeaSerpent1" },
+                        { "SeaSerpent4", "SeaSerpent1" },
+                        { "SeaSerpent5", "SeaSerpent1" },
+                    }
+                } 
+            }
+        };
 
         public static bool IsVanillaBanner(int bannerID)
         {
@@ -200,9 +267,13 @@ namespace UltimateBannerMerging
         {
             return ItemID.Search.TryGetName(trophyID, out var bannerName) && bannerName.Contains("Trophy") && TryGetBossID(trophyID, out int mobID);
         }
+        public static bool IsModdedBanner(Item item)
+        {
+            return (item.ModItem?.Name.Contains("Banner") ?? default) && ModBannersData.ContainsKey(item.ModItem.Mod.Name);
+        }
         public static int GetMobID(int bannerID)
         {
-            if(ItemID.Search.TryGetName(bannerID, out var name) && name.Contains("Banner"))
+            if (ItemID.Search.TryGetName(bannerID, out var name) && name.Contains("Banner"))
             {
                 if (NPCID.Search.TryGetId(BannerToMobName(name), out var mobID))
                 {
@@ -258,7 +329,7 @@ namespace UltimateBannerMerging
         }
         public static string BannerToMobName(string bannerName)
         {
-            if(bannerToMobMaps.ContainsKey(bannerName))
+            if (bannerToMobMaps.ContainsKey(bannerName))
                 return bannerToMobMaps[bannerName];
             else
                 return bannerName.Replace("Banner", "");

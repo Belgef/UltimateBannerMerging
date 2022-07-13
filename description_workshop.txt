@@ -9,12 +9,13 @@ have [b]The Banner[/b] and [b]The Trophy[/b] that give you maximum effects.
 [/olist]
 
 Fill free to include this mod in your list! 
-
-[c/ffc400:TODO:]
- - add other mods integration
- - add support for new 1.4 banners
  
 [hr][/hr]
+
+[h1]- v1.5.0 -[/h1]
+[list]
+[*]added full support of Calamity banners!
+[/list]
 
 [h1]- v1.4.2 -[/h1]
 [list]
