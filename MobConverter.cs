@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
@@ -49,12 +50,25 @@ namespace UltimateBannerMerging
             { "StardustWormBanner", "StardustWormHead" },
             { "RustyArmoredBonesBanner", "RustyArmoredBonesAxe" },
             { "DiablolistBanner", "DiabolistRed" },
+            { "DD2GoblinBanner", "DD2GoblinT1" },
+            { "DD2GoblinBomberBanner", "DD2GoblinBomberT1" },
+            { "DD2JavelinThrowerBanner", "DD2JavelinstT1" },
+            { "DD2WyvernBanner", "DD2WyvernT1" },
+            { "DD2LightningBugBanner", "DD2LightningBugT3" },
+            { "DD2KoboldBanner", "DD2KoboldWalkerT2" },
+            { "DD2KoboldFlyerBanner", "DD2KoboldFlyerT2" },
+            { "DD2DrakinBanner", "DD2DrakinT2" },
+            { "DD2SkeletonBanner", "DD2SkeletonT1" },
+            { "DD2WitherBeastBanner", "DD2WitherBeastT2" },
             { "EaterofWorldsTrophy", "EaterofWorldsHead" },
             { "DestroyerTrophy", "TheDestroyer" },
             { "SkeletronTrophy", "SkeletronHead" },
             { "AncientCultistTrophy", "CultistBoss" },
             { "MoonLordTrophy", "MoonLordHead" },
-            { "FlyingDutchmanTrophy", "PirateShip" }
+            { "FlyingDutchmanTrophy", "PirateShip" },
+            { "BossTrophyDarkmage", "DD2DarkMageT1" },
+            { "BossTrophyOgre", "DD2OgreT2" },
+            { "BossTrophyBetsy", "DD2Betsy" }
         };
         public static readonly Dictionary<int, int> NPCProjectileOwners = new()
         {
@@ -188,7 +202,19 @@ namespace UltimateBannerMerging
             { ProjectileID.SolarFlareRay, new int[]{ NPCID.SolarDrakomire } },
             { ProjectileID.SandnadoHostile, new int[]{ NPCID.SandElemental } },
             { ProjectileID.SandnadoHostileMark, new int[]{ NPCID.SandElemental } },
-            { ProjectileID.Skull, new int[] { NPCID.SkeletronHead } }
+            { ProjectileID.Skull, new int[] { NPCID.SkeletronHead } },
+            { ProjectileID.DD2GoblinBomb, new int[] { NPCID.DD2GoblinBomberT1 } },
+            { ProjectileID.DD2LightningBugZap, new int[] { NPCID.DD2LightningBugT3 } },
+            { ProjectileID.DD2OgreStomp, new int[] { NPCID.DD2OgreT2 } },
+            { ProjectileID.DD2OgreSpit, new int[] { NPCID.DD2OgreT2 } },
+            { ProjectileID.DD2OgreSmash, new int[] { NPCID.DD2OgreT2 } },
+            { ProjectileID.DD2DarkMageRaise, new int[] { NPCID.DD2DarkMageT1 } },
+            { ProjectileID.DD2DarkMageHeal, new int[] { NPCID.DD2DarkMageT1 } },
+            { ProjectileID.DD2DarkMageBolt, new int[] { NPCID.DD2DarkMageT1 } },
+            { ProjectileID.DD2DrakinShot, new int[] { NPCID.DD2DrakinT2 } },
+            { ProjectileID.DD2JavelinHostileT3, new int[] { NPCID.DD2JavelinstT1 } },
+            { ProjectileID.DD2BetsyFireball, new int[] { NPCID.DD2Betsy } },
+            { ProjectileID.DD2BetsyFlameBreath, new int[] { NPCID.DD2Betsy } }
         };
         public static readonly Dictionary<string,ModBannersData> ModBannersData = new()
         {
@@ -344,9 +370,10 @@ namespace UltimateBannerMerging
 
         public static int GetMobID(Terraria.NPC mob)
         {
-            if (mob.FullName == "True Eye of Cthulhu")
+            var name = mob.FullName;
+            if (name == "True Eye of Cthulhu")
                 return 400;
-            return NPCID.FromLegacyName(mob.FullName);
+            return NPCID.FromLegacyName(name);
         }
         public static int[] GetMobID(Projectile proj)
         {

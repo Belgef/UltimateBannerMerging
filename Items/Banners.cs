@@ -276,6 +276,20 @@ namespace UltimateBannerMerging.Items
         public override int[] BannerItemIds => System.Array.Empty<int>();
         public override short[] AdditionalMobs => new short[] { };
     }
+    public class OldArmyBanner : BannerItem
+    {
+        public override string ShowName => "Old One's Army";
+        public override short[] BannerList => new short[] {
+            ItemID.DD2JavelinThrowerBanner,
+            ItemID.DD2GoblinBanner,
+            ItemID.DD2GoblinBomberBanner,
+            ItemID.DD2WyvernBanner
+        };
+        public override int[] BannerItemIds => System.Array.Empty<int>();
+        public override short[] AdditionalMobs => new short[] { 
+            NPCID.DD2SkeletonT1
+        };
+    }
     public class UnderworldBanner : BannerItem
     {
         public override string ShowName => "Underworld";
@@ -301,6 +315,7 @@ namespace UltimateBannerMerging.Items
             ModContent.ItemType<AdvancedBanner>(),
             ModContent.ItemType<DungeonBanner>(),
             ModContent.ItemType<GoblinArmyBanner>(),
+            ModContent.ItemType<OldArmyBanner>(),
             ModContent.ItemType<UnderworldBanner>()
         };
         public override short[] AdditionalMobs => new short[] { };
@@ -582,6 +597,19 @@ namespace UltimateBannerMerging.Items
         public override int[] BannerItemIds => System.Array.Empty<int>();
         public override short[] AdditionalMobs => new short[] { };
     }
+    public class OldArmyHardmodeBanner : BannerItem
+    {
+        public override string ShowName => "Old One's Army Hardmode";
+        public override short[] BannerList => new short[] {
+            ItemID.DD2DrakinBanner,
+            ItemID.DD2LightningBugBanner,
+            ItemID.DD2KoboldBanner,
+            ItemID.DD2KoboldFlyerBanner,
+            ItemID.DD2WitherBeastBanner
+        };
+        public override int[] BannerItemIds => System.Array.Empty<int>();
+        public override short[] AdditionalMobs => new short[] { };
+    }
     public class PumpkinMoonBanner : BannerItem
     {
         public override string ShowName => "Pumpkin Moon";
@@ -690,6 +718,7 @@ namespace UltimateBannerMerging.Items
         public override int[] BannerItemIds => new int[] {
             ModContent.ItemType<ExceptionalBanner>(),
             ModContent.ItemType<MartianBanner>(),
+            ModContent.ItemType<OldArmyHardmodeBanner>(),
             ModContent.ItemType<PumpkinMoonBanner>(),
             ModContent.ItemType<FrostMoonBanner>(),
             ModContent.ItemType<LunarBanner>()

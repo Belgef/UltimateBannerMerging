@@ -9,8 +9,12 @@ have [c/3b7fff:The Banner] and [c/3b7fff:The Trophy] that give you maximum effec
 Fill free to include this mod in your list! 
 
  
+[c/75ff6b:- v1.5.1 -]
+ - fixed and included in crafts Old One's Army enemies and bosses
+ - fixed damage increase bug
+
 [c/75ff6b:- v1.5.0 -]
- - added full support of Calamity banners!
+ - added full support of Calamity banners
 
 [c/75ff6b:- v1.4.2 -]
  - now banners and trophies have the same effect when stored in piggy bank, safe, defenders forge, or void vault/bag

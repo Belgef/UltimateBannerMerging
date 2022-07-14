@@ -29,7 +29,8 @@ namespace UltimateBannerMerging.Items
         {
             ItemID.WallofFleshTrophy,
             ItemID.KingSlimeTrophy,
-            ItemID.QueenBeeTrophy
+            ItemID.QueenBeeTrophy,
+            ItemID.BossTrophyDarkmage
         };
 
         public override int[] TrophyItemIds => new int[] {
@@ -95,6 +96,9 @@ namespace UltimateBannerMerging.Items
         public override short[] TrophyList => new short[]
         {
             ItemID.FlyingDutchmanTrophy,
+            ItemID.MartianSaucerTrophy,
+            ItemID.BossTrophyOgre,
+            ItemID.BossTrophyBetsy,
             ItemID.MartianSaucerTrophy
         };
 

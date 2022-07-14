@@ -12,9 +12,15 @@ Fill free to include this mod in your list!
  
 [hr][/hr]
 
+[h1]- v1.5.1 -[/h1]
+[list]
+[*]fixed and included in crafts Old One's Army enemies and bosses
+[*]fixed damage increase bug
+[/list]
+
 [h1]- v1.5.0 -[/h1]
 [list]
-[*]added full support of Calamity banners!
+[*]added full support of Calamity banners
 [/list]
 
 [h1]- v1.4.2 -[/h1]

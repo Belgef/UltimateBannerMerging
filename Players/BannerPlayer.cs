@@ -132,7 +132,6 @@ namespace UltimateBannerMerging.Players
                             return;
                         }
                     }
-
                 }
                 else return;
             }
@@ -141,7 +140,6 @@ namespace UltimateBannerMerging.Players
                 mobID = MobConverter.GetMobID(target);
                 if (MobConverter.NPCProjectileOwners.ContainsKey(mobID))
                     mobID = MobConverter.NPCProjectileOwners[mobID];
-                else return;
             }
             var config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             if (CurrentMobs.ContainsKey(mobID))

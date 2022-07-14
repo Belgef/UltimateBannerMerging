@@ -65,6 +65,7 @@ namespace UltimateBannerMerging
             { "Advanced",               new ItemInfo(){ Price =  50000, Multiplyer = 2.0f } },//24 12 9 6
             { "Dungeon",                new ItemInfo(){ Price =  20000, Multiplyer = 3.0f } },
             { "Goblin Army",            new ItemInfo(){ Price =  20000, Multiplyer = 3.0f } },
+            { "Old One's Army",         new ItemInfo(){ Price =  20000, Multiplyer = 3.0f } },
             { "Underworld",             new ItemInfo(){ Price =  20000, Multiplyer = 3.0f } },
             { "Professional",           new ItemInfo(){ Price =  80000, Multiplyer = 1.5f } },//36 18 13.5 9 4.5
             { "Hardmode Surface",       new ItemInfo(){ Price =  30000, Multiplyer = 3.0f } },
@@ -81,6 +82,7 @@ namespace UltimateBannerMerging
             { "Solar Eclipse",          new ItemInfo(){ Price =  50000, Multiplyer = 3.0f } },
             { "Exceptional",            new ItemInfo(){ Price = 200000, Multiplyer = 1.5f } },//216 108 81 54 27 18 9 4.5
             { "Martian",                new ItemInfo(){ Price = 100000, Multiplyer = 3.0f } },
+            { "Old One's Army Hardmode",new ItemInfo(){ Price = 100000, Multiplyer = 3.0f } },
             { "Pumpkin Moon",           new ItemInfo(){ Price = 100000, Multiplyer = 3.0f } },
             { "Frost Moon",             new ItemInfo(){ Price = 100000, Multiplyer = 3.0f } },
             { "Vortex",                 new ItemInfo(){ Price = 100000, Multiplyer = 3.0f } },
