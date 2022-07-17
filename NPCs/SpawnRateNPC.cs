@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 using UltimateBannerMerging.Buffs;
 using UltimateBannerMerging.Items;
 
-namespace UltimateBannerMerging.NPC
+namespace UltimateBannerMerging.NPCs
 {
     internal class SpawnRateNPC : GlobalNPC
     {

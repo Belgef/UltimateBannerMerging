@@ -21,11 +21,11 @@ namespace UltimateBannerMerging.Items
 		//protected string[] NameList => BannerList.Concat(AdditionalBanners).Select(n => MobBanners.GetBannerByID((int)n).Name)
 		//	.Concat(BannerItems.SelectMany(b=>b.NameList)).OrderBy(s=>s).ToArray();
 
-		public override string Texture => (GetType().Namespace + ".BannerSprites." + Name).Replace('.', '/');
+		public override string Texture => (GetType().Namespace + ".Sprites." + Name).Replace('.', '/');
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault($"{ShowName} Banner");
+			DisplayName.SetDefault(ShowName);
 		}
 
 		public override void ModifyTooltips(List<TooltipLine> tooltips)
