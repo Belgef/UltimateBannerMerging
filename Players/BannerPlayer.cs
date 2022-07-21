@@ -6,24 +6,25 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using UltimateBannerMerging.Buffs;
 using UltimateBannerMerging.Helpers;
+using UltimateBannerMerging.NPCs;
 
 namespace UltimateBannerMerging.Players
 {
     internal class BannerPlayer : ModPlayer
     {
-        private BannerCollection _bannerCollection;
+        public BannerCollection BannerCollection { get; set; }
 
         public override void Initialize()
         {
-            _bannerCollection = new(Mod.GetConfig(nameof(BannerConfig)) as BannerConfig);
-            _bannerCollection.OnFillBanner += () => Player.AddBuff(ModContent.BuffType<BannerBuff>(), int.MaxValue);
-            _bannerCollection.OnEmptyBanner += () => Player.ClearBuff(ModContent.BuffType<BannerBuff>());
-            _bannerCollection.OnFillTrophy += () => Player.AddBuff(ModContent.BuffType<TrophyBuff>(), int.MaxValue);
-            _bannerCollection.OnEmptyTrophy += () => Player.ClearBuff(ModContent.BuffType<TrophyBuff>());
+            BannerCollection = new(Mod.GetConfig(nameof(BannerConfig)) as BannerConfig);
+            BannerCollection.OnFillBanner += () => Player.AddBuff(ModContent.BuffType<BannerBuff>(), int.MaxValue);
+            BannerCollection.OnEmptyBanner += () => Player.ClearBuff(ModContent.BuffType<BannerBuff>());
+            BannerCollection.OnFillTrophy += () => Player.AddBuff(ModContent.BuffType<TrophyBuff>(), int.MaxValue);
+            BannerCollection.OnEmptyTrophy += () => Player.ClearBuff(ModContent.BuffType<TrophyBuff>());
         }
         public override void PostUpdate()
         {
-            _bannerCollection.Update(Player);
+            BannerCollection.Update(Player);
 
             if (Player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
                 Player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
@@ -31,7 +32,16 @@ namespace UltimateBannerMerging.Players
 
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-            damage = (int)(damage * _bannerCollection.GetDealtDamageMultiplier(target));
+            damage = (int)(damage * BannerCollection.GetDealtDamageMultiplier(target));
+
+            SetNPCLootParameters(target, damage);
+        }
+
+        private void SetNPCLootParameters(NPC npc, int lastDamage)
+        {
+            MoreLootNPC gnpc = npc.GetGlobalNPC<MoreLootNPC>();
+            gnpc.Player = this;
+            gnpc.LastDamage = lastDamage;
         }
         
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
@@ -41,7 +51,7 @@ namespace UltimateBannerMerging.Players
         
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
-            float damageMultiplier = _bannerCollection.GetReceivedDamageMultiplier(damageSource);
+            float damageMultiplier = BannerCollection.GetReceivedDamageMultiplier(damageSource);
             if (damageMultiplier == 0)
                 return false;
             damage = (int)(damage * damageMultiplier);

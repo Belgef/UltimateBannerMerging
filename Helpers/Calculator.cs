@@ -11,5 +11,10 @@
         {
             return 1 - quantity / maxQuantity;
         }
+
+        public static int CalculateLootMultiplier(float quantity, int maxQuantity, int maxMultiplier)
+        {
+            return (int)((maxMultiplier - 1) * quantity / maxQuantity) + 1;
+        }
     }
 }

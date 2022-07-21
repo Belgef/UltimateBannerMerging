@@ -10,8 +10,18 @@ namespace UltimateBannerMerging.Helpers
     {
         public string ModName { get; set; }
 
+        public string[] Banners { get; set; }
+
+        public string[] Trophies { get; set; }
+
         public Dictionary<string, string> UniqueBanners { get; set; }
 
-        public Dictionary<string, string> Multiparts { get; set; }
+        public Dictionary<string, string> UniqueTrophies { get; set; }
+
+        public Dictionary<string, string> Normalizer { get; set; }
+
+        public string[] Bosses { get; set; }
+
+        public string[] Blacklist { get; set; }
     }
 }

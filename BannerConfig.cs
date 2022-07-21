@@ -39,14 +39,14 @@ namespace UltimateBannerMerging
         [DefaultValue("4")]
         [Label("Max Boss Damage Multiplier")]
         public int MaxBossDamageIncrease;
-        [JsonIgnore]
+        //[JsonIgnore]
         //[Range(1f, 100f)]
         //[DefaultValue("5")]
         //[Label("Max Boss Drop Multiplier")]
-        public int DropMaxBossMultiplier;
+        //public int DropMaxBossMultiplier;
 
         [JsonIgnore]
-        public Dictionary<string, ItemInfo> BannerStats => new Dictionary<string, ItemInfo>()
+        public Dictionary<string, ItemInfo> BannerStats => new()
         {
             { "Forest Banner",                 new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } },
             { "Rain Banner",                   new ItemInfo(){ Price =   5000, Multiplyer = 3.0f } },

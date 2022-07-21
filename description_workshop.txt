@@ -43,8 +43,8 @@ Fill free to include this mod in your list!
  
 [h1]- v1.3.0 -[/h1]
 [list]
- - fixed all banner prices and coefficients
- - when enemy damage has become low enough, you become invulnerable to this enemy. [b]The Banner[/b] makes you immune to all enemies except all bosses and minibosses
- - fixed damage cap. Now it is 400%. You will be able to change it in the future
- - you also take lower damage from all enemy projectiles if you have a corresponding banner
+[*]fixed all banner prices and coefficients
+[*]when enemy damage has become low enough, you become invulnerable to this enemy. [b]The Banner[/b] makes you immune to all enemies except all bosses and minibosses
+[*]fixed damage cap. Now it is 400%. You will be able to change it in the future
+[*]you also take lower damage from all enemy projectiles if you have a corresponding banner
 [/list]
