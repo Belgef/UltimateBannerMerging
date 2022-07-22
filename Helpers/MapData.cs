@@ -289,26 +289,26 @@ namespace UltimateBannerMerging.Helpers
                     },
                     UniqueBanners = new()
                     {
-                        { "ArmoredDiggerBanner", "ArmoredDiggerBody" }, { "AstralachneaBanner", "AstralachneaGround" },
-                        { "BobbitWormBanner", "BobbitWormHead" }, { "AmberCrawlerBanner", "CrawlerAmber" },
-                        { "AmethystCrawlerBanner", "CrawlerAmethyst" }, { "CrystalCrawlerBanner", "CrawlerCrystal" },
-                        { "DiamondCrawlerBanner", "CrawlerDiamond" }, { "EmeraldCrawlerBanner", "CrawlerEmerald" },
-                        { "RubyCrawlerBanner", "CrawlerRuby" }, { "SapphireCrawlerBanner", "CrawlerSapphire" },
-                        { "TopazCrawlerBanner", "CrawlerTopaz" }, { "EidolonWyrmJuvenileBanner", "EidolonWyrmBody" },
-                        { "GulperEelBanner", "GulperEelBody" }, { "EarthElementalBanner", "Horse" },
-                        { "OarfishBanner", "OarfishBody" }, { "PlaguebringerBanner", "PlaguebringerMiniboss" },
-                        { "ProfanedEnergyBanner", "ProfanedEnergyBody" }, { "SeaSerpentBanner", "SeaSerpent1" },
-                        { "CloudElementalBanner", "ThiccWaifu" },
+                        { "ArmoredDiggerBody", "ArmoredDiggerBanner" }, { "AstralachneaGround", "AstralachneaBanner" },
+                        { "BobbitWormHead", "BobbitWormBanner" }, { "CrawlerAmber", "AmberCrawlerBanner" },
+                        { "CrawlerAmethyst", "AmethystCrawlerBanner" }, { "CrawlerCrystal", "CrystalCrawlerBanner" },
+                        { "CrawlerDiamond", "DiamondCrawlerBanner" }, { "CrawlerEmerald", "EmeraldCrawlerBanner" },
+                        { "CrawlerRuby", "RubyCrawlerBanner" }, { "CrawlerSapphire", "SapphireCrawlerBanner" },
+                        { "CrawlerTopaz", "TopazCrawlerBanner" }, { "EidolonWyrmBody", "EidolonWyrmJuvenileBanner" },
+                        { "GulperEelBody", "GulperEelBanner" }, { "Horse", "EarthElementalBanner" },
+                        { "OarfishBody", "OarfishBanner" }, { "PlaguebringerMiniboss", "PlaguebringerBanner" },
+                        { "ProfanedEnergyBody", "ProfanedEnergyBanner" }, { "SeaSerpent1", "SeaSerpentBanner" },
+                        { "ThiccWaifu", "CloudElementalBanner" },
                     },
                     UniqueTrophies = new()
                     {
-                        { "AquaticScourgeTrophy", "AquaticScourgeBody" }, { "AresTrophy", "AresBody" },
-                        { "AstrumDeusTrophy", "AstrumDeusBody" }, { "DragonfollyTrophy", "Bumblefuck" },
-                        { "CalamitasTrophy", "CalamitasClone" }, { "DesertScourgeTrophy", "DesertScourgeBody" },
-                        { "DevourerofGodsTrophy", "DevourerofGodsBody" }, { "PerforatorTrophy", "PerforatorHive" },
-                        { "ProfanedGuardianTrophy", "ProfanedGuardianCommander" }, { "RavagerTrophy", "RavagerBody" },
-                        { "SlimeGodTrophy", "SlimeGodCore" }, { "WeaverTrophy", "StormWeaverBody" },
-                        { "ThanatosTrophy", "ThanatosHead" },
+                        { "AquaticScourgeBody", "AquaticScourgeTrophy" }, { "AresBody", "AresTrophy" },
+                        { "AstrumDeusBody", "AstrumDeusTrophy" }, { "Bumblefuck", "DragonfollyTrophy" },
+                        { "CalamitasClone", "CalamitasTrophy" }, { "DesertScourgeBody", "DesertScourgeTrophy" },
+                        { "DevourerofGodsBody", "DevourerofGodsTrophy" }, { "PerforatorHive", "PerforatorTrophy" },
+                        { "ProfanedGuardianCommander", "ProfanedGuardianTrophy" }, { "RavagerBody", "RavagerTrophy" },
+                        { "SlimeGodCore", "SlimeGodTrophy" }, { "StormWeaverBody", "WeaverTrophy" },
+                        { "ThanatosHead", "ThanatosTrophy" },
                     },
                     Bosses = new[]
                     {
@@ -320,6 +320,87 @@ namespace UltimateBannerMerging.Helpers
                         "Signus", "SlimeGodCore", "StormWeaverBody", "SupremeCalamitas", "SupremeCataclysm",
                         "SupremeCatastrophe", "ThanatosHead", "Yharon",
                     }, Blacklist = Array.Empty<string>(),
+                    Projectiles = new()
+                    {
+                        { "BelchingCoralSpike", "BelchingCoral" }, { "CrabBoulder", "AnthozoanCrab" },
+                        { "CragmawAcidDrop", "CragmawMire" }, { "CragmawBeam", "CragmawMire" },
+                        { "CragmawBubble", "CragmawMire" }, { "CragmawExplosion", "CragmawMire" },
+                        { "CragmawSpike", "CragmawMire" }, { "CragmawVibeCheckChain", "CragmawMire" },
+                        { "CrimsonSpike", "SlimeGodCore" }, { "EarthRockBig", "Horse" }, { "EarthRockSmall", "Horse" },
+                        { "FlakAcid", "FlakCrab" }, { "FlameBurstHostile", "RavagerBody" },
+                        { "GammaAcid", "GammaSlime" }, { "GammaBeam", "GammaSlime" }, { "HorsWaterBlast", "Cnidrion" },
+                        { "InkBombHostile", "ColossalSquid" }, { "InkPoisonCloud", "ColossalSquid" },
+                        { "InkPoisonCloud2", "ColossalSquid" }, { "InkPoisonCloud3", "ColossalSquid" },
+                        { "LightningCloud", "ThiccWaifu" }, { "MantisRing", "Mantis" },
+                        { "MaulerAcidBubble", "Mauler" }, { "MaulerAcidDrop", "Mauler" },
+                        { "NuclearBulletLarge", "NuclearTerror" }, { "NuclearBulletMedium", "NuclearTerror" },
+                        { "NuclearToadGoo", "NuclearToad" }, { "OrthoceraStream", "Orthocera" },
+                        { "PearlBurst", "GiantClam" }, { "PearlRain", "GiantClam" },
+                        { "PufferExplosion", "ChaoticPuffer" }, { "StormMarkHostile", "ThiccWaifu" },
+                        { "TornadoHostile", "ThiccWaifu" }, { "ToxicMinnowCloud", "ToxicMinnow" },
+                        { "TrilobiteSpike", "Trilobite" }, { "ApolloChargeTelegraph", "Apollo" },
+                        { "ApolloFireball", "Apollo" }, { "ApolloRocket", "Apollo" },
+                        { "AresDeathBeamTelegraph", "AresBody" }, { "AresGaussNukeProjectile", "AresBody" },
+                        { "AresGaussNukeProjectileSpark", "AresBody" }, { "AresLaserBeamStart", "AresBody" },
+                        { "AresPlasmaBolt", "AresBody" }, { "AresPlasmaFireball", "AresBody" },
+                        { "AresTeslaOrb", "AresBody" }, { "ArtemisChargeTelegraph", "Artemis" },
+                        { "ArtemisDeathrayTelegraph", "Artemis" }, { "ArtemisLaser", "Artemis" },
+                        { "AstralFlame", "AstrumAureus" }, { "AstralGodRay", "AstrumAureus" },
+                        { "AstralLaser", "AstrumAureus" }, { "AstralShot2", "AstrumAureus" }, { "BigFlare", "Yharon" },
+                        { "BigFlare2", "Yharon" }, { "BirbAura", "Bumblefuck" }, { "BirbAuraFlare", "Bumblefuck" },
+                        { "BloodGeyser", "PerforatorHive" }, { "BrimstoneBall", "BrimstoneElemental" },
+                        { "BrimstoneBarrage", "BrimstoneElemental" }, { "BrimstoneFire", "BrimstoneElemental" },
+                        { "BrimstoneHellblast", "BrimstoneElemental" }, { "BrimstoneHellblast2", "BrimstoneElemental" },
+                        { "BrimstoneHellfireball", "BrimstoneElemental" }, { "BrimstoneMonster", "BrimstoneElemental" },
+                        { "BrimstoneRay", "BrimstoneElemental" }, { "BrimstoneTargetRay", "BrimstoneElemental" },
+                        { "BrimstoneWave", "BrimstoneElemental" }, { "BrokenApolloLens", "Apollo" },
+                        { "BrokenArtemisLens", "Artemis" }, { "DarkEnergyBall", "CeaselessVoid" },
+                        { "DarkEnergyBall2", "CeaselessVoid" }, { "DarkOrb", "CeaselessVoid" },
+                        { "DeusMine", "AstrumDeusBody" }, { "DeusRitualDrama", "AstrumDeusBody" },
+                        { "DoGBeam", "DevourerofGodsBody" }, { "DoGBeamPortal", "DevourerofGodsBody" },
+                        { "DoGDeath", "DevourerofGodsBody" }, { "DoGFire", "DevourerofGodsBody" },
+                        { "DoGP1EndPortal", "DevourerofGodsBody" }, { "DoGTeleportRift", "DevourerofGodsBody" },
+                        { "EssenceDust", "Signus" }, { "Flare", "Yharon" }, { "FlareBomb", "Yharon" },
+                        { "FlareDust", "ProfanedGuardianCommander" }, { "FlareDust2", "Yharon" },
+                        { "Flarenado", "Yharon" }, { "FrostMist", "Leviathan" },
+                        { "GreatSandBlast", "AquaticScourgeBody" }, { "HealOrbProv", "Providence" },
+                        { "HiveBombGoliath", "PlaguebringerGoliath" }, { "HolyAura", "Providence" },
+                        { "HolyBlast", "Providence" }, { "HolyBomb", "Providence" }, { "HolyBurnOrb", "Providence" },
+                        { "HolyFire", "Providence" }, { "HolyFire2", "Providence" }, { "HolyFlare", "Providence" },
+                        { "HolyLight", "Providence" }, { "HolySpear", "Providence" }, { "IceBlast", "Cryogen" },
+                        { "IceBomb", "Cryogen" }, { "IceRain", "Cryogen" }, { "IchorBlob", "PerforatorHive" },
+                        { "IchorShot", "PerforatorHive" }, { "Infernado", "Yharon" }, { "Infernado2", "Yharon" },
+                        { "InfernadoRevenge", "Yharon" }, { "LeviathanBomb", "Leviathan" },
+                        { "LeviathanSpawner", "Leviathan" }, { "MoltenBlast", "Providence" },
+                        { "MoltenBlob", "Providence" }, { "MushBomb", "Crabulon" }, { "MushBombFall", "Crabulon" },
+                        { "OldDukeGore", "OldDuke" }, { "OldDukeSummonDrop", "OldDuke" },
+                        { "OldDukeVortex", "OldDuke" }, { "OverlyDramaticDukeSummoner", "OldDuke" },
+                        { "PhantomBlast", "Polterghast" }, { "PhantomBlast2", "Polterghast" },
+                        { "PhantomGhostShot", "Polterghast" }, { "PhantomHookShot", "Polterghast" },
+                        { "PhantomMine", "Polterghast" }, { "PhantomShot", "Polterghast" },
+                        { "PhantomShot2", "Polterghast" }, { "PlagueExplosion", "PlaguebringerGoliath" },
+                        { "PlagueStingerGoliath", "PlaguebringerGoliath" },
+                        { "PlagueStingerGoliathV2", "PlaguebringerGoliath" }, { "ProfanedSpear", "Providence" },
+                        { "ProvidenceCrystal", "Providence" }, { "ProvidenceCrystalShard", "Providence" },
+                        { "ProvidenceHolyRay", "Providence" }, { "RavagerFlame", "RavagerBody" },
+                        { "RedLightning", "Bumblefuck" }, { "RedLightningFeather", "Bumblefuck" },
+                        { "SandBlast", "AquaticScourgeBody" }, { "SandPoisonCloud", "AquaticScourgeBody" },
+                        { "SandPoisonCloudOldDuke", "OldDuke" }, { "SandTooth", "AquaticScourgeBody" },
+                        { "SCalBrimstoneFireblast", "SupremeCalamitas" },
+                        { "SCalBrimstoneGigablast", "SupremeCalamitas" }, { "SCalRitualDrama", "SupremeCalamitas" },
+                        { "ScavengerLaser", "RavagerBody" }, { "ScavengerNuke", "RavagerBody" },
+                        { "ShadeNimbusHostile", "HiveMind" }, { "ShaderainHostile", "HiveMind" },
+                        { "ShadowflameFireball", "HiveMind" }, { "Shadowflamethrower", "HiveMind" },
+                        { "SignusScythe", "Signus" }, { "SirenSong", "Leviathan" }, { "SkyFlare", "Yharon" },
+                        { "SkyFlareRevenge", "Yharon" }, { "StormWeaverFrostWaveTelegraph", "StormWeaverBody" },
+                        { "SupremeCataclysmFist", "SupremeCataclysm" },
+                        { "SupremeCatastropheSlash", "SupremeCatastrophe" }, { "SwirlingFire", "BrimstoneElemental" },
+                        { "ThanatosBeamTelegraph", "ThanatosHead" }, { "ThanatosLaser", "ThanatosHead" },
+                        { "ToxicCloud", "AquaticScourgeBody" }, { "UnstableCrimulanGlob", "SlimeGodCore" },
+                        { "UnstableEbonianGlob", "SlimeGodCore" }, { "VileClot", "HiveMind" },
+                        { "WaterSpear", "Leviathan" }, { "YharonBulletHellVortex", "Yharon" },
+                        { "YharonFireball", "Yharon" }, { "YharonFireball2", "Yharon" },
+                    },
                 }
             }
         };
@@ -379,11 +460,11 @@ namespace UltimateBannerMerging.Helpers
             }
             else if (ModBannersData[modName].Banners.Contains(mobName + "Banner"))
             {
-                bannerName = modName + "Banner";
+                bannerName = mobName + "Banner";
             }
             else if (ModBannersData[modName].Trophies.Contains(mobName + "Trophy"))
             {
-                bannerName = modName + "Trophy";
+                bannerName = mobName + "Trophy";
             }
             else
                 return false;
@@ -405,6 +486,8 @@ namespace UltimateBannerMerging.Helpers
 
         public static bool IsInModList(NPC npc) => npc.ModNPC != null && ModBannersData.ContainsKey(npc.ModNPC.Mod.Name);
 
+        public static bool IsInModList(Projectile proj) => proj.ModProjectile != null && ModBannersData.ContainsKey(proj.ModProjectile.Mod.Name);
+
         public static bool TryGetProjectileOwners(int projectileId, out int[] owners)
         {
             if (ProjectileOwners.ContainsKey(projectileId))
@@ -416,14 +499,30 @@ namespace UltimateBannerMerging.Helpers
             return false;
         }
 
+        public static bool TryGetProjectileOwner(Projectile proj, out string owner)
+        {
+            if (IsInModList(proj) && ModBannersData[proj.ModProjectile.Mod.Name].Projectiles.ContainsKey(proj.ModProjectile.Name))
+            {
+                owner = ModBannersData[proj.ModProjectile.Mod.Name].Projectiles[proj.ModProjectile.Name];
+                return true;
+            }
+            owner = null;
+            return false;
+        }
+
         public static int Normalize(int mobId) => Normalizer.ContainsKey(mobId) ? Normalizer[mobId] : mobId;
 
         public static string Normalize(NPC npc)
         {
-            return (IsInModList(npc) &&
-                    ModBannersData[npc.ModNPC.Mod.Name].Normalizer.ContainsKey(npc.ModNPC.Name))
-                ? ModBannersData[npc.ModNPC.Mod.Name].Normalizer[npc.ModNPC.Name]
-                : npc.ModNPC.Name;
+            return Normalize(npc.ModNPC.Name, npc.ModNPC.Mod.Name);
+        }
+
+        public static string Normalize(string npcName, string modName)
+        {
+            return (ModBannersData.ContainsKey(modName) &&
+                    ModBannersData[modName].Normalizer.ContainsKey(npcName))
+                ? ModBannersData[modName].Normalizer[npcName]
+                : npcName;
         }
 
         public static bool IsInLootBlackList(int mobId) => BlackList.Contains(mobId);

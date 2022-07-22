@@ -114,53 +114,53 @@ namespace UltimateBannerMerging.Helpers
 
         public float GetDealtDamageMultiplier(NPC npc)
         {
-            if (npc.ModNPC == null)
-            {
-                float quantity = 0;
-                int normalizedId = MapData.Normalize(npc.netID);
-                if (TryGetAdditionalMobQuantity(normalizedId, out float quantity2))
-                {
-                    quantity = quantity2;
-                }
-                else if (MapData.TryMapNPCToBanner(normalizedId, out int bannerId))
-                {
-                    quantity = GetBannerQuantity(bannerId);
-                }
-                else
-                    Logging.PublicLogger.Warn($"Cannot find banner of Terraria NPC \"{npc.FullName}\"");
+             if (npc.ModNPC == null)
+             {
+                 float quantity = 0;
+                 int normalizedId = MapData.Normalize(npc.netID);
+                 if (TryGetAdditionalMobQuantity(normalizedId, out float quantity2))
+                 {
+                     quantity = quantity2;
+                 }
+                 else if (MapData.TryMapNPCToBanner(normalizedId, out int bannerId))
+                 {
+                     quantity = GetBannerQuantity(bannerId);
+                 }
+                 else
+                     Logging.PublicLogger.Warn($"Cannot find banner of Terraria NPC \"{npc.FullName}\"");
 
-                return MapData.IsBoss(normalizedId)
-                    ? Calculator.CalculateDealtDamageMultiplier(quantity, _config.BossInvulnerabilityCap,
-                        _config.MaxBossDamageIncrease)
-                    : Calculator.CalculateDealtDamageMultiplier(quantity, _config.InvulnerabilityCap,
-                        _config.MaxDamageIncrease);
-            }
-            else if(MapData.IsInModList(npc))
-            {
-                float quantity = 0;
-                string normalizedName = MapData.Normalize(npc);
-                if (ModContent.TryFind(npc.ModNPC.Mod.Name, normalizedName, out ModNPC normalizedNpc))
-                {
-                    if (TryGetAdditionalMobQuantity(normalizedNpc.Type, out float quantity2))
-                    {
-                        quantity = quantity2;
-                    }
-                }
-                else if (MapData.TryMapNPCToBanner(normalizedName, npc.ModNPC.Mod.Name, out string bannerName))
-                {
-                    if (ModContent.TryFind(npc.ModNPC.Mod.Name, bannerName, out ModItem bannerItem))
-                        quantity = GetBannerQuantity(bannerItem.Type);
-                }
-                else
-                    Logging.PublicLogger.Warn($"Cannot find banner of {npc.ModNPC.Mod.Name} NPC \"{npc.FullName}\"");
-
-                return MapData.IsBoss(normalizedName, npc.ModNPC.Mod.Name)
-                    ? Calculator.CalculateDealtDamageMultiplier(quantity, _config.BossInvulnerabilityCap,
-                        _config.MaxBossDamageIncrease)
-                    : Calculator.CalculateDealtDamageMultiplier(quantity, _config.InvulnerabilityCap,
-                        _config.MaxDamageIncrease);
-            }
-            return 1;
+                 return MapData.IsBoss(normalizedId)
+                     ? Calculator.CalculateDealtDamageMultiplier(quantity, _config.BossInvulnerabilityCap,
+                         _config.MaxBossDamageIncrease)
+                     : Calculator.CalculateDealtDamageMultiplier(quantity, _config.InvulnerabilityCap,
+                         _config.MaxDamageIncrease);
+             }
+             if(MapData.IsInModList(npc))
+             {
+                 float quantity = 0;
+                 string normalizedName = MapData.Normalize(npc);
+                 if (ModContent.TryFind(npc.ModNPC.Mod.Name, normalizedName, out ModNPC normalizedNpc))
+                 {
+                     if (TryGetAdditionalMobQuantity(normalizedNpc.Type, out float quantity2))
+                     {
+                         quantity = quantity2;
+                     }
+                     else if (MapData.TryMapNPCToBanner(normalizedName, npc.ModNPC.Mod.Name, out string bannerName))
+                     {
+                         if (ModContent.TryFind(npc.ModNPC.Mod.Name, bannerName, out ModItem bannerItem))
+                             quantity = GetBannerQuantity(bannerItem.Type);
+                     }
+                     else
+                         Logging.PublicLogger.Warn($"Cannot find banner of {npc.ModNPC.Mod.Name} NPC \"{npc.FullName}\"");
+                 }
+                
+                 return MapData.IsBoss(normalizedName, npc.ModNPC.Mod.Name)
+                     ? Calculator.CalculateDealtDamageMultiplier(quantity, _config.BossInvulnerabilityCap,
+                         _config.MaxBossDamageIncrease)
+                     : Calculator.CalculateDealtDamageMultiplier(quantity, _config.InvulnerabilityCap,
+                         _config.MaxDamageIncrease);
+             }
+             return 1;
         }
 
         private float GetBannerQuantity(int bannerId)
@@ -187,7 +187,7 @@ namespace UltimateBannerMerging.Helpers
                 return GetReceivedNPCDamageMultiplier(npc);
             }
             if (damageSource.SourceProjectileIndex != -1)
-                return GetReceivedProjectileDamageMultiplier(Main.projectile[damageSource.SourceProjectileIndex].type);
+                return GetReceivedProjectileDamageMultiplier(Main.projectile[damageSource.SourceProjectileIndex]);
             return 1;
         }
 
@@ -212,33 +212,44 @@ namespace UltimateBannerMerging.Helpers
 
         private float GetReceivedNPCDamageMultiplier(NPC npc)
         {
+            return npc.ModNPC == null
+                ? GetReceivedNPCDamageMultiplier(npc.netID)
+                : GetReceivedNPCDamageMultiplier(npc.ModNPC.Name, npc.ModNPC.Mod.Name);
+        }
+
+        private float GetReceivedNPCDamageMultiplier(string npcName, string modName)
+        {
             float quantity = 0;
-            string normalizedName = MapData.Normalize(npc);
-            if (ModContent.TryFind(npc.ModNPC.Mod.Name, normalizedName, out ModNPC normalizedNpc))
+            string normalizedName = MapData.Normalize(npcName, modName);
+            if (ModContent.TryFind(modName, normalizedName, out ModNPC normalizedNpc))
             {
                 if (TryGetAdditionalMobQuantity(normalizedNpc.Type, out float quantity2))
                 {
                     quantity = quantity2;
                 }
+                else if (MapData.TryMapNPCToBanner(normalizedName, modName, out string bannerName))
+                {
+                    if (ModContent.TryFind(modName, bannerName, out ModItem bannerItem))
+                        quantity = GetBannerQuantity(bannerItem.Type);
+                }
+                else
+                    Logging.PublicLogger.Warn($"Cannot find banner of {modName} NPC \"{npcName}\"");
             }
-            else if (MapData.TryMapNPCToBanner(normalizedName, npc.ModNPC.Mod.Name, out string bannerName))
-            {
-                if (ModContent.TryFind(npc.ModNPC.Mod.Name, bannerName, out ModItem bannerItem))
-                    quantity = GetBannerQuantity(bannerItem.Type);
-            }
-            else
-                Logging.PublicLogger.Warn($"Cannot find banner of {npc.ModNPC.Mod.Name} NPC \"{npc.FullName}\"");
 
-            return MapData.IsBoss(normalizedName, npc.ModNPC.Mod.Name)
+            return MapData.IsBoss(normalizedName, modName)
                 ? Calculator.CalculateReceivedDamageMultiplier(quantity, _config.BossInvulnerabilityCap)
                 : Calculator.CalculateReceivedDamageMultiplier(quantity, _config.InvulnerabilityCap);
         }
 
-        public float GetReceivedProjectileDamageMultiplier(int projectileId)
+        public float GetReceivedProjectileDamageMultiplier(Projectile projectile)
         {
-            if (!MapData.TryGetProjectileOwners(projectileId, out int[] owners))
-                return 1;
-            return owners.Select(GetReceivedNPCDamageMultiplier).Min();
+            if (MapData.TryGetProjectileOwners(projectile.type, out int[] owners))
+                return owners.Select(GetReceivedNPCDamageMultiplier).Min();
+            if (MapData.IsInModList(projectile) && MapData.TryGetProjectileOwner(projectile, out string owner))
+            {
+                return GetReceivedNPCDamageMultiplier(owner, projectile.ModProjectile.Mod.Name);
+            }
+            return 1;
         }
 
         public int GetLootMultiplier(NPC npc)
