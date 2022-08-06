@@ -14,10 +14,6 @@ namespace UltimateBannerMerging.Helpers
 
         private readonly Dictionary<int, float> _additionalMobDictionary = new();
 
-        private readonly BannerConfig _config;
-
-        public BannerCollection(BannerConfig config) => _config = config;
-
         public event Action OnFillBanner;
 
         public event Action OnFillTrophy;
@@ -28,35 +24,35 @@ namespace UltimateBannerMerging.Helpers
 
         private (bool, bool) _filled = (false, false);
 
-        public void Update(Player player)
+        public void Update(Player player, int mobCap, int bossCap)
         {
             _itemDictionary.Clear();
 
-            Fill(player.inventory);
-            Fill(player.bank.item);
-            Fill(player.bank2.item);
-            Fill(player.bank3.item);
-            Fill(player.bank4.item);
+            Fill(player.inventory, mobCap, bossCap);
+            Fill(player.bank.item, mobCap, bossCap);
+            Fill(player.bank2.item, mobCap, bossCap);
+            Fill(player.bank3.item, mobCap, bossCap);
+            Fill(player.bank4.item, mobCap, bossCap);
 
             DetectFill(ref _filled.Item1, MapData.IsVanillaBanner, OnFillBanner, OnEmptyBanner);
             DetectFill(ref _filled.Item2, MapData.IsVanillaTrophy, OnFillTrophy, OnEmptyTrophy);
         }
 
-        private void Fill(IEnumerable<Item> inventory)
+        private void Fill(IEnumerable<Item> inventory, int mobCap, int bossCap)
         {
             foreach (var item in inventory.Where(i => (i?.active ?? false) && !i.IsAir))
             {
                 if (MapData.IsVanillaBanner(item.netID) || MapData.IsVanillaTrophy(item.netID))
                 {
-                    AddItem(item.netID, item.stack);
+                    AddItem(item.netID, item.stack, mobCap, bossCap);
                 }
                 else if (item.ModItem is BannerItem bannerItem)
                 {
-                    AddMergedBanner(bannerItem, item.stack);
+                    AddMergedBanner(bannerItem, item.stack, mobCap, bossCap);
                 }
                 else if (MapData.IsModdedBanner(item) || MapData.IsModdedTrophy(item))
                 {
-                    AddModdedBanner(item);
+                    AddModdedBanner(item, mobCap, bossCap);
                 }
             }
         }
@@ -75,121 +71,58 @@ namespace UltimateBannerMerging.Helpers
             }
         }
 
-        private void AddItem(int itemId, float quantity)
+        private void AddItem(int itemId, float quantity, int mobCap, int bossCap)
         {
             _itemDictionary.AddOrAppend(itemId, quantity,
-                MapData.IsVanillaBanner(itemId) ? _config.InvulnerabilityCap : _config.BossInvulnerabilityCap);
+                MapData.IsVanillaBanner(itemId) ? mobCap : bossCap);
         }
 
-        private void AddMergedBanner(BannerItem mergedBanner, float quantity)
+        private void AddMergedBanner(BannerItem mergedBanner, float quantity, int mobCap, int bossCap)
         {
             foreach (int bannerId in mergedBanner.BannerList)
             {
-                AddItem(bannerId, mergedBanner.Multiplier * quantity);
+                AddItem(bannerId, mergedBanner.Multiplier * quantity, mobCap, bossCap);
             }
             foreach (short mob in mergedBanner.AdditionalMobs)
             {
-                AddAdditionalMob(mob, mergedBanner.Multiplier * quantity);
+                AddAdditionalMob(mob, mergedBanner.Multiplier * quantity, mobCap, bossCap);
             }
             foreach (BannerItem mergedBanner2 in mergedBanner.BannerItems)
             {
-                AddMergedBanner(mergedBanner2, mergedBanner.Multiplier * quantity);
+                AddMergedBanner(mergedBanner2, mergedBanner.Multiplier * quantity, mobCap, bossCap);
             }
         }
 
-        private void AddAdditionalMob(int mobId, float quantity)
+        private void AddAdditionalMob(int mobId, float quantity, int mobCap, int bossCap)
         {
             _additionalMobDictionary.AddOrAppend(mobId, quantity,
-                !MapData.IsBoss(mobId) ? _config.InvulnerabilityCap : _config.BossInvulnerabilityCap);
+                !MapData.IsBoss(mobId) ? mobCap : bossCap);
         }
 
-        private void AddModdedBanner(Item item)
+        private void AddModdedBanner(Item item, int mobCap, int bossCap)
         {
             if (!MapData.IsInModList(item))
                 return;
             
             _itemDictionary.AddOrAppend(item.ModItem.Type, item.stack,
-                MapData.IsModdedBanner(item) ? _config.InvulnerabilityCap : _config.BossInvulnerabilityCap);
+                MapData.IsModdedBanner(item) ? mobCap : bossCap);
         }
-
-        public float GetDealtDamageMultiplier(NPC npc)
-        {
-             if (npc.ModNPC == null)
-             {
-                 float quantity = 0;
-                 int normalizedId = MapData.Normalize(npc.netID);
-                 if (TryGetAdditionalMobQuantity(normalizedId, out float quantity2))
-                 {
-                     quantity = quantity2;
-                 }
-                 else if (MapData.TryMapNPCToBanner(normalizedId, out int bannerId))
-                 {
-                     quantity = GetBannerQuantity(bannerId);
-                 }
-                 else
-                     Logging.PublicLogger.Warn($"Cannot find banner of Terraria NPC \"{npc.FullName}\"");
-
-                 return MapData.IsBoss(normalizedId)
-                     ? Calculator.CalculateDealtDamageMultiplier(quantity, _config.BossInvulnerabilityCap,
-                         _config.MaxBossDamageIncrease)
-                     : Calculator.CalculateDealtDamageMultiplier(quantity, _config.InvulnerabilityCap,
-                         _config.MaxDamageIncrease);
-             }
-             if(MapData.IsInModList(npc))
-             {
-                 float quantity = 0;
-                 string normalizedName = MapData.Normalize(npc);
-                 if (ModContent.TryFind(npc.ModNPC.Mod.Name, normalizedName, out ModNPC normalizedNpc))
-                 {
-                     if (TryGetAdditionalMobQuantity(normalizedNpc.Type, out float quantity2))
-                     {
-                         quantity = quantity2;
-                     }
-                     else if (MapData.TryMapNPCToBanner(normalizedName, npc.ModNPC.Mod.Name, out string bannerName))
-                     {
-                         if (ModContent.TryFind(npc.ModNPC.Mod.Name, bannerName, out ModItem bannerItem))
-                             quantity = GetBannerQuantity(bannerItem.Type);
-                     }
-                     else
-                         Logging.PublicLogger.Warn($"Cannot find banner of {npc.ModNPC.Mod.Name} NPC \"{npc.FullName}\"");
-                 }
-                
-                 return MapData.IsBoss(normalizedName, npc.ModNPC.Mod.Name)
-                     ? Calculator.CalculateDealtDamageMultiplier(quantity, _config.BossInvulnerabilityCap,
-                         _config.MaxBossDamageIncrease)
-                     : Calculator.CalculateDealtDamageMultiplier(quantity, _config.InvulnerabilityCap,
-                         _config.MaxDamageIncrease);
-             }
-             return 1;
-        }
-
-        private float GetBannerQuantity(int bannerId)
+        
+        public float GetBannerQuantity(int bannerId)
         {
             if (_itemDictionary.ContainsKey(bannerId))
                 return _itemDictionary[bannerId];
             return 0;
-        }
+        }//Good
 
-        private bool TryGetAdditionalMobQuantity(int mobId, out float quantity)
+        public float GetAdditionalQuantity(int mobId)
         {
-            quantity = 0;
-            if (!_additionalMobDictionary.ContainsKey(mobId))
-                return false;
-            quantity = _additionalMobDictionary[mobId];
-            return true;
-        }
+            if (_additionalMobDictionary.ContainsKey(mobId))
+                return _additionalMobDictionary[mobId];
+            return 0;
+        }//Good
 
-        public float GetReceivedDamageMultiplier(PlayerDeathReason damageSource)
-        {
-            if (damageSource.SourceNPCIndex != -1)
-            {
-                NPC npc = Main.npc[damageSource.SourceNPCIndex];
-                return GetReceivedNPCDamageMultiplier(npc);
-            }
-            if (damageSource.SourceProjectileIndex != -1)
-                return GetReceivedProjectileDamageMultiplier(Main.projectile[damageSource.SourceProjectileIndex]);
-            return 1;
-        }
+        
 
         private float GetReceivedNPCDamageMultiplier(int npcId)
         {
@@ -241,10 +174,19 @@ namespace UltimateBannerMerging.Helpers
                 : Calculator.CalculateReceivedDamageMultiplier(quantity, _config.InvulnerabilityCap);
         }
 
-        public float GetReceivedProjectileDamageMultiplier(Projectile projectile)
+        public NPC GetProjectileOwner(Projectile projectile)
         {
+            if (MapData.IsInModList(projectile))
+            {
+
+            }
+
+
+
+
+
             if (MapData.TryGetProjectileOwners(projectile.type, out int[] owners))
-                return owners.Select(GetReceivedNPCDamageMultiplier).Min();
+                return owners.Min(Comparer<int>.Create((n1, n2)=> GetReceivedNPCDamageMultiplier(n1).CompareTo(GetReceivedNPCDamageMultiplier(n2)))).;
             if (MapData.IsInModList(projectile) && MapData.TryGetProjectileOwner(projectile, out string owner))
             {
                 return GetReceivedNPCDamageMultiplier(owner, projectile.ModProjectile.Mod.Name);
@@ -273,7 +215,7 @@ namespace UltimateBannerMerging.Helpers
 
                 return Calculator.CalculateLootMultiplier(quantity,
                     MapData.IsBoss(normalizedId) ? _config.BossInvulnerabilityCap : _config.InvulnerabilityCap,
-                    _config.DropMaxMultiplier);
+                    _config.MaxLootMultiplier);
             }
             else
             {
@@ -302,7 +244,7 @@ namespace UltimateBannerMerging.Helpers
 
                 return Calculator.CalculateLootMultiplier(quantity,
                     MapData.IsBoss(normalizedName, npc.ModNPC.Mod.Name) ? _config.BossInvulnerabilityCap : _config.InvulnerabilityCap,
-                    _config.DropMaxMultiplier);
+                    _config.MaxLootMultiplier);
             }
         }
     }

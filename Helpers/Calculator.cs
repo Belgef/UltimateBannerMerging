@@ -1,20 +1,34 @@
-﻿namespace UltimateBannerMerging.Helpers
+﻿using IL.Terraria;
+
+namespace UltimateBannerMerging.Helpers
 {
-    public static class Calculator
+    public class DamageCalculator
     {
-        public static float CalculateDealtDamageMultiplier(float quantity, int maxQuantity, int maxMultiplier)
+        private readonly int _maxQuantity;
+
+        private readonly int _maxDamageMultiplier;
+
+        private readonly int _maxLootMultiplier;
+
+        public DamageCalculator(int maxQuantity, int maxDamageMultiplier, int maxLootMultiplier)
         {
-            return (maxMultiplier - 1) * quantity / maxQuantity + 1;
+            _maxQuantity = maxQuantity;
+            _maxDamageMultiplier = maxDamageMultiplier;
+            _maxLootMultiplier = maxLootMultiplier;
+        }
+        public float CalculateDealtDamageMultiplier(float quantity)
+        {
+            return (_maxDamageMultiplier - 1) * quantity / _maxQuantity + 1;
         }
 
-        public static float CalculateReceivedDamageMultiplier(float quantity, int maxQuantity)
+        public float CalculateReceivedDamageMultiplier(float quantity)
         {
-            return 1 - quantity / maxQuantity;
+            return 1 - quantity / _maxQuantity;
         }
 
-        public static int CalculateLootMultiplier(float quantity, int maxQuantity, int maxMultiplier)
+        public int CalculateLootMultiplier(float quantity)
         {
-            return (int)((maxMultiplier - 1) * quantity / maxQuantity) + 1;
+            return (int)((_maxLootMultiplier - 1) * quantity / _maxQuantity) + 1;
         }
     }
 }

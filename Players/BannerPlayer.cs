@@ -14,9 +14,12 @@ namespace UltimateBannerMerging.Players
     {
         public BannerCollection BannerCollection { get; set; }
 
+        public BannerConfig Config { get; set; }
+
         public override void Initialize()
         {
-            BannerCollection = new(Mod.GetConfig(nameof(BannerConfig)) as BannerConfig);
+            BannerCollection = new();
+            Config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
             BannerCollection.OnFillBanner += () => Player.AddBuff(ModContent.BuffType<BannerBuff>(), int.MaxValue);
             BannerCollection.OnEmptyBanner += () => Player.ClearBuff(ModContent.BuffType<BannerBuff>());
             BannerCollection.OnFillTrophy += () => Player.AddBuff(ModContent.BuffType<TrophyBuff>(), int.MaxValue);
@@ -24,7 +27,7 @@ namespace UltimateBannerMerging.Players
         }
         public override void PostUpdate()
         {
-            BannerCollection.Update(Player);
+            BannerCollection.Update(Player, Config.InvulnerabilityCap, Config.BossInvulnerabilityCap);//WARNING
 
             if (Player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
                 Player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
@@ -32,16 +35,11 @@ namespace UltimateBannerMerging.Players
 
         public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
-            damage = (int)(damage * BannerCollection.GetDealtDamageMultiplier(target));
+            MergingNPC mergingNPC = MergingNPC.Create(target, BannerCollection, Config);
 
-            SetNPCLootParameters(target, damage);
-        }
+            damage = (int)(damage * mergingNPC.GetDealtDamageMultiplier());
 
-        private void SetNPCLootParameters(NPC npc, int lastDamage)
-        {
-            MoreLootNPC gnpc = npc.GetGlobalNPC<MoreLootNPC>();
-            gnpc.Player = this;
-            gnpc.LastDamage = lastDamage;
+            mergingNPC.SetNPCLootParameters(this, damage);
         }
         
         public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
@@ -51,6 +49,14 @@ namespace UltimateBannerMerging.Players
         
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
+            MergingNPC npc;
+            if (damageSource.SourceNPCIndex != -1)
+                npc = MergingNPC.Create(Main.npc[damageSource.SourceNPCIndex], BannerCollection, Config);
+            else if (damageSource.SourceProjectileIndex != -1)
+                npc = MergingNPC.Create(Main.projectile[damageSource.SourceProjectileIndex], BannerCollection, Config);
+
+
+
             float damageMultiplier = BannerCollection.GetReceivedDamageMultiplier(damageSource);
             if (damageMultiplier == 0)
                 return false;

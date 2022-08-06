@@ -13,6 +13,7 @@ namespace UltimateBannerMerging.NPCs
     internal class SpawnRateNPC : GlobalNPC
     {
         public static float Multiplier = 1f;
+
         public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
         {
             spawnRate = (int)(spawnRate / Multiplier);

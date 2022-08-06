@@ -29,7 +29,7 @@ namespace UltimateBannerMerging
         [Range(1f, 100f)]
         [DefaultValue("5")]
         [Label("Max Drop Multiplier")]
-        public int DropMaxMultiplier;
+        public int MaxLootMultiplier;
         [Range(1, 100)]
         [DefaultValue(18)]
         [Label("Trophy Cap")]

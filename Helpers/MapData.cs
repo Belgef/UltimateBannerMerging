@@ -445,7 +445,7 @@ namespace UltimateBannerMerging.Helpers
             return true;
         }
 
-        public static bool TryMapNPCToBanner(string mobName, string modName, out string bannerName)
+        public static bool TryMapModdedNPCToBanner(string mobName, string modName, out string bannerName)
         {
             bannerName = "";
             if (!ModBannersData.ContainsKey(modName))
@@ -488,34 +488,21 @@ namespace UltimateBannerMerging.Helpers
 
         public static bool IsInModList(Projectile proj) => proj.ModProjectile != null && ModBannersData.ContainsKey(proj.ModProjectile.Mod.Name);
 
-        public static bool TryGetProjectileOwners(int projectileId, out int[] owners)
+        public static int GetVanillaProjectileOwner(int projectileId)
         {
-            if (ProjectileOwners.ContainsKey(projectileId))
-            {
-                owners = ProjectileOwners[projectileId];
-                return true;
-            }
-            owners = null;
-            return false;
-        }
+            return ProjectileOwners.ContainsKey(projectileId) ? ProjectileOwners[projectileId] : null;
+        }//Good
 
-        public static bool TryGetProjectileOwner(Projectile proj, out string owner)
+        public static string GetModProjectileOwner(Projectile proj)
         {
             if (IsInModList(proj) && ModBannersData[proj.ModProjectile.Mod.Name].Projectiles.ContainsKey(proj.ModProjectile.Name))
-            {
-                owner = ModBannersData[proj.ModProjectile.Mod.Name].Projectiles[proj.ModProjectile.Name];
-                return true;
-            }
-            owner = null;
-            return false;
-        }
+                return ModBannersData[proj.ModProjectile.Mod.Name].Projectiles[proj.ModProjectile.Name];
+            if (ProjectileOwners.ContainsKey(proj.type))
+                return ProjectileOwners[proj.type].MaxBy();
+            return null;
+        }//Good
 
         public static int Normalize(int mobId) => Normalizer.ContainsKey(mobId) ? Normalizer[mobId] : mobId;
-
-        public static string Normalize(NPC npc)
-        {
-            return Normalize(npc.ModNPC.Name, npc.ModNPC.Mod.Name);
-        }
 
         public static string Normalize(string npcName, string modName)
         {
@@ -544,6 +531,6 @@ namespace UltimateBannerMerging.Helpers
 
             if (cap > 0 && dict[key] > cap)
                 dict[key] = cap;
-        }
+        }//Good
     }
 }
