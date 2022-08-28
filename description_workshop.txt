@@ -12,6 +12,13 @@ Fill free to include this mod in your list!
  
 [hr][/hr]
 
+[h1]- v1.5.2 -[/h1]
+[list]
+[*]added Calamity projectiles invulnerability
+[*]fixed a lot of bugs
+[*]optimized mod performance
+[/list]
+
 [h1]- v1.5.1 -[/h1]
 [list]
 [*]fixed and included in crafts Old One's Army enemies and bosses
