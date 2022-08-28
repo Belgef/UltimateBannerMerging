@@ -1,5 +1,5 @@
 displayName = [c/ffe600:Ultimate Banner Merging]
 author = Komagiko
-version = 1.5.2
+version = 1.5.3
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
 homepage = https://forums.terraria.org/index.php?threads/ultimate-banner-merging.111266/
