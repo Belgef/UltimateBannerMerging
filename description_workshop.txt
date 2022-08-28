@@ -12,6 +12,12 @@ Fill free to include this mod in your list!
  
 [hr][/hr]
 
+[h1]- v1.5.3 -[/h1]
+[list]
+[*]fixed mob invulnerability bug
+[*]updated for newest version of tModLoader
+[/list]
+
 [h1]- v1.5.2 -[/h1]
 [list]
 [*]added Calamity projectiles invulnerability
