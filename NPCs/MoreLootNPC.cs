@@ -20,18 +20,18 @@ namespace UltimateBannerMerging.NPCs
         public int LastDamage { get; set; }
 
         public override bool InstancePerEntity => true;
-        
+
         public override void OnKill(NPC npc)
         {
             if (Player == null)
                 return;
-            
+
             int respawnQuantity = Player.BannerCollection.GetLootMultiplier(npc) - 1;
-            
+
             for (int i = 0; i < respawnQuantity; i++)
                 RespawnAndKillNPC(npc);
             CombatText.clearAll();
-            CombatText.NewText(new Microsoft.Xna.Framework.Rectangle((int)npc.position.X, (int)npc.position.Y, 1, 1), CombatText.DamagedHostile, LastDamage);
+            CombatText.NewText(new((int)npc.position.X, (int)npc.position.Y, 1, 1), CombatText.DamagedHostile, LastDamage);
         }
 
         private static void RespawnAndKillNPC(NPC npc)
