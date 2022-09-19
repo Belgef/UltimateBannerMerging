@@ -13,7 +13,6 @@ namespace UltimateBannerMerging.Items
     {
         public abstract string Tooltip1 { get; }
         public abstract int Multiplier { get; }
-
         public override string Texture => (GetType().Namespace + ".SpawnIncreasingItems." + Name).Replace('.', '/');
         public override void SetDefaults()
         {
@@ -30,19 +29,17 @@ namespace UltimateBannerMerging.Items
         }
         public override bool? UseItem(Player player)
         {
-            if (player.HasBuff(ModContent.BuffType<SpawnRateBuff>()) && SpawnRateBuff.Text == Tooltip1)
+            if (player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
             {
                 SpawnRateNPC.Multiplier = 1;
                 player.ClearBuff(ModContent.BuffType<SpawnRateBuff>());
             }
-            else if (!player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
+            else
             {
                 SpawnRateNPC.Multiplier = Multiplier;
                 SpawnRateBuff.Text = Tooltip1;
                 player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
             }
-            else
-                return null;
             return true;
         }
     }

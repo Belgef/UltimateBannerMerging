@@ -11,12 +11,10 @@ internal abstract class MergingNPC : MergingObject
 
     protected MergingNPC(NPC npc, BannerCollection bannerCollection, BannerConfig config) : base(bannerCollection, config) => _npc = npc;
 
-    public static MergingNPC Create(NPC npc, BannerCollection bannerCollection, BannerConfig config)
-    {
-        return npc.ModNPC != null
+    public static MergingNPC Create(NPC npc, BannerCollection bannerCollection, BannerConfig config) =>
+        npc.ModNPC != null
             ? new ModdedMergingNPC(npc, bannerCollection, config)
             : new VanillaMergingNPC(npc, bannerCollection, config);
-    }
 
     public void SetNPCLootParameters(BannerPlayer player, int lastDamage)
     {
@@ -25,8 +23,5 @@ internal abstract class MergingNPC : MergingObject
         gnpc.LastDamage = lastDamage;
     }
 
-    public float GetLootMultiplier()
-    {
-        return _calculator.CalculateLootMultiplier(GetQuantity());
-    }
+    public abstract float GetLootMultiplier();
 }

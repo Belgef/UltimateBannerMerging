@@ -27,7 +27,7 @@ namespace UltimateBannerMerging.Players
         }
         public override void PostUpdate()
         {
-            BannerCollection.Update(Player, Config.InvulnerabilityCap, Config.BossInvulnerabilityCap);//WARNING
+            BannerCollection.Update(Player, Config.InvulnerabilityCap, Config.BossInvulnerabilityCap);
 
             if (Player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
                 Player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
@@ -55,7 +55,7 @@ namespace UltimateBannerMerging.Players
             else if (damageSource.SourceProjectileIndex != -1)
                 obj = MergingObject.Create(Main.projectile[damageSource.SourceProjectileIndex], BannerCollection, Config);
             
-            float damageMultiplier = obj?.GetReceivedDamageMultiplier() ?? 0;
+            float damageMultiplier = obj?.GetReceivedDamageMultiplier() ?? 1;
             if (damageMultiplier == 0)
                 return false;
             damage = (int)(damage * damageMultiplier);

@@ -16,7 +16,7 @@ internal class ModdedMergingNPC : MergingNPC
         _normalizedName = MapData.Normalize(npc.ModNPC.Name, _modName);
 
         _calculator = MapData.IsBoss(_normalizedName, _modName)
-            ? new(config.BossInvulnerabilityCap, config.MaxBossDamageIncrease, config.MaxLootMultiplier)
+            ? new(config.BossInvulnerabilityCap, config.MaxBossDamageIncrease, 1)
             : new(config.InvulnerabilityCap, config.MaxDamageIncrease, config.MaxLootMultiplier);
     }
 
@@ -35,4 +35,8 @@ internal class ModdedMergingNPC : MergingNPC
 
         return quantity;
     }
+
+    public override float GetLootMultiplier() => MapData.IsInLootBlackList(_normalizedName, _modName)
+        ? 1
+        : _calculator.CalculateLootMultiplier(GetQuantity());
 }

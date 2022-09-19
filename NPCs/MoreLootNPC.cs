@@ -4,9 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.GameContent.ItemDropRules;
-using Terraria.ID;
 using Terraria.ModLoader;
 using UltimateBannerMerging.Helpers;
 using UltimateBannerMerging.Players;
@@ -27,10 +24,11 @@ namespace UltimateBannerMerging.NPCs
                 return;
             
             MergingNPC mNpc = MergingNPC.Create(npc, Player.BannerCollection, Player.Config);
+
             int respawnQuantity = (int)Math.Ceiling(mNpc.GetLootMultiplier()) - 1;
-            
             for (int i = 0; i < respawnQuantity; i++)
                 RespawnAndKillNPC(npc);
+
             CombatText.clearAll();
             CombatText.NewText(new((int)npc.position.X, (int)npc.position.Y, 1, 1), CombatText.DamagedHostile, LastDamage);
         }

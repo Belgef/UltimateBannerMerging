@@ -16,25 +16,19 @@ internal abstract class MergingObject
         _config = config;
     }
 
-    public static MergingObject Create(object obj, BannerCollection bannerCollection, BannerConfig config)
-    {
-        return obj switch
+    public static MergingObject Create(object obj, BannerCollection bannerCollection, BannerConfig config) =>
+        obj switch
         {
             NPC npc => MergingNPC.Create(npc, bannerCollection, config),
             Projectile proj => MergingProjectile.Create(proj, bannerCollection, config),
             _ => null
         };
-    }
 
     protected abstract float GetQuantity();
 
-    public float GetDealtDamageMultiplier()
-    {
-        return _calculator.CalculateDealtDamageMultiplier(GetQuantity());
-    }
+    public float GetDealtDamageMultiplier() 
+        => _calculator.CalculateDealtDamageMultiplier(GetQuantity());
 
-    public float GetReceivedDamageMultiplier()
-    {
-        return _calculator.CalculateReceivedDamageMultiplier(GetQuantity());
-    }
+    public float GetReceivedDamageMultiplier() 
+        => _calculator.CalculateReceivedDamageMultiplier(GetQuantity());
 }

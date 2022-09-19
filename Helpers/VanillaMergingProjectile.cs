@@ -14,7 +14,7 @@ internal class VanillaMergingProjectile : MergingProjectile
             MapData.Normalize(_owner);
 
         _calculator = MapData.IsBoss(_owner)
-            ? new(config.BossInvulnerabilityCap, config.MaxBossDamageIncrease, config.MaxLootMultiplier)
+            ? new(config.BossInvulnerabilityCap, config.MaxBossDamageIncrease, 1)
             : new(config.InvulnerabilityCap, config.MaxDamageIncrease, config.MaxLootMultiplier);
     }
 
