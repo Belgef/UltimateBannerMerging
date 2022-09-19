@@ -47,7 +47,7 @@ namespace UltimateBannerMerging.Players
             ModifyHitNPC(null, target, ref damage, ref knockback, ref crit);
         }
         
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
+        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter)
         {
             MergingObject obj = null;
             if (damageSource.SourceNPCIndex != -1)

@@ -24,11 +24,11 @@ namespace UltimateBannerMerging.Items
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            tooltips.Add(new TooltipLine(Mod, "Tooltip0", "Not consumable"));
-            tooltips.Add(new TooltipLine(Mod, "Tooltip0", "Toggles enemies spawn rate increase"));
-            tooltips.Add(new TooltipLine(Mod, "Tooltip1", $"{Multiplier}x increased enemy spawn rate"));
+            tooltips.Add(new(Mod, "Tooltip0", "Not consumable"));
+            tooltips.Add(new(Mod, "Tooltip0", "Toggles enemies spawn rate increase"));
+            tooltips.Add(new(Mod, "Tooltip1", $"{Multiplier}x increased enemy spawn rate"));
         }
-        public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
+        public override bool? UseItem(Player player)
         {
             if (player.HasBuff(ModContent.BuffType<SpawnRateBuff>()) && SpawnRateBuff.Text == Tooltip1)
             {
@@ -42,7 +42,7 @@ namespace UltimateBannerMerging.Items
                 player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
             }
             else
-                return false;
+                return null;
             return true;
         }
     }

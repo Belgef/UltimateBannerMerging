@@ -20,7 +20,7 @@ namespace UltimateBannerMerging.NPCs
         public int LastDamage { get; set; }
 
         public override bool InstancePerEntity => true;
-        
+
         public override void OnKill(NPC npc)
         {
             if (Player == null)
