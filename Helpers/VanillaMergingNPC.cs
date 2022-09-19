@@ -16,12 +16,6 @@ internal class VanillaMergingNPC : MergingNPC
             : new(config.InvulnerabilityCap, config.MaxDamageIncrease, config.MaxLootMultiplier);
     }
 
-    public VanillaMergingNPC FromProjectile(Projectile projectile, BannerCollection bannerCollection, BannerConfig config)
-    {
-
-        return new(npc, bannerCollection, config);
-    }
-
     protected override float GetQuantity()
     {
         float quantity = _bannerCollection.GetAdditionalQuantity(_normalizedId);

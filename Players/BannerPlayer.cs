@@ -49,15 +49,13 @@ namespace UltimateBannerMerging.Players
         
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource)
         {
-            MergingNPC npc;
+            MergingObject obj = null;
             if (damageSource.SourceNPCIndex != -1)
-                npc = MergingNPC.Create(Main.npc[damageSource.SourceNPCIndex], BannerCollection, Config);
+                obj = MergingObject.Create(Main.npc[damageSource.SourceNPCIndex], BannerCollection, Config);
             else if (damageSource.SourceProjectileIndex != -1)
-                npc = MergingNPC.Create(Main.projectile[damageSource.SourceProjectileIndex], BannerCollection, Config);
-
-
-
-            float damageMultiplier = BannerCollection.GetReceivedDamageMultiplier(damageSource);
+                obj = MergingObject.Create(Main.projectile[damageSource.SourceProjectileIndex], BannerCollection, Config);
+            
+            float damageMultiplier = obj?.GetReceivedDamageMultiplier() ?? 0;
             if (damageMultiplier == 0)
                 return false;
             damage = (int)(damage * damageMultiplier);

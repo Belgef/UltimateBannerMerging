@@ -26,12 +26,13 @@ namespace UltimateBannerMerging.NPCs
             if (Player == null)
                 return;
             
-            int respawnQuantity = Player.BannerCollection.GetLootMultiplier(npc) - 1;
+            MergingNPC mNpc = MergingNPC.Create(npc, Player.BannerCollection, Player.Config);
+            int respawnQuantity = (int)Math.Ceiling(mNpc.GetLootMultiplier()) - 1;
             
             for (int i = 0; i < respawnQuantity; i++)
                 RespawnAndKillNPC(npc);
             CombatText.clearAll();
-            CombatText.NewText(new Microsoft.Xna.Framework.Rectangle((int)npc.position.X, (int)npc.position.Y, 1, 1), CombatText.DamagedHostile, LastDamage);
+            CombatText.NewText(new((int)npc.position.X, (int)npc.position.Y, 1, 1), CombatText.DamagedHostile, LastDamage);
         }
 
         private static void RespawnAndKillNPC(NPC npc)

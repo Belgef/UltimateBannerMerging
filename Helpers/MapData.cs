@@ -490,15 +490,13 @@ namespace UltimateBannerMerging.Helpers
 
         public static int GetVanillaProjectileOwner(int projectileId)
         {
-            return ProjectileOwners.ContainsKey(projectileId) ? ProjectileOwners[projectileId] : null;
+            return ProjectileOwners.ContainsKey(projectileId) ? ProjectileOwners[projectileId][0] : -1;
         }//Good
 
         public static string GetModProjectileOwner(Projectile proj)
         {
             if (IsInModList(proj) && ModBannersData[proj.ModProjectile.Mod.Name].Projectiles.ContainsKey(proj.ModProjectile.Name))
                 return ModBannersData[proj.ModProjectile.Mod.Name].Projectiles[proj.ModProjectile.Name];
-            if (ProjectileOwners.ContainsKey(proj.type))
-                return ProjectileOwners[proj.type].MaxBy();
             return null;
         }//Good
 
