@@ -1,7 +1,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -10,13 +9,13 @@ namespace UltimateBannerMerging.Items
 	public abstract class BannerItem : ModItem
 	{
 		public abstract string ShowName { get; }
-		public abstract short[] BannerList { get; }
+		public abstract int[] BannerList { get; }
 		public abstract int[] BannerItemIds { get; }
-		public abstract short[] AdditionalMobs { get; }
+		public abstract int[] AdditionalMobs { get; }
 
-		public float Multiplier => (Mod.GetConfig(nameof(BannerConfig)) as BannerConfig)?.BannerStats[ShowName].Multiplyer ?? 1;
+        public float Multiplier => (Mod.GetConfig(nameof(BannerConfig)) as BannerConfig)?.BannerStats[ShowName].Multiplyer ?? 1;
 		public int Price => (Mod.GetConfig(nameof(BannerConfig)) as BannerConfig)?.BannerStats[ShowName].Price ?? 1;
-		public BannerItem[] BannerItems => BannerItemIds.Select(s => ModContent.GetModItem(s) as BannerItem).ToArray();
+		public virtual BannerItem[] BannerItems => BannerItemIds.Select(s => ModContent.GetModItem(s) as BannerItem).ToArray();
 		//protected string[] NameList => BannerList.Concat(AdditionalBanners).Select(n => MobBanners.GetBannerByID((int)n).Name)
 		//	.Concat(BannerItems.SelectMany(b=>b.NameList)).OrderBy(s=>s).ToArray();
 
@@ -27,7 +26,7 @@ namespace UltimateBannerMerging.Items
 			DisplayName.SetDefault(ShowName);
 		}
 
-		public override void ModifyTooltips(List<TooltipLine> tooltips)
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
 			tooltips.Add(new(Mod, "Tooltip0", "Increases damage and defense against all included enemies."));
 			tooltips.Add(new(Mod, "Tooltip1", $"{Multiplier} times more effective than its crafting components."));

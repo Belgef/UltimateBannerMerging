@@ -91,7 +91,8 @@ namespace UltimateBannerMerging
             { "Nebula Banner",                 new() { Price = 100000, Multiplyer = 3.0f } },
             { "Solar Banner",                  new() { Price = 100000, Multiplyer = 3.0f } },
             { "Lunar Banner",                  new() { Price = 400000, Multiplyer = 3.0f } },
-            { "The Banner",                    new() { Price =1000000, Multiplyer = 18.0f } },
+            { "The Banner",                    new() { Price =1000000, Multiplyer = 18.0f} },
+
             { "Horror Trophy",                 new() { Price =   5000, Multiplyer = 3.0f } }, // 3
             { "Pre Hardmode Trophy",           new() { Price =  10000, Multiplyer = 3.0f } }, // 9 3
             { "Mechanics Trophy",              new() { Price =  25000, Multiplyer = 3.0f } }, // 3
@@ -99,6 +100,27 @@ namespace UltimateBannerMerging
             { "Moon Trophy",                   new() { Price = 100000, Multiplyer = 3.0f } }, // 3
             { "Events Trophy",                 new() { Price = 250000, Multiplyer = 6.0f } }, // 18 6
             { "The Trophy",                    new() { Price =1000000, Multiplyer = 18.0f } }, // 18 9
+            
+            { "Wulfrum Banner",                 new() { Price =    5000, Multiplyer = 3.0f } },
+            { "Crawler Banner",                 new() { Price =   10000, Multiplyer = 3.0f } },
+            { "Sulphurous Banner",              new() { Price =   10000, Multiplyer = 3.0f } },
+            { "Sunken Banner",                  new() { Price =   20000, Multiplyer = 3.0f } },
+            { "Calamity Beginner Banner",        new() { Price =   50000, Multiplyer = 3.0f } },
+            { "Small Abyss Banner",              new() { Price =   30000, Multiplyer = 3.0f } },
+            { "Brimstone Banner",               new() { Price =   20000, Multiplyer = 3.0f } },
+            { "Calamity Prehardmode Banner",     new() { Price =  100000, Multiplyer = 6.0f } },
+            { "Astral Banner",                  new() { Price =   70000, Multiplyer = 3.0f } },
+            { "Plague Banner",                  new() { Price =   60000, Multiplyer = 3.0f } },
+            { "Medium Abyss Banner",             new() { Price =  100000, Multiplyer = 6.0f } },
+            { "Full Sulphurous Banner",          new() { Price =   90000, Multiplyer = 3.0f } },
+            { "Cryo Banner",                    new() { Price =   60000, Multiplyer = 3.0f } },
+            { "Acid Rain Banner",                new() { Price =   60000, Multiplyer = 3.0f } },
+            { "Calamity Hardmode Banner",        new() { Price =  200000, Multiplyer = 3.0f } },
+            { "Calamity Super Hardmode Banner",   new() { Price = 1000000, Multiplyer = 3.0f } },
+            { "Large Abyss Banner",              new() { Price =  500000, Multiplyer = 6.0f } },
+            { "Full Acid Rain Banner",            new() { Price =   80000, Multiplyer = 3.0f } },
+            { "The Calamity Banner",             new() { Price = 5000000, Multiplyer = 18.0f } },
+
         };
 
         public override ConfigScope Mode => ConfigScope.ClientSide;

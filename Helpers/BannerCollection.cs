@@ -40,17 +40,21 @@ namespace UltimateBannerMerging.Helpers
 
         private void Fill(IEnumerable<Item> inventory, int mobCap, int bossCap)
         {
-            foreach (var item in inventory.Where(i => (i?.active ?? false) && !i.IsAir))
+            foreach (Item item in inventory.Where(i => (i?.active ?? false) && !i.IsAir))
             {
                 if (MapData.IsVanillaBanner(item.netID) || MapData.IsVanillaTrophy(item.netID))
                 {
                     AddItem(item.netID, item.stack, mobCap, bossCap);
                 }
-                else if (item.ModItem is BannerItem bannerItem)
+                else if (item.ModItem is BannerItem bannerItem and not ModBannerItem )
                 {
                     AddMergedBanner(bannerItem, item.stack, mobCap, bossCap);
                 }
-                else if (MapData.IsModdedBanner(item) || MapData.IsModdedTrophy(item))
+                else if (item.ModItem is ModBannerItem modBannerItem && ModLoader.TryGetMod(modBannerItem.ModSource, out _))
+                {
+                    AddMergedBanner(modBannerItem, item.stack, mobCap, bossCap);
+                }
+                else if (item.ModItem is not BannerItem && (MapData.IsModdedBanner(item) || MapData.IsModdedTrophy(item)))
                 {
                     AddModdedBanner(item, mobCap, bossCap);
                 }

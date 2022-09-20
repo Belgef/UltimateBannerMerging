@@ -274,7 +274,7 @@ namespace UltimateBannerMerging.Helpers
             {
                 "CalamityMod",
                 new()
-                {
+ {
                     ModName = "CalamityMod",
                     Banners = new[]
                     {
@@ -291,23 +291,22 @@ namespace UltimateBannerMerging.Helpers
                         "DiamondCrawlerBanner", "EarthElementalBanner", "EbonianBlightSlimeBanner", "EidolistBanner",
                         "EidolonWyrmJuvenileBanner", "EmeraldCrawlerBanner", "EutrophicRayBanner",
                         "FearlessGoldfishWarriorBanner", "FlakCrabBanner", "FlounderBanner", "FrogfishBanner",
-                        "FusionFeederBanner", "GammaSlimeBanner", "GhostBellBanner", "GiantClamBanner",
-                        "GiantSquidBanner", "GnasherBanner", "GreatSandSharkBanner", "GulperEelBanner",
-                        "HadarianBanner", "HeatSpiritBanner", "HiveBanner", "IceClasperBanner",
-                        "ImpiousImmolatorBanner", "IrradiatedSlimeBanner", "LaserfishBanner", "LuminousCorvinaBanner",
-                        "MantisBanner", "MantisShrimpBanner", "MaulerBanner", "MelterBanner", "MirageJellyBanner",
-                        "MorayEelBanner", "NovaBanner", "NuclearToadBanner", "OarfishBanner", "OrthoceraBanner",
-                        "OverloadedSoldierBanner", "PerennialSlimeBanner", "PestilentSlimeBanner",
+                        "FusionFeederBanner", "GammaSlimeBanner", "GhostBellBanner", "GiantSquidBanner",
+                        "GnasherBanner", "GulperEelBanner", "HadarianBanner", "HeatSpiritBanner", "HiveBanner",
+                        "IceClasperBanner", "ImpiousImmolatorBanner", "IrradiatedSlimeBanner", "LaserfishBanner",
+                        "LuminousCorvinaBanner", "MantisBanner", "MantisShrimpBanner", "MelterBanner",
+                        "MirageJellyBanner", "MorayEelBanner", "NovaBanner", "NuclearToadBanner", "OarfishBanner",
+                        "OrthoceraBanner", "OverloadedSoldierBanner", "PerennialSlimeBanner", "PestilentSlimeBanner",
                         "PhantomSpiritBanner", "PiggyBanner", "PlaguebringerBanner", "PlagueChargerBanner",
                         "PlagueshellBanner", "PrismBackBanner", "ProfanedEnergyBanner", "RadiatorBanner",
                         "ReaperSharkBanner", "RimehoundBanner", "RotdogBanner", "RubyCrawlerBanner",
                         "SapphireCrawlerBanner", "ScornEaterBanner", "ScryllarBanner", "SeaFloatyBanner",
-                        "SeaMinnowBanner", "SeaSerpentBanner", "SeaUrchinBanner", "ShockstormShuttleBanner",
-                        "SkyfinBanner", "SmallSightseerBanner", "SoulSlurperBanner", "StellarCulexBanner",
-                        "StormlionBanner", "SulphurousSkaterBanner", "SunskaterBanner", "TopazCrawlerBanner",
-                        "ToxicMinnowBanner", "TrasherBanner", "TrilobiteBanner", "ViperfishBanner", "VirulingBanner",
-                        "WaterLeechBanner", "WulfrumDroneBanner", "WulfrumGyratorBanner", "WulfrumHovercraftBanner",
-                        "WulfrumPylonBanner", "WulfrumRoverBanner",
+                        "SeaSerpentBanner", "SeaUrchinBanner", "ShockstormShuttleBanner", "SkyfinBanner",
+                        "SmallSightseerBanner", "SoulSlurperBanner", "StellarCulexBanner", "StormlionBanner",
+                        "SulphurousSkaterBanner", "SunskaterBanner", "TopazCrawlerBanner", "ToxicMinnowBanner",
+                        "TrasherBanner", "TrilobiteBanner", "ViperfishBanner", "VirulingBanner", "WaterLeechBanner",
+                        "WulfrumDroneBanner", "WulfrumGyratorBanner", "WulfrumHovercraftBanner", "WulfrumPylonBanner",
+                        "WulfrumRoverBanner",
                     },
                     Trophies = new[]
                     {
@@ -319,7 +318,8 @@ namespace UltimateBannerMerging.Helpers
                         "PlaguebringerGoliathTrophy", "PolterghastTrophy", "ProfanedGuardianTrophy", "ProvidenceTrophy",
                         "RavagerTrophy", "SignusTrophy", "SlimeGodTrophy", "SupremeCalamitasTrophy",
                         "SupremeCataclysmTrophy", "SupremeCatastropheTrophy", "ThanatosTrophy", "WeaverTrophy",
-                        "YharonTrophy",
+                        "YharonTrophy", "CragmawMireTrophy", "GiantClamTrophy", "GreatSandSharkTrophy", "MaulerTrophy",
+                        "NuclearTerrorTrophy",
                     },
                     Normalizer = new()
                     {
@@ -418,8 +418,9 @@ namespace UltimateBannerMerging.Helpers
                     UniqueTrophies = new()
                     {
                         { "AquaticScourgeBody", "AquaticScourgeTrophy" }, { "AresBody", "AresTrophy" },
-                        { "AstrumDeusBody", "AstrumDeusTrophy" }, { "Bumblefuck", "DragonfollyTrophy" },
-                        { "CalamitasClone", "CalamitasTrophy" }, { "DesertScourgeBody", "DesertScourgeTrophy" },
+                        { "AstrumDeusBody", "AstrumDeusTrophy" }, { "AuroraSpirit", "CryogenTrophy" },
+                        { "Bumblefuck", "DragonfollyTrophy" }, { "CalamitasClone", "CalamitasTrophy" },
+                        { "DesertScourgeBody", "DesertScourgeTrophy" },
                         { "DevourerofGodsBody", "DevourerofGodsTrophy" }, { "PerforatorHive", "PerforatorTrophy" },
                         { "ProfanedGuardianCommander", "ProfanedGuardianTrophy" }, { "RavagerBody", "RavagerTrophy" },
                         { "SlimeGodCore", "SlimeGodTrophy" }, { "StormWeaverBody", "WeaverTrophy" },
@@ -428,12 +429,13 @@ namespace UltimateBannerMerging.Helpers
                     Bosses = new[]
                     {
                         "Anahita", "Apollo", "AquaticScourgeBody", "AresBody", "Artemis", "AstrumAureus",
-                        "AstrumDeusBody", "BrimstoneElemental", "Bumblefuck", "CalamitasClone", "Cataclysm",
-                        "Catastrophe", "CeaselessVoid", "Crabulon", "Cryogen", "DesertScourgeBody",
-                        "DevourerofGodsBody", "HiveMind", "Leviathan", "OldDuke", "PerforatorHive",
-                        "PlaguebringerGoliath", "Polterghast", "ProfanedGuardianCommander", "Providence", "RavagerBody",
-                        "Signus", "SlimeGodCore", "StormWeaverBody", "SupremeCalamitas", "SupremeCataclysm",
-                        "SupremeCatastrophe", "ThanatosHead", "Yharon",
+                        "AstrumDeusBody", "AuroraSpirit", "BrimstoneElemental", "Bumblefuck", "CalamitasClone",
+                        "Cataclysm", "Catastrophe", "CeaselessVoid", "Crabulon", "CragmawMire", "Cryogen",
+                        "DesertScourgeBody", "DevourerofGodsBody", "GiantClam", "GreatSandShark", "HiveMind",
+                        "Leviathan", "Mauler", "NuclearTerror", "OldDuke", "PerforatorHive", "PlaguebringerGoliath",
+                        "Polterghast", "ProfanedGuardianCommander", "Providence", "RavagerBody", "Signus",
+                        "SlimeGodCore", "StormWeaverBody", "SupremeCalamitas", "SupremeCataclysm", "SupremeCatastrophe",
+                        "ThanatosHead", "Yharon",
                     }, Blacklist = Array.Empty<string>(),
                     Projectiles = new()
                     {
@@ -516,8 +518,106 @@ namespace UltimateBannerMerging.Helpers
                         { "WaterSpear", "Leviathan" }, { "YharonBulletHellVortex", "Yharon" },
                         { "YharonFireball", "Yharon" }, { "YharonFireball2", "Yharon" },
                     },
+                    ModIngredients = new()
+                    {
+                        { "AcidEelBanner", "AcidRainBanner" }, { "AeroSlimeBanner", "CalamityPrehardmodeBanner" },
+                        { "AmberCrawlerBanner", "CrawlerBanner" }, { "AmethystCrawlerBanner", "CrawlerBanner" },
+                        { "AnthozoanCrabBanner", "FullSulphurousBanner" },
+                        { "AquaticAberrationBanner", "CalamityHardmodeBanner" },
+                        { "AquaticUrchinBanner", "SulphurousBanner" }, { "AriesBanner", "AstralBanner" },
+                        { "ArmoredDiggerBanner", "CalamitySuperHardmodeBanner" },
+                        { "AstralachneaBanner", "AstralBanner" }, { "AstralProbeBanner", "AstralBanner" },
+                        { "AstralSlimeBanner", "AstralBanner" }, { "AtlasBanner", "AstralBanner" },
+                        { "BabyFlakCrabBanner", "FullSulphurousBanner" },
+                        { "BelchingCoralBanner", "FullSulphurousBanner" }, { "BigSightseerBanner", "AstralBanner" },
+                        { "BlindedAnglerBanner", "CalamityHardmodeBanner" }, { "BloatfishBanner", "LargeAbyssBanner" },
+                        { "BloomSlimeBanner", "TheCalamityBanner" }, { "BobbitWormBanner", "LargeAbyssBanner" },
+                        { "BohldohrBanner", "CalamitySuperHardmodeBanner" },
+                        { "BoxJellyfishBanner", "SmallAbyssBanner" }, { "CalamityEyeBanner", "BrimstoneBanner" },
+                        { "CatfishBanner", "SulphurousBanner" }, { "ChaoticPufferBanner", "MediumAbyssBanner" },
+                        { "CharredSlimeBanner", "CalamitySuperHardmodeBanner" }, { "ClamBanner", "SunkenBanner" },
+                        { "CloudElementalBanner", "CalamitySuperHardmodeBanner" },
+                        { "CnidrionBanner", "CalamityBeginnerBanner" }, { "ColossalSquidBanner", "LargeAbyssBanner" },
+                        { "CosmicElementalBanner", "CalamityBeginnerBanner" }, { "CryonBanner", "CryoBanner" },
+                        { "CryoSlimeBanner", "CryoBanner" }, { "CrystalCrawlerBanner", "CalamityHardmodeBanner" },
+                        { "CultistAssassinBanner", "CalamityHardmodeBanner" },
+                        { "CuttlefishBanner", "SmallAbyssBanner" }, { "DespairStoneBanner", "BrimstoneBanner" },
+                        { "DevilFishBanner", "SmallAbyssBanner" }, { "DiamondCrawlerBanner", "CrawlerBanner" },
+                        { "EarthElementalBanner", "CalamitySuperHardmodeBanner" },
+                        { "EidolistBanner", "MediumAbyssBanner" }, { "EidolonWyrmJuvenileBanner", "LargeAbyssBanner" },
+                        { "EmeraldCrawlerBanner", "CrawlerBanner" }, { "EutrophicRayBanner", "SunkenBanner" },
+                        { "FearlessGoldfishWarriorBanner", "CalamityPrehardmodeBanner" },
+                        { "FlakCrabBanner", "FullAcidRainBanner" }, { "FlounderBanner", "SulphurousBanner" },
+                        { "FrogfishBanner", "CalamityBeginnerBanner" }, { "FusionFeederBanner", "AstralBanner" },
+                        { "GammaSlimeBanner", "TheCalamityBanner" }, { "GhostBellBanner", "SunkenBanner" },
+                        { "GiantSquidBanner", "CalamityPrehardmodeBanner" }, { "GnasherBanner", "SulphurousBanner" },
+                        { "GulperEelBanner", "LargeAbyssBanner" }, { "HadarianBanner", "AstralBanner" },
+                        { "HeatSpiritBanner", "BrimstoneBanner" }, { "HiveBanner", "AstralBanner" },
+                        { "IceClasperBanner", "CryoBanner" }, { "ImpiousImmolatorBanner", "ProfanedBanner" },
+                        { "IrradiatedSlimeBanner", "FullAcidRainBanner" }, { "LaserfishBanner", "MediumAbyssBanner" },
+                        { "LuminousCorvinaBanner", "MediumAbyssBanner" }, { "MantisBanner", "AstralBanner" },
+                        { "MantisShrimpBanner", "HardmodeBanner" }, { "MelterBanner", "PlagueBanner" },
+                        { "MirageJellyBanner", "MediumAbyssBanner" }, { "MorayEelBanner", "SmallAbyssBanner" },
+                        { "NovaBanner", "AstralBanner" }, { "NuclearToadBanner", "AcidRainBanner" },
+                        { "OarfishBanner", "MediumAbyssBanner" }, { "OrthoceraBanner", "MediumAcidRainBanner" },
+                        { "OverloadedSoldierBanner", "CalamityHardmodeBanner" },
+                        { "PerennialSlimeBanner", "CalamitySuperHardmodeBanner" },
+                        { "PestilentSlimeBanner", "PlagueBanner" }, { "PhantomSpiritBanner", "TheCalamityBanner" },
+                        { "PiggyBanner", "CalamityPrehardmodeBanner" }, { "PlaguebringerBanner", "PlagueBanner" },
+                        { "PlagueChargerBanner", "PlagueBanner" }, { "PlagueshellBanner", "PlagueBanner" },
+                        { "PrismBackBanner", "SunkenBanner" }, { "ProfanedEnergyBanner", "ProfanedBanner" },
+                        { "RadiatorBanner", "AcidRainBanner" }, { "ReaperSharkBanner", "LargeAbyssBanner" },
+                        { "RimehoundBanner", "CalamityBeginnerBanner" }, { "RotdogBanner", "CalamityBeginnerBanner" },
+                        { "RubyCrawlerBanner", "CrawlerBanner" }, { "SapphireCrawlerBanner", "CrawlerBanner" },
+                        { "ScornEaterBanner", "ProfanedBanner" }, { "ScryllarBanner", "BrimstoneBanner" },
+                        { "SeaFloatyBanner", "SunkenBanner" }, { "SeaSerpentBanner", "CalamityHardmodeBanner" },
+                        { "SeaUrchinBanner", "CalamityBeginnerBanner" },
+                        { "ShockstormShuttleBanner", "CalamityHardmodeBanner" }, { "SkyfinBanner", "AcidRainBanner" },
+                        { "SmallSightseerBanner", "AstralBanner" }, { "SoulSlurperBanner", "BrimstoneBanner" },
+                        { "StellarCulexBanner", "AstralBanner" }, { "StormlionBanner", "CalamityBeginnerBanner" },
+                        { "SulphurousSkaterBanner", "FullAcidRainBanner" },
+                        { "SunskaterBanner", "CalamityBeginnerBanner" }, { "TopazCrawlerBanner", "CrawlerBanner" },
+                        { "ToxicMinnowBanner", "SmallAbyssBanner" }, { "TrasherBanner", "SulphurousBanner" },
+                        { "TrilobiteBanner", "FullAcidRainBanner" }, { "ViperfishBanner", "SmallAbyssBanner" },
+                        { "VirulingBanner", "PlagueBanner" }, { "WaterLeechBanner", "AcidRainBanner" },
+                        { "WulfrumDroneBanner", "WulfrumBanner" }, { "WulfrumGyratorBanner", "WulfrumBanner" },
+                        { "WulfrumHovercraftBanner", "WulfrumBanner" }, { "WulfrumPylonBanner", "WulfrumBanner" },
+                        { "WulfrumRoverBanner", "WulfrumBanner" }, { "AnahitaTrophy", "" }, { "ApolloTrophy", "" },
+                        { "AquaticScourgeTrophy", "" }, { "AresTrophy", "" }, { "ArtemisTrophy", "" },
+                        { "AstrumAureusTrophy", "" }, { "AstrumDeusTrophy", "" }, { "BrimstoneElementalTrophy", "" },
+                        { "CalamitasTrophy", "" }, { "CataclysmTrophy", "" }, { "CatastropheTrophy", "" },
+                        { "CeaselessVoidTrophy", "" }, { "CrabulonTrophy", "" }, { "CryogenTrophy", "" },
+                        { "DesertScourgeTrophy", "" }, { "DevourerofGodsTrophy", "" }, { "DragonfollyTrophy", "" },
+                        { "HiveMindTrophy", "" }, { "LeviathanTrophy", "" }, { "OldDukeTrophy", "" },
+                        { "PerforatorTrophy", "" }, { "PlaguebringerGoliathTrophy", "" }, { "PolterghastTrophy", "" },
+                        { "ProfanedGuardianTrophy", "" }, { "ProvidenceTrophy", "" }, { "RavagerTrophy", "" },
+                        { "SignusTrophy", "" }, { "SlimeGodTrophy", "" }, { "SupremeCalamitasTrophy", "" },
+                        { "SupremeCataclysmTrophy", "" }, { "SupremeCatastropheTrophy", "" }, { "ThanatosTrophy", "" },
+                        { "WeaverTrophy", "" }, { "YharonTrophy", "" }, { "GiantClamTrophy", "" },
+                        { "GreatSandSharkTrophy", "" }, { "MaulerTrophy", "" }, { "NuclearTerrorTrophy", "" },
+                    },
+                    MergedIngredients = new()
+                    {
+                        { "CalamityPrehardmodeBanner", "CalamityHardmodeBanner" },
+                        { "CrawlerBanner", "CalamityBeginnerBanner" },
+                        { "SulphurousBanner", "CalamityPrehardmodeBanner" },
+                        { "SmallAbyssBanner", "CalamityPrehardmodeBanner" },
+                        { "BrimstoneBanner", "CalamityPrehardmodeBanner" },
+                        { "SunkenBanner", "CalamityBeginnerBanner" },
+                        { "CalamityBeginnerBanner", "CalamityPrehardmodeBanner" },
+                        { "WulfrumBanner", "CalamityBeginnerBanner" }, { "AstralBanner", "CalamityHardmodeBanner" },
+                        { "PlagueBanner", "CalamitySuperHardmodeBanner" },
+                        { "MediumAbyssBanner", "CalamitySuperHardmodeBanner" },
+                        { "FullSulphurousBanner", "CalamityHardmodeBanner" },
+                        { "CryoBanner", "CalamityHardmodeBanner" }, { "AcidRainBanner", "CalamityPrehardmodeBanner" },
+                        { "CalamityHardmodeBanner", "CalamitySuperHardmodeBanner" },
+                        { "CalamitySuperHardmodeBanner", "TheCalamityBanner" },
+                        { "LargeAbyssBanner", "TheCalamityBanner" },
+                        { "FullAcidRainBanner", "CalamitySuperHardmodeBanner" },
+                    },
                 }
             }
+
         };
 
         private static readonly List<int> BlackList = new() {
@@ -642,6 +742,26 @@ namespace UltimateBannerMerging.Helpers
 
             if (cap > 0 && dict[key] > cap)
                 dict[key] = cap;
+        }
+
+        public static int[] GetModdedBannerIngredients(string name, string mod)
+        {
+            if(!ModBannersData.ContainsKey(mod))
+                return Array.Empty<int>();
+            return ModBannersData[mod].ModIngredients
+                .Where(p => p.Value == name)
+                .Select(p => ModLoader.GetMod(mod).Find<ModItem>(p.Key).Type)
+                .ToArray();
+        }
+
+        public static int[] GetModdedBannerMergedIngredients(string name, string mod)
+        {
+            if (!ModBannersData.ContainsKey(mod))
+                return Array.Empty<int>();
+            return ModBannersData[mod].MergedIngredients
+                .Where(p => p.Value == name)
+                .Select(p => ModContent.Find<ModItem>("UltimateBannerMerging",p.Key).Type)
+                .ToArray();
         }
     }
 }

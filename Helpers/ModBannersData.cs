@@ -25,5 +25,9 @@ namespace UltimateBannerMerging.Helpers
         public string[] Blacklist { get; set; }
 
         public Dictionary<string, string> Projectiles { get; set; }
+
+        public Dictionary<string, string> ModIngredients { get; set; }
+
+        public Dictionary<string, string> MergedIngredients { get; set; }
     }
 }
