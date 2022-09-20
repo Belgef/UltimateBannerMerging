@@ -18,11 +18,14 @@ public class UltimateBannerMergingModSystem : ModSystem
             ItemID.BrainofCthulhuTrophy,
             ItemID.EaterofWorldsTrophy));
 
-        RecipeGroup.RegisterGroup("UltimateBannerMerging:CalamityBlightSlimeBanner", new(() => "Ebonian or Crimulan Blight Slime Banner",
-            ModContent.Find<ModItem>("CalamityMod", "EbonianBlightSlimeBanner").Type,
-            ModContent.Find<ModItem>("CalamityMod", "CrimulanBlightSlimeBanner").Type));
-        RecipeGroup.RegisterGroup("UltimateBannerMerging:CalamityEvilBiomeBossTrophy", new(() => "The Hive Mind or Perforator Trophy",
-            ModContent.Find<ModItem>("CalamityMod", "HiveMindTrophy").Type,
-            ModContent.Find<ModItem>("CalamityMod", "PerforatorTrophy").Type));
+        if (ModLoader.HasMod("CalamityMod"))
+        {
+            RecipeGroup.RegisterGroup("UltimateBannerMerging:CalamityBlightSlimeBanner", new(() => "Ebonian or Crimulan Blight Slime Banner",
+                ModContent.Find<ModItem>("CalamityMod", "EbonianBlightSlimeBanner").Type,
+                ModContent.Find<ModItem>("CalamityMod", "CrimulanBlightSlimeBanner").Type));
+            RecipeGroup.RegisterGroup("UltimateBannerMerging:CalamityEvilBiomeBossTrophy", new(() => "The Hive Mind or Perforator Trophy",
+                ModContent.Find<ModItem>("CalamityMod", "HiveMindTrophy").Type,
+                ModContent.Find<ModItem>("CalamityMod", "PerforatorTrophy").Type));
+        }
     }
 }
