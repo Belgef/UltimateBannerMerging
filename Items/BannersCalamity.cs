@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using System;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,7 +13,16 @@ namespace UltimateBannerMerging.Items
     public class SmallAbyssBanner : CalamityModBannerItem { public override string Name => "SmallAbyssBanner"; }
     public class BrimstoneBanner : CalamityModBannerItem { public override string Name => "BrimstoneBanner"; }
     public class SunkenBanner : CalamityModBannerItem { public override string Name => "SunkenBanner"; }
-    public class CalamityBeginnerBanner : CalamityModBannerItem { public override string Name => "CalamityBeginnerBanner"; }
+    public class CalamityBeginnerBanner : CalamityModBannerItem 
+    { 
+        public override string Name => "CalamityBeginnerBanner";
+        public override string[] Groups => new[]{ "UltimateBannerMerging:CalamityBlightSlimeBanner" };
+        public override int[] GroupItems => new[]
+        {
+            ModContent.Find<ModItem>("CalamityMod", "CrimulanBlightSlimeBanner").Type,
+            ModContent.Find<ModItem>("CalamityMod", "EbonianBlightSlimeBanner").Type
+        };
+    }
     public class WulfrumBanner : CalamityModBannerItem { public override string Name => "WulfrumBanner"; }
     public class AstralBanner : CalamityModBannerItem { public override string Name => "AstralBanner"; }
     public class PlagueBanner : CalamityModBannerItem { public override string Name => "PlagueBanner"; }
@@ -25,4 +35,22 @@ namespace UltimateBannerMerging.Items
     public class LargeAbyssBanner : CalamityModBannerItem { public override string Name => "LargeAbyssBanner"; }
     public class FullAcidRainBanner : CalamityModBannerItem { public override string Name => "FullAcidRainBanner"; }
     public class TheCalamityBanner : CalamityModBannerItem { public override string Name => "TheCalamityBanner"; }
+
+    public class CalamityPrehardmodeTrophy : CalamityModBannerItem 
+    { 
+        public override string Name => "CalamityPrehardmodeTrophy";
+        public override string[] Groups => new[] { "UltimateBannerMerging:CalamityEvilBiomeBossTrophy" };
+        public override int[] GroupItems => new[]
+        {
+            ModContent.Find<ModItem>("CalamityMod", "HiveMindTrophy").Type,
+            ModContent.Find<ModItem>("CalamityMod", "PerforatorTrophy").Type
+        };
+    }
+    public class CalamityHardmodeTrophy : CalamityModBannerItem { public override string Name => "CalamityHardmodeTrophy"; }
+    public class CalamitySuperHardmodeTrophy : CalamityModBannerItem { public override string Name => "CalamitySuperHardmodeTrophy"; }
+    public class CalamityProfanedTrophy : CalamityModBannerItem { public override string Name => "CalamityProfanedTrophy"; }
+    public class CalamityDevouringTrophy : CalamityModBannerItem { public override string Name => "CalamityDevouringTrophy"; }
+    public class CalamityImmaculateTrophy : CalamityModBannerItem { public override string Name => "CalamityImmaculateTrophy"; }
+    public class TheCalamityTrophy : CalamityModBannerItem { public override string Name => "TheCalamityTrophy"; }
+
 }

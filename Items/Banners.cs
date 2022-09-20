@@ -128,11 +128,16 @@ namespace UltimateBannerMerging.Items
         public override int[] BannerList => System.Array.Empty<int>();
         public override int[] BannerItemIds => new[] {
             ModContent.ItemType<BasicBanner>(),
-            WorldGen.crimson ? ModContent.ItemType<CrimsonBanner>() : ModContent.ItemType<CorruptedBanner>(),
             ModContent.ItemType<OceanBanner>(),
             ModContent.ItemType<JungleBanner>()
         };
         public override int[] AdditionalMobs => System.Array.Empty<int>();
+        public override string[] Groups => new[] { "UltimateBannerMerging:EvilBiomeBanner" };
+        public override int[] GroupMergedItemIds => new[]
+        {
+            ModContent.Find<ModItem>("UltimateBannerMerging", "CrimsonBanner").Type,
+            ModContent.Find<ModItem>("UltimateBannerMerging", "CorruptedBanner").Type
+        };
     }
 
     public class UndergroundJungleBanner : BannerItem
@@ -468,10 +473,15 @@ namespace UltimateBannerMerging.Items
             ModContent.ItemType<ProfessionalBanner>(),
             ModContent.ItemType<HardmodeSurfaceBanner>(),
             ModContent.ItemType<HardmodeUndergroundBanner>(),
-            WorldGen.crimson ? ModContent.ItemType<HardmodeCrimsonBanner>() : ModContent.ItemType<HardmodeCorruptedBanner>(),
             ModContent.ItemType<HallowBanner>(),
         };
         public override int[] AdditionalMobs => System.Array.Empty<int>();
+        public override string[] Groups => new[] { "UltimateBannerMerging:HardmodeEvilBiomeBanner" };
+        public override int[] GroupMergedItemIds => new[]
+        {
+            ModContent.Find<ModItem>("UltimateBannerMerging", "HardmodeCrimsonBanner").Type,
+            ModContent.Find<ModItem>("UltimateBannerMerging", "HardmodeCorruptedBanner").Type
+        };
     }
 
     public class PirateBanner : BannerItem
@@ -501,8 +511,6 @@ namespace UltimateBannerMerging.Items
         };
         public override int[] BannerItemIds => new[] {
             ModContent.ItemType<MasterBanner>(),
-            WorldGen.crimson ? ModContent.ItemType<CorruptedBanner>() : ModContent.ItemType<CrimsonBanner>(),
-            WorldGen.crimson ? ModContent.ItemType<HardmodeCorruptedBanner>() : ModContent.ItemType<HardmodeCrimsonBanner>(),
             ModContent.ItemType<PirateBanner>()
         };
         public override int[] AdditionalMobs => new int[] { 
@@ -741,14 +749,17 @@ namespace UltimateBannerMerging.Items
         public override int[] BannerList => new int[]
         {
             ItemID.EyeofCthulhuTrophy,
-            WorldGen.crimson ? ItemID.BrainofCthulhuTrophy : ItemID.EaterofWorldsTrophy,
             ItemID.SkeletronTrophy
         };
 
         public override int[] BannerItemIds => System.Array.Empty<int>();
 
-        public override int[] AdditionalMobs => new int[] {
-            (!WorldGen.crimson) ? NPCID.BrainofCthulhu : NPCID.EaterofWorldsHead,
+        public override int[] AdditionalMobs => System.Array.Empty<int>();
+        public override string[] Groups => new[] { "UltimateBannerMerging:EvilBiomeTrophy" };
+        public override int[] GroupItems => new int[]
+        {
+            ItemID.BrainofCthulhuTrophy,
+            ItemID.EaterofWorldsTrophy
         };
     }
     public class PreHardmodeTrophy : BannerItem

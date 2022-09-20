@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Terraria;
 using Terraria.ModLoader;
 using UltimateBannerMerging.Helpers;
 
@@ -11,7 +12,8 @@ public abstract class ModBannerItem : BannerItem
     private int[] _bannerList;
     public override int[] BannerList
     {
-        get { 
+        get
+        {
             _bannerList ??= MapData.GetModdedBannerIngredients(Name, ModSource);
             return _bannerList;
         }
@@ -30,11 +32,14 @@ public abstract class ModBannerItem : BannerItem
     private int[] _additionalMobs;
     public override int[] AdditionalMobs
     {
-        get {
+        get
+        {
             _additionalMobs ??= Array.Empty<int>();
             return _additionalMobs;
         }
     }
+
+
     public abstract string ModSource { get; }
 
     public override string ShowName

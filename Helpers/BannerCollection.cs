@@ -87,13 +87,21 @@ namespace UltimateBannerMerging.Helpers
             {
                 AddItem(bannerId, mergedBanner.Multiplier * quantity, mobCap, bossCap);
             }
-            foreach (short mob in mergedBanner.AdditionalMobs)
+            foreach (int mob in mergedBanner.AdditionalMobs)
             {
                 AddAdditionalMob(mob, mergedBanner.Multiplier * quantity, mobCap, bossCap);
             }
             foreach (BannerItem mergedBanner2 in mergedBanner.BannerItems)
             {
                 AddMergedBanner(mergedBanner2, mergedBanner.Multiplier * quantity, mobCap, bossCap);
+            }
+            foreach (int groupItemId in mergedBanner.GroupItems)
+            {
+                AddItem(groupItemId, mergedBanner.Multiplier * quantity, mobCap, bossCap);
+            }
+            foreach (BannerItem groupMergedBanner in mergedBanner.GroupMergedItems)
+            {
+                AddMergedBanner(groupMergedBanner, mergedBanner.Multiplier * quantity, mobCap, bossCap);
             }
         }
 
