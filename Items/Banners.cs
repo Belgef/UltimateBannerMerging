@@ -200,7 +200,6 @@ namespace UltimateBannerMerging.Items
             NPCID.CochinealBeetle,
             NPCID.Crawdad,
             NPCID.GiantShelly,
-            NPCID.Worm,
             NPCID.LostGirl,
             NPCID.Salamander,
             NPCID.Tim,

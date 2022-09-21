@@ -65,7 +65,7 @@ namespace UltimateBannerMerging.Items
         {
             Recipe recipe = CreateRecipe();
             recipe.AddIngredient(Mod, nameof(SmellyBag));
-            recipe.AddIngredient(WorldGen.crimson ? ItemID.TissueSample : ItemID.ShadowScale, 40);
+            recipe.AddRecipeGroup("UltimateBannerMerging:EvilBiomeMeat", 40);
             recipe.AddTile(TileID.DemonAltar);
             recipe.Register();
         }

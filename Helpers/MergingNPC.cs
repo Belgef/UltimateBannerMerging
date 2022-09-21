@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using System;
+using Terraria;
 using Terraria.DataStructures;
 using UltimateBannerMerging.NPCs;
 using UltimateBannerMerging.Players;
@@ -19,8 +20,8 @@ internal abstract class MergingNPC : MergingObject
     public void SetNPCLootParameters(BannerPlayer player, int lastDamage)
     {
         MoreLootNPC gnpc = _npc.GetGlobalNPC<MoreLootNPC>();
-        gnpc.Player = player;
-        gnpc.LastDamage = lastDamage;
+        gnpc.EntitiesToKill = (int)Math.Ceiling(GetLootMultiplier()) - 1;
+        gnpc.MaxEntitiesToKill = gnpc.EntitiesToKill;
     }
 
     public abstract float GetLootMultiplier();

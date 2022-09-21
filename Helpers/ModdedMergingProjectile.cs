@@ -16,7 +16,7 @@ internal class ModdedMergingProjectile : MergingProjectile
         _owner = (_owner == null) ? "" : MapData.Normalize(_owner, _modName);
 
         _calculator = MapData.IsBoss(_owner, _modName)
-            ? new(config.BossInvulnerabilityCap, config.MaxBossDamageIncrease, 1)
+            ? new(config.BossInvulnerabilityCap, config.MaxBossDamageIncrease, config.MaxBossLootMultiplier)
             : new(config.InvulnerabilityCap, config.MaxDamageIncrease, config.MaxLootMultiplier);
     }
 

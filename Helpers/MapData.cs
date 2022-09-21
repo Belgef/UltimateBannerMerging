@@ -436,7 +436,7 @@ namespace UltimateBannerMerging.Helpers
                         "Polterghast", "ProfanedGuardianCommander", "Providence", "RavagerBody", "Signus",
                         "SlimeGodCore", "StormWeaverBody", "SupremeCalamitas", "SupremeCataclysm", "SupremeCatastrophe",
                         "ThanatosHead", "Yharon",
-                    }, Blacklist = Array.Empty<string>(),
+                    },
                     Projectiles = new()
                     {
                         { "BelchingCoralSpike", "BelchingCoral" }, { "CrabBoulder", "AnthozoanCrab" },
@@ -634,36 +634,6 @@ namespace UltimateBannerMerging.Helpers
 
         };
 
-        private static readonly List<int> BlackList = new() {
-            NPCID.MotherSlime,
-            NPCID.SolarCorite,
-            NPCID.SolarCrawltipedeHead,
-            NPCID.SolarDrakomire,
-            NPCID.SolarDrakomireRider,
-            NPCID.SolarSolenian,
-            NPCID.SolarSpearman,
-            NPCID.SolarSroller,
-            NPCID.NebulaBeast,
-            NPCID.NebulaBrain,
-            NPCID.NebulaHeadcrab,
-            NPCID.NebulaSoldier,
-            NPCID.VortexHornet,
-            NPCID.VortexHornetQueen,
-            NPCID.VortexLarva,
-            NPCID.VortexRifleman,
-            NPCID.VortexSoldier,
-            NPCID.StardustCellBig,
-            NPCID.StardustCellSmall,
-            NPCID.StardustJellyfishBig,
-            NPCID.StardustJellyfishSmall,
-            NPCID.StardustSoldier,
-            NPCID.StardustSpiderBig,
-            NPCID.StardustSpiderSmall,
-            NPCID.StardustWormHead,
-            NPCID.Slimer,
-            NPCID.CorruptSlime
-        };
-
         public static bool TryMapNPCToBanner(int mobId, out int bannerId)
         {
             bannerId = 0;
@@ -736,11 +706,6 @@ namespace UltimateBannerMerging.Helpers
                 ? ModBannersData[modName].Normalizer[npcName]
                 : npcName;
         }
-
-        public static bool IsInLootBlackList(int mobId) => BlackList.Contains(mobId);
-
-        public static bool IsInLootBlackList(string npcName, string modName)
-            => ModBannersData.ContainsKey(modName) && ModBannersData[modName].Blacklist.Contains(npcName);
 
         public static bool IsBoss(int mobId) => Bosses.Contains(mobId);
 

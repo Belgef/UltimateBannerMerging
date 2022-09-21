@@ -12,14 +12,29 @@ Fill free to include this mod in your list!
  
 [hr][/hr]
 
+[h1]- v1.5.4.2 -[/h1]
+[list]
+[*]added boss loot multiplying
+[*]fixed Awful Substance recipe
+[*]fixed mob count increase on mob death with loot multiplier
+[*]fixed infinite money bug
+[/list]
+
+[h1]- v1.5.4.1 -[/h1]
+[list]
+[*]fixed Old Army Banner sprites
+[*]fixed mob duplication on kill
+[/list]
+
 [h1]- v1.5.4 -[/h1]
 [list]
 [*]added combined Calamity banners and trophies
-[*]fixed crimson and corruption specific receipts - now you can use one of 2 evil biome items in receipt and get a bonus of both items
+[*]fixed crimson and corruption specific recipes - now you can use one of 2 evil biome items in recipe and get a bonus of both items
 [*]fixed spawn rate increasing items - now you can stop spawn increase by either right clicking on buff icon or using any spawn increasing item
 [*]now final banners and trophies won't nessesairly give you full invulnerability - the bigger banner and trophy config cap are, the lower bonuses you will get
 [*]a lot of code refactoring and optimization
 [/list]
+
 
 [h1]- v1.5.3 -[/h1]
 [list]

@@ -8,6 +8,10 @@ public class UltimateBannerMergingModSystem : ModSystem
 {
     public override void AddRecipeGroups()
     {
+        RecipeGroup.RegisterGroup("UltimateBannerMerging:EvilBiomeMeat", new(() => "Shadow scale or tissue sample",
+            ItemID.RottenChunk,
+            ItemID.TissueSample));
+
         RecipeGroup.RegisterGroup("UltimateBannerMerging:EvilBiomeBanner", new(() => "Crimson or Corrupted Banner",
             ModContent.Find<ModItem>("UltimateBannerMerging", "CrimsonBanner").Type,
             ModContent.Find<ModItem>("UltimateBannerMerging", "CorruptedBanner").Type));

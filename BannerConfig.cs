@@ -39,10 +39,10 @@ namespace UltimateBannerMerging
         [DefaultValue("5")]
         [Label("Max Drop Multiplier")]
         public int MaxLootMultiplier;
-        //[Range(1f, 100f)]
-        //[DefaultValue("5")]
-        //[Label("Max Boss Drop Multiplier")]
-        //public int DropMaxBossMultiplier;
+        [Range(1f, 100f)]
+        [DefaultValue("5")]
+        [Label("Max Boss Drop Multiplier")]
+        public int MaxBossLootMultiplier;
 
         [JsonIgnore]
         public Dictionary<string, ItemInfo> BannerStats => new()
