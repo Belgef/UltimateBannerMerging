@@ -1,4 +1,5 @@
 ﻿using Terraria;
+using UltimateBannerMerging.Projectiles;
 
 namespace UltimateBannerMerging.Helpers;
 
@@ -20,7 +21,8 @@ internal abstract class MergingObject
         obj switch
         {
             NPC npc => MergingNPC.Create(npc, bannerCollection, config),
-            Projectile proj => MergingProjectile.Create(proj, bannerCollection, config),
+            //Projectile proj => MergingProjectile.Create(proj, bannerCollection, config),
+            Projectile proj => MergingNPC.Create(proj.GetGlobalProjectile<ProjectileWithAuthor>().Author, bannerCollection, config),
             _ => null
         };
 
