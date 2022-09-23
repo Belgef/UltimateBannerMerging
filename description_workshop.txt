@@ -12,6 +12,13 @@ Fill free to include this mod in your list!
  
 [hr][/hr]
 
+[h1]- v1.5.4.3 -[/h1]
+[list]
+[*]added config to manualy toggle player's storage from counting banners and trophies inside
+[*]fixed some projectiles dealing damage when they should not
+[*]prevent banner and trophy buff from disappearing when right clicked
+[/list]
+
 [h1]- v1.5.4.2 -[/h1]
 [list]
 [*]added boss loot multiplying

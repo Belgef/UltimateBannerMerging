@@ -19,5 +19,7 @@ namespace UltimateBannerMerging.Buffs
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
         }
+
+        public override bool RightClick(int buffIndex) => false;
     }
 }

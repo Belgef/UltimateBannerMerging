@@ -1,4 +1,4 @@
-[c/ffe600:Ultimate Banner Merging] is a mod that adds an enemy banner merging system and new banner effects.
+Ultimate Banner Merging is a mod that adds an enemy banner merging system and new banner effects.
 
 1. Every banner or trophy in your inventory increases your attack, defense, and loot against the corresponding enemy or boss. Also, this effect is growing with a larger quantity.
 2. You can merge every enemy banner and trophy more and more until you'll 
@@ -7,6 +7,17 @@ have [c/3b7fff:The Banner] and [c/3b7fff:The Trophy] that give you maximum effec
 4. Banners and trophies have the same effect when stored in piggy bank, safe, defenders forge, or void vault/bag.
 
 Fill free to include this mod in your list! 
+
+[c/75ff6b:- v1.5.4.3 -]
+ - added config to manualy toggle player's storage from counting banners and trophies inside
+ - fixed some projectiles dealing damage when they should not
+ - prevent banner and trophy buff from disappearing when right clicked
+
+[c/75ff6b:- v1.5.4.2 -]
+ - added boss loot multiplying
+ - fixed Awful Substance recipe
+ - fixed mob count increase on mob death with loot multiplier
+ - fixed infinite money bug
 
 [c/75ff6b:- v1.5.4.1 -]
  - fixed Old Army Banner sprites
