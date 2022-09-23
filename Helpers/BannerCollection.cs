@@ -14,25 +14,23 @@ namespace UltimateBannerMerging.Helpers
         private readonly Dictionary<int, float> _itemDictionary = new();
         private readonly Dictionary<int, float> _additionalMobDictionary = new();
 
-        public BuffToggleEvent BannerBuffToggleEvent { get; set; }
-        public BuffToggleEvent TrophyBuffToggleEvent { get; set; }
+        private readonly BuffToggleEvent _bannerBuffToggleEvent;
+        private readonly BuffToggleEvent _trophyBuffToggleEvent;
 
-        public Func<int> GetMobCap { get; set; }
-        public Func<int> GetBossCap { get; set; }
+        private readonly BannerConfig _config;
 
         public BannerCollection(Player player, BannerConfig config)
         {
-            BannerBuffToggleEvent = new(
+            _bannerBuffToggleEvent = new(
                 ModContent.BuffType<BannerBuff>(), player,
                 () => _itemDictionary.Any(e => MapData.IsVanillaBanner(e.Key)),
                 () => _itemDictionary.All(e => !MapData.IsVanillaBanner(e.Key)));
-            TrophyBuffToggleEvent = new(
+            _trophyBuffToggleEvent = new(
                 ModContent.BuffType<TrophyBuff>(), player,
                 () => _itemDictionary.Any(e => MapData.IsVanillaTrophy(e.Key)),
                 () => _itemDictionary.All(e => !MapData.IsVanillaBanner(e.Key)));
 
-            GetMobCap = () => config.InvulnerabilityCap;
-            GetBossCap = () => config.BossInvulnerabilityCap;
+            _config = config;
         }
 
         public void Update(Player player)
@@ -40,13 +38,17 @@ namespace UltimateBannerMerging.Helpers
             _itemDictionary.Clear();
 
             Fill(player.inventory);
-            Fill(player.bank.item);
-            Fill(player.bank2.item);
-            Fill(player.bank3.item);
-            Fill(player.bank4.item);
+            if(_config.Piggy)
+                Fill(player.bank.item);
+            if (_config.Safe)
+                Fill(player.bank2.item);
+            if (_config.Forge)
+                Fill(player.bank3.item);
+            if (_config.Vault)
+                Fill(player.bank4.item);
 
-            BannerBuffToggleEvent.Update();
-            TrophyBuffToggleEvent.Update();
+            _bannerBuffToggleEvent.Update();
+            _trophyBuffToggleEvent.Update();
         }
 
         private void Fill(IEnumerable<Item> inventory)
@@ -75,7 +77,7 @@ namespace UltimateBannerMerging.Helpers
         private void AddItem(int itemId, float quantity)
         {
             _itemDictionary.AddOrAppend(itemId, quantity,
-                MapData.IsVanillaBanner(itemId) ? GetMobCap() : GetBossCap());
+                MapData.IsVanillaBanner(itemId) ? _config.InvulnerabilityCap : _config.BossInvulnerabilityCap);
         }
 
         private void AddMergedBanner(BannerItem mergedBanner, float quantity)
@@ -105,7 +107,7 @@ namespace UltimateBannerMerging.Helpers
         private void AddAdditionalMob(int mobId, float quantity)
         {
             _additionalMobDictionary.AddOrAppend(mobId, quantity,
-                !MapData.IsBoss(mobId) ? GetMobCap() : GetBossCap());
+                !MapData.IsBoss(mobId) ? _config.InvulnerabilityCap : _config.BossInvulnerabilityCap);
         }
 
         private void AddModdedBanner(Item item)
@@ -114,7 +116,7 @@ namespace UltimateBannerMerging.Helpers
                 return;
             
             _itemDictionary.AddOrAppend(item.ModItem.Type, item.stack,
-                MapData.IsModdedBanner(item) ? GetMobCap() : GetBossCap());
+                MapData.IsModdedBanner(item) ? _config.InvulnerabilityCap : _config.BossInvulnerabilityCap);
         }
         
         public float GetBannerQuantity(int bannerId)

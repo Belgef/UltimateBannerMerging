@@ -44,6 +44,23 @@ namespace UltimateBannerMerging
         [Label("Max Boss Drop Multiplier")]
         public int MaxBossLootMultiplier;
 
+        [DefaultValue("true")]
+        [Label("Toggle Piggy Bank")]
+        [Tooltip("Banners and trophies in Piggy Bank won't give effects")]
+        public bool Piggy;
+        [DefaultValue("true")]
+        [Label("Toggle Safe")]
+        [Tooltip("Banners and trophies in Safe won't give effects")]
+        public bool Safe;
+        [DefaultValue("true")]
+        [Label("Toggle Defender's Forge")]
+        [Tooltip("Banners and trophies in Defender's Forge won't give effects")]
+        public bool Forge;
+        [DefaultValue("true")]
+        [Label("Toggle Void Vault")]
+        [Tooltip("Banners and trophies in Void Vault won't give effects")]
+        public bool Vault;
+
         [JsonIgnore]
         public Dictionary<string, ItemInfo> BannerStats => new()
         {
