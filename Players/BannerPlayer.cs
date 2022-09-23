@@ -18,12 +18,8 @@ namespace UltimateBannerMerging.Players
 
         public override void Initialize()
         {
-            BannerCollection = new();
+            BannerCollection = new(Player);
             Config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
-            BannerCollection.OnFillBanner += () => Player.AddBuff(ModContent.BuffType<BannerBuff>(), int.MaxValue);
-            BannerCollection.OnEmptyBanner += () => Player.ClearBuff(ModContent.BuffType<BannerBuff>());
-            BannerCollection.OnFillTrophy += () => Player.AddBuff(ModContent.BuffType<TrophyBuff>(), int.MaxValue);
-            BannerCollection.OnEmptyTrophy += () => Player.ClearBuff(ModContent.BuffType<TrophyBuff>());
         }
         public override void PostUpdate()
         {

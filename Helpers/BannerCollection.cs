@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using UltimateBannerMerging.Buffs;
 using UltimateBannerMerging.Items;
 
 namespace UltimateBannerMerging.Helpers
@@ -14,15 +14,21 @@ namespace UltimateBannerMerging.Helpers
 
         private readonly Dictionary<int, float> _additionalMobDictionary = new();
 
-        public event Action OnFillBanner;
+        public BuffToggleEvent BannerBuffToggleEvent { get; set; }
 
-        public event Action OnFillTrophy;
+        public BuffToggleEvent TrophyBuffToggleEvent { get; set; }
 
-        public event Action OnEmptyBanner;
-
-        public event Action OnEmptyTrophy;
-
-        private (bool, bool) _filled = (false, false);
+        public BannerCollection(Player player)
+        {
+            BannerBuffToggleEvent = new(
+                ModContent.BuffType<BannerBuff>(), player,
+                () => _itemDictionary.Any(e => MapData.IsVanillaBanner(e.Key)),
+                () => _itemDictionary.All(e => !MapData.IsVanillaBanner(e.Key)));
+            TrophyBuffToggleEvent = new(
+                ModContent.BuffType<TrophyBuff>(), player,
+                () => _itemDictionary.Any(e => MapData.IsVanillaTrophy(e.Key)),
+                () => _itemDictionary.All(e => !MapData.IsVanillaBanner(e.Key)));
+        }
 
         public void Update(Player player, int mobCap, int bossCap)
         {
@@ -34,8 +40,8 @@ namespace UltimateBannerMerging.Helpers
             Fill(player.bank3.item, mobCap, bossCap);
             Fill(player.bank4.item, mobCap, bossCap);
 
-            DetectFill(ref _filled.Item1, MapData.IsVanillaBanner, OnFillBanner, OnEmptyBanner);
-            DetectFill(ref _filled.Item2, MapData.IsVanillaTrophy, OnFillTrophy, OnEmptyTrophy);
+            BannerBuffToggleEvent.Update();
+            TrophyBuffToggleEvent.Update();
         }
 
         private void Fill(IEnumerable<Item> inventory, int mobCap, int bossCap)
@@ -58,20 +64,6 @@ namespace UltimateBannerMerging.Helpers
                 {
                     AddModdedBanner(item, mobCap, bossCap);
                 }
-            }
-        }
-
-        private void DetectFill(ref bool isFilled, Func<int, bool> check, Action onFill, Action onEmpty)
-        {
-            if (!isFilled && _itemDictionary.Any(e => check(e.Key)))
-            {
-                isFilled = true;
-                onFill();
-            }
-            else if (isFilled && _itemDictionary.All(e => !check(e.Key)))
-            {
-                isFilled = false;
-                onEmpty();
             }
         }
 
