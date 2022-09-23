@@ -1,4 +1,7 @@
-[h1][b]Ultimate Banner Merging[/b] is a mod that adds an enemy banner merging system and new banner effects.[/h1]
+[h1][b]Ultimate Banner Merging[/b] is a mod that adds an enemy banner and trophy merging system and new effects.[/h1]
+
+Stack all of your dusty banners and trophies into one
+The more mobs and bosses you kill - the more powerful you will get. Isn't that right?
 
 [olist]
 [*]Every banner or trophy in your inventory increases your attack, defense, and loot against the corresponding enemy or boss. Also, this effect is growing with a larger quantity.
