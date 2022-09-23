@@ -18,12 +18,12 @@ namespace UltimateBannerMerging.Players
 
         public override void Initialize()
         {
-            BannerCollection = new(Player);
             Config = Mod.GetConfig(nameof(BannerConfig)) as BannerConfig;
+            BannerCollection = new(Player, Config);
         }
         public override void PostUpdate()
         {
-            BannerCollection.Update(Player, Config.InvulnerabilityCap, Config.BossInvulnerabilityCap);
+            BannerCollection.Update(Player);
 
             if (Player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
                 Player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
