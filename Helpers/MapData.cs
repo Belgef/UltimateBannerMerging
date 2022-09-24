@@ -342,7 +342,7 @@ namespace UltimateBannerMerging.Helpers
                         { "IceClasperBanner", "CryoBanner" }, { "ImpiousImmolatorBanner", "ProfanedBanner" },
                         { "IrradiatedSlimeBanner", "FullAcidRainBanner" }, { "LaserfishBanner", "MediumAbyssBanner" },
                         { "LuminousCorvinaBanner", "MediumAbyssBanner" }, { "MantisBanner", "AstralBanner" },
-                        { "MantisShrimpBanner", "HardmodeBanner" }, { "MelterBanner", "PlagueBanner" },
+                        { "MantisShrimpBanner", "CalamityHardmodeBanner" }, { "MelterBanner", "PlagueBanner" },
                         { "MirageJellyBanner", "MediumAbyssBanner" }, { "MorayEelBanner", "SmallAbyssBanner" },
                         { "NovaBanner", "AstralBanner" }, { "NuclearToadBanner", "AcidRainBanner" },
                         { "OarfishBanner", "MediumAbyssBanner" }, { "OrthoceraBanner", "MediumAcidRainBanner" },
