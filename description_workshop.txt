@@ -1,0 +1,16 @@
+﻿[h1][b]Ultimate Banner Merging[/b] is a mod that adds an enemy banner and trophy merging system and new effects.[/h1]
+
+Stack all of your dusty banners and trophies into one
+The more mobs and bosses you kill - the more powerful you will get. Isn't that right?
+
+[olist]
+[*]Every banner or trophy in your inventory increases your attack, defense, and loot against the corresponding enemy or boss. Also, this effect is growing with a larger quantity.
+[*]You can merge every enemy banner and trophy more and more until you'll 
+have [b]The Banner[/b] and [b]The Trophy[/b] that give you maximum effects.
+[*]Each crafted banner and trophy has a multiplier, which means how effective it is with respect to its ingredients.
+[*]Banners and trophies have the same effect when stored in piggy bank, safe, defenders forge, or void vault/bag.
+[/olist]
+
+Fill free to include this mod in your list! 
+ 
+More info can be found [url=https://forums.terraria.org/index.php?threads/ultimate-banner-merging.111266 ]here[/url]
