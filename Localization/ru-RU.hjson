@@ -1,0 +1,167 @@
+﻿Mods: {
+	UltimateBannerMerging: {
+		BuffDescription : {
+			BannerBuff : Чем больше у вас знамён - тем больше у вас преимущества против врагов
+			TrophyBuff : Чем больше у вас трофеев - тем больше у вас преимущества против боссов
+		}
+		BuffName : {
+			BannerBuff : Доминирование над врагами
+			SpawnRateBuff : Приманка
+			TrophyBuff : Доминирование над боссами
+		}
+		Config : {
+			BannerConfig : {
+				Name : "Настройки знамён и трофеев"
+				BossInvulnerabilityCap : {
+					Label : "Верхняя грань трофеев"
+					Tooltip : "Количество трофеев, нужное, чтобы получить максимальное приемущество"
+				}
+				Forge : {
+					Label : "Включить Кузницу защитника"
+					Tooltip : "Знамёна и трофеи в Кузнице защитника тоже будут давать эффекты"
+				}
+				InvulnerabilityCap : {
+					Label : "Верхняя грань знамён"
+					Tooltip : "Количество знамён, нужное, чтобы получить максимальное приемущество"
+				}
+				MaxBossDamageIncrease : {
+					Label : "Максимальный множитель урона по боссам"
+				}
+				MaxBossLootMultiplier : {
+					Label : "Максимальный множитель лута с боссов"
+				}
+				MaxDamageIncrease : {
+					Label : "Максимальный множитель урона по врагам"
+				}
+				MaxLootMultiplier : {
+					Label : "Максимальный множитель лута с врагов"
+				}
+				Piggy : {
+					Label : "Включить копилку"
+					Tooltip : "Знамёна и трофеи в копилке тоже будут давать эффекты"
+				}
+				Safe : {
+					Label : "Включить сейф"
+					Tooltip : "Знамёна и трофеи в сейфе тоже будут давать эффекты"
+				}
+				Vault : {
+					Label : "Включить Хранилище пустоты"
+					Tooltip : "Знамёна и трофеи в Хранилище пустоты тоже будут давать эффекты"
+				}
+			}
+		}
+		ItemName: {
+			AcidRainBanner : Знамя кислотного дождя
+			AdvancedBanner : Продвинутое знамя
+			AncientTrophy : Древний трофей
+			AnnihilationSign : Знак уничтожения
+			AstralBanner : Астральное знамя
+			AwfulSubstance : Противная субстанция
+			BasicBanner : Начальное знамя
+			BloodMoonBanner : Знамя кровавой луны
+			BrimstoneBanner : Серное знамя
+			CalamityBeginnerBanner : Начальное знамя Каламити
+			CalamityDevouringTrophy : Пожирающий трофей
+			CalamityHardmodeBanner : Хардмодное знамя Каламити
+			CalamityHardmodeTrophy : Хардмодный трофей Каламити
+			CalamityImmaculateTrophy : Превосходный трофей Каламити
+			CalamityPrehardmodeBanner : Дохардмодное знамя Каламити
+			CalamityPrehardmodeTrophy : Дохардмодный трофей Каламити
+			CalamityProfanedTrophy : Оскверненный трофей
+			CalamitySuperHardmodeBanner : Суперхардмодное знамя Каламити
+			CalamitySuperHardmodeTrophy : Суперхардмодный трофей Каламити
+			CavernBanner : Пещерное знамя
+			CorruptedBanner : Искаженное знамя
+			CrawlerBanner : Знамя ползуна
+			CrimsonBanner : Знамя багрянца
+			CryoBanner : Крио знамя
+			DefusalMark : Пометка обервреживания
+			DesertBanner : Пустинное знамя
+			DungeonBanner : Знамя данжа
+			EventsTrophy : Трофей событий
+			ExceptionalBanner : Исключительное знамя
+			ForestBanner : Лесное знамя
+			FrostMoonBanner : Знамя Морозной луны
+			FullAcidRainBanner : Законченое знамя кислотного дождя
+			FullSulphurousBanner : Законченое сернистое знамя
+			GlowingMushroomBanner : Светящееся знамя
+			GoblinArmyBanner : Знамя армии гоблинов
+			HallowBanner : Святое знамя
+			HardmodeCavernBanner : Знамя хардмодных пещер
+			HardmodeCorruptedBanner : Знамя хардмодного искажения
+			HardmodeCrimsonBanner : Знамя хардмодного багрянца
+			HardmodeDungeonBanner : Знамя хардмодного данжа
+			HardmodeSurfaceBanner : Знамя хардмодной поверхности
+			HardmodeUndergroundBanner : Знамя хардмодного подземелья
+			HorrorTrophy : Трофей ужаса
+			JungleBanner : Знамя джунглей
+			LargeAbyssBanner : Большое знамя бездны
+			LunarBanner : Лунное знамя
+			MartianBanner : Марсианское знамя
+			MasterBanner : Знамя мастера
+			MechanicsTrophy : Механический трофей
+			MediumAbyssBanner : Среднее знамя бездны
+			ModerateBanner : Умеренное знамя
+			MoonTrophy : Лунній трофей
+			NebulaBanner : Знамя туманности
+			OceanBanner : Морское знамя
+			OldArmyBanner : Знамя армии древних
+			OldArmyHardmodeBanner : Хардмодное знамя армии древних
+			PirateBanner : Знамя пиратов
+			PlagueBanner : Знамя чумы
+			PreHardmodeTrophy : Дохардмодный трофей
+			ProfessionalBanner : Профессиональное знамя
+			PumpkinMoonBanner : Знамя Тыквенной луны
+			PutrescentFlesh : Гниющая плоть
+			RainBanner : Знамя дождя
+			SmallAbyssBanner : Малое знамя бездны
+			SmellyBag : Вонючий мешок
+			SnowBanner : Снежное знамя
+			SolarBanner : Солнечное знамя
+			SolarEclipseBanner : Знамя солнечного затмения
+			StardustBanner : Знамя звездной пыли
+			SulphurousBanner : Сернистое знамя
+			SunkenBanner : Знамя затонувшего моря
+			TempleBanner : Знамя гробницы
+			TheBanner : Знамя
+			TheCalamityBanner : Знамя Каламити
+			TheCalamityTrophy : Трофей Каламити
+			TheTrophy : Трофей
+			UltraBanner : Ультра знамя
+			UndergroundBanner : Знамя подземелья
+			UndergroundDesertBanner : Знамя подземной пустыни
+			UndergroundJungleBanner : Знамя подземных джунглей
+			UnderworldBanner : Адское знамя
+			VortexBanner : Знамя вихря
+			WulfrumBanner : Вульфрумовое знамя
+		}
+		ItemTooltip : {
+			AnnihilationSign : Война близко
+			AwfulSubstance : Тебя ненавидят
+			DefusalMark : Тебя помечено как главную цель
+			PutrescentFlesh : Твое существование раздражает
+			SmellyBag : Ты привлекаешь внимание врагов
+
+			#Here % symbol will replace with multiplier number
+			BannerItem : {
+				1 : Увеличивает атаку и защиту против всех включенных врагов. 
+				2 : В % эфективнее чем его инградиенты.
+			}
+
+			#Here % symbol will replace with multiplier number
+			SpawnItem : {
+				1 : Не тратится
+				2 : Переключает режим повышенного спавна врагов
+				3 : В % раз увеличивает количество врагов
+			}
+		}
+		IngredientGroups : {
+			EvilBiomeMeat : Теневая чешуйка или образец ткани
+			EvilBiomeBanner : Знамя искажения или багрянца
+			HardmodeEvilBiomeBanner : Знамя хардмодного искажения или багрянца
+			EvilBiomeTrophy : Трофей мозга Ктулху или Пожирателя Миров
+			CalamityBlightSlimeBanner : Знамя кримтанового или эбонитового гибельного слизня
+			CalamityEvilBiomeBossTrophy : Трофей Разума Улья или Перфораторов
+		}
+	}
+}

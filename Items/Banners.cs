@@ -6,7 +6,8 @@ namespace UltimateBannerMerging.Items
 {
     public class ForestBanner : BannerItem
     {
-        public override string ShowName => "Forest Banner";
+        public override int RarityID => ItemRarityID.Blue;
+
         public override int[] BannerList => new int[] { 
             ItemID.GreenSlimeBanner, 
             ItemID.SlimeBanner, 
@@ -24,7 +25,7 @@ namespace UltimateBannerMerging.Items
     }
     public class RainBanner : BannerItem
     {
-        public override string ShowName => "Rain Banner";
+        public override int RarityID => ItemRarityID.Blue;
         public override int[] BannerList => new int[] {
             ItemID.UmbrellaSlimeBanner,
             ItemID.FlyingFishBanner,
@@ -35,7 +36,7 @@ namespace UltimateBannerMerging.Items
     }
     public class DesertBanner : BannerItem
     {
-        public override string ShowName => "Desert Banner";
+        public override int RarityID => ItemRarityID.Blue;
         public override int[] BannerList => new int[] {
             ItemID.SandSlimeBanner,
             ItemID.AntlionBanner,
@@ -47,7 +48,7 @@ namespace UltimateBannerMerging.Items
     }
     public class SnowBanner : BannerItem
     {
-        public override string ShowName => "Snow Banner";
+        public override int RarityID => ItemRarityID.Blue;
         public override int[] BannerList => new int[] {
             ItemID.IceSlimeBanner,
             ItemID.IceBatBanner,
@@ -63,7 +64,7 @@ namespace UltimateBannerMerging.Items
     }
     public class BasicBanner : BannerItem
     {
-        public override string ShowName => "Basic Banner";
+        public override int RarityID => ItemRarityID.Blue;
         public override int[] BannerList => System.Array.Empty<int>();
         public override int[] BannerItemIds => new[] { 
             ModContent.ItemType<ForestBanner>(),
@@ -78,7 +79,7 @@ namespace UltimateBannerMerging.Items
 
     public class OceanBanner : BannerItem
     {
-        public override string ShowName => "Ocean Banner";
+        public override int RarityID => ItemRarityID.Blue;
         public override int[] BannerList => new int[] {
             ItemID.CrabBanner,
             ItemID.PinkJellyfishBanner,
@@ -91,7 +92,7 @@ namespace UltimateBannerMerging.Items
     }
     public class JungleBanner : BannerItem
     {
-        public override string ShowName => "Jungle Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => new int[] {
             ItemID.JungleSlimeBanner,
             ItemID.JungleBatBanner,
@@ -103,7 +104,7 @@ namespace UltimateBannerMerging.Items
     }
     public class CorruptedBanner : BannerItem
     {
-        public override string ShowName => "Corrupted Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => new int[] {
             ItemID.DevourerBanner,
             ItemID.EaterofSoulsBanner
@@ -113,7 +114,7 @@ namespace UltimateBannerMerging.Items
     }
     public class CrimsonBanner : BannerItem
     {
-        public override string ShowName => "Crimson Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => new int[] {
             ItemID.BloodCrawlerBanner,
             ItemID.CrimeraBanner,
@@ -124,7 +125,7 @@ namespace UltimateBannerMerging.Items
     }
     public class ModerateBanner : BannerItem
     {
-        public override string ShowName => "Moderate Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => System.Array.Empty<int>();
         public override int[] BannerItemIds => new[] {
             ModContent.ItemType<BasicBanner>(),
@@ -142,7 +143,7 @@ namespace UltimateBannerMerging.Items
 
     public class UndergroundJungleBanner : BannerItem
     {
-        public override string ShowName => "Underground Jungle Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => new int[] {
             ItemID.ManEaterBanner,
             ItemID.SpikedJungleSlimeBanner,
@@ -156,7 +157,7 @@ namespace UltimateBannerMerging.Items
     }
     public class UndergroundDesertBanner : BannerItem
     {
-        public override string ShowName => "Underground Desert Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => new int[] {
             ItemID.WalkingAntlionBanner,
             ItemID.FlyingAntlionBanner,
@@ -168,7 +169,7 @@ namespace UltimateBannerMerging.Items
     }
     public class GlowingMushroomBanner : BannerItem
     {
-        public override string ShowName => "Glowing Mushroom Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => new int[] {
             ItemID.SporeZombieBanner,
             ItemID.MushiLadybugBanner,
@@ -181,7 +182,7 @@ namespace UltimateBannerMerging.Items
     }
     public class CavernBanner : BannerItem
     {
-        public override string ShowName => "Cavern Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => new int[] {
             ItemID.RedSlimeBanner,
             ItemID.YellowSlimeBanner,
@@ -210,7 +211,7 @@ namespace UltimateBannerMerging.Items
     }
     public class UndergroundBanner : BannerItem
     {
-        public override string ShowName => "Underground Banner";
+        public override int RarityID => ItemRarityID.Orange;
         public override int[] BannerList => System.Array.Empty<int>();
         public override int[] BannerItemIds => new[] {
             ModContent.ItemType<CavernBanner>(),
@@ -222,7 +223,7 @@ namespace UltimateBannerMerging.Items
     }
     public class BloodMoonBanner : BannerItem
     {
-        public override string ShowName => "Blood Moon Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => new int[] {
             ItemID.BloodZombieBanner,
             ItemID.DripplerBanner,
@@ -243,7 +244,7 @@ namespace UltimateBannerMerging.Items
     }
     public class AdvancedBanner : BannerItem
     {
-        public override string ShowName => "Advanced Banner";
+        public override int RarityID => ItemRarityID.Orange;
         public override int[] BannerList => new int[] { 
             ItemID.HarpyBanner
         };
@@ -259,7 +260,7 @@ namespace UltimateBannerMerging.Items
 
     public class DungeonBanner : BannerItem
     {
-        public override string ShowName => "Dungeon Banner";
+        public override int RarityID => ItemRarityID.Orange;
         public override int[] BannerList => new int[] {
             ItemID.AngryBonesBanner,
             ItemID.CursedSkullBanner,
@@ -274,7 +275,7 @@ namespace UltimateBannerMerging.Items
     }
     public class GoblinArmyBanner : BannerItem
     {
-        public override string ShowName => "Goblin Army Banner";
+        public override int RarityID => ItemRarityID.Orange;
         public override int[] BannerList => new int[] {
             ItemID.GoblinArcherBanner,
             ItemID.GoblinPeonBanner,
@@ -287,7 +288,7 @@ namespace UltimateBannerMerging.Items
     }
     public class OldArmyBanner : BannerItem
     {
-        public override string ShowName => "Old One's Army Banner";
+        public override int RarityID => ItemRarityID.Green;
         public override int[] BannerList => new int[] {
             ItemID.DD2JavelinThrowerBanner,
             ItemID.DD2GoblinBanner,
@@ -301,7 +302,7 @@ namespace UltimateBannerMerging.Items
     }
     public class UnderworldBanner : BannerItem
     {
-        public override string ShowName => "Underworld Banner";
+        public override int RarityID => ItemRarityID.Orange;
         public override int[] BannerList => new int[] {
             ItemID.LavaSlimeBanner,
             ItemID.HellbatBanner,
@@ -314,7 +315,7 @@ namespace UltimateBannerMerging.Items
     }
     public class ProfessionalBanner : BannerItem
     {
-        public override string ShowName => "Professional Banner";
+        public override int RarityID => ItemRarityID.LightRed;
         public override int[] BannerList => new int[] {
             ItemID.MeteorHeadBanner
         };
@@ -330,7 +331,7 @@ namespace UltimateBannerMerging.Items
 
     public class HardmodeSurfaceBanner : BannerItem
     {
-        public override string ShowName => "Hardmode Surface Banner";
+        public override int RarityID => ItemRarityID.LightRed;
         public override int[] BannerList => new int[] {
             ItemID.PossessedArmorBanner,
             ItemID.WraithBanner,
@@ -352,7 +353,7 @@ namespace UltimateBannerMerging.Items
     }
     public class HardmodeCavernBanner : BannerItem
     {
-        public override string ShowName => "Hardmode Cavern Banner";
+        public override int RarityID => ItemRarityID.LightRed;
         public override int[] BannerList => new int[] {
             ItemID.ToxicSludgeBanner,
             ItemID.ArmoredSkeletonBanner,
@@ -371,7 +372,7 @@ namespace UltimateBannerMerging.Items
     }
     public class HardmodeUndergroundBanner : BannerItem
     {
-        public override string ShowName => "Hardmode Underground Banner";
+        public override int RarityID => ItemRarityID.Pink;
         public override int[] BannerList => new int[] {
             ItemID.ArmoredVikingBanner,
             ItemID.IceTortoiseBanner,
@@ -397,15 +398,12 @@ namespace UltimateBannerMerging.Items
             NPCID.PigronCrimson,
             NPCID.PigronHallow,
             NPCID.Moth,
-            NPCID.DesertGhoulCorruption,
-            NPCID.DesertGhoulCrimson,
-            NPCID.DesertGhoulHallow,
             NPCID.DesertDjinn
         };
     }
     public class HardmodeCorruptedBanner : BannerItem
     {
-        public override string ShowName => "Hardmode Corrupted Banner";
+        public override int RarityID => ItemRarityID.Pink;
         public override int[] BannerList => new int[] {
             ItemID.CorruptSlimeBanner,
             ItemID.SlimerBanner,
@@ -422,7 +420,7 @@ namespace UltimateBannerMerging.Items
     }
     public class HardmodeCrimsonBanner : BannerItem
     {
-        public override string ShowName => "Hardmode Crimson Banner";
+        public override int RarityID => ItemRarityID.Pink;
         public override int[] BannerList => new int[] {
             ItemID.HerplingBanner,
             ItemID.CrimslimeBanner,
@@ -440,7 +438,7 @@ namespace UltimateBannerMerging.Items
     }
     public class HallowBanner : BannerItem
     {
-        public override string ShowName => "Hallow Banner";
+        public override int RarityID => ItemRarityID.LightRed;
         public override int[] BannerList => new int[] {
             ItemID.PixieBanner,
             ItemID.UnicornBanner,
@@ -459,7 +457,7 @@ namespace UltimateBannerMerging.Items
     }
     public class MasterBanner : BannerItem
     {
-        public override string ShowName => "Master Banner";
+        public override int RarityID => ItemRarityID.Pink;
         public override int[] BannerList => new int[] {
             ItemID.BloodNautilusBanner,
             ItemID.BloodSquidBanner,
@@ -485,7 +483,7 @@ namespace UltimateBannerMerging.Items
 
     public class PirateBanner : BannerItem
     {
-        public override string ShowName => "Pirate Banner";
+        public override int RarityID => ItemRarityID.Pink;
         public override int[] BannerList => new int[] {
             ItemID.ParrotBanner,
             ItemID.PirateCaptainBanner,
@@ -499,7 +497,7 @@ namespace UltimateBannerMerging.Items
     }
     public class UltraBanner : BannerItem
     {
-        public override string ShowName => "Ultra Banner";
+        public override int RarityID => ItemRarityID.Pink;
         public override int[] BannerList => new int[] {
             ItemID.MimicBanner,
             ItemID.IceGolemBanner,
@@ -522,7 +520,7 @@ namespace UltimateBannerMerging.Items
 
     public class TempleBanner : BannerItem
     {
-        public override string ShowName => "Temple Banner";
+        public override int RarityID => ItemRarityID.Yellow;
         public override int[] BannerList => new int[] {
             ItemID.FlyingSnakeBanner,
             ItemID.LihzahrdBanner
@@ -532,7 +530,7 @@ namespace UltimateBannerMerging.Items
     }
     public class HardmodeDungeonBanner : BannerItem
     {
-        public override string ShowName => "Hardmode Dungeon Banner";
+        public override int RarityID => ItemRarityID.Yellow;
         public override int[] BannerList => new int[] {
             ItemID.BlueArmoredBonesBanner,
             ItemID.RustyArmoredBonesBanner,
@@ -553,7 +551,7 @@ namespace UltimateBannerMerging.Items
     }
     public class SolarEclipseBanner : BannerItem
     {
-        public override string ShowName => "Solar Eclipse Banner";
+        public override int RarityID => ItemRarityID.Yellow;
         public override int[] BannerList => new int[] {
             ItemID.ButcherBanner,
             ItemID.CreatureFromTheDeepBanner,
@@ -578,7 +576,7 @@ namespace UltimateBannerMerging.Items
     }
     public class ExceptionalBanner : BannerItem
     {
-        public override string ShowName => "Exceptional Banner";
+        public override int RarityID => ItemRarityID.Cyan;
         public override int[] BannerList => System.Array.Empty<int>();
         public override int[] BannerItemIds => new[] {
             ModContent.ItemType<UltraBanner>(),
@@ -591,7 +589,7 @@ namespace UltimateBannerMerging.Items
 
     public class MartianBanner : BannerItem
     {
-        public override string ShowName => "Martian Banner";
+        public override int RarityID => ItemRarityID.Yellow;
         public override int[] BannerList => new int[] {
             ItemID.MartianBrainscramblerBanner,
             ItemID.MartianDroneBanner,
@@ -610,7 +608,7 @@ namespace UltimateBannerMerging.Items
     }
     public class OldArmyHardmodeBanner : BannerItem
     {
-        public override string ShowName => "Old One's Army Hardmode Banner";
+        public override int RarityID => ItemRarityID.Yellow;
         public override int[] BannerList => new int[] {
             ItemID.DD2DrakinBanner,
             ItemID.DD2LightningBugBanner,
@@ -623,7 +621,7 @@ namespace UltimateBannerMerging.Items
     }
     public class PumpkinMoonBanner : BannerItem
     {
-        public override string ShowName => "Pumpkin Moon Banner";
+        public override int RarityID => ItemRarityID.Cyan;
         public override int[] BannerList => new int[] {
             ItemID.HeadlessHorsemanBanner,
             ItemID.HellhoundBanner,
@@ -636,7 +634,7 @@ namespace UltimateBannerMerging.Items
     }
     public class FrostMoonBanner : BannerItem
     {
-        public override string ShowName => "Frost Moon Banner";
+        public override int RarityID => ItemRarityID.Cyan;
         public override int[] BannerList => new int[] {
             ItemID.ElfArcherBanner,
             ItemID.ElfCopterBanner,
@@ -653,7 +651,7 @@ namespace UltimateBannerMerging.Items
     }
     public class VortexBanner : BannerItem
     {
-        public override string ShowName => "Vortex Banner";
+        public override int RarityID => ItemRarityID.Cyan;
         public override int[] BannerList => new int[] {
             ItemID.VortexHornetBanner,
             ItemID.VortexLarvaBanner,
@@ -668,7 +666,7 @@ namespace UltimateBannerMerging.Items
     }
     public class StardustBanner : BannerItem
     {
-        public override string ShowName => "Stardust Banner";
+        public override int RarityID => ItemRarityID.Cyan;
         public override int[] BannerList => new int[] {
             ItemID.StardustJellyfishBanner,
             ItemID.StardustLargeCellBanner,
@@ -683,7 +681,7 @@ namespace UltimateBannerMerging.Items
     }
     public class NebulaBanner : BannerItem
     {
-        public override string ShowName => "Nebula Banner";
+        public override int RarityID => ItemRarityID.Cyan;
         public override int[] BannerList => new int[] {
             ItemID.NebulaBeastBanner,
             ItemID.NebulaBrainBanner,
@@ -697,7 +695,7 @@ namespace UltimateBannerMerging.Items
     }
     public class SolarBanner : BannerItem
     {
-        public override string ShowName => "Solar Banner";
+        public override int RarityID => ItemRarityID.Cyan;
         public override int[] BannerList => new int[] {
             ItemID.SolarCoriteBanner,
             ItemID.SolarCrawltipedeBanner,
@@ -713,7 +711,7 @@ namespace UltimateBannerMerging.Items
     }
     public class LunarBanner : BannerItem
     {
-        public override string ShowName => "Lunar Banner";
+        public override int RarityID => ItemRarityID.Red;
         public override int[] BannerList => System.Array.Empty<int>();
         public override int[] BannerItemIds => new[] {
             ModContent.ItemType<SolarBanner>(),
@@ -728,7 +726,7 @@ namespace UltimateBannerMerging.Items
     }
     public class TheBanner : BannerItem
     {
-        public override string ShowName => "The Banner";
+        public override int RarityID => ItemRarityID.Purple;
         public override int[] BannerList => System.Array.Empty<int>();
         public override int[] BannerItemIds => new[] {
             ModContent.ItemType<ExceptionalBanner>(),
@@ -743,7 +741,7 @@ namespace UltimateBannerMerging.Items
 
     public class HorrorTrophy : BannerItem
     {
-        public override string ShowName => "Horror Trophy";
+        public override int RarityID => ItemRarityID.Green;
 
         public override int[] BannerList => new int[]
         {
@@ -763,7 +761,7 @@ namespace UltimateBannerMerging.Items
     }
     public class PreHardmodeTrophy : BannerItem
     {
-        public override string ShowName => "Pre Hardmode Trophy";
+        public override int RarityID => ItemRarityID.Orange;
 
         public override int[] BannerList => new int[]
         {
@@ -784,7 +782,7 @@ namespace UltimateBannerMerging.Items
     }
     public class MechanicsTrophy : BannerItem
     {
-        public override string ShowName => "Mechanics Trophy";
+        public override int RarityID => ItemRarityID.Pink;
 
         public override int[] BannerList => new int[]
         {
@@ -800,7 +798,7 @@ namespace UltimateBannerMerging.Items
     }
     public class AncientTrophy : BannerItem
     {
-        public override string ShowName => "Ancient Trophy";
+        public override int RarityID => ItemRarityID.Yellow;
 
         public override int[] BannerList => new int[]
         {
@@ -819,7 +817,7 @@ namespace UltimateBannerMerging.Items
     }
     public class MoonTrophy : BannerItem
     {
-        public override string ShowName => "Moon Trophy";
+        public override int RarityID => ItemRarityID.Cyan;
 
         public override int[] BannerList => new int[]
         {
@@ -836,7 +834,7 @@ namespace UltimateBannerMerging.Items
     }
     public class EventsTrophy : BannerItem
     {
-        public override string ShowName => "Events Trophy";
+        public override int RarityID => ItemRarityID.Cyan;
 
         public override int[] BannerList => new int[]
         {
@@ -855,7 +853,7 @@ namespace UltimateBannerMerging.Items
     }
     public class TheTrophy : BannerItem
     {
-        public override string ShowName => "The Trophy";
+        public override int RarityID => ItemRarityID.Purple;
 
         public override int[] BannerList => System.Array.Empty<int>();
 

@@ -12,8 +12,6 @@ namespace UltimateBannerMerging.Buffs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Mob Dominance");
-            Description.SetDefault("More banners in your inventory give you more power against specific enemies");
             Main.buffNoTimeDisplay[Type] = true;
             Main.persistentBuff[Type] = true;
             Main.pvpBuff[Type] = true;

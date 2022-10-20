@@ -14,7 +14,6 @@ namespace UltimateBannerMerging.Buffs
         public static string Text = "";
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Lure");
             Main.buffNoTimeDisplay[Type] = true;
             Main.persistentBuff[Type] = true;
             Main.pvpBuff[Type] = true;

@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using Terraria.Localization;
 using UltimateBannerMerging.Buffs;
 using UltimateBannerMerging.NPCs;
 
@@ -11,7 +12,7 @@ namespace UltimateBannerMerging.Items
 {
     public abstract class SpawnItem : ModItem
     {
-        public abstract string Tooltip1 { get; }
+        public abstract int RarityID { get; }
         public abstract int Multiplier { get; }
         public override string Texture => (GetType().Namespace + ".SpawnIncreasingItems." + Name).Replace('.', '/');
         public override void SetDefaults()
@@ -20,12 +21,13 @@ namespace UltimateBannerMerging.Items
             Item.maxStack = 1;
             Item.useStyle = ItemUseStyleID.HoldUp;
             Item.keepTime = 4;
+            Item.rare = RarityID;
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            tooltips.Add(new(Mod, "Tooltip0", "Not consumable"));
-            tooltips.Add(new(Mod, "Tooltip0", "Toggles enemies spawn rate increase"));
-            tooltips.Add(new(Mod, "Tooltip1", $"{Multiplier}x increased enemy spawn rate"));
+            tooltips.Add(new(Mod, "Tooltip0", Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip.SpawnItem.1")));
+            tooltips.Add(new(Mod, "Tooltip1", Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip.SpawnItem.2")));
+            tooltips.Add(new(Mod, "Tooltip2", Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip.SpawnItem.3").Replace("%", Multiplier.ToString())));
         }
         public override bool? UseItem(Player player)
         {
@@ -37,7 +39,7 @@ namespace UltimateBannerMerging.Items
             else
             {
                 SpawnRateNPC.Multiplier = Multiplier;
-                SpawnRateBuff.Text = Tooltip1;
+                SpawnRateBuff.Text = Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip."+Name);
                 player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
             }
             return true;
@@ -45,8 +47,8 @@ namespace UltimateBannerMerging.Items
     }
     public class SmellyBag : SpawnItem
     {
+        public override int RarityID => ItemRarityID.Blue;
         public override int Multiplier => 5;
-        public override string Tooltip1 => "You're attracting enemies.";
 
         public override void AddRecipes()
         {
@@ -58,8 +60,8 @@ namespace UltimateBannerMerging.Items
     }
     public class AwfulSubstance : SpawnItem
     {
+        public override int RarityID => ItemRarityID.Green;
         public override int Multiplier => 20;
-        public override string Tooltip1 => "Enemies hate you.";
 
         public override void AddRecipes()
         {
@@ -72,8 +74,8 @@ namespace UltimateBannerMerging.Items
     }
     public class PutrescentFlesh : SpawnItem
     {
+        public override int RarityID => ItemRarityID.Orange;
         public override int Multiplier => 50;
-        public override string Tooltip1 => "Your existance is irritating.";
 
         public override void AddRecipes()
         {
@@ -86,8 +88,8 @@ namespace UltimateBannerMerging.Items
     }
     public class DefusalMark : SpawnItem
     {
+        public override int RarityID => ItemRarityID.Pink;
         public override int Multiplier => 100;
-        public override string Tooltip1 => "Enemies marked you as a main target.";
 
         public override void AddRecipes()
         {
@@ -101,8 +103,8 @@ namespace UltimateBannerMerging.Items
     }
     public class AnnihilationSign : SpawnItem
     {
+        public override int RarityID => ItemRarityID.Red;
         public override int Multiplier => 500;
-        public override string Tooltip1 => "The war is close.";
 
         public override void AddRecipes()
         {

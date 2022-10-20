@@ -38,20 +38,8 @@ public abstract class ModBannerItem : BannerItem
             return _additionalMobs;
         }
     }
-
-
+    
     public abstract string ModSource { get; }
-
-    public override string ShowName
-    {
-        get {
-            Regex r = new(@"
-                (?<=[A-Z])(?=[A-Z][a-z]) |
-                 (?<=[^A-Z])(?=[A-Z]) |
-                 (?<=[A-Za-z])(?=[^A-Za-z])", RegexOptions.IgnorePatternWhitespace);
-            return r.Replace(Name, " ");
-        }
-    }
 
     public override ModBannerItem[] BannerItems => BannerItemIds.Select(s => ModContent.GetModItem(s) as ModBannerItem).ToArray();
 

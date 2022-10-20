@@ -15,136 +15,137 @@ using Terraria.ModLoader.Config;
 
 namespace UltimateBannerMerging
 {
+    [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Name")]
     internal class BannerConfig : ModConfig
     {
         [Range(1, 100)]
         [DefaultValue(18)]
-        [Label("Banner Cap")]
-        [Tooltip("Minimal number of simple banners needed to reach maximal effects")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.InvulnerabilityCap.Label")]
+        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.InvulnerabilityCap.Tooltip")]
         public int InvulnerabilityCap;
         [Range(1, 100)]
         [DefaultValue(18)]
-        [Label("Trophy Cap")]
-        [Tooltip("Minimal number of simple trophies needed to reach maximal effects")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.BossInvulnerabilityCap.Label")]
+        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.BossInvulnerabilityCap.Tooltip")]
         public int BossInvulnerabilityCap;
         [Range(1f, 100f)]
         [DefaultValue("4")]
-        [Label("Max Damage Multiplier")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.MaxDamageIncrease.Label")]
         public int MaxDamageIncrease;
         [Range(1f, 100f)]
         [DefaultValue("4")]
-        [Label("Max Boss Damage Multiplier")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.MaxBossDamageIncrease.Label")]
         public int MaxBossDamageIncrease;
         [Range(1f, 100f)]
         [DefaultValue("5")]
-        [Label("Max Drop Multiplier")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.MaxLootMultiplier.Label")]
         public int MaxLootMultiplier;
         [Range(1f, 100f)]
         [DefaultValue("5")]
-        [Label("Max Boss Drop Multiplier")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.MaxBossLootMultiplier.Label")]
         public int MaxBossLootMultiplier;
 
         [DefaultValue("true")]
-        [Label("Toggle Piggy Bank")]
-        [Tooltip("Banners and trophies in Piggy Bank won't give effects")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Piggy.Label")]
+        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.Piggy.Tooltip")]
         public bool Piggy;
         [DefaultValue("true")]
-        [Label("Toggle Safe")]
-        [Tooltip("Banners and trophies in Safe won't give effects")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Safe.Label")]
+        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.Safe.Tooltip")]
         public bool Safe;
         [DefaultValue("true")]
-        [Label("Toggle Defender's Forge")]
-        [Tooltip("Banners and trophies in Defender's Forge won't give effects")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Forge.Label")]
+        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.Forge.Tooltip")]
         public bool Forge;
         [DefaultValue("true")]
-        [Label("Toggle Void Vault")]
-        [Tooltip("Banners and trophies in Void Vault won't give effects")]
+        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Vault.Label")]
+        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.Vault.Tooltip")]
         public bool Vault;
 
         [JsonIgnore]
         public Dictionary<string, ItemInfo> BannerStats => new()
         {
-            { "Forest Banner",                 new() { Price =   5000, Multiplyer = 3.0f } },
-            { "Rain Banner",                   new() { Price =   5000, Multiplyer = 3.0f } },
-            { "Desert Banner",                 new() { Price =   5000, Multiplyer = 3.0f } },
-            { "Snow Banner",                   new() { Price =   5000, Multiplyer = 3.0f } },
-            { "Basic Banner",                  new() { Price =  10000, Multiplyer = 2.0f } },//6
-            { "Ocean Banner",                  new() { Price =   5000, Multiplyer = 3.0f } },
-            { "Jungle Banner",                 new() { Price =  10000, Multiplyer = 3.0f } },
-            { "Corrupted Banner",              new() { Price =  10000, Multiplyer = 3.0f } },
-            { "Crimson Banner",                new() { Price =  10000, Multiplyer = 3.0f } },
-            { "Moderate Banner",               new() { Price =  30000, Multiplyer = 2.0f } },//12 6
-            { "Underground Jungle Banner",     new() { Price =  10000, Multiplyer = 3.0f } },
-            { "Underground Desert Banner",     new() { Price =  10000, Multiplyer = 3.0f } },
-            { "Glowing Mushroom Banner",       new() { Price =  10000, Multiplyer = 3.0f } },
-            { "Cavern Banner",                 new() { Price =  10000, Multiplyer = 3.0f } },
-            { "Underground Banner",            new() { Price =  20000, Multiplyer = 1.5f } },//4.5
-            { "Blood Moon Banner",             new() { Price =  10000, Multiplyer = 3.0f } },
-            { "Advanced Banner",               new() { Price =  50000, Multiplyer = 2.0f } },//24 12 9 6
-            { "Dungeon Banner",                new() { Price =  20000, Multiplyer = 3.0f } },
-            { "Goblin Army Banner",            new() { Price =  20000, Multiplyer = 3.0f } },
-            { "Old One's Army Banner",         new() { Price =  20000, Multiplyer = 3.0f } },
-            { "Underworld Banner",             new() { Price =  20000, Multiplyer = 3.0f } },
-            { "Professional Banner",           new() { Price =  80000, Multiplyer = 1.5f } },//36 18 13.5 9 4.5
-            { "Hardmode Surface Banner",       new() { Price =  30000, Multiplyer = 3.0f } },
-            { "Hardmode Cavern Banner",        new() { Price =  30000, Multiplyer = 1.0f } },
-            { "Hardmode Underground Banner",   new() { Price =  30000, Multiplyer = 3.0f } },
-            { "Hardmode Corrupted Banner",     new() { Price =  30000, Multiplyer = 3.0f } },
-            { "Hardmode Crimson Banner",       new() { Price =  30000, Multiplyer = 3.0f } },
-            { "Hallow Banner",                 new() { Price =  30000, Multiplyer = 3.0f } },
-            { "Master Banner",                 new() { Price = 100000, Multiplyer = 2.0f } },//72 36 27 18 9 6
-            { "Pirate Banner",                 new() { Price =  50000, Multiplyer = 3.0f } },
-            { "Ultra Banner",                  new() { Price = 120000, Multiplyer = 2.0f } },//144 72 54 36 18 12 6
-            { "Temple Banner",                 new() { Price =  50000, Multiplyer = 3.0f } },
-            { "Hardmode Dungeon Banner",       new() { Price =  50000, Multiplyer = 3.0f } },
-            { "Solar Eclipse Banner",          new() { Price =  50000, Multiplyer = 3.0f } },
-            { "Exceptional Banner",            new() { Price = 200000, Multiplyer = 1.5f } },//216 108 81 54 27 18 9 4.5
-            { "Martian Banner",                new() { Price = 100000, Multiplyer = 3.0f } },
-            { "Old One's Army Hardmode Banner",new() { Price = 100000, Multiplyer = 3.0f } },
-            { "Pumpkin Moon Banner",           new() { Price = 100000, Multiplyer = 3.0f } },
-            { "Frost Moon Banner",             new() { Price = 100000, Multiplyer = 3.0f } },
-            { "Vortex Banner",                 new() { Price = 100000, Multiplyer = 3.0f } },
-            { "Stardust Banner",               new() { Price = 100000, Multiplyer = 3.0f } },
-            { "Nebula Banner",                 new() { Price = 100000, Multiplyer = 3.0f } },
-            { "Solar Banner",                  new() { Price = 100000, Multiplyer = 3.0f } },
-            { "Lunar Banner",                  new() { Price = 400000, Multiplyer = 3.0f } },
-            { "The Banner",                    new() { Price =1000000, Multiplyer = 18.0f} },
+            { "ForestBanner",                 new() { Price =   5000, Multiplyer = 3.0f } },
+            { "RainBanner",                   new() { Price =   5000, Multiplyer = 3.0f } },
+            { "DesertBanner",                 new() { Price =   5000, Multiplyer = 3.0f } },
+            { "SnowBanner",                   new() { Price =   5000, Multiplyer = 3.0f } },
+            { "BasicBanner",                  new() { Price =  10000, Multiplyer = 2.0f } },//6
+            { "OceanBanner",                  new() { Price =   5000, Multiplyer = 3.0f } },
+            { "JungleBanner",                 new() { Price =  10000, Multiplyer = 3.0f } },
+            { "CorruptedBanner",              new() { Price =  10000, Multiplyer = 3.0f } },
+            { "CrimsonBanner",                new() { Price =  10000, Multiplyer = 3.0f } },
+            { "ModerateBanner",               new() { Price =  30000, Multiplyer = 2.0f } },//12 6
+            { "UndergroundJungleBanner",      new() { Price =  10000, Multiplyer = 3.0f } },
+            { "UndergroundDesertBanner",      new() { Price =  10000, Multiplyer = 3.0f } },
+            { "GlowingMushroomBanner",        new() { Price =  10000, Multiplyer = 3.0f } },
+            { "CavernBanner",                 new() { Price =  10000, Multiplyer = 3.0f } },
+            { "UndergroundBanner",            new() { Price =  20000, Multiplyer = 1.5f } },//4.5
+            { "BloodMoonBanner",              new() { Price =  10000, Multiplyer = 3.0f } },
+            { "AdvancedBanner",               new() { Price =  50000, Multiplyer = 2.0f } },//24 12 9 6
+            { "DungeonBanner",                new() { Price =  20000, Multiplyer = 3.0f } },
+            { "GoblinArmyBanner",             new() { Price =  20000, Multiplyer = 3.0f } },
+            { "OldArmyBanner",                new() { Price =  20000, Multiplyer = 3.0f } },
+            { "UnderworldBanner",             new() { Price =  20000, Multiplyer = 3.0f } },
+            { "ProfessionalBanner",           new() { Price =  80000, Multiplyer = 1.5f } },//36 18 13.5 9 4.5
+            { "HardmodeSurfaceBanner",        new() { Price =  30000, Multiplyer = 3.0f } },
+            { "HardmodeCavernBanner",         new() { Price =  30000, Multiplyer = 1.0f } },
+            { "HardmodeUndergroundBanner",    new() { Price =  30000, Multiplyer = 3.0f } },
+            { "HardmodeCorruptedBanner",      new() { Price =  30000, Multiplyer = 3.0f } },
+            { "HardmodeCrimsonBanner",        new() { Price =  30000, Multiplyer = 3.0f } },
+            { "HallowBanner",                 new() { Price =  30000, Multiplyer = 3.0f } },
+            { "MasterBanner",                 new() { Price = 100000, Multiplyer = 2.0f } },//72 36 27 18 9 6
+            { "PirateBanner",                 new() { Price =  50000, Multiplyer = 3.0f } },
+            { "UltraBanner",                  new() { Price = 120000, Multiplyer = 2.0f } },//144 72 54 36 18 12 6
+            { "TempleBanner",                 new() { Price =  50000, Multiplyer = 3.0f } },
+            { "HardmodeDungeonBanner",        new() { Price =  50000, Multiplyer = 3.0f } },
+            { "SolarEclipseBanner",           new() { Price =  50000, Multiplyer = 3.0f } },
+            { "ExceptionalBanner",            new() { Price = 200000, Multiplyer = 1.5f } },//216 108 81 54 27 18 9 4.5
+            { "MartianBanner",                new() { Price = 100000, Multiplyer = 3.0f } },
+            { "OldArmyHardmodeBanner",        new() { Price = 100000, Multiplyer = 3.0f } },
+            { "PumpkinMoonBanner",            new() { Price = 100000, Multiplyer = 3.0f } },
+            { "FrostMoonBanner",              new() { Price = 100000, Multiplyer = 3.0f } },
+            { "VortexBanner",                 new() { Price = 100000, Multiplyer = 3.0f } },
+            { "StardustBanner",               new() { Price = 100000, Multiplyer = 3.0f } },
+            { "NebulaBanner",                 new() { Price = 100000, Multiplyer = 3.0f } },
+            { "SolarBanner",                  new() { Price = 100000, Multiplyer = 3.0f } },
+            { "LunarBanner",                  new() { Price = 400000, Multiplyer = 3.0f } },
+            { "TheBanner",                    new() { Price =1000000, Multiplyer = 18.0f} },
 
-            { "Horror Trophy",                 new() { Price =   5000, Multiplyer = 3.0f } }, // 3
-            { "Pre Hardmode Trophy",           new() { Price =  10000, Multiplyer = 3.0f } }, // 9 3
-            { "Mechanics Trophy",              new() { Price =  25000, Multiplyer = 3.0f } }, // 3
-            { "Ancient Trophy",                new() { Price =  50000, Multiplyer = 3.0f } }, // 3
-            { "Moon Trophy",                   new() { Price = 100000, Multiplyer = 3.0f } }, // 3
-            { "Events Trophy",                 new() { Price = 250000, Multiplyer = 6.0f } }, // 18 6
-            { "The Trophy",                    new() { Price =1000000, Multiplyer = 18.0f } }, // 18 9
+            { "HorrorTrophy",                 new() { Price =   5000, Multiplyer = 3.0f } }, // 3
+            { "PreHardmodeTrophy",            new() { Price =  10000, Multiplyer = 3.0f } }, // 9 3
+            { "MechanicsTrophy",              new() { Price =  25000, Multiplyer = 3.0f } }, // 3
+            { "AncientTrophy",                new() { Price =  50000, Multiplyer = 3.0f } }, // 3
+            { "MoonTrophy",                   new() { Price = 100000, Multiplyer = 3.0f } }, // 3
+            { "EventsTrophy",                 new() { Price = 250000, Multiplyer = 6.0f } }, // 18 6
+            { "TheTrophy",                    new() { Price =1000000, Multiplyer = 18.0f } }, // 18 9
             
-            { "Wulfrum Banner",                new() { Price =    5000, Multiplyer = 3.0f } },
-            { "Crawler Banner",                new() { Price =   10000, Multiplyer = 3.0f } },
-            { "Sulphurous Banner",             new() { Price =   10000, Multiplyer = 3.0f } },
-            { "Sunken Banner",                 new() { Price =   20000, Multiplyer = 3.0f } },
-            { "Calamity Beginner Banner",      new() { Price =   50000, Multiplyer = 3.0f } },
-            { "Small Abyss Banner",            new() { Price =   30000, Multiplyer = 3.0f } },
-            { "Brimstone Banner",              new() { Price =   20000, Multiplyer = 3.0f } },
-            { "Calamity Prehardmode Banner",   new() { Price =  100000, Multiplyer = 6.0f } },
-            { "Astral Banner",                 new() { Price =   70000, Multiplyer = 3.0f } },
-            { "Plague Banner",                 new() { Price =   60000, Multiplyer = 3.0f } },
-            { "Medium Abyss Banner",           new() { Price =  100000, Multiplyer = 6.0f } },
-            { "Full Sulphurous Banner",        new() { Price =   90000, Multiplyer = 3.0f } },
-            { "Cryo Banner",                   new() { Price =   60000, Multiplyer = 3.0f } },
-            { "Acid Rain Banner",              new() { Price =   60000, Multiplyer = 3.0f } },
-            { "Calamity Hardmode Banner",      new() { Price =  200000, Multiplyer = 3.0f } },
-            { "Calamity Super Hardmode Banner",new() { Price = 1000000, Multiplyer = 3.0f } },
-            { "Large Abyss Banner",            new() { Price =  500000, Multiplyer = 6.0f } },
-            { "Full Acid Rain Banner",         new() { Price =   80000, Multiplyer = 3.0f } },
-            { "The Calamity Banner",           new() { Price = 5000000, Multiplyer = 18.0f } },
+            { "WulfrumBanner",                new() { Price =    5000, Multiplyer = 3.0f } },
+            { "CrawlerBanner",                new() { Price =   10000, Multiplyer = 3.0f } },
+            { "SulphurousBanner",             new() { Price =   10000, Multiplyer = 3.0f } },
+            { "SunkenBanner",                 new() { Price =   20000, Multiplyer = 3.0f } },
+            { "CalamityBeginnerBanner",       new() { Price =   50000, Multiplyer = 3.0f } },
+            { "SmallAbyssBanner",             new() { Price =   30000, Multiplyer = 3.0f } },
+            { "BrimstoneBanner",              new() { Price =   20000, Multiplyer = 3.0f } },
+            { "CalamityPrehardmodeBanner",    new() { Price =  100000, Multiplyer = 6.0f } },
+            { "AstralBanner",                 new() { Price =   70000, Multiplyer = 3.0f } },
+            { "PlagueBanner",                 new() { Price =   60000, Multiplyer = 3.0f } },
+            { "MediumAbyssBanner",            new() { Price =  100000, Multiplyer = 6.0f } },
+            { "FullSulphurousBanner",         new() { Price =   90000, Multiplyer = 3.0f } },
+            { "CryoBanner",                   new() { Price =   60000, Multiplyer = 3.0f } },
+            { "AcidRainBanner",               new() { Price =   60000, Multiplyer = 3.0f } },
+            { "CalamityHardmodeBanner",       new() { Price =  200000, Multiplyer = 3.0f } },
+            { "CalamitySuperHardmodeBanner",  new() { Price = 1000000, Multiplyer = 3.0f } },
+            { "LargeAbyssBanner",             new() { Price =  500000, Multiplyer = 6.0f } },
+            { "FullAcidRainBanner",           new() { Price =   80000, Multiplyer = 3.0f } },
+            { "TheCalamityBanner",            new() { Price = 5000000, Multiplyer = 18.0f } },
 
-            { "Calamity Prehardmode Trophy",   new() { Price =   10000, Multiplyer = 3.0f } },
-            { "Calamity Hardmode Trophy",      new() { Price =    1000, Multiplyer = 3.0f } },
-            { "Calamity Super Hardmode Trophy",new() { Price =10000000, Multiplyer = 3.0f } },
-            { "Calamity Profaned Trophy",      new() { Price = 5000000, Multiplyer = 3.0f } },
-            { "Calamity Devouring Trophy",     new() { Price =40000000, Multiplyer = 3.0f } },
-            { "Calamity Immaculate Trophy",    new() { Price =80000000, Multiplyer = 6.0f } },
-            { "The Calamity Trophy",           new() { Price =100000000, Multiplyer = 18.0f } },
+            { "CalamityPrehardmodeTrophy",    new() { Price =   10000, Multiplyer = 3.0f } },
+            { "CalamityHardmodeTrophy",       new() { Price =    1000, Multiplyer = 3.0f } },
+            { "CalamitySuperHardmodeTrophy",  new() { Price =10000000, Multiplyer = 3.0f } },
+            { "CalamityProfanedTrophy",       new() { Price = 5000000, Multiplyer = 3.0f } },
+            { "CalamityDevouringTrophy",      new() { Price =40000000, Multiplyer = 3.0f } },
+            { "CalamityImmaculateTrophy",     new() { Price =80000000, Multiplyer = 6.0f } },
+            { "TheCalamityTrophy",            new() { Price =100000000, Multiplyer = 18.0f } },
 
         };
 

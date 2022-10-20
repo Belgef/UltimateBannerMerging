@@ -30,7 +30,10 @@ internal abstract class MergingNPC
             : new VanillaMergingNPC(npc, bannerCollection, config);
 
     public static MergingNPC Create(Projectile proj, BannerCollection bannerCollection, BannerConfig config)
-        => Create(proj.GetGlobalProjectile<ProjectileWithAuthor>().Author, bannerCollection, config);
+    {
+        NPC author = proj.GetGlobalProjectile<ProjectileWithAuthor>().Author;
+        return author != null ? Create(author, bannerCollection, config) : null;
+    }
 
     protected abstract float GetQuantity();
 

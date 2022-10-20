@@ -1,65 +1,21 @@
-Ultimate Banner Merging is a mod that adds an enemy banner merging system and new banner effects.
+﻿Ultimate Banner Merging is a mod that adds an enemy banner merging system and new banner effects.
 
 1. Every banner or trophy in your inventory increases your attack, defense, and loot against the corresponding enemy or boss. Also, this effect is growing with a larger quantity.
 2. You can merge every enemy banner and trophy more and more until you'll 
-have [c/3b7fff:The Banner] and [c/3b7fff:The Trophy] that give you maximum effects.
+have The Banner and The Trophy that give you maximum effects.
 3. Each crafted banner and trophy has a multiplier, which means how effective it is with respect to its ingredients.
 4. Banners and trophies have the same effect when stored in piggy bank, safe, defenders forge, or void vault/bag.
 
 Fill free to include this mod in your list! 
 
-[c/75ff6b:- v1.5.4.3 -]
- - added config to manualy toggle player's storage from counting banners and trophies inside
- - fixed some projectiles dealing damage when they should not
- - prevent banner and trophy buff from disappearing when right clicked
+More info on terraria forum page below.
 
-[c/75ff6b:- v1.5.4.2 -]
- - added boss loot multiplying
- - fixed Awful Substance recipe
- - fixed mob count increase on mob death with loot multiplier
- - fixed infinite money bug
+终极旗帜合并是一个加入了敌怪旗帜和纪念章合并系统和新效果的模组。
 
-[c/75ff6b:- v1.5.4.1 -]
- - fixed Old Army Banner sprites
- - fixed mob duplication on kill
-
-[c/75ff6b:- v1.5.4 -]
- - added combined Calamity banners and trophies
- - fixed crimson and corruption specific receipts - now you can use one of 2 evil biome items in receipt and get a bonus of both items
- - fixed spawn rate increasing items - now you can stop spawn increase by either right clicking on buff icon or using any spawn increasing item
- - now final banners and trophies won't nessesairly give you full invulnerability - the bigger banner and trophy config cap are, the lower bonuses you will get
- - a lot of code refactoring and optimization
-
-[c/75ff6b:- v1.5.3 -]
- - fixed mob invulnerability bug
- - updated for newest version of tModLoader
-
-[c/75ff6b:- v1.5.2 -]
- - added Calamity projectiles invulnerability
- - fixed a lot of bugs
- - optimized mod performance
- 
-[c/75ff6b:- v1.5.1 -]
- - fixed and included in crafts Old One's Army enemies and bosses
- - fixed damage increase bug
-
-[c/75ff6b:- v1.5.0 -]
- - added full support of Calamity banners
-
-[c/75ff6b:- v1.4.2 -]
- - now banners and trophies have the same effect when stored in piggy bank, safe, defenders forge, or void vault/bag
-
-[c/75ff6b:- v1.4.1 -]
- - added support for tModLoader 1.4
-
-[c/75ff6b:- v1.4.0 -]
- - added trophy merging system to become invulnerable to all bosses
- - added 5 items that increase the spawn rate
- - added configurations so you can customize banner and trophy effects
- - now more banners give you more loot from corresponding enemies
- 
-[c/75ff6b:- v1.3.0 -]
- - fixed all banner prices and coefficients
- - when enemy damage has become low enough, you become invulnerable to this enemy. [c/3b7fff:The Banner] makes you immune to all enemies except all bosses and minibosses
- - fixed damage cap. Now it is 400%. You will be able to change it in the future
- - you also take lower damage from all enemy projectiles if you have a corresponding banner
+把你所有尘封的旗帜和纪念章叠加成一个。
+你击杀的怪物和boss越多，你得到的力量越强，难道不对吗？
+物品栏里的每面旗帜和每块纪念章都会增加你的针对对应怪物和boss的攻击力、防御力和战利品掉落倍率，而且此效果随着旗帜和纪念章的增多而增强。
+你可以把多面同类敌怪的旗帜或多块同类boss的纪念章合并成一个，并且可以继续合并，最终可合并成给你最强效果的万灵旗帜和万灵纪念章。
+每种合并的旗帜和纪念章都有一个倍率，说明其相对于其合成材料的效果强了多少。
+旗帜和纪念章在猪猪存钱罐、保险箱、护卫熔炉和虚空袋里也有效。
+可以随意把这个模组加到你的模组列表里！

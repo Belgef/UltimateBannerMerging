@@ -12,8 +12,6 @@ namespace UltimateBannerMerging.Buffs
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Boss Dominance");
-            Description.SetDefault("More trophies in your inventory give you more power against specific bosses");
             Main.buffNoTimeDisplay[Type] = true;
             Main.persistentBuff[Type] = true;
             Main.pvpBuff[Type] = true;
