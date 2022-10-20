@@ -10,7 +10,7 @@
             TrophyBuff : boss支配
         }
         Config : {
-            BannerConfig: {
+            BannerConfig : {
                 Name : "旗Config"
                 BossInvulnerabilityCap : {
                     Label : "纪念章限额"

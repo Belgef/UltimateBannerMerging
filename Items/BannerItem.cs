@@ -35,7 +35,12 @@ namespace UltimateBannerMerging.Items
             //AdditionalBanners.Select(b=>MobBannerConverter.)
         }
 
-		public override void SetDefaults() 
+        public override void SetStaticDefaults()
+        {
+            SacrificeTotal = 1;
+        }
+
+        public override void SetDefaults() 
 		{
 			Item.value = Price;
 			Item.rare = ItemRarityID.Green;

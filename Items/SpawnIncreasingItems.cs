@@ -15,6 +15,10 @@ namespace UltimateBannerMerging.Items
         public abstract int RarityID { get; }
         public abstract int Multiplier { get; }
         public override string Texture => (GetType().Namespace + ".SpawnIncreasingItems." + Name).Replace('.', '/');
+        public override void SetStaticDefaults()
+        {
+            SacrificeTotal = 2;
+        }
         public override void SetDefaults()
         {
             Item.consumable = false;
