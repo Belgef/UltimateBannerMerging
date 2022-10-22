@@ -171,7 +171,7 @@ namespace UltimateBannerMerging.Helpers
                         "SeaSerpentBanner", "SeaUrchinBanner", "ShockstormShuttleBanner", "SkyfinBanner",
                         "SmallSightseerBanner", "SoulSlurperBanner", "StellarCulexBanner", "StormlionBanner",
                         "SulphurousSkaterBanner", "SunskaterBanner", "TopazCrawlerBanner", "ToxicMinnowBanner",
-                        "TrasherBanner", "TrilobiteBanner", "ViperfishBanner", "VirulingBanner", "WaterLeechBanner",
+                        "TrasherBanner", "TrilobiteBanner", "ViperfishBanner", "VirulingBanner",
                         "WulfrumDroneBanner", "WulfrumGyratorBanner", "WulfrumHovercraftBanner", "WulfrumPylonBanner",
                         "WulfrumRoverBanner",
                     },
@@ -365,7 +365,7 @@ namespace UltimateBannerMerging.Helpers
                         { "SunskaterBanner", "CalamityBeginnerBanner" }, { "TopazCrawlerBanner", "CrawlerBanner" },
                         { "ToxicMinnowBanner", "SmallAbyssBanner" }, { "TrasherBanner", "SulphurousBanner" },
                         { "TrilobiteBanner", "FullAcidRainBanner" }, { "ViperfishBanner", "SmallAbyssBanner" },
-                        { "VirulingBanner", "PlagueBanner" }, { "WaterLeechBanner", "AcidRainBanner" },
+                        { "VirulingBanner", "PlagueBanner" },
                         { "WulfrumDroneBanner", "WulfrumBanner" }, { "WulfrumGyratorBanner", "WulfrumBanner" },
                         { "WulfrumHovercraftBanner", "WulfrumBanner" }, { "WulfrumPylonBanner", "WulfrumBanner" },
                         { "WulfrumRoverBanner", "WulfrumBanner" }, { "AnahitaTrophy", "CalamitySuperHardmodeTrophy" },
@@ -500,7 +500,8 @@ namespace UltimateBannerMerging.Helpers
                 return Array.Empty<int>();
             return ModBannersData[mod].ModIngredients
                 .Where(p => p.Value == name)
-                .Select(p => ModLoader.GetMod(mod).Find<ModItem>(p.Key).Type)
+                .Select(p => ModLoader.GetMod(mod).TryFind<ModItem>(p.Key, out ModItem item) ? item.Type : int.MaxValue)
+                .Where(t => t != int.MaxValue)
                 .ToArray();
         }
 
