@@ -28,19 +28,14 @@ namespace UltimateBannerMerging.Players
             if (Player.HasBuff(ModContent.BuffType<SpawnRateBuff>()))
                 Player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
         }
-
-        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
+        // ModifyHit: Void ModifyHitNPC(Terraria.Item, Terraria.NPC, Int32 ByRef, Single ByRef, Boolean ByRef) overrides a method which doesn't exist in any base class
+        public override void ModifyHit(Player player, NPC target, ref int damage, ref float knockback, ref bool crit)
         {
             MergingNPC mergingNPC = MergingNPC.Create(target, BannerCollection, Config);
 
             damage = (int)(damage * mergingNPC.GetDealtDamageMultiplier());
 
             mergingNPC.SetNPCLootParameters(this, damage);
-        }
-        
-        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
-        {
-            ModifyHitNPC(null, target, ref damage, ref knockback, ref crit);
         }
         
         public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter)

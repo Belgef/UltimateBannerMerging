@@ -29,6 +29,7 @@ internal abstract class MergingNPC
             ? new ModdedMergingNPC(npc, bannerCollection, config)
             : new VanillaMergingNPC(npc, bannerCollection, config);
 
+    // Create: Method not found: '!!0 Terraria.Projectile.GetGlobalProjectile(Boolean)'.
     public static MergingNPC Create(Projectile proj, BannerCollection bannerCollection, BannerConfig config)
     {
         NPC author = proj.GetGlobalProjectile<ProjectileWithAuthor>().Author;
@@ -43,6 +44,7 @@ internal abstract class MergingNPC
     public float GetReceivedDamageMultiplier()
         => _calculator.CalculateReceivedDamageMultiplier(GetQuantity());
 
+    // SetNPCLootParameters: Method not found: '!!0 Terraria.NPC.GetGlobalNPC(Boolean)'
     public void SetNPCLootParameters(BannerPlayer player, int lastDamage)
     {
         MoreLootNPC gnpc = _npc.GetGlobalNPC<MoreLootNPC>();

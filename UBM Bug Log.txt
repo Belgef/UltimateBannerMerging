@@ -1,0 +1,23 @@
+[18:12:39.583] [.NET ThreadPool Worker/ERROR] [tML]: An error occurred while loading UltimateBannerMerging v1.5.5.8
+It has been detected that this mod was built for tModLoader v2022.9.47.15
+However, you are using tModLoader v2023.6.25.28
+The mod will need to be updated to match the current tModLoader version, or may be incompatible with the version of some of your other mods. Click the 'Open Web Help' button to learn more.
+
+Terraria.ModLoader.Exceptions.JITException: 
+In UltimateBannerMerging.Items.SpawnItem.SetStaticDefaults, Method not found: 'Void Terraria.ModLoader.ModItem.set_SacrificeTotal(Int32)'.
+In UltimateBannerMerging.Buffs.SpawnRateBuff.ModifyBuffTip, Void ModifyBuffTip(System.String ByRef, Int32 ByRef) overrides a method which doesn't exist in any base class
+In UltimateBannerMerging.Projectiles.ProjectileWithAuthor.OnSpawn, Field not found: 'Terraria.DataStructures.EntitySource_Parent.Entity'.
+In UltimateBannerMerging.Helpers.MergingNPC.Create, Method not found: '!!0 Terraria.Projectile.GetGlobalProjectile(Boolean)'.
+In UltimateBannerMerging.Players.BannerPlayer.ModifyHitNPC, Void ModifyHitNPC(Terraria.Item, Terraria.NPC, Int32 ByRef, Single ByRef, Boolean ByRef) overrides a method which doesn't exist in any base class
+In UltimateBannerMerging.Helpers.MergingNPC.SetNPCLootParameters, Method not found: '!!0 Terraria.NPC.GetGlobalNPC(Boolean)'.
+In UltimateBannerMerging.Players.BannerPlayer.ModifyHitNPCWithProj, Method not found: 'Void Terraria.ModLoader.ModPlayer.ModifyHitNPC(Terraria.Item, Terraria.NPC, Int32 ByRef, Single ByRef, Boolean ByRef)'.
+In UltimateBannerMerging.Players.BannerPlayer.PreHurt, Method not found: 'Int32 ByRef Terraria.DataStructures.PlayerDeathReason.get_SourceProjectileIndex()'.
+In UltimateBannerMerging.Items.BannerItem.SetStaticDefaults, Method not found: 'Void Terraria.ModLoader.ModItem.set_SacrificeTotal(Int32)'.
+
+   at Terraria.ModLoader.Core.AssemblyManager.JITAssemblies(IEnumerable`1 assemblies, PreJITFilter filter) in tModLoader\Terraria\ModLoader\Core\AssemblyManager.cs:line 398
+   at Terraria.ModLoader.ModContent.<>c.<Load>b__42_0(Mod mod) in tModLoader\Terraria\ModLoader\ModContent.cs:line 287
+   at Terraria.ModLoader.ModContent.LoadModContent(CancellationToken token, Action`1 loadAction) in tModLoader\Terraria\ModLoader\ModContent.cs:line 368
+   at Terraria.ModLoader.ModContent.Load(CancellationToken token) in tModLoader\Terraria\ModLoader\ModContent.cs:line 277
+   at Terraria.ModLoader.ModLoader.Load(CancellationToken token) in tModLoader\Terraria\ModLoader\ModLoader.cs:line 127
+[18:12:39.586] [.NET ThreadPool Worker/INFO] [tML]: Disabling Mod: UltimateBannerMerging
+[18:14:41.585] [Main Thread/DEBUG] [tML]: Process.Start (UseShellExecute = True): "tModLoader-Logs"

@@ -13,6 +13,7 @@ namespace UltimateBannerMerging.Projectiles
     {
         public NPC Author { get; set; }
         public override bool InstancePerEntity => true;
+        // OnSpawn: Field not found: 'Terraria.DataStructures.EntitySource_Parent.Entity'
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
             Entity sourceEntity = null;

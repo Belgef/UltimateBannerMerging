@@ -34,8 +34,8 @@ namespace UltimateBannerMerging.Items
             tooltips.RemoveAll(s => s.Text.Contains("__EMPTY__"));
             //AdditionalBanners.Select(b=>MobBannerConverter.)
         }
-
-        public override void SetStaticDefaults()
+        // Set Defaults: Method not found: 'Void Terraria.ModLoader.ModItem.set_SacrificeTotal(Int32)'.
+        public override void static SetDefaults()
         {
             SacrificeTotal = 1;
         }

@@ -19,10 +19,8 @@ namespace UltimateBannerMerging.Buffs
             Main.pvpBuff[Type] = true;
             Main.buffNoSave[Type] = true;
         }
-        public override void ModifyBuffTip(ref string tip, ref int rare)
-        {
-            tip = Text;
-        }
+        // ModifyBuffText: Void ModifyBuffTip(System.String ByRef, Int32 ByRef) overrides a method which doesn't exist in any base class
+        public override void ModifyBuffText(ref string text, ref int rare);
         
         public override bool RightClick(int buffIndex)
         {
