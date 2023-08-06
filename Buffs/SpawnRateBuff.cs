@@ -11,7 +11,7 @@ namespace UltimateBannerMerging.Buffs
 {
     internal class SpawnRateBuff : ModBuff
     {
-        public static string Text = "";
+        public static string Text { get; set; } = "";
         public override void SetStaticDefaults()
         {
             Main.buffNoTimeDisplay[Type] = true;

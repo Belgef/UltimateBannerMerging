@@ -31,9 +31,9 @@ namespace UltimateBannerMerging.Items
         }
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            tooltips.Add(new(Mod, "Tooltip0", Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip.SpawnItem.1")));
-            tooltips.Add(new(Mod, "Tooltip1", Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip.SpawnItem.2")));
-            tooltips.Add(new(Mod, "Tooltip2", Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip.SpawnItem.3").Replace("%", Multiplier.ToString())));
+            tooltips.Add(new(Mod, "Tooltip0", Language.GetTextValue("Mods.UltimateBannerMerging.Items.SpawnItem.Tooltip.1")));
+            tooltips.Add(new(Mod, "Tooltip1", Language.GetTextValue("Mods.UltimateBannerMerging.Items.SpawnItem.Tooltip.2")));
+            tooltips.Add(new(Mod, "Tooltip2", Language.GetTextValue("Mods.UltimateBannerMerging.Items.SpawnItem.Tooltip.3").Replace("%", Multiplier.ToString())));
         }
         public override bool? UseItem(Player player)
         {
@@ -45,7 +45,7 @@ namespace UltimateBannerMerging.Items
             else
             {
                 SpawnRateNPC.Multiplier = Multiplier;
-                SpawnRateBuff.Text = Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip."+Name);
+                SpawnRateBuff.Text = Language.GetTextValue($"Mods.UltimateBannerMerging.Items.{Name}.Tooltip");
                 player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
             }
             return true;

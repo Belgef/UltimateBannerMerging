@@ -29,8 +29,8 @@ namespace UltimateBannerMerging.Items
 		
         public override void ModifyTooltips(List<TooltipLine> tooltips)
 		{
-            tooltips.Add(new(Mod, "Tooltip0", Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip.BannerItem.1")));
-            tooltips.Add(new(Mod, "Tooltip1", Language.GetTextValue("Mods.UltimateBannerMerging.ItemTooltip.BannerItem.2").Replace("%", Multiplier.ToString())));
+            tooltips.Add(new(Mod, "Tooltip0", Language.GetTextValue("Mods.UltimateBannerMerging.Items.BannerItem.Tooltip.1")));
+            tooltips.Add(new(Mod, "Tooltip1", Language.GetTextValue("Mods.UltimateBannerMerging.Items.BannerItem.Tooltip.2").Replace("%", Multiplier.ToString())));
             tooltips.RemoveAll(s => s.Text.Contains("__EMPTY__"));
             //AdditionalBanners.Select(b=>MobBannerConverter.)
         }

@@ -10,7 +10,7 @@ namespace UltimateBannerMerging.Buffs
 {
     internal class BannerBuff : ModBuff
     {
-        public void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.buffNoTimeDisplay[Type] = true;
         }

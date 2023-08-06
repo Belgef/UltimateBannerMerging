@@ -1,87 +1,50 @@
 Mods: {
 	UltimateBannerMerging: {
-		BuffDescription: {
-			BannerBuff: 你物品栏中的旗帜越多，你针对特定敌怪的力量越强
-			TrophyBuff: 你物品栏中的纪念章越多，你针对特定boss的力量越强
+		IngredientGroups: {
+			EvilBiomeMeat: 暗影鳞片或组织样本
+			EvilBiomeBanner: 猩红或腐化旗
+			HardmodeEvilBiomeBanner: 困难模式猩红或腐化旗
+			EvilBiomeTrophy: 克苏鲁之脑或世界吞噬者纪念章
+			CalamityBlightSlimeBanner: 黑檀或血腥枯萎史莱姆旗
+			CalamityEvilBiomeBossTrophy: 腐巢意志或血肉宿主纪念章
 		}
 
-		BuffName: {
-			BannerBuff: 敌怪支配
-			SpawnRateBuff: 引诱
-			TrophyBuff: boss支配
-		}
+		Buffs: {
+			BannerBuff: {
+				DisplayName: 敌怪支配
+				Description: 你物品栏中的旗帜越多，你针对特定敌怪的力量越强
+			}
 
-		Config: {
-			BannerConfig: {
-				Name: 旗Config
+			SpawnRateBuff: {
+				DisplayName: 引诱
+				Description: ""
+			}
 
-				BossInvulnerabilityCap: {
-					Label: 纪念章限额
-					Tooltip: 达到最大效果所需的最小基本纪念章数量
-				}
-
-				Forge: {
-					Label: 切换护卫熔炉
-					Tooltip: 旗帜和纪念章在护卫熔炉里也生效
-				}
-
-				InvulnerabilityCap: {
-					Label: 旗帜限额
-					Tooltip: 达到最大效果所需的最小基本旗帜数量
-				}
-
-				MaxBossDamageIncrease.Label: 最大boss受伤倍率
-				MaxBossLootMultiplier.Label: 最大boss战利品倍率
-				MaxDamageIncrease.Label: 最大敌怪受伤倍率
-				MaxLootMultiplier.Label: 最大敌怪战利品倍率
-
-				Piggy: {
-					Label: 切换猪猪存钱罐
-					Tooltip: 旗帜和纪念章在猪猪存钱罐里也生效
-				}
-
-				Safe: {
-					Label: 切换保险箱
-					Tooltip: 旗帜和纪念章在保险箱里也生效
-				}
-
-				Vault: {
-					Label: 切换虚空袋
-					Tooltip: 旗帜和纪念章在虚空袋里也生效
-				}
+			TrophyBuff: {
+				DisplayName: boss支配
+				Description: 你物品栏中的纪念章越多，你针对特定boss的力量越强
 			}
 		}
 
-		ItemName: {
-			AcidRainBanner: 酸雨旗
-			AdvancedBanner: 进阶旗
-			AncientTrophy: 远古纪念章
-			AnnihilationSign: 湮灭信号
-			AstralBanner: 星辉旗
-			AwfulSubstance: 糟糕物质
-			BasicBanner: 基础旗
-			BloodMoonBanner: 血月旗
-			BrimstoneBanner: 硫火崖旗
-			CalamityBeginnerBanner: 灾厄新手旗
-			CalamityDevouringTrophy: 灾厄神吞纪念章
-			CalamityHardmodeBanner: 灾厄困难模式旗
-			CalamityHardmodeTrophy: 灾厄困难模式纪念章
-			CalamityImmaculateTrophy: 灾厄完美纪念章
-			CalamityPrehardmodeBanner: 灾厄困难模式前旗
-			CalamityPrehardmodeTrophy: 灾厄困难模式前纪念章
-			CalamityProfanedTrophy: 灾厄亵渎纪念章
-			CalamitySuperHardmodeBanner: 灾厄超级困难模式旗
-			CalamitySuperHardmodeTrophy: 灾厄超级困难模式纪念章
-			CavernBanner: 洞穴旗
-			CorruptedBanner: 腐化旗
-			CrawlerBanner: 爬虫旗
-			CrimsonBanner: 猩红旗
-			CryoBanner: 寒元旗
-			DefusalMark: 拆弹面具
-			DesertBanner: 沙漠旗
-			DungeonBanner: 地牢旗
-			EventsTrophy: 事件纪念章
-			ExceptionalBanner: 非凡旗
+		Items: {
+			#Here % symbol will be replaced with multiplier number
+			BannerItem.Tooltip: {
+				1: 针对所有包含的敌怪提升伤害和防御
+				2: 效果是其合成材料的%倍
+			}
+
+			#Here % symbol will be replaced with multiplier number
+			SpawnItem.Tooltip: {
+				1: 不消耗
+				2: 切换敌怪生成率提升
+				3: 敌怪生成提升至%倍
+			}
+
+			DefusalMark: 
+			DesertBanner: 
+			DungeonBanner: 
+			EventsTrophy: 
+			ExceptionalBanner: 
 			ForestBanner: 森林旗
 			FrostMoonBanner: 霜月旗
 			FullAcidRainBanner: 二级酸雨旗
@@ -136,124 +99,74 @@ Mods: {
 			UnderworldBanner: 地狱旗
 			VortexBanner: 星旋旗
 			WulfrumBanner: 钨钢旗
-		}
-
-		ItemTooltip: {
-			AnnihilationSign: 战争临近
-			AwfulSubstance: 敌怪讨厌你
-			DefusalMark: 敌怪标记你为主要目标
-			PutrescentFlesh: 你的存在使敌怪兴奋
-			SmellyBag: 你正在吸引敌怪
-
-			#Here % symbol will be replaced with multiplier number
-			BannerItem: {
-				1: 针对所有包含的敌怪提升伤害和防御
-				2: 效果是其合成材料的%倍
-			}
-
-			#Here % symbol will be replaced with multiplier number
-			SpawnItem: {
-				1: 不消耗
-				2: 切换敌怪生成率提升
-				3: 敌怪生成提升至%倍
-			}
-		}
-
-		IngredientGroups: {
-			EvilBiomeMeat: 暗影鳞片或组织样本
-			EvilBiomeBanner: 猩红或腐化旗
-			HardmodeEvilBiomeBanner: 困难模式猩红或腐化旗
-			EvilBiomeTrophy: 克苏鲁之脑或世界吞噬者纪念章
-			CalamityBlightSlimeBanner: 黑檀或血腥枯萎史莱姆旗
-			CalamityEvilBiomeBossTrophy: 腐巢意志或血肉宿主纪念章
-		}
-
-		Buffs: {
-			BannerBuff: {
-				// DisplayName: Banner Buff
-				// Description: Mods.UltimateBannerMerging.Buffs.BannerBuff.Description
-			}
-
-			SpawnRateBuff: {
-				// DisplayName: Spawn Rate Buff
-				// Description: Mods.UltimateBannerMerging.Buffs.SpawnRateBuff.Description
-			}
-
-			TrophyBuff: {
-				// DisplayName: Trophy Buff
-				// Description: Mods.UltimateBannerMerging.Buffs.TrophyBuff.Description
-			}
-		}
-
-		Items: {
 			AdvancedBanner: {
-				// DisplayName: Advanced Banner
-				// Tooltip: ""
+				DisplayName: 进阶旗
+				Tooltip: ""
 			}
 
 			AncientTrophy: {
-				// DisplayName: Ancient Trophy
-				// Tooltip: ""
+				DisplayName: 远古纪念章
+				Tooltip: ""
 			}
 
 			AnnihilationSign: {
-				// DisplayName: Annihilation Sign
-				// Tooltip: ""
+				DisplayName: 湮灭信号
+				Tooltip: 战争临近
 			}
 
 			AwfulSubstance: {
-				// DisplayName: Awful Substance
-				// Tooltip: ""
+				DisplayName: 糟糕物质
+				Tooltip: 敌怪讨厌你
 			}
 
 			BasicBanner: {
-				// DisplayName: Basic Banner
-				// Tooltip: ""
+				DisplayName: 基础旗
+				Tooltip: ""
 			}
 
 			BloodMoonBanner: {
-				// DisplayName: Blood Moon Banner
-				// Tooltip: ""
+				DisplayName: 血月旗
+				Tooltip: ""
 			}
 
 			CavernBanner: {
-				// DisplayName: Cavern Banner
-				// Tooltip: ""
+				DisplayName: 洞穴旗
+				Tooltip: ""
 			}
 
 			CorruptedBanner: {
-				// DisplayName: Corrupted Banner
-				// Tooltip: ""
+				DisplayName: 腐化旗
+				Tooltip: ""
 			}
 
 			CrimsonBanner: {
-				// DisplayName: Crimson Banner
-				// Tooltip: ""
+				DisplayName: 猩红旗
+				Tooltip: ""
 			}
 
 			DefusalMark: {
-				// DisplayName: Defusal Mark
-				// Tooltip: ""
+				DisplayName: 拆弹面具
+				Tooltip: 敌怪标记你为主要目标
 			}
 
 			DesertBanner: {
-				// DisplayName: Desert Banner
-				// Tooltip: ""
+				DisplayName: 沙漠旗
+				Tooltip: ""
 			}
 
 			DungeonBanner: {
-				// DisplayName: Dungeon Banner
-				// Tooltip: ""
+				DisplayName: 地牢旗
+				Tooltip: ""
 			}
 
 			EventsTrophy: {
-				// DisplayName: Events Trophy
-				// Tooltip: ""
+				DisplayName: 事件纪念章
+				Tooltip: ""
 			}
 
 			ExceptionalBanner: {
-				// DisplayName: Exceptional Banner
-				// Tooltip: ""
+				DisplayName: 非凡旗
+				Tooltip: ""
 			}
 
 			ForestBanner: {
@@ -392,8 +305,8 @@ Mods: {
 			}
 
 			PutrescentFlesh: {
-				// DisplayName: Putrescent Flesh
-				// Tooltip: ""
+				DisplayName: Putrescent Flesh
+				Tooltip: 你的存在使敌怪兴奋
 			}
 
 			RainBanner: {
@@ -402,8 +315,8 @@ Mods: {
 			}
 
 			SmellyBag: {
-				// DisplayName: Smelly Bag
-				// Tooltip: ""
+				DisplayName: Smelly Bag
+				Tooltip: 你正在吸引敌怪
 			}
 
 			SnowBanner: {
@@ -472,78 +385,78 @@ Mods: {
 			}
 
 			AcidRainBanner: {
-				// DisplayName: Acid Rain Banner
-				// Tooltip: ""
+				DisplayName: 酸雨旗
+				Tooltip: ""
 			}
 
 			AstralBanner: {
-				// DisplayName: Astral Banner
-				// Tooltip: ""
+				DisplayName: 星辉旗
+				Tooltip: ""
 			}
 
 			BrimstoneBanner: {
-				// DisplayName: Brimstone Banner
-				// Tooltip: ""
+				DisplayName: 硫火崖旗
+				Tooltip: ""
 			}
 
 			CalamityBeginnerBanner: {
-				// DisplayName: Calamity Beginner Banner
-				// Tooltip: ""
+				DisplayName: 灾厄新手旗
+				Tooltip: ""
 			}
 
 			CalamityDevouringTrophy: {
-				// DisplayName: Calamity Devouring Trophy
-				// Tooltip: ""
+				DisplayName: 灾厄神吞纪念章
+				Tooltip: ""
 			}
 
 			CalamityHardmodeBanner: {
-				// DisplayName: Calamity Hardmode Banner
-				// Tooltip: ""
+				DisplayName: 灾厄困难模式旗
+				Tooltip: ""
 			}
 
 			CalamityHardmodeTrophy: {
-				// DisplayName: Calamity Hardmode Trophy
-				// Tooltip: ""
+				DisplayName: 灾厄困难模式纪念章
+				Tooltip: ""
 			}
 
 			CalamityImmaculateTrophy: {
-				// DisplayName: Calamity Immaculate Trophy
-				// Tooltip: ""
+				DisplayName: 灾厄完美纪念章
+				Tooltip: ""
 			}
 
 			CalamityPrehardmodeBanner: {
-				// DisplayName: Calamity Prehardmode Banner
-				// Tooltip: ""
+				DisplayName: 灾厄困难模式前旗
+				Tooltip: ""
 			}
 
 			CalamityPrehardmodeTrophy: {
-				// DisplayName: Calamity Prehardmode Trophy
-				// Tooltip: ""
+				DisplayName: 灾厄困难模式前纪念章
+				Tooltip: ""
 			}
 
 			CalamityProfanedTrophy: {
-				// DisplayName: Calamity Profaned Trophy
-				// Tooltip: ""
+				DisplayName: 灾厄亵渎纪念章
+				Tooltip: ""
 			}
 
 			CalamitySuperHardmodeBanner: {
-				// DisplayName: Calamity Super Hardmode Banner
-				// Tooltip: ""
+				DisplayName: 灾厄超级困难模式旗
+				Tooltip: ""
 			}
 
 			CalamitySuperHardmodeTrophy: {
-				// DisplayName: Calamity Super Hardmode Trophy
-				// Tooltip: ""
+				DisplayName: 灾厄超级困难模式纪念章
+				Tooltip: ""
 			}
 
 			CrawlerBanner: {
-				// DisplayName: Crawler Banner
-				// Tooltip: ""
+				DisplayName: 爬虫旗
+				Tooltip: ""
 			}
 
 			CryoBanner: {
-				// DisplayName: Cryo Banner
-				// Tooltip: ""
+				DisplayName: 寒元旗
+				Tooltip: ""
 			}
 
 			FullAcidRainBanner: {
@@ -604,56 +517,56 @@ Mods: {
 
 		Configs: {
 			BannerConfig: {
-				// DisplayName: Banner Config
-
-				InvulnerabilityCap: {
-					// Label: Invulnerability Cap
-					// Tooltip: ""
-				}
+				DisplayName: 旗Config
 
 				BossInvulnerabilityCap: {
-					// Label: Boss Invulnerability Cap
-					// Tooltip: ""
-				}
-
-				MaxDamageIncrease: {
-					// Label: Max Damage Increase
-					// Tooltip: ""
-				}
-
-				MaxBossDamageIncrease: {
-					// Label: Max Boss Damage Increase
-					// Tooltip: ""
-				}
-
-				MaxLootMultiplier: {
-					// Label: Max Loot Multiplier
-					// Tooltip: ""
-				}
-
-				MaxBossLootMultiplier: {
-					// Label: Max Boss Loot Multiplier
-					// Tooltip: ""
-				}
-
-				Piggy: {
-					// Label: Piggy
-					// Tooltip: ""
-				}
-
-				Safe: {
-					// Label: Safe
-					// Tooltip: ""
+					Label: 纪念章限额
+					Tooltip: 达到最大效果所需的最小基本纪念章数量
 				}
 
 				Forge: {
-					// Label: Forge
-					// Tooltip: ""
+					Label: 切换护卫熔炉
+					Tooltip: 旗帜和纪念章在护卫熔炉里也生效
+				}
+
+				InvulnerabilityCap: {
+					Label: 旗帜限额
+					Tooltip: 达到最大效果所需的最小基本旗帜数量
+				}
+
+				MaxDamageIncrease: {
+					Label: 最大敌怪受伤倍率
+					Tooltip: ""
+				}
+
+				MaxBossDamageIncrease: {
+					Label: 最大boss受伤倍率
+					Tooltip: ""
+				}
+
+				MaxLootMultiplier: {
+					Label: 最大敌怪战利品倍率
+					Tooltip: ""
+				}
+
+				MaxBossLootMultiplier: {
+					Label: 最大boss战利品倍率
+					Tooltip: ""
+				}
+
+				Piggy: {
+					Label: 切换猪猪存钱罐
+					Tooltip: 旗帜和纪念章在猪猪存钱罐里也生效
+				}
+
+				Safe: {
+					Label: 切换保险箱
+					Tooltip: 旗帜和纪念章在保险箱里也生效
 				}
 
 				Vault: {
-					// Label: Vault
-					// Tooltip: ""
+					Label: 切换虚空袋
+					Tooltip: 旗帜和纪念章在虚空袋里也生效
 				}
 			}
 		}
