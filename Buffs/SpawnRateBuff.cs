@@ -16,12 +16,13 @@ namespace UltimateBannerMerging.Buffs
         {
             Main.buffNoTimeDisplay[Type] = true;
             Main.persistentBuff[Type] = true;
-            Main.pvpBuff[Type] = true;
-            Main.buffNoSave[Type] = true;
         }
-        // ModifyBuffText: Void ModifyBuffTip(System.String ByRef, Int32 ByRef) overrides a method which doesn't exist in any base class
-        public override void ModifyBuffText(ref string text, ref int rare);
-        
+
+        public override void ModifyBuffText(ref string buffName, ref string tip, ref int rare)
+        {
+            tip = Text;
+        }
+
         public override bool RightClick(int buffIndex)
         {
             SpawnRateNPC.Multiplier = 1;

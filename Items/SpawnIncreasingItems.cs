@@ -15,11 +15,12 @@ namespace UltimateBannerMerging.Items
         public abstract int RarityID { get; }
         public abstract int Multiplier { get; }
         public override string Texture => (GetType().Namespace + ".SpawnIncreasingItems." + Name).Replace('.', '/');
-        // SetDefaults: Method not found: 'Void Terraria.ModLoader.ModItem.set_SacrificeTotal(Int32)'.
-        public override void static SetDefaults()
+
+        public override void SetStaticDefaults()
         {
-            SacrificeTotal = 2;
+            Item.ResearchUnlockCount = 2;
         }
+
         public override void SetDefaults()
         {
             Item.consumable = false;

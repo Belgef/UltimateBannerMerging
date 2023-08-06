@@ -13,9 +13,6 @@ namespace UltimateBannerMerging.Buffs
         public void SetDefaults()
         {
             Main.buffNoTimeDisplay[Type] = true;
-            Main.persistentBuff[Type] = true;
-            Main.pvpBuff[Type] = true;
-            Main.buffNoSave[Type] = true;
         }
 
         public override bool RightClick(int buffIndex) => false;

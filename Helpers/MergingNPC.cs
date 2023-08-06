@@ -44,8 +44,7 @@ internal abstract class MergingNPC
     public float GetReceivedDamageMultiplier()
         => _calculator.CalculateReceivedDamageMultiplier(GetQuantity());
 
-    // SetNPCLootParameters: Method not found: '!!0 Terraria.NPC.GetGlobalNPC(Boolean)'
-    public void SetNPCLootParameters(BannerPlayer player, int lastDamage)
+    public void SetNPCLootParameters()
     {
         MoreLootNPC gnpc = _npc.GetGlobalNPC<MoreLootNPC>();
         gnpc.EntitiesToKill = (int)Math.Ceiling(GetLootMultiplier()) - 1;

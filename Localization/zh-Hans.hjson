@@ -1,167 +1,661 @@
-﻿Mods: {
-    UltimateBannerMerging: {
-        BuffDescription : {
-            BannerBuff : 你物品栏中的旗帜越多，你针对特定敌怪的力量越强
-            TrophyBuff : 你物品栏中的纪念章越多，你针对特定boss的力量越强
-        }
-        BuffName : {
-            BannerBuff : 敌怪支配
-            SpawnRateBuff : 引诱
-            TrophyBuff : boss支配
-        }
-        Config : {
-            BannerConfig : {
-                Name : "旗Config"
-                BossInvulnerabilityCap : {
-                    Label : "纪念章限额"
-                    Tooltip : "达到最大效果所需的最小基本纪念章数量"
-                }
-                Forge : {
-                    Label : "切换护卫熔炉"
-                    Tooltip : "旗帜和纪念章在护卫熔炉里也生效"
-                }
-                InvulnerabilityCap : {
-                    Label : "旗帜限额"
-                    Tooltip : "达到最大效果所需的最小基本旗帜数量"
-                }
-                MaxBossDamageIncrease : {
-                    Label : "最大boss受伤倍率"
-                }
-                MaxBossLootMultiplier : {
-                    Label : "最大boss战利品倍率"
-                }
-                MaxDamageIncrease : {
-                    Label : "最大敌怪受伤倍率"
-                }
-                MaxLootMultiplier : {
-                    Label : "最大敌怪战利品倍率"
-                }
-                Piggy : {
-                    Label : "切换猪猪存钱罐"
-                    Tooltip : "旗帜和纪念章在猪猪存钱罐里也生效"
-                }
-                Safe : {
-                    Label : "切换保险箱"
-                    Tooltip : "旗帜和纪念章在保险箱里也生效"
-                }
-                Vault : {
-                    Label : "切换虚空袋"
-                    Tooltip : "旗帜和纪念章在虚空袋里也生效"
-                }
-            }
-        }
-        ItemName: {
-            AcidRainBanner : 酸雨旗
-            AdvancedBanner : 进阶旗
-            AncientTrophy : 远古纪念章
-            AnnihilationSign : 湮灭信号
-            AstralBanner : 星辉旗
-            AwfulSubstance : 糟糕物质
-            BasicBanner : 基础旗
-            BloodMoonBanner : 血月旗
-            BrimstoneBanner : 硫火崖旗
-            CalamityBeginnerBanner : 灾厄新手旗
-            CalamityDevouringTrophy : 灾厄神吞纪念章
-            CalamityHardmodeBanner : 灾厄困难模式旗
-            CalamityHardmodeTrophy : 灾厄困难模式纪念章
-            CalamityImmaculateTrophy : 灾厄完美纪念章
-            CalamityPrehardmodeBanner : 灾厄困难模式前旗
-            CalamityPrehardmodeTrophy : 灾厄困难模式前纪念章
-            CalamityProfanedTrophy : 灾厄亵渎纪念章
-            CalamitySuperHardmodeBanner : 灾厄超级困难模式旗
-            CalamitySuperHardmodeTrophy : 灾厄超级困难模式纪念章
-            CavernBanner : 洞穴旗
-            CorruptedBanner : 腐化旗
-            CrawlerBanner : 爬虫旗
-            CrimsonBanner : 猩红旗
-            CryoBanner : 寒元旗
-            DefusalMark : 拆弹面具
-            DesertBanner : 沙漠旗
-            DungeonBanner : 地牢旗
-            EventsTrophy : 事件纪念章
-            ExceptionalBanner : 非凡旗
-            ForestBanner : 森林旗
-            FrostMoonBanner : 霜月旗
-            FullAcidRainBanner : 二级酸雨旗
-            FullSulphurousBanner : 二级硫磺海旗
-            GlowingMushroomBanner : 发光蘑菇旗
-            GoblinArmyBanner : 哥布林军队旗
-            HallowBanner : 神圣旗
-            HardmodeCavernBanner : 困难模式洞穴旗
-            HardmodeCorruptedBanner : 困难模式腐化旗
-            HardmodeCrimsonBanner : 困难模式猩红旗
-            HardmodeDungeonBanner : 困难模式地牢旗
-            HardmodeSurfaceBanner : 困难模式地表旗
-            HardmodeUndergroundBanner : 困难模式地下旗
-            HorrorTrophy : 恐惧纪念章
-            JungleBanner : 丛林旗
-            LargeAbyssBanner : 深层深渊旗
-            LunarBanner : 四柱旗
-            MartianBanner : 火星人旗
-            MasterBanner : 大师旗
-            MechanicsTrophy : 机械纪念章
-            MediumAbyssBanner : 中层深渊旗
-            ModerateBanner : 中等旗
-            MoonTrophy : 双月纪念章
-            NebulaBanner : 星云旗
-            OceanBanner : 海洋旗
-            OldArmyBanner : 旧日军团旗
-            OldArmyHardmodeBanner : 旧日军团困难模式旗
-            PirateBanner : 海盗旗
-            PlagueBanner : 瘟疫旗
-            PreHardmodeTrophy : 困难模式前纪念章
-            ProfessionalBanner : 专业旗
-            PumpkinMoonBanner : 南瓜月旗
-            PutrescentFlesh : 腐败之肉
-            RainBanner : 冰雨旗
-            SmallAbyssBanner : 浅层深渊旗
-            SmellyBag : 异味袋
-            SnowBanner : 冰雪旗
-            SolarBanner : 日耀旗
-            SolarEclipseBanner : 日食旗
-            StardustBanner : 星尘旗
-            SulphurousBanner : 硫磺海旗
-            SunkenBanner : 沉沦海旗
-            TempleBanner : 神庙旗
-            TheBanner : 万灵旗
-            TheCalamityBanner : 灾厄万灵旗
-            TheCalamityTrophy : 灾厄万灵纪念章
-            TheTrophy : 万灵纪念章
-            UltraBanner : 终极旗
-            UndergroundBanner : 地下旗
-            UndergroundDesertBanner : 地下沙漠旗
-            UndergroundJungleBanner : 地下丛林旗
-            UnderworldBanner : 地狱旗
-            VortexBanner : 星旋旗
-            WulfrumBanner : 钨钢旗
-        }
-        ItemTooltip : {
-            AnnihilationSign : 战争临近
-            AwfulSubstance : 敌怪讨厌你
-            DefusalMark : 敌怪标记你为主要目标
-            PutrescentFlesh : 你的存在使敌怪兴奋
-            SmellyBag : 你正在吸引敌怪
+Mods: {
+	UltimateBannerMerging: {
+		BuffDescription: {
+			BannerBuff: 你物品栏中的旗帜越多，你针对特定敌怪的力量越强
+			TrophyBuff: 你物品栏中的纪念章越多，你针对特定boss的力量越强
+		}
 
-            #Here % symbol will replace with multiplier number
-            BannerItem : {
-                1 : 针对所有包含的敌怪提升伤害和防御
-                2 : 效果是其合成材料的%倍
-            }
+		BuffName: {
+			BannerBuff: 敌怪支配
+			SpawnRateBuff: 引诱
+			TrophyBuff: boss支配
+		}
 
-            #Here % symbol will replace with multiplier number
-            SpawnItem : {
-                1 : 不消耗
-                2 : 切换敌怪生成率提升
-                3 : 敌怪生成提升至%倍
-            }
-        }
-        IngredientGroups : {
-            EvilBiomeMeat : 暗影鳞片或组织样本
-            EvilBiomeBanner : 猩红或腐化旗
-            HardmodeEvilBiomeBanner : 困难模式猩红或腐化旗
-            EvilBiomeTrophy : 克苏鲁之脑或世界吞噬者纪念章
-            CalamityBlightSlimeBanner : 黑檀或血腥枯萎史莱姆旗
-            CalamityEvilBiomeBossTrophy : 腐巢意志或血肉宿主纪念章
-        }
-    }
+		Config: {
+			BannerConfig: {
+				Name: 旗Config
+
+				BossInvulnerabilityCap: {
+					Label: 纪念章限额
+					Tooltip: 达到最大效果所需的最小基本纪念章数量
+				}
+
+				Forge: {
+					Label: 切换护卫熔炉
+					Tooltip: 旗帜和纪念章在护卫熔炉里也生效
+				}
+
+				InvulnerabilityCap: {
+					Label: 旗帜限额
+					Tooltip: 达到最大效果所需的最小基本旗帜数量
+				}
+
+				MaxBossDamageIncrease.Label: 最大boss受伤倍率
+				MaxBossLootMultiplier.Label: 最大boss战利品倍率
+				MaxDamageIncrease.Label: 最大敌怪受伤倍率
+				MaxLootMultiplier.Label: 最大敌怪战利品倍率
+
+				Piggy: {
+					Label: 切换猪猪存钱罐
+					Tooltip: 旗帜和纪念章在猪猪存钱罐里也生效
+				}
+
+				Safe: {
+					Label: 切换保险箱
+					Tooltip: 旗帜和纪念章在保险箱里也生效
+				}
+
+				Vault: {
+					Label: 切换虚空袋
+					Tooltip: 旗帜和纪念章在虚空袋里也生效
+				}
+			}
+		}
+
+		ItemName: {
+			AcidRainBanner: 酸雨旗
+			AdvancedBanner: 进阶旗
+			AncientTrophy: 远古纪念章
+			AnnihilationSign: 湮灭信号
+			AstralBanner: 星辉旗
+			AwfulSubstance: 糟糕物质
+			BasicBanner: 基础旗
+			BloodMoonBanner: 血月旗
+			BrimstoneBanner: 硫火崖旗
+			CalamityBeginnerBanner: 灾厄新手旗
+			CalamityDevouringTrophy: 灾厄神吞纪念章
+			CalamityHardmodeBanner: 灾厄困难模式旗
+			CalamityHardmodeTrophy: 灾厄困难模式纪念章
+			CalamityImmaculateTrophy: 灾厄完美纪念章
+			CalamityPrehardmodeBanner: 灾厄困难模式前旗
+			CalamityPrehardmodeTrophy: 灾厄困难模式前纪念章
+			CalamityProfanedTrophy: 灾厄亵渎纪念章
+			CalamitySuperHardmodeBanner: 灾厄超级困难模式旗
+			CalamitySuperHardmodeTrophy: 灾厄超级困难模式纪念章
+			CavernBanner: 洞穴旗
+			CorruptedBanner: 腐化旗
+			CrawlerBanner: 爬虫旗
+			CrimsonBanner: 猩红旗
+			CryoBanner: 寒元旗
+			DefusalMark: 拆弹面具
+			DesertBanner: 沙漠旗
+			DungeonBanner: 地牢旗
+			EventsTrophy: 事件纪念章
+			ExceptionalBanner: 非凡旗
+			ForestBanner: 森林旗
+			FrostMoonBanner: 霜月旗
+			FullAcidRainBanner: 二级酸雨旗
+			FullSulphurousBanner: 二级硫磺海旗
+			GlowingMushroomBanner: 发光蘑菇旗
+			GoblinArmyBanner: 哥布林军队旗
+			HallowBanner: 神圣旗
+			HardmodeCavernBanner: 困难模式洞穴旗
+			HardmodeCorruptedBanner: 困难模式腐化旗
+			HardmodeCrimsonBanner: 困难模式猩红旗
+			HardmodeDungeonBanner: 困难模式地牢旗
+			HardmodeSurfaceBanner: 困难模式地表旗
+			HardmodeUndergroundBanner: 困难模式地下旗
+			HorrorTrophy: 恐惧纪念章
+			JungleBanner: 丛林旗
+			LargeAbyssBanner: 深层深渊旗
+			LunarBanner: 四柱旗
+			MartianBanner: 火星人旗
+			MasterBanner: 大师旗
+			MechanicsTrophy: 机械纪念章
+			MediumAbyssBanner: 中层深渊旗
+			ModerateBanner: 中等旗
+			MoonTrophy: 双月纪念章
+			NebulaBanner: 星云旗
+			OceanBanner: 海洋旗
+			OldArmyBanner: 旧日军团旗
+			OldArmyHardmodeBanner: 旧日军团困难模式旗
+			PirateBanner: 海盗旗
+			PlagueBanner: 瘟疫旗
+			PreHardmodeTrophy: 困难模式前纪念章
+			ProfessionalBanner: 专业旗
+			PumpkinMoonBanner: 南瓜月旗
+			PutrescentFlesh: 腐败之肉
+			RainBanner: 冰雨旗
+			SmallAbyssBanner: 浅层深渊旗
+			SmellyBag: 异味袋
+			SnowBanner: 冰雪旗
+			SolarBanner: 日耀旗
+			SolarEclipseBanner: 日食旗
+			StardustBanner: 星尘旗
+			SulphurousBanner: 硫磺海旗
+			SunkenBanner: 沉沦海旗
+			TempleBanner: 神庙旗
+			TheBanner: 万灵旗
+			TheCalamityBanner: 灾厄万灵旗
+			TheCalamityTrophy: 灾厄万灵纪念章
+			TheTrophy: 万灵纪念章
+			UltraBanner: 终极旗
+			UndergroundBanner: 地下旗
+			UndergroundDesertBanner: 地下沙漠旗
+			UndergroundJungleBanner: 地下丛林旗
+			UnderworldBanner: 地狱旗
+			VortexBanner: 星旋旗
+			WulfrumBanner: 钨钢旗
+		}
+
+		ItemTooltip: {
+			AnnihilationSign: 战争临近
+			AwfulSubstance: 敌怪讨厌你
+			DefusalMark: 敌怪标记你为主要目标
+			PutrescentFlesh: 你的存在使敌怪兴奋
+			SmellyBag: 你正在吸引敌怪
+
+			#Here % symbol will be replaced with multiplier number
+			BannerItem: {
+				1: 针对所有包含的敌怪提升伤害和防御
+				2: 效果是其合成材料的%倍
+			}
+
+			#Here % symbol will be replaced with multiplier number
+			SpawnItem: {
+				1: 不消耗
+				2: 切换敌怪生成率提升
+				3: 敌怪生成提升至%倍
+			}
+		}
+
+		IngredientGroups: {
+			EvilBiomeMeat: 暗影鳞片或组织样本
+			EvilBiomeBanner: 猩红或腐化旗
+			HardmodeEvilBiomeBanner: 困难模式猩红或腐化旗
+			EvilBiomeTrophy: 克苏鲁之脑或世界吞噬者纪念章
+			CalamityBlightSlimeBanner: 黑檀或血腥枯萎史莱姆旗
+			CalamityEvilBiomeBossTrophy: 腐巢意志或血肉宿主纪念章
+		}
+
+		Buffs: {
+			BannerBuff: {
+				// DisplayName: Banner Buff
+				// Description: Mods.UltimateBannerMerging.Buffs.BannerBuff.Description
+			}
+
+			SpawnRateBuff: {
+				// DisplayName: Spawn Rate Buff
+				// Description: Mods.UltimateBannerMerging.Buffs.SpawnRateBuff.Description
+			}
+
+			TrophyBuff: {
+				// DisplayName: Trophy Buff
+				// Description: Mods.UltimateBannerMerging.Buffs.TrophyBuff.Description
+			}
+		}
+
+		Items: {
+			AdvancedBanner: {
+				// DisplayName: Advanced Banner
+				// Tooltip: ""
+			}
+
+			AncientTrophy: {
+				// DisplayName: Ancient Trophy
+				// Tooltip: ""
+			}
+
+			AnnihilationSign: {
+				// DisplayName: Annihilation Sign
+				// Tooltip: ""
+			}
+
+			AwfulSubstance: {
+				// DisplayName: Awful Substance
+				// Tooltip: ""
+			}
+
+			BasicBanner: {
+				// DisplayName: Basic Banner
+				// Tooltip: ""
+			}
+
+			BloodMoonBanner: {
+				// DisplayName: Blood Moon Banner
+				// Tooltip: ""
+			}
+
+			CavernBanner: {
+				// DisplayName: Cavern Banner
+				// Tooltip: ""
+			}
+
+			CorruptedBanner: {
+				// DisplayName: Corrupted Banner
+				// Tooltip: ""
+			}
+
+			CrimsonBanner: {
+				// DisplayName: Crimson Banner
+				// Tooltip: ""
+			}
+
+			DefusalMark: {
+				// DisplayName: Defusal Mark
+				// Tooltip: ""
+			}
+
+			DesertBanner: {
+				// DisplayName: Desert Banner
+				// Tooltip: ""
+			}
+
+			DungeonBanner: {
+				// DisplayName: Dungeon Banner
+				// Tooltip: ""
+			}
+
+			EventsTrophy: {
+				// DisplayName: Events Trophy
+				// Tooltip: ""
+			}
+
+			ExceptionalBanner: {
+				// DisplayName: Exceptional Banner
+				// Tooltip: ""
+			}
+
+			ForestBanner: {
+				// DisplayName: Forest Banner
+				// Tooltip: ""
+			}
+
+			FrostMoonBanner: {
+				// DisplayName: Frost Moon Banner
+				// Tooltip: ""
+			}
+
+			GlowingMushroomBanner: {
+				// DisplayName: Glowing Mushroom Banner
+				// Tooltip: ""
+			}
+
+			GoblinArmyBanner: {
+				// DisplayName: Goblin Army Banner
+				// Tooltip: ""
+			}
+
+			HallowBanner: {
+				// DisplayName: Hallow Banner
+				// Tooltip: ""
+			}
+
+			HardmodeCavernBanner: {
+				// DisplayName: Hardmode Cavern Banner
+				// Tooltip: ""
+			}
+
+			HardmodeCorruptedBanner: {
+				// DisplayName: Hardmode Corrupted Banner
+				// Tooltip: ""
+			}
+
+			HardmodeCrimsonBanner: {
+				// DisplayName: Hardmode Crimson Banner
+				// Tooltip: ""
+			}
+
+			HardmodeDungeonBanner: {
+				// DisplayName: Hardmode Dungeon Banner
+				// Tooltip: ""
+			}
+
+			HardmodeSurfaceBanner: {
+				// DisplayName: Hardmode Surface Banner
+				// Tooltip: ""
+			}
+
+			HardmodeUndergroundBanner: {
+				// DisplayName: Hardmode Underground Banner
+				// Tooltip: ""
+			}
+
+			HorrorTrophy: {
+				// DisplayName: Horror Trophy
+				// Tooltip: ""
+			}
+
+			JungleBanner: {
+				// DisplayName: Jungle Banner
+				// Tooltip: ""
+			}
+
+			LunarBanner: {
+				// DisplayName: Lunar Banner
+				// Tooltip: ""
+			}
+
+			MartianBanner: {
+				// DisplayName: Martian Banner
+				// Tooltip: ""
+			}
+
+			MasterBanner: {
+				// DisplayName: Master Banner
+				// Tooltip: ""
+			}
+
+			MechanicsTrophy: {
+				// DisplayName: Mechanics Trophy
+				// Tooltip: ""
+			}
+
+			ModerateBanner: {
+				// DisplayName: Moderate Banner
+				// Tooltip: ""
+			}
+
+			MoonTrophy: {
+				// DisplayName: Moon Trophy
+				// Tooltip: ""
+			}
+
+			NebulaBanner: {
+				// DisplayName: Nebula Banner
+				// Tooltip: ""
+			}
+
+			OceanBanner: {
+				// DisplayName: Ocean Banner
+				// Tooltip: ""
+			}
+
+			OldArmyBanner: {
+				// DisplayName: Old Army Banner
+				// Tooltip: ""
+			}
+
+			OldArmyHardmodeBanner: {
+				// DisplayName: Old Army Hardmode Banner
+				// Tooltip: ""
+			}
+
+			PirateBanner: {
+				// DisplayName: Pirate Banner
+				// Tooltip: ""
+			}
+
+			PreHardmodeTrophy: {
+				// DisplayName: Pre Hardmode Trophy
+				// Tooltip: ""
+			}
+
+			ProfessionalBanner: {
+				// DisplayName: Professional Banner
+				// Tooltip: ""
+			}
+
+			PumpkinMoonBanner: {
+				// DisplayName: Pumpkin Moon Banner
+				// Tooltip: ""
+			}
+
+			PutrescentFlesh: {
+				// DisplayName: Putrescent Flesh
+				// Tooltip: ""
+			}
+
+			RainBanner: {
+				// DisplayName: Rain Banner
+				// Tooltip: ""
+			}
+
+			SmellyBag: {
+				// DisplayName: Smelly Bag
+				// Tooltip: ""
+			}
+
+			SnowBanner: {
+				// DisplayName: Snow Banner
+				// Tooltip: ""
+			}
+
+			SolarBanner: {
+				// DisplayName: Solar Banner
+				// Tooltip: ""
+			}
+
+			SolarEclipseBanner: {
+				// DisplayName: Solar Eclipse Banner
+				// Tooltip: ""
+			}
+
+			StardustBanner: {
+				// DisplayName: Stardust Banner
+				// Tooltip: ""
+			}
+
+			TempleBanner: {
+				// DisplayName: Temple Banner
+				// Tooltip: ""
+			}
+
+			TheBanner: {
+				// DisplayName: The Banner
+				// Tooltip: ""
+			}
+
+			TheTrophy: {
+				// DisplayName: The Trophy
+				// Tooltip: ""
+			}
+
+			UltraBanner: {
+				// DisplayName: Ultra Banner
+				// Tooltip: ""
+			}
+
+			UndergroundBanner: {
+				// DisplayName: Underground Banner
+				// Tooltip: ""
+			}
+
+			UndergroundDesertBanner: {
+				// DisplayName: Underground Desert Banner
+				// Tooltip: ""
+			}
+
+			UndergroundJungleBanner: {
+				// DisplayName: Underground Jungle Banner
+				// Tooltip: ""
+			}
+
+			UnderworldBanner: {
+				// DisplayName: Underworld Banner
+				// Tooltip: ""
+			}
+
+			VortexBanner: {
+				// DisplayName: Vortex Banner
+				// Tooltip: ""
+			}
+
+			AcidRainBanner: {
+				// DisplayName: Acid Rain Banner
+				// Tooltip: ""
+			}
+
+			AstralBanner: {
+				// DisplayName: Astral Banner
+				// Tooltip: ""
+			}
+
+			BrimstoneBanner: {
+				// DisplayName: Brimstone Banner
+				// Tooltip: ""
+			}
+
+			CalamityBeginnerBanner: {
+				// DisplayName: Calamity Beginner Banner
+				// Tooltip: ""
+			}
+
+			CalamityDevouringTrophy: {
+				// DisplayName: Calamity Devouring Trophy
+				// Tooltip: ""
+			}
+
+			CalamityHardmodeBanner: {
+				// DisplayName: Calamity Hardmode Banner
+				// Tooltip: ""
+			}
+
+			CalamityHardmodeTrophy: {
+				// DisplayName: Calamity Hardmode Trophy
+				// Tooltip: ""
+			}
+
+			CalamityImmaculateTrophy: {
+				// DisplayName: Calamity Immaculate Trophy
+				// Tooltip: ""
+			}
+
+			CalamityPrehardmodeBanner: {
+				// DisplayName: Calamity Prehardmode Banner
+				// Tooltip: ""
+			}
+
+			CalamityPrehardmodeTrophy: {
+				// DisplayName: Calamity Prehardmode Trophy
+				// Tooltip: ""
+			}
+
+			CalamityProfanedTrophy: {
+				// DisplayName: Calamity Profaned Trophy
+				// Tooltip: ""
+			}
+
+			CalamitySuperHardmodeBanner: {
+				// DisplayName: Calamity Super Hardmode Banner
+				// Tooltip: ""
+			}
+
+			CalamitySuperHardmodeTrophy: {
+				// DisplayName: Calamity Super Hardmode Trophy
+				// Tooltip: ""
+			}
+
+			CrawlerBanner: {
+				// DisplayName: Crawler Banner
+				// Tooltip: ""
+			}
+
+			CryoBanner: {
+				// DisplayName: Cryo Banner
+				// Tooltip: ""
+			}
+
+			FullAcidRainBanner: {
+				// DisplayName: Full Acid Rain Banner
+				// Tooltip: ""
+			}
+
+			FullSulphurousBanner: {
+				// DisplayName: Full Sulphurous Banner
+				// Tooltip: ""
+			}
+
+			LargeAbyssBanner: {
+				// DisplayName: Large Abyss Banner
+				// Tooltip: ""
+			}
+
+			MediumAbyssBanner: {
+				// DisplayName: Medium Abyss Banner
+				// Tooltip: ""
+			}
+
+			PlagueBanner: {
+				// DisplayName: Plague Banner
+				// Tooltip: ""
+			}
+
+			SmallAbyssBanner: {
+				// DisplayName: Small Abyss Banner
+				// Tooltip: ""
+			}
+
+			SulphurousBanner: {
+				// DisplayName: Sulphurous Banner
+				// Tooltip: ""
+			}
+
+			SunkenBanner: {
+				// DisplayName: Sunken Banner
+				// Tooltip: ""
+			}
+
+			TheCalamityBanner: {
+				// DisplayName: The Calamity Banner
+				// Tooltip: ""
+			}
+
+			TheCalamityTrophy: {
+				// DisplayName: The Calamity Trophy
+				// Tooltip: ""
+			}
+
+			WulfrumBanner: {
+				// DisplayName: Wulfrum Banner
+				// Tooltip: ""
+			}
+		}
+
+		Configs: {
+			BannerConfig: {
+				// DisplayName: Banner Config
+
+				InvulnerabilityCap: {
+					// Label: Invulnerability Cap
+					// Tooltip: ""
+				}
+
+				BossInvulnerabilityCap: {
+					// Label: Boss Invulnerability Cap
+					// Tooltip: ""
+				}
+
+				MaxDamageIncrease: {
+					// Label: Max Damage Increase
+					// Tooltip: ""
+				}
+
+				MaxBossDamageIncrease: {
+					// Label: Max Boss Damage Increase
+					// Tooltip: ""
+				}
+
+				MaxLootMultiplier: {
+					// Label: Max Loot Multiplier
+					// Tooltip: ""
+				}
+
+				MaxBossLootMultiplier: {
+					// Label: Max Boss Loot Multiplier
+					// Tooltip: ""
+				}
+
+				Piggy: {
+					// Label: Piggy
+					// Tooltip: ""
+				}
+
+				Safe: {
+					// Label: Safe
+					// Tooltip: ""
+				}
+
+				Forge: {
+					// Label: Forge
+					// Tooltip: ""
+				}
+
+				Vault: {
+					// Label: Vault
+					// Tooltip: ""
+				}
+			}
+		}
+	}
 }
