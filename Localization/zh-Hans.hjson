@@ -40,65 +40,6 @@ Mods: {
 				3: 敌怪生成提升至%倍
 			}
 
-			DefusalMark: 
-			DesertBanner: 
-			DungeonBanner: 
-			EventsTrophy: 
-			ExceptionalBanner: 
-			ForestBanner: 森林旗
-			FrostMoonBanner: 霜月旗
-			FullAcidRainBanner: 二级酸雨旗
-			FullSulphurousBanner: 二级硫磺海旗
-			GlowingMushroomBanner: 发光蘑菇旗
-			GoblinArmyBanner: 哥布林军队旗
-			HallowBanner: 神圣旗
-			HardmodeCavernBanner: 困难模式洞穴旗
-			HardmodeCorruptedBanner: 困难模式腐化旗
-			HardmodeCrimsonBanner: 困难模式猩红旗
-			HardmodeDungeonBanner: 困难模式地牢旗
-			HardmodeSurfaceBanner: 困难模式地表旗
-			HardmodeUndergroundBanner: 困难模式地下旗
-			HorrorTrophy: 恐惧纪念章
-			JungleBanner: 丛林旗
-			LargeAbyssBanner: 深层深渊旗
-			LunarBanner: 四柱旗
-			MartianBanner: 火星人旗
-			MasterBanner: 大师旗
-			MechanicsTrophy: 机械纪念章
-			MediumAbyssBanner: 中层深渊旗
-			ModerateBanner: 中等旗
-			MoonTrophy: 双月纪念章
-			NebulaBanner: 星云旗
-			OceanBanner: 海洋旗
-			OldArmyBanner: 旧日军团旗
-			OldArmyHardmodeBanner: 旧日军团困难模式旗
-			PirateBanner: 海盗旗
-			PlagueBanner: 瘟疫旗
-			PreHardmodeTrophy: 困难模式前纪念章
-			ProfessionalBanner: 专业旗
-			PumpkinMoonBanner: 南瓜月旗
-			PutrescentFlesh: 腐败之肉
-			RainBanner: 冰雨旗
-			SmallAbyssBanner: 浅层深渊旗
-			SmellyBag: 异味袋
-			SnowBanner: 冰雪旗
-			SolarBanner: 日耀旗
-			SolarEclipseBanner: 日食旗
-			StardustBanner: 星尘旗
-			SulphurousBanner: 硫磺海旗
-			SunkenBanner: 沉沦海旗
-			TempleBanner: 神庙旗
-			TheBanner: 万灵旗
-			TheCalamityBanner: 灾厄万灵旗
-			TheCalamityTrophy: 灾厄万灵纪念章
-			TheTrophy: 万灵纪念章
-			UltraBanner: 终极旗
-			UndergroundBanner: 地下旗
-			UndergroundDesertBanner: 地下沙漠旗
-			UndergroundJungleBanner: 地下丛林旗
-			UnderworldBanner: 地狱旗
-			VortexBanner: 星旋旗
-			WulfrumBanner: 钨钢旗
 			AdvancedBanner: {
 				DisplayName: 进阶旗
 				Tooltip: ""
@@ -170,218 +111,218 @@ Mods: {
 			}
 
 			ForestBanner: {
-				// DisplayName: Forest Banner
-				// Tooltip: ""
+				DisplayName: 森林旗
+				Tooltip: ""
 			}
 
 			FrostMoonBanner: {
-				// DisplayName: Frost Moon Banner
-				// Tooltip: ""
+				DisplayName: 霜月旗
+				Tooltip: ""
 			}
 
 			GlowingMushroomBanner: {
-				// DisplayName: Glowing Mushroom Banner
-				// Tooltip: ""
+				DisplayName: 发光蘑菇旗
+				Tooltip: ""
 			}
 
 			GoblinArmyBanner: {
-				// DisplayName: Goblin Army Banner
-				// Tooltip: ""
+				DisplayName: 哥布林军队旗
+				Tooltip: ""
 			}
 
 			HallowBanner: {
-				// DisplayName: Hallow Banner
-				// Tooltip: ""
+				DisplayName: 神圣旗
+				Tooltip: ""
 			}
 
 			HardmodeCavernBanner: {
-				// DisplayName: Hardmode Cavern Banner
-				// Tooltip: ""
+				DisplayName: 困难模式洞穴旗
+				Tooltip: ""
 			}
 
 			HardmodeCorruptedBanner: {
-				// DisplayName: Hardmode Corrupted Banner
-				// Tooltip: ""
+				DisplayName: 困难模式腐化旗
+				Tooltip: ""
 			}
 
 			HardmodeCrimsonBanner: {
-				// DisplayName: Hardmode Crimson Banner
-				// Tooltip: ""
+				DisplayName: 困难模式猩红旗
+				Tooltip: ""
 			}
 
 			HardmodeDungeonBanner: {
-				// DisplayName: Hardmode Dungeon Banner
-				// Tooltip: ""
+				DisplayName: 困难模式地牢旗
+				Tooltip: ""
 			}
 
 			HardmodeSurfaceBanner: {
-				// DisplayName: Hardmode Surface Banner
-				// Tooltip: ""
+				DisplayName: 困难模式地表旗
+				Tooltip: ""
 			}
 
 			HardmodeUndergroundBanner: {
-				// DisplayName: Hardmode Underground Banner
-				// Tooltip: ""
+				DisplayName: 困难模式地下旗
+				Tooltip: ""
 			}
 
 			HorrorTrophy: {
-				// DisplayName: Horror Trophy
-				// Tooltip: ""
+				DisplayName: 恐惧纪念章
+				Tooltip: ""
 			}
 
 			JungleBanner: {
-				// DisplayName: Jungle Banner
-				// Tooltip: ""
+				DisplayName: 丛林旗
+				Tooltip: ""
 			}
 
 			LunarBanner: {
-				// DisplayName: Lunar Banner
-				// Tooltip: ""
+				DisplayName: 四柱旗
+				Tooltip: ""
 			}
 
 			MartianBanner: {
-				// DisplayName: Martian Banner
-				// Tooltip: ""
+				DisplayName: 火星人旗
+				Tooltip: ""
 			}
 
 			MasterBanner: {
-				// DisplayName: Master Banner
-				// Tooltip: ""
+				DisplayName: 大师旗
+				Tooltip: ""
 			}
 
 			MechanicsTrophy: {
-				// DisplayName: Mechanics Trophy
-				// Tooltip: ""
+				DisplayName: 机械纪念章
+				Tooltip: ""
 			}
 
 			ModerateBanner: {
-				// DisplayName: Moderate Banner
-				// Tooltip: ""
+				DisplayName: 中等旗
+				Tooltip: ""
 			}
 
 			MoonTrophy: {
-				// DisplayName: Moon Trophy
-				// Tooltip: ""
+				DisplayName: 双月纪念章
+				Tooltip: ""
 			}
 
 			NebulaBanner: {
-				// DisplayName: Nebula Banner
-				// Tooltip: ""
+				DisplayName: 星云旗
+				Tooltip: ""
 			}
 
 			OceanBanner: {
-				// DisplayName: Ocean Banner
-				// Tooltip: ""
+				DisplayName: 海洋旗
+				Tooltip: ""
 			}
 
 			OldArmyBanner: {
-				// DisplayName: Old Army Banner
-				// Tooltip: ""
+				DisplayName: 旧日军团旗
+				Tooltip: ""
 			}
 
 			OldArmyHardmodeBanner: {
-				// DisplayName: Old Army Hardmode Banner
-				// Tooltip: ""
+				DisplayName: 旧日军团困难模式旗
+				Tooltip: ""
 			}
 
 			PirateBanner: {
-				// DisplayName: Pirate Banner
-				// Tooltip: ""
+				DisplayName: 海盗旗
+				Tooltip: ""
 			}
 
 			PreHardmodeTrophy: {
-				// DisplayName: Pre Hardmode Trophy
-				// Tooltip: ""
+				DisplayName: 困难模式前纪念章
+				Tooltip: ""
 			}
 
 			ProfessionalBanner: {
-				// DisplayName: Professional Banner
-				// Tooltip: ""
+				DisplayName: 专业旗
+				Tooltip: ""
 			}
 
 			PumpkinMoonBanner: {
-				// DisplayName: Pumpkin Moon Banner
-				// Tooltip: ""
+				DisplayName: 南瓜月旗
+				Tooltip: ""
 			}
 
 			PutrescentFlesh: {
-				DisplayName: Putrescent Flesh
+				DisplayName: 腐败之肉
 				Tooltip: 你的存在使敌怪兴奋
 			}
 
 			RainBanner: {
-				// DisplayName: Rain Banner
-				// Tooltip: ""
+				DisplayName: 冰雨旗
+				Tooltip: ""
 			}
 
 			SmellyBag: {
-				DisplayName: Smelly Bag
+				DisplayName: 异味袋
 				Tooltip: 你正在吸引敌怪
 			}
 
 			SnowBanner: {
-				// DisplayName: Snow Banner
-				// Tooltip: ""
+				DisplayName: 冰雪旗
+				Tooltip: ""
 			}
 
 			SolarBanner: {
-				// DisplayName: Solar Banner
-				// Tooltip: ""
+				DisplayName: 日耀旗
+				Tooltip: ""
 			}
 
 			SolarEclipseBanner: {
-				// DisplayName: Solar Eclipse Banner
-				// Tooltip: ""
+				DisplayName: 日食旗
+				Tooltip: ""
 			}
 
 			StardustBanner: {
-				// DisplayName: Stardust Banner
-				// Tooltip: ""
+				DisplayName: 星尘旗
+				Tooltip: ""
 			}
 
 			TempleBanner: {
-				// DisplayName: Temple Banner
-				// Tooltip: ""
+				DisplayName: 神庙旗
+				Tooltip: ""
 			}
 
 			TheBanner: {
-				// DisplayName: The Banner
-				// Tooltip: ""
+				DisplayName: 万灵旗
+				Tooltip: ""
 			}
 
 			TheTrophy: {
-				// DisplayName: The Trophy
-				// Tooltip: ""
+				DisplayName: 万灵纪念章
+				Tooltip: ""
 			}
 
 			UltraBanner: {
-				// DisplayName: Ultra Banner
-				// Tooltip: ""
+				DisplayName: 终极旗
+				Tooltip: ""
 			}
 
 			UndergroundBanner: {
-				// DisplayName: Underground Banner
-				// Tooltip: ""
+				DisplayName: 地下旗
+				Tooltip: ""
 			}
 
 			UndergroundDesertBanner: {
-				// DisplayName: Underground Desert Banner
-				// Tooltip: ""
+				DisplayName: 地下沙漠旗
+				Tooltip: ""
 			}
 
 			UndergroundJungleBanner: {
-				// DisplayName: Underground Jungle Banner
-				// Tooltip: ""
+				DisplayName: 地下丛林旗
+				Tooltip: ""
 			}
 
 			UnderworldBanner: {
-				// DisplayName: Underworld Banner
-				// Tooltip: ""
+				DisplayName: 地狱旗
+				Tooltip: ""
 			}
 
 			VortexBanner: {
-				// DisplayName: Vortex Banner
-				// Tooltip: ""
+				DisplayName: 星旋旗
+				Tooltip: ""
 			}
 
 			AcidRainBanner: {
@@ -460,58 +401,58 @@ Mods: {
 			}
 
 			FullAcidRainBanner: {
-				// DisplayName: Full Acid Rain Banner
-				// Tooltip: ""
+				DisplayName: 二级酸雨旗
+				Tooltip: ""
 			}
 
 			FullSulphurousBanner: {
-				// DisplayName: Full Sulphurous Banner
-				// Tooltip: ""
+				DisplayName: 二级硫磺海旗
+				Tooltip: ""
 			}
 
 			LargeAbyssBanner: {
-				// DisplayName: Large Abyss Banner
-				// Tooltip: ""
+				DisplayName: 深层深渊旗
+				Tooltip: ""
 			}
 
 			MediumAbyssBanner: {
-				// DisplayName: Medium Abyss Banner
-				// Tooltip: ""
+				DisplayName: 中层深渊旗
+				Tooltip: ""
 			}
 
 			PlagueBanner: {
-				// DisplayName: Plague Banner
-				// Tooltip: ""
+				DisplayName: 瘟疫旗
+				Tooltip: ""
 			}
 
 			SmallAbyssBanner: {
-				// DisplayName: Small Abyss Banner
-				// Tooltip: ""
+				DisplayName: 浅层深渊旗
+				Tooltip: ""
 			}
 
 			SulphurousBanner: {
-				// DisplayName: Sulphurous Banner
-				// Tooltip: ""
+				DisplayName: 硫磺海旗
+				Tooltip: ""
 			}
 
 			SunkenBanner: {
-				// DisplayName: Sunken Banner
-				// Tooltip: ""
+				DisplayName: 沉沦海旗
+				Tooltip: ""
 			}
 
 			TheCalamityBanner: {
-				// DisplayName: The Calamity Banner
-				// Tooltip: ""
+				DisplayName: 灾厄万灵旗
+				Tooltip: ""
 			}
 
 			TheCalamityTrophy: {
-				// DisplayName: The Calamity Trophy
-				// Tooltip: ""
+				DisplayName: 灾厄万灵纪念章
+				Tooltip: ""
 			}
 
 			WulfrumBanner: {
-				// DisplayName: Wulfrum Banner
-				// Tooltip: ""
+				DisplayName: 钨钢旗
+				Tooltip: ""
 			}
 		}
 
