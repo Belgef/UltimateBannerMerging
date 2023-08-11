@@ -11,19 +11,18 @@ namespace UltimateBannerMerging.Buffs
 {
     internal class SpawnRateBuff : ModBuff
     {
-        public static string Text = "";
+        public static string Text { get; set; } = "";
         public override void SetStaticDefaults()
         {
             Main.buffNoTimeDisplay[Type] = true;
             Main.persistentBuff[Type] = true;
-            Main.pvpBuff[Type] = true;
-            Main.buffNoSave[Type] = true;
         }
-        public override void ModifyBuffTip(ref string tip, ref int rare)
+
+        public override void ModifyBuffText(ref string buffName, ref string tip, ref int rare)
         {
             tip = Text;
         }
-        
+
         public override bool RightClick(int buffIndex)
         {
             SpawnRateNPC.Multiplier = 1;

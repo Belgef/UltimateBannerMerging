@@ -15,51 +15,34 @@ using Terraria.ModLoader.Config;
 
 namespace UltimateBannerMerging
 {
-    [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Name")]
     internal class BannerConfig : ModConfig
     {
         [Range(1, 100)]
         [DefaultValue(18)]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.InvulnerabilityCap.Label")]
-        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.InvulnerabilityCap.Tooltip")]
         public int InvulnerabilityCap;
         [Range(1, 100)]
         [DefaultValue(18)]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.BossInvulnerabilityCap.Label")]
-        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.BossInvulnerabilityCap.Tooltip")]
         public int BossInvulnerabilityCap;
         [Range(1f, 100f)]
         [DefaultValue("4")]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.MaxDamageIncrease.Label")]
         public int MaxDamageIncrease;
         [Range(1f, 100f)]
         [DefaultValue("4")]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.MaxBossDamageIncrease.Label")]
         public int MaxBossDamageIncrease;
         [Range(1f, 100f)]
         [DefaultValue("5")]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.MaxLootMultiplier.Label")]
         public int MaxLootMultiplier;
         [Range(1f, 100f)]
         [DefaultValue("5")]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.MaxBossLootMultiplier.Label")]
         public int MaxBossLootMultiplier;
 
         [DefaultValue("true")]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Piggy.Label")]
-        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.Piggy.Tooltip")]
         public bool Piggy;
         [DefaultValue("true")]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Safe.Label")]
-        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.Safe.Tooltip")]
         public bool Safe;
         [DefaultValue("true")]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Forge.Label")]
-        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.Forge.Tooltip")]
         public bool Forge;
         [DefaultValue("true")]
-        [Label("$Mods.UltimateBannerMerging.Config.BannerConfig.Vault.Label")]
-        [Tooltip("$Mods.UltimateBannerMerging.Config.BannerConfig.Vault.Tooltip")]
         public bool Vault;
 
         [JsonIgnore]

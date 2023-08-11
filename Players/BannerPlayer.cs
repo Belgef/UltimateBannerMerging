@@ -29,33 +29,44 @@ namespace UltimateBannerMerging.Players
                 Player.AddBuff(ModContent.BuffType<SpawnRateBuff>(), 10);
         }
 
-        public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             MergingNPC mergingNPC = MergingNPC.Create(target, BannerCollection, Config);
 
-            damage = (int)(damage * mergingNPC.GetDealtDamageMultiplier());
+            modifiers.FinalDamage += mergingNPC.GetDealtDamageMultiplier();
 
-            mergingNPC.SetNPCLootParameters(this, damage);
+            mergingNPC.SetNPCLootParameters();
         }
-        
-        public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
-        {
-            ModifyHitNPC(null, target, ref damage, ref knockback, ref crit);
-        }
-        
-        public override bool PreHurt(bool pvp, bool quiet, ref int damage, ref int hitDirection, ref bool crit, ref bool customDamage, ref bool playSound, ref bool genGore, ref PlayerDeathReason damageSource, ref int cooldownCounter)
+
+        public override bool ImmuneTo(PlayerDeathReason damageSource, int cooldownCounter, bool dodgeable)
         {
             MergingNPC npc = null;
+
             if (damageSource.SourceNPCIndex != -1)
                 npc = MergingNPC.Create(Main.npc[damageSource.SourceNPCIndex], BannerCollection, Config);
-            else if (damageSource.SourceProjectileIndex != -1)
-                npc = MergingNPC.Create(Main.projectile[damageSource.SourceProjectileIndex], BannerCollection, Config);
-            
+            else if (damageSource.SourceProjectileLocalIndex != -1)
+                npc = MergingNPC.Create(Main.projectile[damageSource.SourceProjectileLocalIndex], BannerCollection, Config);
+
             float damageMultiplier = npc?.GetReceivedDamageMultiplier() ?? 1;
-            if (damageMultiplier == 0)
-                return false;
-            damage = (int)(damage * damageMultiplier);
-            return true;
+            return damageMultiplier == 0;
+        }
+
+        public override void ModifyHitByNPC(NPC npc, ref Player.HurtModifiers modifiers)
+        {
+            MergingNPC mnpc = MergingNPC.Create(npc, BannerCollection, Config);
+
+            float damageMultiplier = mnpc?.GetReceivedDamageMultiplier() ?? 1;
+
+            modifiers.FinalDamage /= damageMultiplier;
+        }
+
+        public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
+        {
+            MergingNPC npc = MergingNPC.Create(proj, BannerCollection, Config);
+
+            float damageMultiplier = npc?.GetReceivedDamageMultiplier() ?? 1;
+
+            modifiers.FinalDamage /= damageMultiplier;
         }
     }
 }

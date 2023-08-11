@@ -1,167 +1,519 @@
-﻿Mods: {
+Mods: {
 	UltimateBannerMerging: {
-		BuffDescription : {
-			BannerBuff : More banners in your inventory give you more power against specific enemies
-			TrophyBuff : More trophies in your inventory give you more power against specific bosses
+		IngredientGroups: {
+			EvilBiomeMeat: Shadow scale or tissue sample
+			EvilBiomeBanner: Crimson or Corrupted Banner
+			HardmodeEvilBiomeBanner: Hardmode Crimson or Corrupted Banner
+			EvilBiomeTrophy: Brain of Cthulhu or Eater of Worlds Trophy
+			CalamityBlightSlimeBanner: Ebonian or Crimulan Blight Slime Banner
+			CalamityEvilBiomeBossTrophy: The Hive Mind or Perforator Trophy
 		}
-		BuffName : {
-			BannerBuff : Mob Dominance
-			SpawnRateBuff : Lure
-			TrophyBuff : Boss Dominance
-		}
-		Config : {
-			BannerConfig : {
-				Name : "Banner Config"
-				BossInvulnerabilityCap : {
-					Label : "Trophy Cap"
-					Tooltip : "Minimal number of simple trophies needed to reach maximal effects"
-				}
-				Forge : {
-					Label : "Toggle Defender's Forge"
-					Tooltip : "Banners and trophies in Defender's Forge will give effects"
-				}
-				InvulnerabilityCap : {
-					Label : "Banner Cap"
-					Tooltip : "Minimal number of simple banners needed to reach maximal effects"
-				}
-				MaxBossDamageIncrease : {
-					Label : "Max Boss Damage Multiplier"
-				}
-				MaxBossLootMultiplier : {
-					Label : "Max Boss Drop Multiplier"
-				}
-				MaxDamageIncrease : {
-					Label : "Max Damage Multiplier"
-				}
-				MaxLootMultiplier : {
-					Label : "Max Drop Multiplier"
-				}
-				Piggy : {
-					Label : "Toggle Piggy Bank"
-					Tooltip : "Banners and trophies in Piggy Bank will give effects"
-				}
-				Safe : {
-					Label : "Toggle Safe"
-					Tooltip : "Banners and trophies in Safe will give effects"
-				}
-				Vault : {
-					Label : "Toggle Void Vault"
-					Tooltip : "Banners and trophies in Void Vault will give effects"
-				}
-			}
-		}
-		ItemName: {
-			AcidRainBanner : Acid Rain Banner
-			AdvancedBanner : Advanced Banner
-			AncientTrophy : Ancient Trophy
-			AnnihilationSign : Annihilation Sign
-			AstralBanner : Astral Banner
-			AwfulSubstance : Awful Substance
-			BasicBanner : Basic Banner
-			BloodMoonBanner : Blood Moon Banner
-			BrimstoneBanner : Brimstone Banner
-			CalamityBeginnerBanner : Calamity Beginner Banner
-			CalamityDevouringTrophy : Calamity Devouring Trophy
-			CalamityHardmodeBanner : Calamity Hardmode Banner
-			CalamityHardmodeTrophy : Calamity Hardmode Trophy
-			CalamityImmaculateTrophy : Calamity Immaculate Trophy
-			CalamityPrehardmodeBanner : Calamity Prehardmode Banner
-			CalamityPrehardmodeTrophy : Calamity Prehardmode Trophy
-			CalamityProfanedTrophy : Calamity Profaned Trophy
-			CalamitySuperHardmodeBanner : Calamity Super Hardmode Banner
-			CalamitySuperHardmodeTrophy : Calamity Super Hardmode Trophy
-			CavernBanner : Cavern Banner
-			CorruptedBanner : Corrupted Banner
-			CrawlerBanner : Crawler Banner
-			CrimsonBanner : Crimson Banner
-			CryoBanner : Cryo Banner
-			DefusalMark : Defusal Mark
-			DesertBanner : Desert Banner
-			DungeonBanner : Dungeon Banner
-			EventsTrophy : Events Trophy
-			ExceptionalBanner : Exceptional Banner
-			ForestBanner : Forest Banner
-			FrostMoonBanner : Frost Moon Banner
-			FullAcidRainBanner : Full Acid Rain Banner
-			FullSulphurousBanner : Full Sulphurous Banner
-			GlowingMushroomBanner : Glowing Mushroom Banner
-			GoblinArmyBanner : Goblin Army Banner
-			HallowBanner : Hallow Banner
-			HardmodeCavernBanner : Hardmode Cavern Banner
-			HardmodeCorruptedBanner : Hardmode Corrupted Banner
-			HardmodeCrimsonBanner : Hardmode Crimson Banner
-			HardmodeDungeonBanner : Hardmode Dungeon Banner
-			HardmodeSurfaceBanner : Hardmode Surface Banner
-			HardmodeUndergroundBanner : Hardmode Underground Banner
-			HorrorTrophy : Horror Trophy
-			JungleBanner : Jungle Banner
-			LargeAbyssBanner : Large Abyss Banner
-			LunarBanner : Lunar Banner
-			MartianBanner : Martian Banner
-			MasterBanner : Master Banner
-			MechanicsTrophy : Mechanics Trophy
-			MediumAbyssBanner : Medium Abyss Banner
-			ModerateBanner : Moderate Banner
-			MoonTrophy : Moon Trophy
-			NebulaBanner : Nebula Banner
-			OceanBanner : Ocean Banner
-			OldArmyBanner : Old One's Army Banner
-			OldArmyHardmodeBanner : Old One's Army Hardmode Banner
-			PirateBanner : Pirate Banner
-			PlagueBanner : Plague Banner
-			PreHardmodeTrophy : Pre Hardmode Trophy
-			ProfessionalBanner : Professional Banner
-			PumpkinMoonBanner : Pumpkin Moon Banner
-			PutrescentFlesh : Putrescent Flesh
-			RainBanner : Rain Banner
-			SmallAbyssBanner : Small Abyss Banner
-			SmellyBag : Smelly Bag
-			SnowBanner : Snow Banner
-			SolarBanner : Solar Banner
-			SolarEclipseBanner : Solar Eclipse Banner
-			StardustBanner : Stardust Banner
-			SulphurousBanner : Sulphurous Banner
-			SunkenBanner : Sunken Banner
-			TempleBanner : Temple Banner
-			TheBanner : The Banner
-			TheCalamityBanner : The Calamity Banner
-			TheCalamityTrophy : The Calamity Trophy
-			TheTrophy : The Trophy
-			UltraBanner : Ultra Banner
-			UndergroundBanner : Underground Banner
-			UndergroundDesertBanner : Underground Desert Banner
-			UndergroundJungleBanner : Underground Jungle Banner
-			UnderworldBanner : Underworld Banner
-			VortexBanner : Vortex Banner
-			WulfrumBanner : Wulfrum Banner
-		}
-		ItemTooltip : {
-			AnnihilationSign : The war is close
-			AwfulSubstance : Enemies hate you
-			DefusalMark : Enemies marked you as a main target
-			PutrescentFlesh : Your existance is irritating
-			SmellyBag : You're attracting enemies
 
-			#Here % symbol will replace with multiplier number
-			BannerItem : {
-				1 : Increases damage and defense against all included enemies. 
-				2 : % times more effective than it's crafting components.
+		Buffs: {
+			BannerBuff: {
+				DisplayName: Mob Dominance
+				Description: More banners in your inventory give you more power against specific enemies
 			}
 
-			#Here % symbol will replace with multiplier number
-			SpawnItem : {
-				1 : Not consumable
-				2 : Toggles enemies spawn rate increase
-				3 : %x increased enemy spawn rate
+			SpawnRateBuff: {
+				DisplayName: Lure
+				Description: ""
+			}
+
+			TrophyBuff: {
+				DisplayName: Boss Dominance
+				Description: More trophies in your inventory give you more power against specific bosses
 			}
 		}
-		IngredientGroups : {
-			EvilBiomeMeat : Shadow scale or tissue sample
-			EvilBiomeBanner : Crimson or Corrupted Banner
-			HardmodeEvilBiomeBanner : Hardmode Crimson or Corrupted Banner
-			EvilBiomeTrophy : Brain of Cthulhu or Eater of Worlds Trophy
-			CalamityBlightSlimeBanner : Ebonian or Crimulan Blight Slime Banner
-			CalamityEvilBiomeBossTrophy : The Hive Mind or Perforator Trophy
+
+		Items: {
+			BannerItem: {
+				#Here % symbol will be replaced with multiplier number
+				Tooltip: {
+					1: Increases damage and defense against all included enemies.
+					2: % times more effective than it's crafting components.
+				}
+			}
+
+			SpawnItem: {
+				#Here % symbol will be replaced with multiplier number
+				Tooltip: {
+					1: Not consumable
+					2: Toggles enemies spawn rate increase
+					3: %x increased enemy spawn rate
+				}
+			}
+
+			AdvancedBanner: {
+				DisplayName: Advanced Banner
+				Tooltip: ""
+			}
+
+			AncientTrophy: {
+				DisplayName: Ancient Trophy
+				Tooltip: ""
+			}
+
+			AnnihilationSign: {
+				DisplayName: Annihilation Sign
+				Tooltip: The war is close
+			}
+
+			AwfulSubstance: {
+				DisplayName: Awful Substance
+				Tooltip: Enemies hate you
+			}
+
+			BasicBanner: {
+				DisplayName: Basic Banner
+				Tooltip: ""
+			}
+
+			BloodMoonBanner: {
+				DisplayName: Blood Moon Banner
+				Tooltip: ""
+			}
+
+			CavernBanner: {
+				DisplayName: Cavern Banner
+				Tooltip: ""
+			}
+
+			CorruptedBanner: {
+				DisplayName: Corrupted Banner
+				Tooltip: ""
+			}
+
+			CrimsonBanner: {
+				DisplayName: Crimson Banner
+				Tooltip: ""
+			}
+
+			DefusalMark: {
+				DisplayName: Defusal Mark
+				Tooltip: Enemies marked you as a main target
+			}
+
+			DesertBanner: {
+				DisplayName: Desert Banner
+				Tooltip: ""
+			}
+
+			DungeonBanner: {
+				DisplayName: Dungeon Banner
+				Tooltip: ""
+			}
+
+			EventsTrophy: {
+				DisplayName: Events Trophy
+				Tooltip: ""
+			}
+
+			ExceptionalBanner: {
+				DisplayName: Exceptional Banner
+				Tooltip: ""
+			}
+
+			ForestBanner: {
+				DisplayName: Forest Banner
+				Tooltip: ""
+			}
+
+			FrostMoonBanner: {
+				DisplayName: Frost Moon Banner
+				Tooltip: ""
+			}
+
+			GlowingMushroomBanner: {
+				DisplayName: Glowing Mushroom Banner
+				Tooltip: ""
+			}
+
+			GoblinArmyBanner: {
+				DisplayName: Goblin Army Banner
+				Tooltip: ""
+			}
+
+			HallowBanner: {
+				DisplayName: Hallow Banner
+				Tooltip: ""
+			}
+
+			HardmodeCavernBanner: {
+				DisplayName: Hardmode Cavern Banner
+				Tooltip: ""
+			}
+
+			HardmodeCorruptedBanner: {
+				DisplayName: Hardmode Corrupted Banner
+				Tooltip: ""
+			}
+
+			HardmodeCrimsonBanner: {
+				DisplayName: Hardmode Crimson Banner
+				Tooltip: ""
+			}
+
+			HardmodeDungeonBanner: {
+				DisplayName: Hardmode Dungeon Banner
+				Tooltip: ""
+			}
+
+			HardmodeSurfaceBanner: {
+				DisplayName: Hardmode Surface Banner
+				Tooltip: ""
+			}
+
+			HardmodeUndergroundBanner: {
+				DisplayName: Hardmode Underground Banner
+				Tooltip: ""
+			}
+
+			HorrorTrophy: {
+				DisplayName: Horror Trophy
+				Tooltip: ""
+			}
+
+			JungleBanner: {
+				DisplayName: Jungle Banner
+				Tooltip: ""
+			}
+
+			LunarBanner: {
+				DisplayName: Lunar Banner
+				Tooltip: ""
+			}
+
+			MartianBanner: {
+				DisplayName: Martian Banner
+				Tooltip: ""
+			}
+
+			MasterBanner: {
+				DisplayName: Master Banner
+				Tooltip: ""
+			}
+
+			MechanicsTrophy: {
+				DisplayName: Mechanics Trophy
+				Tooltip: ""
+			}
+
+			ModerateBanner: {
+				DisplayName: Moderate Banner
+				Tooltip: ""
+			}
+
+			MoonTrophy: {
+				DisplayName: Moon Trophy
+				Tooltip: ""
+			}
+
+			NebulaBanner: {
+				DisplayName: Nebula Banner
+				Tooltip: ""
+			}
+
+			OceanBanner: {
+				DisplayName: Ocean Banner
+				Tooltip: ""
+			}
+
+			OldArmyBanner: {
+				DisplayName: Old One's Army Banner
+				Tooltip: ""
+			}
+
+			OldArmyHardmodeBanner: {
+				DisplayName: Old One's Army Hardmode Banner
+				Tooltip: ""
+			}
+
+			PirateBanner: {
+				DisplayName: Pirate Banner
+				Tooltip: ""
+			}
+
+			PreHardmodeTrophy: {
+				DisplayName: Pre Hardmode Trophy
+				Tooltip: ""
+			}
+
+			ProfessionalBanner: {
+				DisplayName: Professional Banner
+				Tooltip: ""
+			}
+
+			PumpkinMoonBanner: {
+				DisplayName: Pumpkin Moon Banner
+				Tooltip: ""
+			}
+
+			PutrescentFlesh: {
+				DisplayName: Putrescent Flesh
+				Tooltip: Your existance is irritating
+			}
+
+			RainBanner: {
+				DisplayName: Rain Banner
+				Tooltip: ""
+			}
+
+			SmellyBag: {
+				DisplayName: Smelly Bag
+				Tooltip: You're attracting enemies
+			}
+
+			SnowBanner: {
+				DisplayName: Snow Banner
+				Tooltip: ""
+			}
+
+			SolarBanner: {
+				DisplayName: Solar Banner
+				Tooltip: ""
+			}
+
+			SolarEclipseBanner: {
+				DisplayName: Solar Eclipse Banner
+				Tooltip: ""
+			}
+
+			StardustBanner: {
+				DisplayName: Stardust Banner
+				Tooltip: ""
+			}
+
+			TempleBanner: {
+				DisplayName: Temple Banner
+				Tooltip: ""
+			}
+
+			TheBanner: {
+				DisplayName: The Banner
+				Tooltip: ""
+			}
+
+			TheTrophy: {
+				DisplayName: The Trophy
+				Tooltip: ""
+			}
+
+			UltraBanner: {
+				DisplayName: Ultra Banner
+				Tooltip: ""
+			}
+
+			UndergroundBanner: {
+				DisplayName: Underground Banner
+				Tooltip: ""
+			}
+
+			UndergroundDesertBanner: {
+				DisplayName: Underground Desert Banner
+				Tooltip: ""
+			}
+
+			UndergroundJungleBanner: {
+				DisplayName: Underground Jungle Banner
+				Tooltip: ""
+			}
+
+			UnderworldBanner: {
+				DisplayName: Underworld Banner
+				Tooltip: ""
+			}
+
+			VortexBanner: {
+				DisplayName: Vortex Banner
+				Tooltip: ""
+			}
+
+			AcidRainBanner: {
+				DisplayName: Acid Rain Banner
+				Tooltip: ""
+			}
+
+			AstralBanner: {
+				DisplayName: Astral Banner
+				Tooltip: ""
+			}
+
+			BrimstoneBanner: {
+				DisplayName: Brimstone Banner
+				Tooltip: ""
+			}
+
+			CalamityBeginnerBanner: {
+				DisplayName: Calamity Beginner Banner
+				Tooltip: ""
+			}
+
+			CalamityDevouringTrophy: {
+				DisplayName: Calamity Devouring Trophy
+				Tooltip: ""
+			}
+
+			CalamityHardmodeBanner: {
+				DisplayName: Calamity Hardmode Banner
+				Tooltip: ""
+			}
+
+			CalamityHardmodeTrophy: {
+				DisplayName: Calamity Hardmode Trophy
+				Tooltip: ""
+			}
+
+			CalamityImmaculateTrophy: {
+				DisplayName: Calamity Immaculate Trophy
+				Tooltip: ""
+			}
+
+			CalamityPrehardmodeBanner: {
+				DisplayName: Calamity Prehardmode Banner
+				Tooltip: ""
+			}
+
+			CalamityPrehardmodeTrophy: {
+				DisplayName: Calamity Prehardmode Trophy
+				Tooltip: ""
+			}
+
+			CalamityProfanedTrophy: {
+				DisplayName: Calamity Profaned Trophy
+				Tooltip: ""
+			}
+
+			CalamitySuperHardmodeBanner: {
+				DisplayName: Calamity Super Hardmode Banner
+				Tooltip: ""
+			}
+
+			CalamitySuperHardmodeTrophy: {
+				DisplayName: Calamity Super Hardmode Trophy
+				Tooltip: ""
+			}
+
+			CrawlerBanner: {
+				DisplayName: Crawler Banner
+				Tooltip: ""
+			}
+
+			CryoBanner: {
+				DisplayName: Cryo Banner
+				Tooltip: ""
+			}
+
+			FullAcidRainBanner: {
+				DisplayName: Full Acid Rain Banner
+				Tooltip: ""
+			}
+
+			FullSulphurousBanner: {
+				DisplayName: Full Sulphurous Banner
+				Tooltip: ""
+			}
+
+			LargeAbyssBanner: {
+				DisplayName: Large Abyss Banner
+				Tooltip: ""
+			}
+
+			MediumAbyssBanner: {
+				DisplayName: Medium Abyss Banner
+				Tooltip: ""
+			}
+
+			PlagueBanner: {
+				DisplayName: Plague Banner
+				Tooltip: ""
+			}
+
+			SmallAbyssBanner: {
+				DisplayName: Small Abyss Banner
+				Tooltip: ""
+			}
+
+			SulphurousBanner: {
+				DisplayName: Sulphurous Banner
+				Tooltip: ""
+			}
+
+			SunkenBanner: {
+				DisplayName: Sunken Banner
+				Tooltip: ""
+			}
+
+			TheCalamityBanner: {
+				DisplayName: The Calamity Banner
+				Tooltip: ""
+			}
+
+			TheCalamityTrophy: {
+				DisplayName: The Calamity Trophy
+				Tooltip: ""
+			}
+
+			WulfrumBanner: {
+				DisplayName: Wulfrum Banner
+				Tooltip: ""
+			}
+		}
+
+		Configs: {
+			BannerConfig: {
+				DisplayName: Banner Config
+
+				BossInvulnerabilityCap: {
+					Label: Trophy Cap
+					Tooltip: Minimal number of simple trophies needed to reach maximal effects
+				}
+
+				Forge: {
+					Label: Toggle Defender's Forge
+					Tooltip: Banners and trophies in Defender's Forge will give effects
+				}
+
+				InvulnerabilityCap: {
+					Label: Banner Cap
+					Tooltip: Minimal number of simple banners needed to reach maximal effects
+				}
+
+				MaxBossDamageIncrease: {
+					Label: Max Boss Damage Multiplier
+					Tooltip: ""
+				}
+
+				MaxBossLootMultiplier: {
+					Label: Max Boss Drop Multiplier
+					Tooltip: ""
+				}
+
+				MaxDamageIncrease: {
+					Label: Max Damage Multiplier
+					Tooltip: ""
+				}
+
+				MaxLootMultiplier: {
+					Label: Max Drop Multiplier
+					Tooltip: ""
+				}
+
+				Piggy: {
+					Label: Toggle Piggy Bank
+					Tooltip: Banners and trophies in Piggy Bank will give effects
+				}
+
+				Safe: {
+					Label: Toggle Safe
+					Tooltip: Banners and trophies in Safe will give effects
+				}
+
+				Vault: {
+					Label: Toggle Void Vault
+					Tooltip: Banners and trophies in Void Vault will give effects
+				}
+			}
 		}
 	}
 }
