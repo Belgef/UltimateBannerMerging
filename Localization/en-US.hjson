@@ -27,17 +27,21 @@ Mods: {
 		}
 
 		Items: {
-			#Here % symbol will be replaced with multiplier number
-			BannerItem.Tooltip: {
-				1: Increases damage and defense against all included enemies.
-				2: % times more effective than it's crafting components.
+			BannerItem: {
+				#Here % symbol will be replaced with multiplier number
+				Tooltip: {
+					1: Increases damage and defense against all included enemies.
+					2: % times more effective than it's crafting components.
+				}
 			}
 
-			#Here % symbol will be replaced with multiplier number
-			SpawnItem.Tooltip: {
-				1: Not consumable
-				2: Toggles enemies spawn rate increase
-				3: %x increased enemy spawn rate
+			SpawnItem: {
+				#Here % symbol will be replaced with multiplier number
+				Tooltip: {
+					1: Not consumable
+					2: Toggles enemies spawn rate increase
+					3: %x increased enemy spawn rate
+				}
 			}
 
 			AdvancedBanner: {

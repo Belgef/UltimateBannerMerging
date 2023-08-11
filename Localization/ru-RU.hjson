@@ -27,17 +27,21 @@ Mods: {
 		}
 
 		Items: {
-			#Here % symbol will be replaced with multiplier number
-			BannerItem.Tooltip: {
-				1: Увеличивает атаку и защиту против всех включенных врагов.
-				2: В % эфективнее чем его инградиенты.
+			BannerItem: {
+				#Here % symbol will be replaced with multiplier number
+				Tooltip: {
+					1: Увеличивает атаку и защиту против всех включенных врагов.
+					2: В % эфективнее чем его инградиенты.
+				}
 			}
 
-			#Here % symbol will be replaced with multiplier number
-			SpawnItem.Tooltip: {
-				1: Не тратится
-				2: Переключает режим повышенного спавна врагов
-				3: В % раз увеличивает количество врагов
+			SpawnItem: {
+				#Here % symbol will be replaced with multiplier number
+				Tooltip: {
+					1: Не тратится
+					2: Переключает режим повышенного спавна врагов
+					3: В % раз увеличивает количество врагов
+				}
 			}
 
 			AdvancedBanner: {

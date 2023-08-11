@@ -27,17 +27,21 @@ Mods: {
 		}
 
 		Items: {
-			#Here % symbol will be replaced with multiplier number
-			BannerItem.Tooltip: {
-				1: 针对所有包含的敌怪提升伤害和防御
-				2: 效果是其合成材料的%倍
+			BannerItem: {
+				#Here % symbol will be replaced with multiplier number
+				Tooltip: {
+					1: 针对所有包含的敌怪提升伤害和防御
+					2: 效果是其合成材料的%倍
+				}
 			}
 
-			#Here % symbol will be replaced with multiplier number
-			SpawnItem.Tooltip: {
-				1: 不消耗
-				2: 切换敌怪生成率提升
-				3: 敌怪生成提升至%倍
+			SpawnItem: {
+				#Here % symbol will be replaced with multiplier number
+				Tooltip: {
+					1: 不消耗
+					2: 切换敌怪生成率提升
+					3: 敌怪生成提升至%倍
+				}
 			}
 
 			AdvancedBanner: {
@@ -475,23 +479,23 @@ Mods: {
 					Tooltip: 达到最大效果所需的最小基本旗帜数量
 				}
 
-				MaxDamageIncrease: {
-					Label: 最大敌怪受伤倍率
-					Tooltip: ""
-				}
-
 				MaxBossDamageIncrease: {
 					Label: 最大boss受伤倍率
 					Tooltip: ""
 				}
 
-				MaxLootMultiplier: {
-					Label: 最大敌怪战利品倍率
+				MaxBossLootMultiplier: {
+					Label: 最大boss战利品倍率
 					Tooltip: ""
 				}
 
-				MaxBossLootMultiplier: {
-					Label: 最大boss战利品倍率
+				MaxDamageIncrease: {
+					Label: 最大敌怪受伤倍率
+					Tooltip: ""
+				}
+
+				MaxLootMultiplier: {
+					Label: 最大敌怪战利品倍率
 					Tooltip: ""
 				}
 
