@@ -57,7 +57,7 @@ namespace UltimateBannerMerging.Players
 
             float damageMultiplier = mnpc?.GetReceivedDamageMultiplier() ?? 1;
 
-            modifiers.FinalDamage /= damageMultiplier;
+            modifiers.FinalDamage *= damageMultiplier;
         }
 
         public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
@@ -66,7 +66,7 @@ namespace UltimateBannerMerging.Players
 
             float damageMultiplier = npc?.GetReceivedDamageMultiplier() ?? 1;
 
-            modifiers.FinalDamage /= damageMultiplier;
+            modifiers.FinalDamage *= damageMultiplier;
         }
     }
 }
