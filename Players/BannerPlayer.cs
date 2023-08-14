@@ -33,7 +33,7 @@ namespace UltimateBannerMerging.Players
         {
             MergingNPC mergingNPC = MergingNPC.Create(target, BannerCollection, Config);
 
-            modifiers.FinalDamage += mergingNPC.GetDealtDamageMultiplier();
+            modifiers.FinalDamage += (mergingNPC.GetDealtDamageMultiplier() - 1);
 
             mergingNPC.SetNPCLootParameters();
         }
@@ -57,7 +57,7 @@ namespace UltimateBannerMerging.Players
 
             float damageMultiplier = mnpc?.GetReceivedDamageMultiplier() ?? 1;
 
-            modifiers.FinalDamage *= damageMultiplier;
+            modifiers.FinalDamage += (1 - damageMultiplier);
         }
 
         public override void ModifyHitByProjectile(Projectile proj, ref Player.HurtModifiers modifiers)
@@ -66,7 +66,7 @@ namespace UltimateBannerMerging.Players
 
             float damageMultiplier = npc?.GetReceivedDamageMultiplier() ?? 1;
 
-            modifiers.FinalDamage *= damageMultiplier;
+            modifiers.FinalDamage += (1 - damageMultiplier);
         }
     }
 }

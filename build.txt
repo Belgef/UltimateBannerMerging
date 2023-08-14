@@ -1,5 +1,5 @@
 ﻿displayName = Ultimate Banner Merging 终极旗帜合并​
 author = Komagiko
-version = 1.6.1
+version = 1.6.2
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
 homepage = https://forums.terraria.org/index.php?threads/ultimate-banner-merging.111266/
