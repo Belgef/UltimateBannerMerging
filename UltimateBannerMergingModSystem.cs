@@ -11,7 +11,7 @@ public class UltimateBannerMergingModSystem : ModSystem
     {
         RecipeGroup.RegisterGroup("UltimateBannerMerging:EvilBiomeMeat", new(
             () => Language.GetTextValue("Mods.UltimateBannerMerging.IngredientGroups.EvilBiomeMeat"),
-            ItemID.RottenChunk,
+            ItemID.ShadowScale,
             ItemID.TissueSample));
 
         RecipeGroup.RegisterGroup("UltimateBannerMerging:EvilBiomeBanner", new(

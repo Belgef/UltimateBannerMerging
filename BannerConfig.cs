@@ -45,6 +45,9 @@ namespace UltimateBannerMerging
         [DefaultValue("true")]
         public bool Vault;
 
+        [DefaultValue("false")]
+        public bool TurnOffCraftedBannerMultipliers;
+
         [JsonIgnore]
         public Dictionary<string, ItemInfo> BannerStats => new()
         {

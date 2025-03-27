@@ -513,6 +513,11 @@ Mods: {
 					Label: 切换虚空袋
 					Tooltip: 旗帜和纪念章在虚空袋里也生效
 				}
+
+				TurnOffCraftedBannerMultipliers: {
+					Label: 关闭制作的旗帜的加成
+					Tooltip: 制作的旗帜和奖品将不再拥有其制作材料的加成翻倍
+				}
 			}
 		}
 	}

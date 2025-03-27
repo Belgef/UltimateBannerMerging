@@ -513,6 +513,11 @@ Mods: {
 					Label: Toggle Void Vault
 					Tooltip: Banners and trophies in Void Vault will give effects
 				}
+
+				TurnOffCraftedBannerMultipliers: {
+					Label: Turn off multipliers of crafted banners
+					Tooltip: Crafted banners and trophies will no longer have bonuses of it's crafting materials multiplied
+				}
 			}
 		}
 	}
